@@ -1,24 +1,29 @@
-# 1 nook-image-gpt
+# nook-image-gpt
 
 通过中转站调用 GPT Image 2.0 生成和编辑图片的 MCP 工具。
 
-## 1.1 前置条件
+> **前置要求**：使用前必须先完成下方「部署」章节，将 MCP server 注册到你的 agent 客户端。SKILL.md 本身只是使用说明，不能独立运行。
 
-- Node.js >= 18
-- 中转站 API Key（[用量查询页](https://sub.jarodfund.xyz/key-usage)）
+---
 
-## 1.2 安装
+## 1. 部署（一次性操作）
+
+### 1.1 安装依赖
 
 ```bash
-cd 82_Skills/nook-skills/skills/nook-image-gpt/server
+cd <本文件所在目录>/server
 npm install
 ```
 
-## 1.3 MCP 配置
+### 1.2 获取 API Key
 
-### 1.3.1 opencode
+前往 [用量查询页](https://sub.jarodfund.xyz/key-usage) 获取你的 API Key（格式：`sk-...`）。
 
-编辑 `~/.config/opencode/opencode.json`：
+### 1.3 注册 MCP Server
+
+在你的 agent 客户端里配置，把 `<server路径>` 替换成你本机 `server/index.js` 的**绝对路径**，`sk-你的key` 替换成真实 key。
+
+**opencode** — 编辑 `~/.config/opencode/opencode.json`：
 
 ```json
 {
@@ -26,142 +31,144 @@ npm install
   "mcp": {
     "nook-image-gpt": {
       "type": "local",
-      "command": [
-        "node",
-        "<仓库绝对路径>/82_Skills/nook-skills/skills/nook-image-gpt/server/index.js"
-      ],
+      "command": ["node", "<server路径>/index.js"],
       "enabled": true,
       "environment": {
-        "IMAGE_API_KEY": "sk-你的API密钥"
+        "IMAGE_API_KEY": "sk-你的key"
       }
     }
   }
 }
 ```
 
-### 1.3.2 Claude Code / Kiro CLI
+**Cursor / Windsurf** — 图形界面 Settings → MCP → Add Server：
+- Command: `node`
+- Args: `<server路径>/index.js`
+- Env: `IMAGE_API_KEY=sk-你的key`
 
-在项目根目录（或 `~/.claude/`）创建 `.mcp.json`：
+**Claude Code / Kiro** — 在项目根目录创建 `.mcp.json`：
 
 ```json
 {
   "mcpServers": {
     "nook-image-gpt": {
       "command": "node",
-      "args": ["<仓库绝对路径>/82_Skills/nook-skills/skills/nook-image-gpt/server/index.js"],
+      "args": ["<server路径>/index.js"],
       "env": {
-        "IMAGE_API_KEY": "sk-你的API密钥"
+        "IMAGE_API_KEY": "sk-你的key"
       }
     }
   }
 }
 ```
 
-重启 Claude Code 后，直接在对话里说「帮我生成一张图」即可，模型会自动调用 `generate_image` tool。
+> ⚠️ Claude Code 沙箱模式下出站网络受限，建议用 opencode 或 Cursor。
 
-> ⚠️ Claude Code 沙箱模式下 MCP server 无法发出网络请求，建议用 opencode 或 Cursor 调用。
+### 1.4 验证
 
-### 1.3.3 Cursor / Windsurf
+重启客户端后，在对话里说「生成一张蓝色圆形图标」，模型应自动调用 `generate_image` tool 并返回图片。
 
-图形界面添加 MCP Server：
-- **Command**: `node`
-- **Args**: `<仓库绝对路径>/index.js`
-- **Env**: `IMAGE_API_KEY=sk-你的API密钥`
+### 1.5 切换中转站（可选）
 
-## 1.4 中转站 URL 自定义
+默认使用 `https://sub.jarodfund.xyz`。如需切换，在配置的 `environment` / `env` 里加：
 
-默认使用 `https://sub.jarodfund.xyz`，如果需要切换其他中转站，在 `environment` 中添加 `IMAGE_API_BASE`：
-
-```json
-"environment": {
-  "IMAGE_API_KEY": "sk-你的API密钥",
-  "IMAGE_API_BASE": "https://你的中转站地址"
-}
+```
+IMAGE_API_BASE=https://你的中转站地址
 ```
 
-## 1.5 Tool 参考
+---
 
-### 1.5.1 generate_image
+## 2. 给 AI 模型的使用说明
 
-| 参数 | 必填 | 类型 | 默认值 | 说明 |
-|------|------|------|--------|------|
-| prompt | 是 | string | — | 生图提示词 |
-| size | 否 | string | `1024x1024` | `1024x1024` / `2048x2048` / `2048x1152` / `3840x2160` / `2160x3840` |
-| n | 否 | number | 1 | 生成数量（最大 10） |
-| save_to_dir | 否 | string | — | 保存目录，传入则存为 PNG 并返回路径 |
+> 以下内容供 AI 阅读，描述如何调用本工具。
 
-**返回格式（base64 模式）：**
+### 2.1 MCP 依赖声明
 
-```json
-{ "images": [{ "b64_json": "<base64..." }] }
-```
+本 skill 依赖 **`nook-image-gpt` MCP server** 提供的两个 tool：`generate_image` 和 `edit_image`。
 
-**返回格式（save_to_dir 模式）：**
+**必须通过这两个 tool 完成所有出图操作，不得自行编写代码或调用其他 API。** 如果 tool 列表里没有这两个名字，说明 MCP server 未启动，需要提示用户先完成部署。
+
+### 2.2 tool：generate_image（文生图）
+
+| 参数 | 必填 | 默认值 | 说明 |
+|------|------|--------|------|
+| `prompt` | 是 | — | 生图提示词 |
+| `size` | 否 | `1024x1024` | `1024x1024` / `2048x2048` / `2048x1152` / `3840x2160` / `2160x3840` |
+| `n` | 否 | 1 | 生成数量（最大 10） |
+| `save_to_dir` | 否 | — | 传入则存为 PNG 文件并返回路径；不传则返回 base64 |
+
+**返回**：
 
 ```json
 { "saved_to": ["/path/to/nook_gpt_xxx_0.png"] }
+// 或
+{ "images": [{ "b64_json": "..." }] }
 ```
 
-### 1.5.2 edit_image
+### 2.3 tool：edit_image（图生图 / 局部编辑）
 
-用于图生图、参考图重绘、局部 mask 编辑。内部调用 `/v1/images/edits`，以 multipart 方式上传图片文件。
-
-| 参数 | 必填 | 类型 | 默认值 | 说明 |
-|------|------|------|--------|------|
-| prompt | 是 | string | — | 编辑/重绘提示词 |
-| image_path | 否 | string | — | 单张源图片路径 |
-| image_paths | 否 | string[] | — | 多张参考图路径；与 `image_path` 至少传一个 |
-| mask_path | 否 | string | — | 局部编辑 PNG mask 路径，透明区域会被编辑 |
-| size | 否 | string | `1024x1024` | `1024x1024` / `2048x2048` / `2048x1152` / `3840x2160` / `2160x3840` |
-| n | 否 | number | 1 | 生成数量（最大 10） |
-| save_to_dir | 否 | string | — | 保存目录，传入则存为 PNG 并返回路径 |
+| 参数 | 必填 | 默认值 | 说明 |
+|------|------|--------|------|
+| `prompt` | 是 | — | 编辑目标或风格迁移描述 |
+| `image_path` | 否 | — | 单张源图路径 |
+| `image_paths` | 否 | — | 多张参考图路径（与 `image_path` 至少传一个） |
+| `mask_path` | 否 | — | PNG mask 路径，透明区域被编辑 |
+| `size` | 否 | `1024x1024` | 同上 |
+| `n` | 否 | 1 | 生成数量（最大 10） |
+| `save_to_dir` | 否 | — | 同上 |
 
 **返回格式同 `generate_image`。**
 
-**示例：**
+### 2.4 尺寸选择建议
 
-```json
-{
-  "prompt": "保留人物身份和构图，改成电影海报质感，暖色布光",
-  "image_path": "D:/nook_vault/tmp/source.png",
-  "size": "1024x1024",
-  "save_to_dir": "D:/nook_vault/output/imagegen"
-}
-```
+| 场景 | 推荐 size |
+|------|-----------|
+| 头像、图标、方形插图 | `1024x1024` |
+| 封面图、宽屏插图 | `2048x1152` |
+| 高清方图 | `2048x2048` |
+| 桌面壁纸、横幅 | `3840x2160` |
+| 手机壁纸、海报 | `2160x3840` |
 
-## 1.6 触发路由
+---
 
-| 场景 | 调用方式 |
-|------|----------|
-| GPT Image 2.0（jarodfund 中转） | `generate_image`（默认模型 `gpt-image-2`） |
-| GPT Image 2.0 图生图/改图 | `edit_image`（默认模型 `gpt-image-2`） |
+## 3. 在其他 Skill 中调用（原子 skill 接入协议）
 
-未来扩展：
-
-| 场景 | tool |
-|------|------|
-| Google Imagen | 后续添加 |
-| z-image | 后续添加 |
-
-## 1.7 从其他 Skill 调用
+当你的 skill 需要出图时，在 SKILL.md 对应章节粘贴以下 snippet，替换括号内的占位符：
 
 ```markdown
-## 出图环节
-1. 调用 `generate_image` tool：
-   - prompt: <根据上下文生成的提示词>
-   - size: 按场景选择（见 size-reference）
-2. 使用返回的 base64 或文件路径嵌入后续环节
+### 出图（依赖 nook-image-gpt MCP）
 
-## 图生图/改图环节
-1. 调用 `edit_image` tool：
-   - prompt: <编辑目标或风格迁移要求>
-   - image_path/image_paths: <源图片路径>
-   - mask_path: <可选，局部编辑时传入>
-   - size: 按场景选择（见 size-reference）
-2. 使用返回的 base64 或文件路径嵌入后续环节
+前置检查：确认 tool 列表中存在 `generate_image`，否则提示用户先部署 nook-image-gpt。
+
+**文生图：**
+调用 `generate_image`：
+- prompt: <根据上下文构造的提示词>
+- size: <按场景从尺寸表选择>
+- save_to_dir: <输出目录，留空则返回 base64>
+
+**图生图：**
+调用 `edit_image`：
+- prompt: <改图/风格迁移要求>
+- image_path: <源图片绝对路径>
+- size: <按场景选择>
+- save_to_dir: <输出目录>
+
+返回值处理：
+- save_to_dir 模式：用 `saved_to[0]` 路径继续流程
+- base64 模式：用 `images[0].b64_json` 嵌入后续处理
 ```
 
-## 1.8 安全说明
+**示例（小红书图文生产 skill 的出图章节）：**
 
-- API Key 通过 MCP 配置的 `environment` 字段注入，不硬编码
-- 如需 `.env` 管理，可在启动前 `set IMAGE_API_KEY=sk-xxx`
+```markdown
+## 4. 出图环节
+
+依赖 nook-image-gpt MCP 的 `generate_image` tool。
+
+1. 根据笔记正文提炼视觉关键词，构造英文 prompt
+2. 调用 `generate_image`：
+   - prompt: <英文视觉描述>
+   - size: `2048x1152`（小红书封面横图）
+   - save_to_dir: <项目输出目录>
+3. 将返回的 `saved_to[0]` 路径作为封面图插入排版环节
+```
