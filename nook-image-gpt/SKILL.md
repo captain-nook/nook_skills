@@ -86,7 +86,7 @@ npm install
 | 参数 | 必填 | 类型 | 默认值 | 说明 |
 |------|------|------|--------|------|
 | prompt | 是 | string | — | 生图提示词 |
-| size | 否 | string | `1024x1024` | 分辨率，详见 size-reference |
+| size | 否 | string | `1024x1024` | `1024x1024` / `2048x2048` / `2048x1152` / `3840x2160` / `2160x3840` |
 | n | 否 | number | 1 | 生成数量（最大 10） |
 | save_to_dir | 否 | string | — | 保存目录，传入则存为 PNG 并返回路径 |
 
@@ -112,7 +112,7 @@ npm install
 | image_path | 否 | string | — | 单张源图片路径 |
 | image_paths | 否 | string[] | — | 多张参考图路径；与 `image_path` 至少传一个 |
 | mask_path | 否 | string | — | 局部编辑 PNG mask 路径，透明区域会被编辑 |
-| size | 否 | string | `1024x1024` | 输出分辨率 |
+| size | 否 | string | `1024x1024` | `1024x1024` / `2048x2048` / `2048x1152` / `3840x2160` / `2160x3840` |
 | n | 否 | number | 1 | 生成数量（最大 10） |
 | save_to_dir | 否 | string | — | 保存目录，传入则存为 PNG 并返回路径 |
 

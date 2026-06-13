@@ -28,7 +28,7 @@ cd server && npm install
 | Parameter | Required | Default | Description |
 |---|---|---|---|
 | `prompt` | Yes | — | Image description |
-| `size` | No | `1024x1024` | Resolution (see references/size-reference.md) |
+| `size` | No | `1024x1024` | `1024x1024` / `2048x2048` / `2048x1152` / `3840x2160` / `2160x3840` |
 | `n` | No | 1 | Number of images (max 10) |
 | `save_to_dir` | No | — | Save as PNG files to this directory |
 
@@ -40,7 +40,7 @@ cd server && npm install
 | `image_path` | No | — | Single source image path |
 | `image_paths` | No | — | One or more source image paths |
 | `mask_path` | No | — | Optional PNG mask path for targeted edits |
-| `size` | No | `1024x1024` | Output resolution |
+| `size` | No | `1024x1024` | `1024x1024` / `2048x2048` / `2048x1152` / `3840x2160` / `2160x3840` |
 | `n` | No | 1 | Number of images (max 10) |
 | `save_to_dir` | No | — | Save as PNG files to this directory |
 
