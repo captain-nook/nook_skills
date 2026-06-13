@@ -1,53 +1,42 @@
 # nook-image-gpt
 
-MCP Server for GPT Image 2.0 generation and editing. Exposes `generate_image` and `edit_image` tools that any MCP-compatible agent (opencode, Claude Code, Cursor, Windsurf, etc.) can call.
+GPT Image 2.0 图片生成 / 图生图 MCP 工具，供 agent 调用。
 
-## How it works
+## 部署（agent 执行）
 
-Calls `POST /v1/images/generations` for text-to-image and `POST /v1/images/edits` for image-to-image/editing on an OpenAI-compatible relay API. Returned base64 images are either passed back to the agent or saved as PNG files to a local directory.
+**第一步：** 克隆或下载本仓库
 
-## Quick start
+**第二步：** 向用户索取 API Key（获取地址：https://sub.jarodfund.xyz/key-usage）
+
+**第三步：** 在本目录下运行：
 
 ```bash
-# 1. Install dependencies
-cd server && npm install
-
-# 2. Add to your agent's MCP config
-#    See SKILL.md for opencode / Claude Code / Cursor examples
+node setup.js sk-用户的key
 ```
 
-## Configuration
+脚本自动完成：安装依赖、检测并写入 opencode / Claude Code / Cursor 配置。
 
-| Env variable | Required | Default | Description |
-|---|---|---|---|
-| `IMAGE_API_KEY` | Yes | — | Relay API key |
-| `IMAGE_API_BASE` | No | `https://sub.jarodfund.xyz` | Custom relay base URL |
+**第四步：** 提示用户重启 agent 客户端。
 
-## Tool: `generate_image`
+---
 
-| Parameter | Required | Default | Description |
-|---|---|---|---|
-| `prompt` | Yes | — | Image description |
-| `size` | No | `1024x1024` | `1024x1024` / `2048x2048` / `2048x1152` / `3840x2160` / `2160x3840` |
-| `n` | No | 1 | Number of images (max 10) |
-| `save_to_dir` | No | — | Save as PNG files to this directory |
+## 切换中转站（可选）
 
-## Tool: `edit_image`
+默认使用 `https://sub.jarodfund.xyz`，如需切换：
 
-| Parameter | Required | Default | Description |
-|---|---|---|---|
-| `prompt` | Yes | — | Edit instruction or image-to-image prompt |
-| `image_path` | No | — | Single source image path |
-| `image_paths` | No | — | One or more source image paths |
-| `mask_path` | No | — | Optional PNG mask path for targeted edits |
-| `size` | No | `1024x1024` | `1024x1024` / `2048x2048` / `2048x1152` / `3840x2160` / `2160x3840` |
-| `n` | No | 1 | Number of images (max 10) |
-| `save_to_dir` | No | — | Save as PNG files to this directory |
+```bash
+node setup.js sk-你的key https://你的中转站地址
+```
 
-Pass at least one of `image_path` or `image_paths`.
+---
 
-## Related
+## Tools
 
-- `SKILL.md` — Full documentation with per-agent config examples
-- `references/size-reference.md` — Resolution presets table
-- `server/` — MCP Server source code
+| Tool | 说明 |
+|------|------|
+| `generate_image` | 文生图 |
+| `edit_image` | 图生图 / 局部编辑 |
+
+支持尺寸：`1024x1024` / `2048x2048` / `2048x1152` / `3840x2160` / `2160x3840`
+
+详见 [SKILL.md](./SKILL.md)
