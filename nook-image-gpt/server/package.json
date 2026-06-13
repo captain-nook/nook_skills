@@ -1,0 +1,16 @@
+{
+  "name": "@nook/nook-image-gpt",
+  "version": "1.0.0",
+  "description": "MCP Server for GPT Image 2.0 generation via jarodfund relay",
+  "type": "module",
+  "bin": {
+    "nook-image-gpt": "./index.js"
+  },
+  "dependencies": {
+    "@modelcontextprotocol/sdk": "^1.9.0",
+    "zod": "^3.24.0"
+  },
+  "engines": {
+    "node": ">=18"
+  }
+}
