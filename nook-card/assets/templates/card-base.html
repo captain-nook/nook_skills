@@ -1,0 +1,68 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>nook-card base template</title>
+    <style>
+      :root {
+        --card-bg: #f7f9f8;
+        --card-surface: #fffffd;
+        --card-ink: #010101;
+        --card-shadow: #0b0b0b;
+        --card-yellow: #fdc703;
+        --card-red: #e03a10;
+        --card-green: #28c959;
+        --stroke-outer: clamp(10px, 1vw, 18px);
+        --stroke-button: clamp(7px, 0.65vw, 12px);
+        --radius-card: clamp(44px, 5.5vw, 95px);
+        --radius-button: clamp(28px, 3.2vw, 58px);
+        --shadow-hard-card: 40px 46px 0 var(--card-shadow);
+        --shadow-hard-button: 30px 30px 0 var(--card-shadow);
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+
+      body {
+        margin: 0;
+        min-height: 100vh;
+        display: grid;
+        place-items: center;
+        background: var(--card-bg);
+        font-family: "Source Han Sans SC", "Noto Sans CJK SC", "PingFang SC", "Microsoft YaHei UI", Arial, sans-serif;
+      }
+
+      .nook-card-canvas {
+        width: min(92vw, 1546px);
+        aspect-ratio: 1546 / 1740;
+        position: relative;
+        display: grid;
+        place-items: center;
+        overflow: hidden;
+      }
+
+      .nook-card-surface {
+        width: 80%;
+        height: 91%;
+        border: var(--stroke-outer) solid var(--card-ink);
+        border-radius: var(--radius-card);
+        background-color: var(--card-surface);
+        background-image: radial-gradient(rgba(1, 1, 1, 0.055) 1.7px, transparent 1.7px);
+        background-size: 32px 32px;
+        box-shadow: var(--shadow-hard-card);
+      }
+    </style>
+  </head>
+  <body>
+    <main
+      class="nook-card-canvas"
+      data-nook-card-template="base"
+      data-style-id="tactile_soft_skeuomorphic_card"
+      data-schema-version="0.2"
+    >
+      <section class="nook-card-surface" data-component="surface" aria-label="nook-card surface"></section>
+    </main>
+  </body>
+</html>

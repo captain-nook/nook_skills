@@ -1,0 +1,50 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "nook-card Remotion handoff spec",
+  "type": "object",
+  "required": ["composition", "scenes"],
+  "properties": {
+    "composition": {
+      "type": "object",
+      "required": ["width", "height", "fps"],
+      "properties": {
+        "width": { "type": "number" },
+        "height": { "type": "number" },
+        "fps": { "type": "number" },
+        "duration_seconds": { "type": "number" }
+      }
+    },
+    "delivery": {
+      "type": "object",
+      "properties": {
+        "primary_format": { "type": "string" },
+        "primary_codec": { "type": "string" },
+        "alpha_required": { "type": "boolean" },
+        "preview_format": { "type": "string" },
+        "editing_software": {
+          "type": "array",
+          "items": { "type": "string" }
+        }
+      }
+    },
+    "scenes": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["scene_id", "image_asset", "duration"],
+        "properties": {
+          "scene_id": { "type": "string" },
+          "image_asset": { "type": "string" },
+          "preview_asset": { "type": "string" },
+          "card_asset_ratio": { "type": "string" },
+          "duration": { "type": "number" },
+          "animation": { "type": "string" },
+          "voiceover": { "type": "string" },
+          "subtitle": { "type": "string" },
+          "music_sfx": { "type": "string" },
+          "delivery": { "type": "string" }
+        }
+      }
+    }
+  }
+}

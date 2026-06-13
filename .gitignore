@@ -1,0 +1,17 @@
+.env
+*.log
+__pycache__/
+*.pyc
+node_modules/
+.tmp/
+tmp/
+.agent/tmp/
+generated/
+*.png
+*.jpg
+*.jpeg
+*.webp
+!skills/**/assets/**/*.png
+!skills/**/assets/**/*.jpg
+!skills/**/assets/**/*.jpeg
+!skills/**/assets/**/*.webp

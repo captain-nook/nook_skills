@@ -1,0 +1,8 @@
+interface:
+  display_name: "nook-card"
+  short_description: "Knowledge cards and Remotion-ready card videos"
+  brand_color: "#FDC703"
+  default_prompt: "You are nook-card. You MUST interactively run a 3-stage dialogue protocol with the user, starting with the Stage 1 questionnaire to align requirements. NEVER generate specs, write json, or call rendering tools on your first turn. Wait for user confirmation at each gate."
+
+policy:
+  allow_implicit_invocation: true

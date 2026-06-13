@@ -1,0 +1,195 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "nook-card static card spec",
+  "type": "object",
+  "required": ["schema_version", "status", "style_id", "canvas", "content", "layout", "render"],
+  "properties": {
+    "schema_version": {
+      "type": "string",
+      "const": "0.2"
+    },
+    "status": {
+      "type": "string",
+      "enum": ["draft", "confirmed", "rendered", "approved", "video_ready"]
+    },
+    "style_id": {
+      "type": "string"
+    },
+    "usage": {
+      "type": "string",
+      "enum": ["wechat", "xiaohongshu", "video-cover", "course-card", "generic"]
+    },
+    "production": {
+      "type": "object",
+      "properties": {
+        "intent": {
+          "type": "string",
+          "enum": ["static_only", "motion_ready", "static_plus_motion"]
+        },
+        "stage_canvas": { "$ref": "#/$defs/canvasBox" },
+        "card_asset": {
+          "allOf": [{ "$ref": "#/$defs/canvasBox" }],
+          "properties": {
+            "outer_background": {
+              "type": "string",
+              "enum": ["transparent", "baked", "preview_only"]
+            }
+          }
+        },
+        "output_layers": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "enum": ["transparent_asset", "preview_composite", "source_editable"]
+          }
+        }
+      }
+    },
+    "canvas": {
+      "$ref": "#/$defs/canvasBox"
+    },
+    "content": {
+      "type": "object",
+      "required": ["blocks"],
+      "properties": {
+        "blocks": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "required": ["id", "role", "text"],
+            "properties": {
+              "id": { "type": "string" },
+              "role": {
+                "type": "string",
+                "enum": ["number", "title", "subtitle", "body", "label", "button", "note", "caption"]
+              },
+              "text": { "type": "string" },
+              "priority": {
+                "type": "integer",
+                "minimum": 1,
+                "maximum": 5
+              },
+              "emphasis": {
+                "type": "string",
+                "enum": ["hero", "primary", "secondary", "supporting", "quiet"]
+              },
+              "slot": {
+                "type": "string",
+                "enum": ["chrome", "hero", "content", "actions", "meta", "overlay"]
+              },
+              "tone": {
+                "type": "string",
+                "enum": ["ink", "yellow", "red", "green", "muted", "inverse"]
+              },
+              "max_lines": { "type": "integer" },
+              "locked": { "type": "boolean" }
+            }
+          }
+        }
+      }
+    },
+    "layout": {
+      "type": "object",
+      "required": ["density", "slots", "component_order"],
+      "properties": {
+        "density": {
+          "type": "string",
+          "enum": ["sparse", "balanced", "dense"]
+        },
+        "slots": {
+          "type": "object",
+          "properties": {
+            "chrome": { "$ref": "#/$defs/slot" },
+            "hero": { "$ref": "#/$defs/slot" },
+            "content": { "$ref": "#/$defs/slot" },
+            "actions": { "$ref": "#/$defs/slot" },
+            "meta": { "$ref": "#/$defs/slot" },
+            "overlay": { "$ref": "#/$defs/slot" }
+          }
+        },
+        "component_order": {
+          "type": "array",
+          "items": { "type": "string" }
+        },
+        "anchors_required": {
+          "type": "array",
+          "items": { "type": "string" }
+        }
+      }
+    },
+    "render": {
+      "type": "object",
+      "required": ["engine", "entry", "outputs"],
+      "properties": {
+        "engine": {
+          "type": "string",
+          "enum": ["opendesign-html", "opendesign-native", "html-css"]
+        },
+        "entry": { "type": "string" },
+        "outputs": {
+          "type": "object",
+          "properties": {
+            "html": { "type": "string" },
+            "png": { "type": "string" },
+            "svg": { "type": "string" },
+            "transparent_png": { "type": "string" },
+            "transparent_svg": { "type": "string" },
+            "preview_png": { "type": "string" },
+            "preview_svg": { "type": "string" },
+            "opendesign": { "type": "string" },
+            "card_spec": { "type": "string" }
+          }
+        }
+      }
+    },
+    "video": {
+      "type": "object",
+      "properties": {
+        "handoff_required": { "type": "boolean" },
+        "scene_id": { "type": "string" },
+        "motion_intent": { "type": "string" },
+        "voiceover": { "type": "string" },
+        "subtitle": { "type": "string" }
+      }
+    }
+  },
+  "$defs": {
+    "canvasBox": {
+      "type": "object",
+      "required": ["width", "height", "aspect_ratio", "safe_area"],
+      "properties": {
+        "width": { "type": "number" },
+        "height": { "type": "number" },
+        "aspect_ratio": { "type": "string" },
+        "orientation": {
+          "type": "string",
+          "enum": ["landscape", "portrait", "square", "custom"]
+        },
+        "safe_area": {
+          "type": "object",
+          "required": ["top", "right", "bottom", "left"],
+          "properties": {
+            "top": { "type": "number" },
+            "right": { "type": "number" },
+            "bottom": { "type": "number" },
+            "left": { "type": "number" }
+          }
+        }
+      }
+    },
+    "slot": {
+      "type": "object",
+      "properties": {
+        "enabled": { "type": "boolean" },
+        "x": { "type": "number" },
+        "y": { "type": "number" },
+        "width": { "type": "number" },
+        "height": { "type": "number" },
+        "align": {
+          "type": "string",
+          "enum": ["start", "center", "end", "stretch"]
+        }
+      }
+    }
+  }
+}
