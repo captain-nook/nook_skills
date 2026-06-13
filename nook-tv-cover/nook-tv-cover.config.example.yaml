@@ -1,0 +1,38 @@
+﻿# Copy this file to nook-tv-cover.config.yaml and adjust it for your environment.
+# Do not commit real API keys.
+
+runtime:
+  # For the author's local Codex Desktop workflow, ordinary image tasks use the
+  # built-in no-key image generation capability when it is exposed by the session.
+  local_default_channel: codex-desktop-built-in
+
+image:
+  # Open-source users may choose their own provider/model.
+  # The agent must not silently change provider/model when this fails.
+  provider: openai
+  model: gpt-image-2
+  api_key_env: OPENAI_API_KEY
+  # Optional. Set this only if your provider requires an OpenAI-compatible endpoint.
+  # Example value should live in the user's environment, not in this repository.
+  base_url_env: OPENAI_BASE_URL
+
+  # Optional. Leave empty to let your runtime call its own image generation adapter.
+  # If set, the command must support prompt, reference images, size, and output path.
+  command: ""
+
+output:
+  dir: 50_Assets/AI_Images/nook-tv-cover
+  keep_intermediate: false
+  overwrite_existing: false
+
+assets:
+  style_reference_image: assets/style/figma-codex-cover-style-reference.webp
+
+defaults:
+  style_name: 科技风封面风格
+  video_long_size: 1280x720
+  video_short_size: 1146x717
+  video_vertical_size: 1242x1660
+
+privacy:
+  require_confirmation_before_external_upload: true

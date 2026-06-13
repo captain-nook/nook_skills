@@ -1,0 +1,8 @@
+nook-tv-cover.config.yaml
+.env
+.env.*
+*.local
+*.tmp
+*.log
+Thumbs.db
+.DS_Store
