@@ -1,6 +1,6 @@
 ---
 name: nook-humanizer-zh-review
-description: Review and rewrite Chinese content to remove AI flavor while preserving nook's real judgment, concrete details, and channel-specific style. Use as a sub-review skill during final style review, AI-flavor review, human-feel review, and polish for WeChat articles, long-form drafts, video transcripts, spoken scripts, and other nook content.
+description: 审校和改写中文内容，去除 AI 味，保留 nook 的真实判断、具体细节和渠道风格。作为子审校技能用于最终风格审校、去 AI 味审校、人味审校和润色，适用于公众号文章、长文稿、视频转录稿、口播稿及其他 nook 内容。
 ---
 
 # nook-humanizer-zh-review

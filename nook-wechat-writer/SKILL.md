@@ -1,6 +1,6 @@
 ---
 name: nook-wechat-writer
-description: Write, revise, review, title, and adapt Chinese WeChat official-account articles using the nook content-production method. Use when the user asks to write a 公众号文章, produce a long-form Chinese article, turn materials into an article, refine an article draft, remove AI flavor from a WeChat article, design an article angle, generate publishable titles/summaries, compare or integrate Khazix/花叔-style writing workflows, convert between WeChat articles and short-video scripts, or build a publishable article from notes, research, transcripts, links, or rough ideas.
+description: 用 nook 内容生产方法写、改、审、拟题、适配微信公众号文章。适用于写公众号文章、长文写作、素材成文、改稿、去 AI 味、定角度、拟标题摘要、整合卡兹克/花叔式写作工作流、文章与短视频脚本互转，或从笔记/素材/转录稿/链接/粗略想法写成可发布的文章。
 ---
 
 # 1 nook-wechat-writer
