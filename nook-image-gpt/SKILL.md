@@ -1,25 +1,20 @@
 # nook-image-gpt
 
-通过中转站调用 GPT Image 2.0 生成和编辑图片的 MCP 工具。
+异步任务驱动的图片生成 MCP 工具。通过 `submit_image_task` + `get_image_result` 提供文生图和图生图能力。
 
 **MCP server 名称：`nook-image-gpt`**
-**提供 tool：`generate_image`、`edit_image`**
+**提供 tool：`submit_image_task`、`get_image_result`**
 
 ---
 
 ## 1. 部署（agent 执行，用户零操作）
 
-收到用户发来的 GitHub 地址后，按以下步骤执行：
-
-1. 克隆仓库到本地任意目录
-2. 向用户索取 API Key（获取地址：https://sub.jarodfund.xyz/key-usage）
-3. 在仓库根目录执行：
-   ```
-   node setup.js sk-用户的key
-   ```
+1. 克隆仓库到本地
+2. 向用户索取中转站 API Key
+3. 在本目录执行：`node setup.js sk-用户的key [中转站URL]`
 4. 提示用户重启 agent 客户端
 
-脚本自动完成：安装依赖 + 写入 opencode / Claude Code / Cursor 的 MCP 配置。
+脚本自动完成：安装依赖 + 写入 Agent MCP 配置。
 
 ---
 
@@ -31,41 +26,40 @@
 
 本 skill 依赖 **`nook-image-gpt` MCP server**。
 
-调用出图时，**必须使用下方两个 tool**，不得自行编写代码或调用其他 API。
+调用出图时，**必须使用 `submit_image_task` 和 `get_image_result` 两个 tool**，不得自行编写代码或调用其他 API。
 若 tool 列表中没有这两个名字，说明 MCP server 未启动，提示用户重启 agent。
 
-### 2.2 generate_image（文生图）
+### 2.2 submit_image_task（提交任务）
 
-| 参数 | 必填 | 默认值 | 说明 |
-|------|------|--------|------|
-| `prompt` | 是 | — | 生图提示词 |
+| 参数 | 必填 | 默认 | 说明 |
+|---|---|---|---|
+| `prompt` | 是 | — | 提示词，越短出图越快 |
 | `size` | 否 | `1024x1024` | 见下方尺寸表 |
-| `n` | 否 | 1 | 生成数量（最大 10） |
-| `save_to_dir` | 否 | — | 保存目录；不传则返回 base64 |
+| `n` | 否 | 1 | 生成数量（1-4，图生图推荐 1） |
+| `mode` | 否 | `text_to_image` | `text_to_image` 或 `image_to_image` |
+| `input_image_path` | 图生图时必填 | — | 源图片绝对路径 |
+
+**返回：** `{ task_id, status: "queued", estimated_wait }`
+
+提交后立即返回，不阻塞。后台 worker 异步执行。
+
+### 2.3 get_image_result（查询结果）
+
+| 参数 | 必填 | 说明 |
+|---|---|---|
+| `task_id` | 是 | `submit_image_task` 返回的 ID |
 
 **返回：**
-```json
-{ "saved_to": ["/path/nook_gpt_xxx_0.png"] }
-// 或
-{ "images": [{ "b64_json": "..." }] }
-```
+- `status`: `queued` / `processing` / `succeeded` / `failed`
+- `image_paths`: 成功时的图片路径数组
+- `error`: 失败时的错误信息
 
-### 2.3 edit_image（图生图 / 局部编辑）
-
-| 参数 | 必填 | 默认值 | 说明 |
-|------|------|--------|------|
-| `prompt` | 是 | — | 编辑目标描述 |
-| `image_path` | 否 | — | 单张源图路径 |
-| `image_paths` | 否 | — | 多张参考图（与 image_path 至少传一个） |
-| `mask_path` | 否 | — | PNG mask，透明区域被编辑 |
-| `size` | 否 | `1024x1024` | 见下方尺寸表 |
-| `n` | 否 | 1 | 生成数量（最大 10） |
-| `save_to_dir` | 否 | — | 保存目录；不传则返回 base64 |
+轮询间隔建议 10-15 秒。成功后取 `image_paths[0]` 作为图片路径。
 
 ### 2.4 尺寸表
 
 | size | 比例 | 适用场景 |
-|------|------|----------|
+|---|---|---|
 | `1024x1024` | 1:1 | 头像、图标（默认） |
 | `2048x2048` | 1:1 | 高清方图 |
 | `2048x1152` | 16:9 | 封面图、宽屏插图 |
@@ -81,18 +75,17 @@
 ```markdown
 ### 出图（nook-image-gpt）
 
-前置检查：tool 列表中必须存在 `generate_image`（来自 nook-image-gpt MCP）。
+前置检查：tool 列表中必须存在 `submit_image_task` 和 `get_image_result`。
 
-文生图：调用 `generate_image`
-- prompt: <按上下文构造的提示词>
-- size: <从尺寸表按场景选择>
-- save_to_dir: <输出目录>
+1. 调用 `submit_image_task`
+   - prompt: <构造提示词>
+   - mode: text_to_image / image_to_image
+   - size: <按场景选择>
+   - input_image_path: <图生图时传入>
 
-图生图：调用 `edit_image`
-- prompt: <改图 / 风格迁移描述>
-- image_path: <源图片绝对路径>
-- size: <按场景选择>
-- save_to_dir: <输出目录>
-
-返回值：save_to_dir 模式取 saved_to[0]，base64 模式取 images[0].b64_json
+2. 轮询 `get_image_result(task_id)` 直到 status 为 succeeded
+   - 间隔 10-15s
+   - 成功后取 image_paths[0]
 ```
+
+本 MCP 只负责出图。提示词构造、图生图源图管理、输出文件搬运由上层 Skill 负责。
