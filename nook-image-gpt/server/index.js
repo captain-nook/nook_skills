@@ -136,16 +136,22 @@ async function runImageTask(task) {
     }
 
     const savedPaths = [];
+    const saveErrors = [];
     for (let i = 0; i < items.length; i++) {
-      const b64Json = items[i].b64_json;
-      if (!b64Json) throw new Error(`image ${i} has no b64_json`);
-      const savedPath = await saveBase64Png(task.task_id, b64Json, items.length > 1 ? i : undefined);
-      savedPaths.push(savedPath);
+      const b64Json = items[i]?.b64_json;
+      if (!b64Json) { saveErrors.push(`image ${i}: no b64_json`); continue; }
+      try {
+        const savedPath = await saveBase64Png(task.task_id, b64Json, items.length > 1 ? i : undefined);
+        savedPaths.push(savedPath);
+      } catch (e) {
+        saveErrors.push(`image ${i}: ${e.message}`);
+      }
     }
 
     task.image_paths = savedPaths;
-    task.image_path = savedPaths[0];
-    task.status = "succeeded";
+    if (savedPaths.length > 0) task.image_path = savedPaths[0];
+    task.status = savedPaths.length > 0 ? "succeeded" : "failed";
+    if (saveErrors.length > 0) task.error = saveErrors.join("; ");
     task.updated_at = new Date().toISOString();
   } catch (error) {
     task.status = "failed";
