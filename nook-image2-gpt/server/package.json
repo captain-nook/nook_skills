@@ -1,0 +1,17 @@
+{
+  "name": "@nook/nook-image2-gpt",
+  "version": "1.0.0",
+  "description": "Stable async MCP server for image generation via an OpenAI-compatible relay",
+  "type": "module",
+  "bin": {
+    "nook-image2-gpt": "./index.js"
+  },
+  "dependencies": {
+    "@modelcontextprotocol/sdk": "^1.9.0",
+    "undici": "^8.4.1",
+    "zod": "^3.24.0"
+  },
+  "engines": {
+    "node": ">=20"
+  }
+}

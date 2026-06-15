@@ -1,0 +1,3 @@
+display_name: nook-zimage
+short_description: Low-cost ModelScope Z-Image Turbo text-to-image provider.
+default_prompt: Generate a draft background or visual asset with nook-zimage.
