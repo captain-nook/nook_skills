@@ -11,7 +11,7 @@ const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const SERVER_PATH = path.resolve(__dirname, "server", "index.js");
 const SERVER_DIR = path.resolve(__dirname, "server");
 const ENV_PATH = path.resolve(__dirname, ".env");
-const MCP_NAME = "nook-zimage";
+const MCP_NAME = "nook-qwen-image";
 const home = os.homedir();
 
 async function promptText(question, defaultValue = "") {
@@ -67,10 +67,27 @@ async function promptSecret(question) {
   });
 }
 
-console.log("nook-zimage setup");
-console.log("This writes your ModelScope key to local .env and configures the MCP server when possible.");
+function readEnvValue(envPath, key) {
+  if (!fs.existsSync(envPath)) return "";
+  const envText = fs.readFileSync(envPath, "utf8");
+  for (const raw of envText.split(/\r?\n/)) {
+    const line = raw.trim().replace(/^\uFEFF/, "");
+    if (!line || line.startsWith("#") || !line.includes("=")) continue;
+    const index = line.indexOf("=");
+    const foundKey = line.slice(0, index).trim();
+    if (foundKey !== key) continue;
+    return line.slice(index + 1).trim().replace(/^["']|["']$/g, "");
+  }
+  return "";
+}
 
-let apiKey = process.argv[2] || process.env.MS_API_KEY || "";
+console.log("nook-qwen-image setup");
+console.log("This writes your ModelScope key to local .env and configures the Qwen-Image MCP server when possible.");
+
+const zimageEnvPath = path.resolve(__dirname, "..", "nook-zimage", "nook-zimage", ".env");
+const existingKey = readEnvValue(ENV_PATH, "MS_API_KEY") || readEnvValue(zimageEnvPath, "MS_API_KEY");
+
+let apiKey = process.argv[2] || process.env.MS_API_KEY || existingKey || "";
 if (!apiKey) apiKey = await promptSecret("MS_API_KEY");
 if (!apiKey || apiKey.length < 8) {
   console.error("Missing or invalid MS_API_KEY.");
@@ -80,9 +97,9 @@ if (!apiKey || apiKey.length < 8) {
 const env = {
   MS_API_KEY: apiKey,
   MS_API_BASE_URL: process.env.MS_API_BASE_URL || "https://api-inference.modelscope.cn",
-  MS_IMAGE_MODEL: process.env.MS_IMAGE_MODEL || "Tongyi-MAI/Z-Image-Turbo",
-  ZIMAGE_OUTPUT_DIR: process.env.ZIMAGE_OUTPUT_DIR || "output",
-  ZIMAGE_DRY_RUN: process.env.ZIMAGE_DRY_RUN || "false"
+  MS_IMAGE_MODEL: process.env.MS_IMAGE_MODEL || "Qwen/Qwen-Image",
+  QWEN_IMAGE_OUTPUT_DIR: process.env.QWEN_IMAGE_OUTPUT_DIR || "output",
+  QWEN_IMAGE_DRY_RUN: process.env.QWEN_IMAGE_DRY_RUN || "false",
 };
 
 console.log("Installing MCP server dependencies...");
@@ -145,7 +162,7 @@ tryFirst(
   [
     path.join(home, "AppData", "Roaming", "Cursor", "User", "globalStorage", "storage.json"),
     path.join(home, "Library", "Application Support", "Cursor", "User", "globalStorage", "storage.json"),
-    path.join(home, ".config", "Cursor", "User", "globalStorage", "storage.json")
+    path.join(home, ".config", "Cursor", "User", "globalStorage", "storage.json"),
   ],
   "Cursor",
   vscodeStorageUpdater("cursor.mcp.servers")
@@ -155,7 +172,7 @@ tryFirst(
   [
     path.join(home, "AppData", "Roaming", "Windsurf", "User", "globalStorage", "storage.json"),
     path.join(home, "Library", "Application Support", "Windsurf", "User", "globalStorage", "storage.json"),
-    path.join(home, ".config", "Windsurf", "User", "globalStorage", "storage.json")
+    path.join(home, ".config", "Windsurf", "User", "globalStorage", "storage.json"),
   ],
   "Windsurf",
   vscodeStorageUpdater("cursor.mcp.servers")

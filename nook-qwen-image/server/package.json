@@ -1,0 +1,11 @@
+{
+  "name": "nook-qwen-image-server",
+  "version": "0.1.0",
+  "type": "module",
+  "private": true,
+  "dependencies": {
+    "@modelcontextprotocol/sdk": "^1.21.0",
+    "undici": "^6.22.0",
+    "zod": "^3.25.76"
+  }
+}

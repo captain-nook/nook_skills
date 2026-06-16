@@ -1,0 +1,3 @@
+display_name: Qwen Image
+short_description: Generate high-quality Chinese poster and cover image material with ModelScope Qwen-Image.
+default_prompt: Generate a high-quality Chinese poster or cover image material using Qwen-Image.

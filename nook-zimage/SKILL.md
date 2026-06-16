@@ -30,6 +30,15 @@ Required key:
 MS_API_KEY=<your ModelScope API key>
 ```
 
+If Codex global config needs manual registration, add:
+
+```toml
+[mcp_servers.nook-zimage]
+command = 'node'
+args = ['I:\nook_vault\82_Skills\nook-skills\skills\nook-zimage\nook-zimage\server\index.js']
+startup_timeout_sec = 120
+```
+
 ## MCP Usage
 
 MCP server name: `nook-zimage`
@@ -58,6 +67,22 @@ python scripts/generate.py "misty mountain lake background, cinematic, no text" 
 ```
 
 The script prints `OUTPUT_PATH=<absolute path>` on success.
+
+## Share Server
+
+Use the share server when a trusted colleague or friend needs a simple browser UI for fast draft generation.
+
+```bash
+python scripts/share_server.py --host 127.0.0.1 --port 7860 --token <shared-token>
+```
+
+For LAN or tunnel sharing, bind intentionally:
+
+```bash
+python scripts/share_server.py --host 0.0.0.0 --port 7860 --token <shared-token>
+```
+
+Keep `MS_API_KEY` on the server side. Do not put the ModelScope key in a browser, static page, or client-side script. Use a token when binding beyond localhost.
 
 ## Sizes
 
