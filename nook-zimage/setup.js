@@ -262,6 +262,8 @@ if (want("trae")) {
   tryFirst(
     [
       path.join(home, "AppData", "Roaming", "Trae", "User", "globalStorage", "mcp.json"),
+      path.join(home, "AppData", "Roaming", "Trae CN", "User", "globalStorage", "mcp.json"),
+      path.join(home, "AppData", "Roaming", "Trae-CN", "User", "globalStorage", "mcp.json"),
       path.join(home, "Library", "Application Support", "Trae", "User", "globalStorage", "mcp.json"),
       path.join(home, ".config", "Trae", "User", "globalStorage", "mcp.json"),
     ],
