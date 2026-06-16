@@ -1,13 +1,33 @@
 ---
 name: nook-qwen-image
-description: Atomic high-quality text-to-image skill backed by ModelScope Qwen-Image. Use when Codex needs Chinese poster, cover, editorial image, typography-heavy visual material, or higher-quality Chinese/English text rendering through a paid ModelScope image channel; use nook-zimage for cheap fast drafts, batch tests, and low-stakes background exploration.
+description: Atomic high-quality text-to-image + image-edit skill backed by ModelScope Qwen-Image and Qwen-Image-Edit. Use when Codex needs Chinese poster, cover, editorial image, typography-heavy visual material, or higher-quality Chinese/English text rendering through a paid ModelScope image channel; use nook-zimage for cheap fast drafts, batch tests, and low-stakes background exploration. Also use this skill to edit an image produced by nook-zimage (or any local file) — e.g. change background while keeping the person, or add Chinese titles on top of an image.
 ---
 
 # nook-qwen-image
 
-High-quality text-to-image provider using ModelScope `Qwen/Qwen-Image`.
+High-quality text-to-image + image-edit provider using ModelScope `Qwen/Qwen-Image` and `Qwen/Qwen-Image-Edit-2509`.
 
-Use this as an atomic image provider. It generates local image files from prompts; it does not design final layouts, place deterministic typography, or package finished poster files.
+Use this as an atomic image provider. It generates local image files from prompts and edits local image files; it does not design final layouts, place deterministic typography, or package finished poster files.
+
+## Tools exposed via MCP
+
+| Tool | Purpose |
+|---|---|
+| `submit_qwen_image_task` | Pure text-to-image. Best for clean prompts, Chinese typography, covers. |
+| `get_qwen_image_result` | Poll status / fetch the saved image. |
+| `submit_qwen_image_edit_task` | **NEW** — take an existing image (absolute path / http(s) URL / data URL) and edit it: change background, add/change text on top, re-style, etc. Default model: `Qwen/Qwen-Image-Edit-2509`. |
+| `get_qwen_image_edit_result` | Poll status / fetch the saved image. |
+
+## Chained / combo workflow (Z-Image → Qwen-Edit)
+
+The most powerful pattern: cheap draft first, polished cover second.
+
+1. Call `nook-zimage` `submit_zimage_task` to produce a draft (fast, cheap).
+2. Take the returned `image_path` and feed it into `submit_qwen_image_edit_task` with a Chinese cover prompt (e.g. "把背景换成粉色樱花飘落的街道，保留人物。在顶部加上大字「春日穿搭」白色加粗。").
+3. Render the final `image_path` inline with `file:///...`.
+
+Example agent instruction to user: "给小姐姐加个春日穿搭封面" → agent chains the two skills automatically.
+
 
 ## Quick Deploy (one-shot, for AI agents)
 

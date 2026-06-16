@@ -46,6 +46,7 @@ const config = {
   baseUrl: (process.env.MS_API_BASE_URL || "https://api-inference.modelscope.cn").replace(/\/$/, ""),
   apiKey: process.env.MS_API_KEY || "",
   model: process.env.MS_IMAGE_MODEL || "Qwen/Qwen-Image",
+  editModel: process.env.QWEN_IMAGE_EDIT_MODEL || "Qwen/Qwen-Image-Edit-2509",
   dryRun: (process.env.QWEN_IMAGE_DRY_RUN || "true").toLowerCase() !== "false",
   timeoutMs: Number(process.env.QWEN_IMAGE_TIMEOUT_MS || 600000),
 };
@@ -70,6 +71,11 @@ function parseSize(size) {
 function createTaskId() {
   const stamp = new Date().toISOString().replace(/[-:TZ.]/g, "").slice(0, 14);
   return `qwen_img_${stamp}_${crypto.randomBytes(4).toString("hex")}`;
+}
+
+function createEditTaskId() {
+  const stamp = new Date().toISOString().replace(/[-:TZ.]/g, "").slice(0, 14);
+  return `qwen_edit_${stamp}_${crypto.randomBytes(4).toString("hex")}`;
 }
 
 function taskFile(taskId) {
@@ -110,6 +116,19 @@ function resolveExplicitOutputPath(raw) {
   if (!raw) return null;
   const expanded = raw.replace(/^~/, os.homedir());
   return path.isAbsolute(expanded) ? expanded : path.resolve(root, expanded);
+}
+
+async function resolveInputImage(raw) {
+  if (!raw) throw new Error("input_image is required for an edit task");
+  if (/^data:/i.test(raw)) return raw;
+  if (/^https?:\/\//i.test(raw)) return raw;
+  const expanded = raw.replace(/^~/, os.homedir());
+  const abs = path.isAbsolute(expanded) ? expanded : path.resolve(root, expanded);
+  if (!fsSync.existsSync(abs)) throw new Error(`input_image file not found: ${abs}`);
+  const buf = await fs.readFile(abs);
+  const ext = path.extname(abs).toLowerCase();
+  const mime = ext === ".png" ? "image/png" : ext === ".webp" ? "image/webp" : ext === ".gif" ? "image/gif" : "image/jpeg";
+  return `data:${mime};base64,${buf.toString("base64")}`;
 }
 
 async function runQwenImageTask(task) {
@@ -210,15 +229,107 @@ async function runQwenImageTask(task) {
   }
 }
 
+async function runQwenImageEditTask(task) {
+  task.status = "processing";
+  task.updated_at = new Date().toISOString();
+  await persistTask(task);
+
+  try {
+    if (config.dryRun) {
+      await new Promise((resolve) => setTimeout(resolve, 500));
+      const imagePath = await saveImageBuffer(task.task_id, Buffer.from(DRY_RUN_PNG, "base64"), undefined, "image/png", task.output_path);
+      task.status = "succeeded";
+      task.image_path = imagePath;
+      task.image_paths = [imagePath];
+      task.note = "dry run only; no ModelScope API call was made";
+      task.updated_at = new Date().toISOString();
+      await persistTask(task);
+      return;
+    }
+
+    if (!config.apiKey) throw new Error("MS_API_KEY is required when QWEN_IMAGE_DRY_RUN=false");
+    const imageUrl = await resolveInputImage(task.input_image);
+
+    const controller = new AbortController();
+    const timeout = setTimeout(() => controller.abort(), config.timeoutMs);
+    const response = await fetch(`${config.baseUrl}/v1/images/generations`, {
+      method: "POST",
+      signal: controller.signal,
+      headers: {
+        "Authorization": `Bearer ${config.apiKey}`,
+        "Content-Type": "application/json",
+        "X-ModelScope-Async-Mode": "true",
+      },
+      body: JSON.stringify({
+        model: config.editModel,
+        prompt: task.prompt,
+        image_url: imageUrl,
+        size: task.size ? `${task.width}x${task.height}` : undefined,
+        parameters: { size: `${task.width}x${task.height}` },
+      }),
+    }).finally(() => clearTimeout(timeout));
+
+    if (!response.ok) throw new Error(`ModelScope submit failed: HTTP ${response.status} ${(await response.text()).slice(0, 500)}`);
+    const submitted = await response.json();
+    const remoteTaskId = submitted.task_id;
+    if (!remoteTaskId) throw new Error(`ModelScope response did not include task_id: ${JSON.stringify(submitted)}`);
+    task.remote_task_id = remoteTaskId;
+    task.updated_at = new Date().toISOString();
+    await persistTask(task);
+
+    const started = Date.now();
+    while (Date.now() - started < config.timeoutMs) {
+      await new Promise((resolve) => setTimeout(resolve, 3000));
+      const poll = await fetch(`${config.baseUrl}/v1/tasks/${remoteTaskId}`, {
+        headers: {
+          "Authorization": `Bearer ${config.apiKey}`,
+          "X-ModelScope-Task-Type": "image_generation",
+        },
+      });
+      if (!poll.ok) throw new Error(`ModelScope poll failed: HTTP ${poll.status} ${(await poll.text()).slice(0, 500)}`);
+      const data = await poll.json();
+      if (data.task_status === "FAILED") throw new Error(data.message || "ModelScope edit task failed");
+      if (data.task_status !== "SUCCEED") continue;
+
+      const outputImages = Array.isArray(data.output_images) ? data.output_images : [];
+      if (!outputImages.length) throw new Error("ModelScope edit task succeeded but output_images is empty");
+      const url = typeof outputImages[0] === "string" ? outputImages[0] : outputImages[0]?.url;
+      if (!url) throw new Error("No image URL in edit response");
+
+      const imageResponse = await fetch(url);
+      if (!imageResponse.ok) throw new Error(`image download failed: HTTP ${imageResponse.status}`);
+      const contentType = imageResponse.headers.get("content-type") || "image/jpeg";
+      const buffer = Buffer.from(await imageResponse.arrayBuffer());
+      const imagePath = await saveImageBuffer(task.task_id, buffer, undefined, contentType, task.output_path);
+
+      task.status = "succeeded";
+      task.image_path = imagePath;
+      task.image_paths = [imagePath];
+      task.updated_at = new Date().toISOString();
+      await persistTask(task);
+      return;
+    }
+
+    throw new Error(`timed out waiting for ModelScope edit task ${remoteTaskId}`);
+  } catch (error) {
+    task.status = "failed";
+    task.error = error instanceof Error ? error.message : String(error);
+    task.updated_at = new Date().toISOString();
+    await persistTask(task);
+  }
+}
+
 function publicTask(task) {
   return {
     task_id: task.task_id,
+    kind: task.kind || "image",
     remote_task_id: task.remote_task_id || null,
     status: task.status,
     estimated_wait: task.status === "succeeded" || task.status === "failed" ? 0 : task.estimated_wait,
     image_path: task.image_path || null,
     image_paths: task.image_paths || null,
     output_path: task.output_path || null,
+    input_image: task.input_image && !/^data:/i.test(task.input_image) ? task.input_image : null,
     error: task.error || null,
     note: task.note || null,
     updated_at: task.updated_at,
@@ -267,6 +378,55 @@ mcp.registerTool(
     title: "Get Qwen-Image result",
     description: "Check a previously submitted Qwen-Image task by its task_id. Poll every 5-10 seconds while status is queued or processing. When status becomes 'succeeded', the response contains image_path / image_paths; render the first one inline with a file:/// Markdown image tag.",
     inputSchema: { task_id: z.string().min(1).describe("The task_id returned by submit_qwen_image_task.") },
+  },
+  async ({ task_id }) => {
+    const task = tasks.get(task_id) || await readPersistedTask(task_id);
+    if (!task) return jsonText({ task_id, status: "not_found", error: "No task exists for this task_id" });
+    return jsonText(publicTask(task));
+  }
+);
+
+mcp.registerTool(
+  "submit_qwen_image_edit_task",
+  {
+    title: "Submit Qwen-Image edit task",
+    description: "Edit an existing image with ModelScope Qwen-Image-Edit (default: Qwen/Qwen-Image-Edit-2509). Use this to (a) re-style or re-render an image that nook-zimage or nook-qwen-image produced, (b) add or change Chinese text on top of an image, (c) change background while keeping the person, or (d) chain models: nook-zimage generates a draft, then this tool turns it into a polished cover with titles. Pass input_image as an absolute path (preferred, e.g. from a previous tool's image_path), an http(s) URL, or a data: URL. The instruction (prompt) is mandatory and should describe the edit in plain language, e.g. '把背景换成粉色樱花飘落的街道，保留人物。在顶部加上大字「春日穿搭」白色加粗。' Pass output_path to save the result to a user-specified absolute path; otherwise the image is written under output/ and shown inline via file:/// URL.",
+    inputSchema: {
+      input_image: z.string().min(1).describe("Absolute path, http(s) URL, or data: URL of the image to edit. Absolute file path is preferred (it gets base64-encoded automatically)."),
+      prompt: z.string().min(1).describe("Edit instruction in Chinese or English. Be specific about what to keep, what to change, and what text (if any) to add."),
+      size: z.string().default("1024x1024").describe("WxH in pixels, e.g. 1024x1024, 720x1280, 1024x1365. Min 128, max 4096."),
+      output_path: z.string().optional().describe("Optional absolute path (or path relative to the project root) for the final image, e.g. 'D:/images/cover.jpg' or '~/Pictures/cover.jpg'."),
+    },
+  },
+  async ({ input_image, prompt, size, output_path }) => {
+    const parsed = parseSize(size);
+    const task = {
+      task_id: createEditTaskId(),
+      kind: "edit",
+      status: "queued",
+      input_image,
+      prompt,
+      size: parsed.normalized,
+      width: parsed.width,
+      height: parsed.height,
+      output_path: resolveExplicitOutputPath(output_path),
+      estimated_wait: config.dryRun ? 1 : 90,
+      created_at: new Date().toISOString(),
+      updated_at: new Date().toISOString(),
+    };
+    tasks.set(task.task_id, task);
+    await persistTask(task);
+    setTimeout(() => runQwenImageEditTask(task), 0);
+    return jsonText({ task_id: task.task_id, kind: task.kind, status: task.status, estimated_wait: task.estimated_wait, output_path: task.output_path });
+  }
+);
+
+mcp.registerTool(
+  "get_qwen_image_edit_result",
+  {
+    title: "Get Qwen-Image edit result",
+    description: "Check a previously submitted Qwen-Image edit task by its task_id. Poll every 5-10 seconds while status is queued or processing. When status becomes 'succeeded', the response contains image_path; render it inline with a file:/// Markdown image tag.",
+    inputSchema: { task_id: z.string().min(1).describe("The task_id returned by submit_qwen_image_edit_task.") },
   },
   async ({ task_id }) => {
     const task = tasks.get(task_id) || await readPersistedTask(task_id);

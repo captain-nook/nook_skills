@@ -136,6 +136,16 @@ If MCP tools are not visible after restart:
 
 If `MS_API_KEY` is wrong, the user will see HTTP 401 from ModelScope. Tell them to re-run `node setup.js`.
 
+## Combo: edit an image you (or nook-zimage) just generated
+
+This server also exposes image editing. The cheap-then-polish flow:
+
+1. Use `nook-zimage` `submit_zimage_task` to generate a draft image → get back `image_path`.
+2. Call `submit_qwen_image_edit_task` (also in this server) with `input_image = <zimage image_path>` and a Chinese cover prompt, e.g. "把背景换成粉色樱花飘落的街道，保留人物不变。在顶部加上大字「春日穿搭」白色加粗。".
+3. Poll `get_qwen_image_edit_result` until `succeeded`, then render the new `image_path` inline.
+
+The model used for editing is `Qwen/Qwen-Image-Edit-2509` (configurable via `QWEN_IMAGE_EDIT_MODEL` in `.env`). It is **separate** from the text-to-image model `Qwen/Qwen-Image`.
+
 ## Security note
 
 `MS_API_KEY` is the user's **personal** ModelScope SDK token. Never log it, never echo it, never commit the `.env` file. The MCP server keeps it server-side only.

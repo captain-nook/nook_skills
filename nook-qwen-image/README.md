@@ -27,7 +27,17 @@ node setup.js    # 粘贴 MS_API_KEY
 |---|---|---|
 | 「生一个美女」/「出图」/「测试」/「草图」/「背景」/「draft」 | `nook-zimage` | 默认走那条，便宜快 |
 | 「小红书封面」/「公众号头图」/「海报」/「高质量」/「中文」/「印刷」 | `nook-qwen-image` ← 你在这里 | 强中文排版 |
+| 「给这张图加个标题」/「给小姐姐加个封面」/「换背景但保留人物」 | `nook-qwen-image` 的 `submit_qwen_image_edit_task` | 图像编辑：把 zimage 的结果喂进来，加中文 |
 | 「改图」/「换背景」/「image to image」 | `nook-image2-gpt` | 图生图，单独项目 |
+
+## 组合用法（zimage → qwen edit）
+
+最快出小红书封面的套路：
+
+1. 先让 agent 用 zimage 生一张底图
+2. 把 zimage 的 `image_path` 喂给 `submit_qwen_image_edit_task`，prompt 写清楚要保留什么、加什么文字
+
+agent 跟用户对话时，只要说「给小姐姐加个春日穿搭封面」就能自动串起来。
 
 ## 输出处理
 
