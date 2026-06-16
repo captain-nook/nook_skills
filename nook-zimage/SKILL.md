@@ -9,12 +9,22 @@ Low-cost text-to-image provider using ModelScope `Tongyi-MAI/Z-Image-Turbo`.
 
 Use this as an atomic image provider. It generates local image files from prompts; it does not design posters, write text onto images, or make final cards.
 
-## Provider Choice
+## Quick Deploy (one-shot, for AI agents)
 
-- Use `nook-zimage` for draft backgrounds, mood images, batch tests, and low-cost text-to-image.
-- Use `nook-image2-gpt` for image-to-image, higher-quality production images, or important final assets.
+If a user just gave you this repo URL and said "deploy" / "install" / "set it up" / "部署":
 
-## Setup
+1. Clone to a stable path (not a temp folder — the MCP config records the absolute path).
+   ```bash
+   git clone https://github.com/captain-nook/nook_skills.git
+   cd nook_skills/nook-zimage
+   ```
+2. Run `node setup.js`. It will ask for the user's `MS_API_KEY` (ModelScope SDK token). If you (the agent) have no TTY, pass it via env or argv: `MS_API_KEY=xxx node setup.js`. If a sibling `nook-qwen-image/.env` already has a key, this setup reuses it.
+3. Setup auto-detects Trae IDE / Codex CLI / Claude Code / Cursor / Windsurf / Kiro / Continue and writes the MCP config. If your client is missing, see `references/agent-deployment.md`.
+4. Restart the user's agent and probe with "生一个美女 1024x1024".
+
+Uninstall: `node setup.js --remove`.
+
+## Setup (manual)
 
 From this skill folder:
 
@@ -22,22 +32,30 @@ From this skill folder:
 node setup.js
 ```
 
-The setup writes local `.env`, installs MCP dependencies, and attempts to add the MCP server to supported agent configs.
+Optional flags:
 
-Required key:
-
-```text
-MS_API_KEY=<your ModelScope API key>
+```bash
+node setup.js <ms_api_key>           # skip the prompt
+node setup.js --agent codex          # only write Codex CLI config
+node setup.js --agent trae           # only write Trae IDE config
+node setup.js --remove               # remove MCP entry + delete .env
 ```
 
-If Codex global config needs manual registration, add:
+Setup writes local `.env`, installs MCP dependencies, and attempts to add the MCP server to every supported agent config.
 
-```toml
-[mcp_servers.nook-zimage]
-command = 'node'
-args = ['I:\nook_vault\82_Skills\nook-skills\skills\nook-zimage\nook-zimage\server\index.js']
-startup_timeout_sec = 120
-```
+If a single client needs manual registration, the path table is in `references/agent-deployment.md`.
+
+## Provider Selection Heuristic
+
+When the user gives a natural-language image request, route by intent:
+
+| User says | Use | Why |
+|---|---|---|
+| "生一个美女" / "出图" / "测试" / "草图" / "draft" / "背景" / "explore" / "mood" / "cheap" / "练手" / "mood board" | `nook-zimage` | Cheap/fast Z-Image-Turbo |
+| "小红书封面" / "公众号头图" / "海报" / "标题图" / "中文" / "高质量" / "印刷" / "typography" / "editorial" / "印刷品" | `nook-qwen-image` | High-quality Qwen-Image with strong Chinese typography |
+| "改图" / "换背景" / "image to image" / "edit" | `nook-image2-gpt` (separate project) | Image-to-image editing |
+
+**Default if unclear** → `nook-zimage` (cheaper, faster). The user can always re-render with the other model.
 
 ## MCP Usage
 
@@ -45,18 +63,40 @@ MCP server name: `nook-zimage`
 
 Tools:
 
-- `submit_zimage_task`
-- `get_zimage_result`
+- `submit_zimage_task(prompt, size?, n?, output_path?)`
+- `get_zimage_result(task_id)`
 
 Standard flow:
 
 ```text
-1. submit_zimage_task(prompt, size, n)
-2. Poll get_zimage_result(task_id)
-3. Use image_paths[0] after status = succeeded
+1. submit_zimage_task(prompt, size, n, output_path?)
+2. Poll get_zimage_result(task_id) every 3-5 seconds
+3. When status = succeeded, use image_path (or image_paths[0]) and render it inline
 ```
 
-Recommended polling interval: 5-10 seconds.
+If the user named a path (e.g. "存到 D:\\images\\cat.jpg", "save to my Desktop"), pass it as `output_path`. Otherwise the file lands in `<project>/output/`.
+
+## Output Handling
+
+The MCP tools return JSON like:
+
+```json
+{
+  "task_id": "zimg_20260615_142301_a1b2c3d4",
+  "status": "succeeded",
+  "image_path": "C:\\nook-skills\\nook-zimage\\output\\zimg_...jpg",
+  "image_paths": ["..."],
+  "output_path": null
+}
+```
+
+**Always display the generated image** to the user inline so they can see it. Use a `file:///` absolute URL on Windows; on macOS/Linux a plain absolute path also works:
+
+```markdown
+![generated image](file:///C:/nook-skills/nook-zimage/output/zimg_20260615_142301_a1b2c3d4.jpg)
+```
+
+If the user did not specify a path, use the default `output/` directory and present the result inline. If the user named a path, the file already lives at that path; mention the absolute path in plain text (no need for Markdown image tag if the user only asked to "save to disk").
 
 ## CLI Usage
 

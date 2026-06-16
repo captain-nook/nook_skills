@@ -4,6 +4,7 @@ import { ProxyAgent, setGlobalDispatcher } from "undici";
 import crypto from "node:crypto";
 import fsSync from "node:fs";
 import fs from "node:fs/promises";
+import os from "node:os";
 import path from "node:path";
 import { fileURLToPath } from "node:url";
 import { McpServer } from "@modelcontextprotocol/sdk/server/mcp.js";
@@ -90,13 +91,25 @@ async function readPersistedTask(taskId) {
   }
 }
 
-async function saveImageBuffer(taskId, buffer, index, contentType = "image/jpeg") {
+async function saveImageBuffer(taskId, buffer, index, contentType = "image/jpeg", overridePath) {
+  if (overridePath) {
+    const dir = path.dirname(overridePath);
+    if (dir) await fs.mkdir(dir, { recursive: true });
+    await fs.writeFile(overridePath, buffer);
+    return overridePath;
+  }
   await fs.mkdir(outputDir, { recursive: true });
   const suffix = index !== undefined ? `_${index}` : "";
   const ext = contentType.includes("png") ? ".png" : contentType.includes("webp") ? ".webp" : ".jpg";
   const imagePath = path.join(outputDir, `${taskId}${suffix}${ext}`);
   await fs.writeFile(imagePath, buffer);
   return imagePath;
+}
+
+function resolveExplicitOutputPath(raw) {
+  if (!raw) return null;
+  const expanded = raw.replace(/^~/, os.homedir());
+  return path.isAbsolute(expanded) ? expanded : path.resolve(root, expanded);
 }
 
 async function runZimageTask(task) {
@@ -107,7 +120,7 @@ async function runZimageTask(task) {
   try {
     if (config.dryRun) {
       await new Promise((resolve) => setTimeout(resolve, 500));
-      const imagePath = await saveImageBuffer(task.task_id, Buffer.from(DRY_RUN_PNG, "base64"), undefined, "image/png");
+      const imagePath = await saveImageBuffer(task.task_id, Buffer.from(DRY_RUN_PNG, "base64"), undefined, "image/png", task.output_path);
       task.status = "succeeded";
       task.image_path = imagePath;
       task.image_paths = [imagePath];
@@ -204,6 +217,7 @@ function publicTask(task) {
     estimated_wait: task.status === "succeeded" || task.status === "failed" ? 0 : task.estimated_wait,
     image_path: task.image_path || null,
     image_paths: task.image_paths || null,
+    output_path: task.output_path || null,
     error: task.error || null,
     note: task.note || null,
     updated_at: task.updated_at
@@ -216,14 +230,15 @@ mcp.registerTool(
   "submit_zimage_task",
   {
     title: "Submit Z-Image task",
-    description: "Submit a low-cost ModelScope Z-Image Turbo text-to-image task and return a local task_id immediately.",
+    description: "Generate a low-cost, fast image with ModelScope Z-Image Turbo. Best default for natural-language image requests like '生一个美女', '出图', '测试', '草图', '背景图', '练手', 'draft', 'mood image'. Returns a local task_id immediately. For high-quality Chinese typography, printed posters, or final-publish covers, prefer nook-qwen-image instead. Pass output_path to save the result to a user-specified absolute path; otherwise the image is written under output/ and shown inline via file:/// URL.",
     inputSchema: {
-      prompt: z.string().min(1),
-      size: z.string().default("1024x1024"),
-      n: z.number().int().min(1).max(1).default(1)
+      prompt: z.string().min(1).describe("Text prompt."),
+      size: z.string().default("1024x1024").describe("WxH in pixels, e.g. 1024x1024, 720x1280, 1080x1440. Min 128, max 4096."),
+      n: z.number().int().min(1).max(1).default(1).describe("Number of images. Currently fixed at 1."),
+      output_path: z.string().optional().describe("Optional absolute path (or path relative to the project root) for the final image, e.g. 'D:/images/cat.jpg' or '~/Pictures/cat.jpg'. If omitted, the image is saved under <project>/output/ and the absolute path is returned in image_path."),
     }
   },
-  async ({ prompt, size, n }) => {
+  async ({ prompt, size, n, output_path }) => {
     const parsed = parseSize(size);
     const task = {
       task_id: createTaskId(),
@@ -233,6 +248,7 @@ mcp.registerTool(
       width: parsed.width,
       height: parsed.height,
       n,
+      output_path: resolveExplicitOutputPath(output_path),
       estimated_wait: config.dryRun ? 1 : 20,
       created_at: new Date().toISOString(),
       updated_at: new Date().toISOString()
@@ -240,7 +256,7 @@ mcp.registerTool(
     tasks.set(task.task_id, task);
     await persistTask(task);
     setTimeout(() => runZimageTask(task), 0);
-    return jsonText({ task_id: task.task_id, status: task.status, estimated_wait: task.estimated_wait });
+    return jsonText({ task_id: task.task_id, status: task.status, estimated_wait: task.estimated_wait, output_path: task.output_path });
   }
 );
 
@@ -248,8 +264,8 @@ mcp.registerTool(
   "get_zimage_result",
   {
     title: "Get Z-Image result",
-    description: "Check local Z-Image task status by task_id.",
-    inputSchema: { task_id: z.string().min(1) }
+    description: "Check a previously submitted Z-Image task by its task_id. Poll every 3-5 seconds while status is queued or processing. When status becomes 'succeeded', the response contains image_path / image_paths; render the first one inline with a file:/// Markdown image tag.",
+    inputSchema: { task_id: z.string().min(1).describe("The task_id returned by submit_zimage_task.") }
   },
   async ({ task_id }) => {
     const task = tasks.get(task_id) || await readPersistedTask(task_id);
