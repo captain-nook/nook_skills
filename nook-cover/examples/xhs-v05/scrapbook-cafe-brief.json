@@ -1,0 +1,18 @@
+{
+  "platform": "xiaohongshu",
+  "canvas": { "width": 1080, "height": 1440, "ratio": "3:4" },
+  "topic": "周末咖啡馆探店",
+  "visual_system": "手账拼贴种草",
+  "layout_contract": "scrapbook-collage-v05",
+  "title": "这家咖啡厅 我去了20次",
+  "title_lines": ["这家咖啡厅", "我去了20次"],
+  "badges": ["周末收藏", "氛围感"],
+  "foreground_stickers": ["靠窗座位", "拿铁好喝", "适合发呆", "拍照出片"],
+  "main_visual_label": "咖啡 / 店铺照片",
+  "eyebrow": "探店手账",
+  "composition_contract": {
+    "title_box": { "x": 0.06, "y": 0.08, "w": 0.62, "h": 0.30 },
+    "person_box": { "x": 0.44, "y": 0.30, "w": 0.42, "h": 0.40 },
+    "foreground_box": { "x": 0.08, "y": 0.66, "w": 0.72, "h": 0.24 }
+  }
+}

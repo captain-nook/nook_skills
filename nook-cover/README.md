@@ -101,6 +101,21 @@ output/demo/index.html
 output/demo/cover.png
 ```
 
+跑一张 V05 HTML 风格合同样张，验证构图、贴纸标题、撕纸、箭头和前景贴纸是否成立：
+
+```bash
+node scripts/render-xhs-v05-contract.cjs examples/xhs-v05/face-diet-brief.json output/v05-face-diet
+```
+
+四套 V05 HTML 合同模板示例：
+
+```bash
+node scripts/render-xhs-v05-contract.cjs examples/xhs-v05/face-diet-brief.json output/v05-face-diet
+node scripts/render-xhs-v05-contract.cjs examples/xhs-v05/scrapbook-cafe-brief.json output/v05-scrapbook-cafe
+node scripts/render-xhs-v05-contract.cjs examples/xhs-v05/product-ai-brief.json output/v05-product-ai
+node scripts/render-xhs-v05-contract.cjs examples/xhs-v05/compare-fitness-brief.json output/v05-compare-fitness
+```
+
 把这个项目交给 AI 编程助手时，可以直接说：
 
 ```text
@@ -148,6 +163,8 @@ output/
 ```text
 真人半身 / 三分之二身、大标题、厚描边、贴纸、箭头、星星、强表情
 ```
+
+减脂、食谱、健身餐主题要避免做成菜谱 App 或生活照。标题必须是第一视觉，菜品应贴纸化、前景化，人物要有动作或表情。
 
 内部别名：人物冲击贴纸风。
 

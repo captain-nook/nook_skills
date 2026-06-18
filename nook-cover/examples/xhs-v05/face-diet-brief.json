@@ -1,0 +1,31 @@
+{
+  "platform": "xiaohongshu",
+  "canvas": { "width": 1080, "height": 1440, "ratio": "3:4" },
+  "topic": "减脂30天·家常菜谱",
+  "visual_system": "人脸冲击封面",
+  "layout_contract": "face-impact-v05",
+  "title": "减脂30天 家常菜谱 不挨饿",
+  "title_lines": ["减脂30天", "家常菜谱", "不挨饿"],
+  "badges": ["30天挑战", "吃饱也能瘦"],
+  "foreground_stickers": ["鸡胸沙拉", "西兰花豆腐", "糙米蛋饭"],
+  "eyebrow": "封面避坑指南",
+  "person_note": "真人主视觉由 image2.0 / zimage / 用户素材提供；HTML 层负责风格骨架。",
+  "html_primitives": {
+    "title": "title-sticker",
+    "papers": ["torn-paper:title-back", "torn-paper:badge"],
+    "decor": ["arrow:title", "star:title-left", "star:title-right", "tape:paper-corner"],
+    "foreground": ["food-sticker-1", "food-sticker-2", "food-sticker-3"]
+  },
+  "composition_contract": {
+    "title_box": { "x": 0.05, "y": 0.07, "w": 0.68, "h": 0.44 },
+    "person_box": { "x": 0.50, "y": 0.23, "w": 0.38, "h": 0.56 },
+    "foreground_box": { "x": 0.05, "y": 0.62, "w": 0.62, "h": 0.24 }
+  },
+  "qa_contract": [
+    "title_area >= 35%",
+    "chosen visual system recognizable at first glance",
+    "not app menu",
+    "not quiet lifestyle photo",
+    "has sticker title, torn paper, arrows, stars and foreground stickers"
+  ]
+}

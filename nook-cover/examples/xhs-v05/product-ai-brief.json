@@ -1,0 +1,18 @@
+{
+  "platform": "xiaohongshu",
+  "canvas": { "width": 1080, "height": 1440, "ratio": "3:4" },
+  "topic": "AI封面工作流",
+  "visual_system": "产品截图主视觉",
+  "layout_contract": "product-hero-v05",
+  "title": "一句话 生成封面",
+  "title_lines": ["一句话", "生成封面"],
+  "badges": ["AI工具", "中文不翻车"],
+  "foreground_stickers": ["brief", "HTML", "PNG"],
+  "main_visual_label": "产品 / 截图主视觉",
+  "eyebrow": "AI工作流",
+  "composition_contract": {
+    "title_box": { "x": 0.06, "y": 0.07, "w": 0.78, "h": 0.32 },
+    "person_box": { "x": 0.13, "y": 0.34, "w": 0.74, "h": 0.38 },
+    "foreground_box": { "x": 0.12, "y": 0.72, "w": 0.76, "h": 0.16 }
+  }
+}

@@ -30,6 +30,8 @@ ZCode、Claude Code、Cursor 等运行时如果没有暴露 Codex Desktop 内置
 
 ## 四套视觉系统
 
+执行四套视觉系统时，必须同时读取 `v05-html-visual-contracts.md`。本文件只说明方向；V05 文件定义 HTML 能执行的构图坐标、文字效果、撕纸、贴纸、箭头、前景卡片等具体原语。
+
 ### 1. 人脸冲击封面
 
 适用：

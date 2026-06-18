@@ -1,0 +1,18 @@
+{
+  "platform": "xiaohongshu",
+  "canvas": { "width": 1080, "height": 1440, "ratio": "3:4" },
+  "topic": "早睡7天变化",
+  "visual_system": "近大远小对比封面",
+  "layout_contract": "perspective-compare-v05",
+  "title": "早睡7天 变化太狠了",
+  "title_lines": ["早睡7天", "变化太狠了"],
+  "badges": ["真实对比", "挑战记录"],
+  "foreground_stickers": ["以前：脸垮没精神", "现在：清醒有气色"],
+  "main_visual_label": "人物中景",
+  "eyebrow": "前后对比",
+  "composition_contract": {
+    "title_box": { "x": 0.05, "y": 0.07, "w": 0.78, "h": 0.34 },
+    "person_box": { "x": 0.56, "y": 0.28, "w": 0.32, "h": 0.48 },
+    "foreground_box": { "x": 0.06, "y": 0.56, "w": 0.78, "h": 0.26 }
+  }
+}

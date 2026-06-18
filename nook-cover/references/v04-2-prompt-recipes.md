@@ -15,6 +15,10 @@ No text covering eyes, nose, or mouth.
 No watermark, no QR code, no English text.
 Avoid dead empty space.
 Not corporate PPT.
+Not a lifestyle app screen.
+No neat bottom navigation buttons.
+No quiet documentary photo with tiny title.
+The design layer must dominate the photo layer.
 ```
 
 ## 人脸冲击封面
@@ -23,15 +27,29 @@ Not corporate PPT.
 Use case: ads-marketing
 Asset type: Xiaohongshu cover image, vertical 3:4 mobile cover
 Style system: 人脸冲击封面, also known internally as 人物冲击贴纸风, viral Chinese social media cover.
-Primary request: Create a polished Xiaohongshu cover about {topic}.
-Scene/backdrop: bright modern lifestyle workspace, warm daylight, colorful sticky notes, laptop, books.
-Subject: Asian {gender} creator, {age}, visible upper body from waist to head with torso and hands visible, expressive confident face, not a headshot.
-Composition/framing: person on the right occupying 45%-55%; huge headline on left and upper center occupying 35%-45%; no dead empty space.
+Primary request: Create a viral Xiaohongshu cover about {topic}, not a clean lifestyle photo.
+Scene/backdrop: bright high-saturation social media cover scene, warm coral and matcha green accents, visible stickers and torn paper layers.
+Subject: Asian {gender} creator, {age}, visible upper body from waist to head with torso and hands visible, expressive surprised / excited / confident face, actively pointing or holding a foreground object, not a passive lifestyle portrait, not a headshot.
+Composition/framing: person on the right or center-right occupying 40%-50%; huge headline on left and upper center occupying 40%-50%; foreground food/product/object card close to camera; no dead empty space.
 Text (verbatim): "{title_line_1}\n{title_line_2}"
 Small labels: "{label_1}", "{label_2}".
-Typography: huge bold simplified Chinese, white and hot pink/coral, thick black outline, sticker shadow, slight perspective tilt.
-Design details: irregular torn-paper stickers, star stickers, hand-drawn arrows, highlight strokes, small note cards, energetic Xiaohongshu style.
-Constraints: exact readable Chinese text; no text covering eyes, nose, mouth; no watermark; no QR code; no English text.
+Typography: huge bold simplified Chinese, red / white / hot pink, thick black outline, hard sticker shadow, slight perspective tilt, title larger than the face.
+Design details: irregular torn-paper stickers, star stickers, hand-drawn arrows, highlight strokes, speech bubbles, before/after mini cards, energetic Xiaohongshu style.
+Constraints: exact readable Chinese text; no text covering eyes, nose, mouth; no watermark; no QR code; no English text; no neat green bottom menu buttons; no app UI cards; no quiet clean recipe poster.
+```
+
+### 人脸冲击封面：减脂 / 食谱专项补充
+
+当主题是减脂、菜谱、健身餐、家常菜时，必须强化“爆款封面”而不是“食谱 App”：
+
+```text
+Food/fitness cover add-on:
+Use one expressive Asian woman creator in apron or sport-casual outfit, upper body visible, excited expression, pointing at huge headline.
+Show 2-3 healthy dishes as foreground stickers or cutout plates, close to camera, with thick white outlines and shadow, not arranged as neat menu buttons.
+Add a strong contrast badge such as "30天挑战", "吃饱也能瘦", "一周不重样".
+Use big diagonal title blocks and torn-paper labels.
+Avoid calm kitchen lifestyle photography, avoid soft beige minimalism, avoid bottom tab/menu layout, avoid three equal green buttons.
+The cover must look like a viral Xiaohongshu thumbnail, not a recipe app page.
 ```
 
 ## 手账拼贴种草

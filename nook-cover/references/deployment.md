@@ -107,6 +107,21 @@ IMAGE_API_BASE_URL
 输出到我指定的文件夹。
 ```
 
+验证 V05 HTML 风格合同：
+
+```bash
+node scripts/render-xhs-v05-contract.cjs examples/xhs-v05/face-diet-brief.json output/v05-face-diet
+```
+
+四套 V05 合同模板路径：
+
+```text
+examples/xhs-v05/face-diet-brief.json
+examples/xhs-v05/scrapbook-cafe-brief.json
+examples/xhs-v05/product-ai-brief.json
+examples/xhs-v05/compare-fitness-brief.json
+```
+
 如果助手回复“当前运行时没有内置 image2.0”，这是正常情况。此时有三种选择：
 
 ```text
