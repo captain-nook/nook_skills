@@ -1,0 +1,16 @@
+{
+  "platform": "xiaohongshu",
+  "canvas": {"width": 1080, "height": 1440, "ratio": "3:4"},
+  "layout_family": "big-type",
+  "series": "封面实验室",
+  "title": "我把封面做成了AI流水线",
+  "title_lines": ["我把封面", "做成了", "AI 流水线"],
+  "subtitle": "一句话进来，PNG 出去",
+  "tags": ["教程", "AI设计"],
+  "before_label": "以前",
+  "before_text": "靠感觉瞎调，改一次全重来。",
+  "panel_title": "现在",
+  "panel_note": "brief 驱动，HTML 控制，截图导出。",
+  "bullets": ["选题", "排版", "导出"],
+  "palette": {"bg1": "#ff6f7a", "bg2": "#ffd05d", "ink": "#15110f", "paper": "#fff0d0", "accent": "#ff4f66", "accent2": "#5bd3b5"}
+}

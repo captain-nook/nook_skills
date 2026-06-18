@@ -1,0 +1,35 @@
+{
+  "platform": "xiaohongshu",
+  "canvas": {
+    "width": 1080,
+    "height": 1440,
+    "ratio": "3:4"
+  },
+  "topic": "AI 效率工具",
+  "title": "这 5 个 AI 工具 每天省我 2 小时",
+  "subtitle": "打工人效率神器",
+  "audience": "职场白领",
+  "content_type": "tool",
+  "visual_goal": "click",
+  "visual_system": "hook-title",
+  "layout_family": "info-hook-cover",
+  "palette": "tech-blue-charcoal",
+  "asset_strategy": "qwen_main_visual",
+  "image_prompt": "Asian male 28 wearing glasses and dark hoodie, sitting at clean desk with multiple monitors showing code, cyber-blue ambient lighting, focused expression, modern minimalist workspace, no text, no logo, no watermark",
+  "bullets": [
+    "ChatGPT",
+    "Cursor",
+    "Notion AI"
+  ],
+  "series": "AI 工具箱",
+  "eyebrow": "效率实测",
+  "tags": [
+    "AI 工具",
+    "效率"
+  ],
+  "qa": [
+    "5 个工具都要露出",
+    "数字 2 小时醒目"
+  ],
+  "background_image": "output/M1-ai-tools/main.jpg"
+}

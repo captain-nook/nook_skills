@@ -1,0 +1,41 @@
+{
+  "platform": "xiaohongshu",
+  "canvas": {
+    "width": 1080,
+    "height": 1440,
+    "ratio": "3:4"
+  },
+  "topic": "用 AI 搭建小红书封面生成器",
+  "title": "我把小红书封面做成了AI流水线",
+  "title_lines": ["我把小红书封面", "做成了", "AI 流水线"],
+  "subtitle": "一句话进来，封面自动落地",
+  "audience": "想用 AI 提升自媒体设计效率的中文创作者",
+  "content_type": "tutorial",
+  "visual_goal": "click",
+  "visual_system": "hook-title",
+  "layout_family": "bold-compare-generator",
+  "palette": "hot-coral-lemon-ink",
+  "asset_strategy": "none",
+  "text_safe_zone": "title occupies upper half; generator panel and comparison chips stay below title",
+  "series": "封面实验室",
+  "eyebrow": "教程实测",
+  "tags": ["AI设计", "小红书首图"],
+  "bullets": ["选题", "排版", "导出"],
+  "compare": {
+    "before_label": "以前",
+    "before_text": "靠感觉瞎调",
+    "after_label": "现在",
+    "after_text": "brief 驱动出图"
+  },
+  "pipeline": ["主题", "brief", "HTML", "PNG"],
+  "panel_title": "封面生成器",
+  "panel_note": "标题 / 色彩 / 版式 / 导出全部可控",
+  "visual_note": "大字色块爆款封面 + 物件证据封面 + 对比承诺结构",
+  "footer": "nook-cover / 小红书封面 v0.2",
+  "qa": [
+    "title readable at phone thumbnail size",
+    "looks like Xiaohongshu first image rather than PPT page",
+    "one clear focal point",
+    "no generated Chinese text in background"
+  ]
+}

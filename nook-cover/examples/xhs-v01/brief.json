@@ -1,0 +1,32 @@
+{
+  "platform": "xiaohongshu",
+  "canvas": {
+    "width": 1080,
+    "height": 1440,
+    "ratio": "3:4"
+  },
+  "topic": "用 AI 搭建小红书封面生成器",
+  "title": "一句话生成小红书封面",
+  "title_lines": ["一句话生成", "小红书封面"],
+  "subtitle": "AI 视觉工作流实测",
+  "audience": "想用 AI 提升自媒体设计效率的创作者",
+  "content_type": "tutorial",
+  "visual_goal": "click",
+  "visual_system": "hook-title",
+  "layout_family": "info-hook-cover",
+  "palette": "warm-coral-mint",
+  "asset_strategy": "none",
+  "text_safe_zone": "title in upper-middle safe zone; bottom cards stay clear of platform UI",
+  "series": "封面实验室",
+  "eyebrow": "教程实测",
+  "tags": ["AI 工作流", "封面设计"],
+  "bullets": ["先生成设计 brief", "再用 HTML 控制文字", "最后截图导出 PNG"],
+  "visual_note": "poster 上游设计模块",
+  "footer": "nook-cover / 小红书封面 v0.1",
+  "qa": [
+    "title readable at phone thumbnail size",
+    "no generated Chinese text in background",
+    "one clear focal point",
+    "cover looks like Xiaohongshu first image"
+  ]
+}

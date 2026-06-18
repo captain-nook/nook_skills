@@ -1,0 +1,15 @@
+{
+  "name": "nook-cover",
+  "version": "0.2.0",
+  "private": true,
+  "description": "中文自媒体封面生产 skill，当前聚焦小红书封面。",
+  "type": "commonjs",
+  "scripts": {
+    "setup": "node scripts/setup-provider.cjs",
+    "render:xhs": "node scripts/render-xhs-cover.cjs"
+  },
+  "dependencies": {
+    "playwright": "^1.52.0"
+  },
+  "devDependencies": {}
+}

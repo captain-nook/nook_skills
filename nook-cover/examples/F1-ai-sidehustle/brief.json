@@ -1,0 +1,35 @@
+{
+  "platform": "xiaohongshu",
+  "canvas": {
+    "width": 1080,
+    "height": 1440,
+    "ratio": "3:4"
+  },
+  "topic": "AI 副业实操",
+  "title": "我用 AI 一个月多挣 8000",
+  "subtitle": "下班 2 小时 在家就能做",
+  "audience": "想搞副业的上班族",
+  "content_type": "tutorial",
+  "visual_goal": "click",
+  "visual_system": "hook-title",
+  "layout_family": "info-hook-cover",
+  "palette": "warm-coral-mint",
+  "asset_strategy": "qwen_main_visual",
+  "image_prompt": "young Asian woman half body, sitting at home with laptop, warm window light, soft smile, coffee cup nearby, no text, no logo, no watermark",
+  "bullets": [
+    "接 AI 头像单",
+    "写公众号 prompt",
+    "做小红书图文"
+  ],
+  "series": "AI 搞钱日记",
+  "eyebrow": "副业实录",
+  "tags": [
+    "AI 副业",
+    "搞钱"
+  ],
+  "qa": [
+    "数字 8000 必须醒目",
+    "手机缩略图可读"
+  ],
+  "background_image": "output/F1-ai-sidehustle/main.jpg"
+}

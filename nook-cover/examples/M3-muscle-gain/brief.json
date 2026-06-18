@@ -1,0 +1,35 @@
+{
+  "platform": "xiaohongshu",
+  "canvas": {
+    "width": 1080,
+    "height": 1440,
+    "ratio": "3:4"
+  },
+  "topic": "增肌实录",
+  "title": "90 天 65kg 到 75kg",
+  "subtitle": "我的增肌饮食和训练",
+  "audience": "健身男性",
+  "content_type": "case",
+  "visual_goal": "save",
+  "visual_system": "proof-signal",
+  "layout_family": "object-plus-title",
+  "palette": "dark-amber",
+  "asset_strategy": "image2_ref_preserved",
+  "image_prompt": "athletic Asian male mid-20s, wearing dark gym tank top, gym mirror background, side profile showing shoulder and arm muscle, dramatic overhead lighting, motivational, no text, no logo, no watermark",
+  "bullets": [
+    "吃",
+    "练",
+    "睡"
+  ],
+  "series": "增肌 90 天",
+  "eyebrow": "对比实录",
+  "tags": [
+    "健身",
+    "增肌"
+  ],
+  "qa": [
+    "体型真实",
+    "数字 65-75 醒目"
+  ],
+  "background_image": "output/M3-muscle-gain/main.jpg"
+}

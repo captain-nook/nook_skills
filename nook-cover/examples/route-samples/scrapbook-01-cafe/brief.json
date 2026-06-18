@@ -1,0 +1,13 @@
+{
+  "platform": "xiaohongshu",
+  "canvas": {"width": 1080, "height": 1440, "ratio": "3:4"},
+  "layout_family": "scrapbook-collage",
+  "series": "探店手账",
+  "title": "这家咖啡厅我去了20次",
+  "title_lines": ["这家咖啡厅", "我去了", "20 次"],
+  "subtitle": "藏在巷子里的安静角落",
+  "tags": ["探店", "咖啡"],
+  "memo": "喜欢这里的光线、音乐和每一杯抹茶拿铁。",
+  "bullets": ["安静", "治愈", "有温度"],
+  "palette": {"bg1": "#d7e9b0", "bg2": "#ffe2b0", "ink": "#365c2f", "paper": "#fff6db", "accent": "#6b8f43", "accent2": "#f2b45a"}
+}

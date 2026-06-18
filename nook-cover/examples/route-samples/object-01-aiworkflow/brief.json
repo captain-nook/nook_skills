@@ -1,0 +1,14 @@
+{
+  "platform": "xiaohongshu",
+  "canvas": {"width": 1080, "height": 1440, "ratio": "3:4"},
+  "layout_family": "object-proof",
+  "series": "工具工作流",
+  "title": "一句话生成封面",
+  "title_lines": ["一句话", "生成封面"],
+  "subtitle": "文字准确，版式可控",
+  "tags": ["AI工具", "封面设计"],
+  "panel_title": "nook-cover",
+  "pipeline": ["主题", "brief", "HTML", "PNG"],
+  "bullets": ["不靠抽卡", "中文不乱码", "一秒改字"],
+  "palette": {"bg1": "#59d3b4", "bg2": "#ffe15c", "ink": "#111412", "paper": "#fff8df", "accent": "#ff4f66", "accent2": "#00a98f"}
+}

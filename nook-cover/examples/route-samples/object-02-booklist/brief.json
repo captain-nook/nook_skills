@@ -1,0 +1,14 @@
+{
+  "platform": "xiaohongshu",
+  "canvas": {"width": 1080, "height": 1440, "ratio": "3:4"},
+  "layout_family": "object-proof",
+  "series": "书单实验室",
+  "title": "这5本书救了我",
+  "title_lines": ["这 5 本书", "救了我"],
+  "subtitle": "低谷期反复翻",
+  "tags": ["书单", "成长"],
+  "panel_title": "阅读清单",
+  "pipeline": ["情绪", "方法", "行动", "复盘"],
+  "bullets": ["不鸡汤", "能执行", "适合收藏"],
+  "palette": {"bg1": "#9ec8ff", "bg2": "#fff0b8", "ink": "#111827", "paper": "#fff8e8", "accent": "#3157ff", "accent2": "#ffb02e"}
+}

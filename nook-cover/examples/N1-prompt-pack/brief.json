@@ -1,0 +1,34 @@
+{
+  "platform": "xiaohongshu",
+  "canvas": {
+    "width": 1080,
+    "height": 1440,
+    "ratio": "3:4"
+  },
+  "topic": "ChatGPT 提示词",
+  "title": "ChatGPT 提示词模板大全",
+  "subtitle": "直接抄作业",
+  "audience": "AI 学习者",
+  "content_type": "tool",
+  "visual_goal": "save",
+  "visual_system": "proof-signal",
+  "layout_family": "info-hook-cover",
+  "palette": "tech-dark-cyan",
+  "asset_strategy": "none",
+  "bullets": [
+    "写作",
+    "编程",
+    "分析"
+  ],
+  "series": "AI 工具箱",
+  "eyebrow": "模板合集",
+  "tags": [
+    "ChatGPT",
+    "提示词"
+  ],
+  "qa": [
+    "无任何 AI 图",
+    "纯排版扛打"
+  ],
+  "background_image": ""
+}

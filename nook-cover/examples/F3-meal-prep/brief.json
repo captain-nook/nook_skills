@@ -1,0 +1,35 @@
+{
+  "platform": "xiaohongshu",
+  "canvas": {
+    "width": 1080,
+    "height": 1440,
+    "ratio": "3:4"
+  },
+  "topic": "一周减脂餐",
+  "title": "一周减脂餐不重样",
+  "subtitle": "吃饱还能瘦",
+  "audience": "减脂期女性",
+  "content_type": "tutorial",
+  "visual_goal": "save",
+  "visual_system": "proof-signal",
+  "layout_family": "object-plus-title",
+  "palette": "fresh-mint-cream",
+  "asset_strategy": "image2_main_visual",
+  "image_prompt": "top-down flat lay of meal prep containers on marble table, colorful vegetables, grilled chicken, quinoa, fresh mint garnish, soft daylight, food photography, no text, no logo, no watermark",
+  "bullets": [
+    "周一",
+    "周三",
+    "周五"
+  ],
+  "series": "吃瘦日记",
+  "eyebrow": "减脂实测",
+  "tags": [
+    "减脂",
+    "食谱"
+  ],
+  "qa": [
+    "食物真实不假",
+    "颜色不抢主标题"
+  ],
+  "background_image": "output/F3-meal-prep/main.jpg"
+}

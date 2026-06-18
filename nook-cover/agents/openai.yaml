@@ -1,0 +1,3 @@
+display_name: nook-cover
+short_description: 多平台自媒体封面生产，先从小红书封面开始。
+default_prompt: 根据这个主题生成一张小红书封面。

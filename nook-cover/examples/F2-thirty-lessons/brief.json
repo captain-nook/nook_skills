@@ -1,0 +1,35 @@
+{
+  "platform": "xiaohongshu",
+  "canvas": {
+    "width": 1080,
+    "height": 1440,
+    "ratio": "3:4"
+  },
+  "topic": "30 岁认知觉醒",
+  "title": "30 岁我才懂的 5 件事",
+  "subtitle": "希望你不用等到 30 岁",
+  "audience": "25-35 岁女性",
+  "content_type": "opinion",
+  "visual_goal": "save",
+  "visual_system": "life-aesthetic",
+  "layout_family": "clean-title-bg",
+  "palette": "cream-earth",
+  "asset_strategy": "zimage_background",
+  "image_prompt": "soft morning light through linen curtain, warm beige wall, single dried flower in glass vase on wooden table, soft focus, calm, no people, no text, no logo",
+  "bullets": [
+    "不解释",
+    "不讨好",
+    "不回头"
+  ],
+  "series": "清醒女孩",
+  "eyebrow": "成长感悟",
+  "tags": [
+    "成长",
+    "认知"
+  ],
+  "qa": [
+    "背景安静不抢字",
+    "标题是唯一焦点"
+  ],
+  "background_image": "output/F2-thirty-lessons/bg.jpg"
+}

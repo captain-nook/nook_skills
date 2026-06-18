@@ -1,0 +1,16 @@
+{
+  "platform": "xiaohongshu",
+  "canvas": {"width": 1080, "height": 1440, "ratio": "3:4"},
+  "layout_family": "big-type",
+  "series": "避坑清单",
+  "title": "别再让AI直接写标题",
+  "title_lines": ["别再让 AI", "直接写", "标题"],
+  "subtitle": "错一个字，整张封面废掉",
+  "tags": ["避坑", "出图"],
+  "before_label": "直出",
+  "before_text": "伪字、假 logo、假平台 UI 一起出现。",
+  "panel_title": "拆开",
+  "panel_note": "画面给 AI，文字交给 HTML。",
+  "bullets": ["不乱码", "可复改", "能复用"],
+  "palette": {"bg1": "#1a1a1a", "bg2": "#ff6b35", "ink": "#15110f", "paper": "#ffe35a", "accent": "#ff4f66", "accent2": "#fff4d0"}
+}

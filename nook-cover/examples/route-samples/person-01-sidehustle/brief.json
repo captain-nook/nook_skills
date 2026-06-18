@@ -1,0 +1,12 @@
+{
+  "platform": "xiaohongshu",
+  "canvas": {"width": 1080, "height": 1440, "ratio": "3:4"},
+  "layout_family": "person-emotion",
+  "series": "副业实测",
+  "title": "下班后搞副业",
+  "title_lines": ["下班后", "搞副业"],
+  "subtitle": "普通人也能跑起来",
+  "tags": ["真实记录", "AI副业"],
+  "bullets": ["时间自由", "多份收入", "低成本试错"],
+  "palette": {"bg1": "#ff9078", "bg2": "#ffd46b", "ink": "#19110f", "paper": "#fff1d6", "accent": "#ff4f66", "accent2": "#54d2b5"}
+}

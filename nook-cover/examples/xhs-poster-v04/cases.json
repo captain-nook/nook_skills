@@ -1,0 +1,72 @@
+{
+  "cases": [
+    {
+      "id": "v04-face-sidehustle",
+      "layout_contract": "face-impact",
+      "canvas": { "width": 1080, "height": 1440 },
+      "background_position": "center",
+      "title": "下班后搞副业",
+      "title_lines": ["下班后", "搞副业"],
+      "subtitle": "月入过万其实不难",
+      "tags": ["普通人", "副业笔记"],
+      "bullets": ["时间自由", "多份收入", "实现热爱"],
+      "title_perspective": { "mode": "top-slam", "rotate": -7, "skew": -8, "perspective": 900 },
+      "safe_zones": {
+        "face": { "x": 0.36, "y": 0.20, "w": 0.32, "h": 0.25 },
+        "title_allowed": ["top-left", "top-right", "side-left"]
+      },
+      "output_name": "001_下班后搞副业.png",
+      "palette": { "accent": "#ff684f", "accent2": "#ffe05f", "ink": "#63321f", "paper": "#fff6df" }
+    },
+    {
+      "id": "v04-scrapbook-cafe",
+      "layout_contract": "scrapbook-collage",
+      "canvas": { "width": 1080, "height": 1440 },
+      "background_position": "center",
+      "title": "这家咖啡厅我去了20次",
+      "title_lines": ["这家", "咖啡厅", "去了20次"],
+      "subtitle": "藏在巷子里的宝藏小店",
+      "tags": ["探店", "治愈角落"],
+      "bullets": ["安静治愈", "光线很美", "适合发呆"],
+      "note": "喜欢这里的光线和音乐",
+      "title_perspective": { "mode": "flat-sticker", "rotate": 3, "skew": 0, "perspective": 0 },
+      "output_name": "002_这家咖啡厅我去了20次.png",
+      "palette": { "accent": "#6f9b48", "accent2": "#e7f2b8", "ink": "#365a2f", "paper": "#fffbea" }
+    },
+    {
+      "id": "v04-product-ai-cover",
+      "layout_contract": "product-hero",
+      "canvas": { "width": 1080, "height": 1440 },
+      "background_position": "center",
+      "title": "一句话生成封面",
+      "title_lines": ["一句话", "生成封面"],
+      "subtitle": "底图交给模型，中文交给 HTML",
+      "tags": ["AI出图", "中文不翻车"],
+      "panel_title": "封面生产链路",
+      "bullets": ["底图生成", "标题叠字", "批量导出", "样张抽卡", "模板复用"],
+      "title_perspective": { "mode": "side-push", "rotate": -5, "skew": -6, "perspective": 850 },
+      "output_name": "003_一句话生成封面.png",
+      "palette": { "accent": "#ffffff", "accent2": "#61f2d3", "ink": "#ffffff", "paper": "#071126" }
+    },
+    {
+      "id": "v04-compare-fitness",
+      "layout_contract": "perspective-compare",
+      "canvas": { "width": 1080, "height": 1440 },
+      "background_position": "center",
+      "title": "增肌半年从瘦到壮",
+      "title_lines": ["增肌半年", "从瘦", "到壮"],
+      "subtitle": "我的训练计划表",
+      "tags": ["增肌", "训练计划"],
+      "before_label": "以前瞎练",
+      "after_label": "现在会吃会练",
+      "bullets": ["科学训练", "饮食管理", "持续进阶", "自律坚持"],
+      "title_perspective": { "mode": "card-perspective", "rotate": -6, "skew": -10, "perspective": 760 },
+      "safe_zones": {
+        "face": { "x": 0.48, "y": 0.17, "w": 0.24, "h": 0.20 },
+        "title_allowed": ["top-left", "behind-person"]
+      },
+      "output_name": "004_增肌半年从瘦到壮.png",
+      "palette": { "accent": "#f47a00", "accent2": "#ffd24d", "ink": "#ffffff", "paper": "#111111" }
+    }
+  ]
+}

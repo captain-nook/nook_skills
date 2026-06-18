@@ -1,0 +1,35 @@
+{
+  "platform": "xiaohongshu",
+  "canvas": {
+    "width": 1080,
+    "height": 1440,
+    "ratio": "3:4"
+  },
+  "topic": "下班副业",
+  "title": "下班 2 小时 搞钱计划",
+  "subtitle": "已经跑了 90 天",
+  "audience": "上班族",
+  "content_type": "case",
+  "visual_goal": "click",
+  "visual_system": "proof-signal",
+  "layout_family": "info-hook-cover",
+  "palette": "navy-gold",
+  "asset_strategy": "zimage_background",
+  "image_prompt": "city night skyline from apartment window, warm desk lamp light, notebook and coffee, urban side hustle atmosphere, dark moody, cinematic, no people, no text, no logo",
+  "bullets": [
+    "选赛道",
+    "跑 MVP",
+    "稳定出单"
+  ],
+  "series": "下班搞钱",
+  "eyebrow": "90 天实录",
+  "tags": [
+    "副业",
+    "搞钱"
+  ],
+  "qa": [
+    "夜景氛围",
+    "不出现真人脸"
+  ],
+  "background_image": "output/M2-sidehustle/bg.jpg"
+}

@@ -1,0 +1,13 @@
+.env
+.env.*
+!.env.example
+output/
+*.log
+__pycache__/
+scripts__pycache__/
+node_modules/
+.npm-cache/
+.ms-playwright/
+dist/
+tmp/
+*.tmp

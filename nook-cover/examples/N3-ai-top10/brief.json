@@ -1,0 +1,36 @@
+{
+  "platform": "xiaohongshu",
+  "canvas": {
+    "width": 1080,
+    "height": 1440,
+    "ratio": "3:4"
+  },
+  "topic": "AI 工具排行",
+  "title": "2025 最强 AI 工具 TOP 10",
+  "subtitle": "亲测 30 天整理",
+  "audience": "AI 重度用户",
+  "content_type": "tool",
+  "visual_goal": "click",
+  "visual_system": "hook-title",
+  "layout_family": "info-hook-cover",
+  "palette": "neon-purple-black",
+  "asset_strategy": "qwen_main_visual",
+  "image_prompt": "futuristic abstract background, neon purple and electric blue gradient, geometric circuit pattern, dark cyberpunk mood, no people, no text, no logo, no watermark",
+  "bullets": [
+    "写作",
+    "图像",
+    "视频",
+    "代码"
+  ],
+  "series": "AI 榜单",
+  "eyebrow": "TOP 10",
+  "tags": [
+    "AI",
+    "榜单"
+  ],
+  "qa": [
+    "数字 TOP 10 第一眼可见",
+    "科技氛围"
+  ],
+  "background_image": "output/N3-ai-top10/main.jpg"
+}

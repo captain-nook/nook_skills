@@ -1,0 +1,35 @@
+{
+  "platform": "xiaohongshu",
+  "canvas": {
+    "width": 1080,
+    "height": 1440,
+    "ratio": "3:4"
+  },
+  "topic": "年度书单",
+  "title": "今年读过最值的 5 本书",
+  "subtitle": "推荐给想要变好的你",
+  "audience": "读书爱好者",
+  "content_type": "opinion",
+  "visual_goal": "save",
+  "visual_system": "life-aesthetic",
+  "layout_family": "clean-title-bg",
+  "palette": "warm-paper-sepia",
+  "asset_strategy": "zimage_background",
+  "image_prompt": "stack of 5 different books on linen tablecloth, soft natural window light, coffee cup beside, top-down view, warm tones, vintage mood, no people, no text, no logo",
+  "bullets": [
+    "认知",
+    "商业",
+    "文学"
+  ],
+  "series": "读书笔记",
+  "eyebrow": "年度盘点",
+  "tags": [
+    "书单",
+    "读书"
+  ],
+  "qa": [
+    "书本清晰可辨",
+    "暖色安静"
+  ],
+  "background_image": "output/N2-booklist/bg.jpg"
+}

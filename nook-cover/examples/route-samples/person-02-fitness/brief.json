@@ -1,0 +1,12 @@
+{
+  "platform": "xiaohongshu",
+  "canvas": {"width": 1080, "height": 1440, "ratio": "3:4"},
+  "layout_family": "person-emotion",
+  "series": "减脂记录",
+  "title": "30天瘦了10斤",
+  "title_lines": ["30 天", "瘦了 10 斤"],
+  "subtitle": "我的饮食清单公开",
+  "tags": ["减脂", "饮食"],
+  "bullets": ["低卡美味", "营养均衡", "好吃不胖"],
+  "palette": {"bg1": "#ffbfd2", "bg2": "#fff09a", "ink": "#16110f", "paper": "#fff8df", "accent": "#ff4e7a", "accent2": "#9be36d"}
+}

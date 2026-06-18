@@ -1,0 +1,13 @@
+{
+  "platform": "xiaohongshu",
+  "canvas": {"width": 1080, "height": 1440, "ratio": "3:4"},
+  "layout_family": "scrapbook-collage",
+  "series": "旅行手账",
+  "title": "周末逃去海边",
+  "title_lines": ["周末", "逃去海边"],
+  "subtitle": "两天一夜慢慢走",
+  "tags": ["旅行", "周末"],
+  "memo": "没有赶景点，只看日落、吃海鲜、坐在风里发呆。",
+  "bullets": ["日落", "海风", "慢旅行"],
+  "palette": {"bg1": "#b8e5ff", "bg2": "#ffe4b7", "ink": "#16415f", "paper": "#fff9e5", "accent": "#2f7ea8", "accent2": "#ffb75a"}
+}
