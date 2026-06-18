@@ -11,6 +11,8 @@
 
 这不是一个 Photoshop 模板包，也不是单纯提示词合集。它的核心是：先选视觉系统，再按场景选择出图工具，最后做封面 QA。
 
+注意：Codex Desktop 内置 image2.0 不是所有运行时都有。ZCode、Claude Code、Cursor 或普通命令行通常需要配置外部出图工具，或让用户提供人物、产品、截图、背景素材。没有图像通道时，HTML / Playwright 只能生成中文排版证明，不能替代真人主视觉。
+
 ## 效果预览
 
 ### image2.0 直出候选
@@ -65,12 +67,25 @@
 ```bash
 npm install
 npx playwright install chromium
+npx playwright install chromium-headless-shell
 ```
 
 如果 Windows 下 npm cache 权限报错，可以把 cache 放到项目内：
 
 ```bash
 npm install --cache ./.npm-cache
+```
+
+如果 Playwright 报 `chromium_headless_shell` 不存在，运行：
+
+```bash
+npx playwright install chromium-headless-shell
+```
+
+也可以指定本机已有 Chrome / Chromium：
+
+```powershell
+$env:PLAYWRIGHT_CHROMIUM_EXECUTABLE="C:\Path\To\chrome.exe"
 ```
 
 跑一张 HTML / Playwright 文字稳定路线样张：

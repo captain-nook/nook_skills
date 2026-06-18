@@ -11,6 +11,7 @@ git clone <repo-url>
 cd nook-cover
 npm install
 npx playwright install chromium
+npx playwright install chromium-headless-shell
 ```
 
 如果 Windows 下 npm cache 权限报错，可以改用项目内 cache：
@@ -25,11 +26,26 @@ npm install --cache ./.npm-cache
 PLAYWRIGHT_CHROMIUM_EXECUTABLE=/path/to/chrome node scripts/render-xhs-cover.cjs examples/N1-prompt-pack/brief.json output/test
 ```
 
+Windows PowerShell 示例：
+
+```powershell
+$env:PLAYWRIGHT_CHROMIUM_EXECUTABLE="C:\Path\To\chrome.exe"
+node scripts/render-xhs-cover.cjs examples/N1-prompt-pack/brief.json output/test
+```
+
+如果渲染时报 `chromium_headless_shell` 不存在，优先运行：
+
+```bash
+npx playwright install chromium-headless-shell
+```
+
 如果当前环境没有 Node 依赖，先按助手所在环境安装 Node.js。不要把 API key 写入文档或提交到 Git。
 
 ## 2. 可选配置
 
 如果只使用 Codex Desktop 内置 image2.0，可以不配置外部 key。
+
+如果在 ZCode、Claude Code、Cursor 或普通命令行中使用，通常没有 Codex Desktop 内置 image2.0。此时想得到真人、产品、场景主视觉，必须配置至少一个外部原子出图工具，或让用户提供素材。否则只能生成 HTML / Playwright 文字排版证明。
 
 如果要接入三套原子出图工具，运行：
 
@@ -89,6 +105,14 @@ IMAGE_API_BASE_URL
 主题：普通人做封面别再瞎搞。
 优先 image2.0 直出，如果中文不准，再用 HTML / 后处理复刻标题层。
 输出到我指定的文件夹。
+```
+
+如果助手回复“当前运行时没有内置 image2.0”，这是正常情况。此时有三种选择：
+
+```text
+1. 配置 nook-zimage / nook-qwen-image / nook-image2-gpt。
+2. 提供一张人物、产品、截图或背景素材，让 nook-cover 负责文字层和排版。
+3. 只跑 HTML / Playwright 排版证明，用来验证中文、层级和构图。
 ```
 
 助手执行时要完成：

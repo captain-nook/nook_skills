@@ -62,10 +62,27 @@ IMAGE_API_BASE_URL=
 默认优先级：
 
 ```text
-用户自带素材 > image2 图生图/高质量主视觉 > qwen 中文视觉素材 > zimage 快速背景 > CSS/HTML 占位底图
+Codex Desktop 内置 image2.0 > 用户自带素材 > nook-image2-gpt 图生图/高质量主视觉 > qwen 中文视觉素材 > zimage 快速背景 > CSS/HTML 文字排版证明
 ```
 
 中文标题和最终排版由 `nook-cover` 的 HTML 渲染层控制。不要依赖出图模型生成最终中文标题。
+
+## 运行时能力判断
+
+不要假设所有 AI 编程工具都有 Codex Desktop 内置 image2.0。
+
+```text
+Codex Desktop:
+  可以使用内置 image2.0 直出完整封面候选。
+
+ZCode / Claude Code / Cursor / 普通命令行:
+  默认没有 Codex Desktop 内置 image2.0。
+  若要真实人物、产品、场景主视觉，必须配置 nook-zimage / nook-qwen-image / nook-image2-gpt，或让用户提供素材。
+
+没有图像通道，也没有用户素材:
+  只能生成 HTML / Playwright 文字排版证明。
+  必须明确说明：这不是完整小红书爆款封面，缺少真实主视觉。
+```
 
 V04-2 之后的实际生产优先级：
 
@@ -78,6 +95,8 @@ V04-2 之后的实际生产优先级：
 ```
 
 也就是说，HTML 不是每次都必须执行。只要 image2.0 的中文和构图已经通过 QA，可以直接使用整图成品。
+
+反过来，如果没有任何图像通道，HTML 也不能代替出图模型负责真人、产品、背景和场景。它只能负责文字准确性、层级和可控排版。
 
 ## 交互式 brief
 

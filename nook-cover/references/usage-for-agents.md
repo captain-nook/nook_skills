@@ -7,7 +7,7 @@
 默认路线：
 
 ```text
-Codex 内置 image2.0 直接出整张封面候选
+有 Codex Desktop 内置 image2.0 时，直接出整张封面候选
 ```
 
 使用外部工具时：
@@ -15,6 +15,8 @@ Codex 内置 image2.0 直接出整张封面候选
 - 快速草图 / 免费测试 / 亚洲人物：`nook-zimage`
 - 中文海报 / 中文视觉 / 中文文字测试：`nook-qwen-image`
 - 高质量成品 / 图生图 / 参考图保持：`nook-image2-gpt` 或内置 image2.0
+
+如果当前运行时没有 Codex Desktop 内置 image2.0，也没有配置外部工具，不要假装完成了真实封面生成。只能输出 HTML / Playwright 排版证明，并明确说明缺少真人、产品或场景主视觉。
 
 ## 2. 生成 brief
 
