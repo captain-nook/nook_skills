@@ -2,7 +2,7 @@
 
 当用户要求生成小红书封面时，按下面流程执行。
 
-执行小红书封面成品生成时，必须优先读取 `references/image2-direct-cover-contract.md`。当前默认路线是 image2.0 整图直出，HTML 只作为中文兜底、结构验证、批量换字或后处理文字层。
+执行小红书封面成品生成时，必须优先读取 `references/image2-direct-cover-contract.md`。如果运行时支持图生图，继续读取 `references/html-sketch-to-image2-workflow.md`，默认采用“HTML 草图 -> image2.0 重绘”的路线。HTML 草图不是成品，只作为布局和文字结构参考。
 
 只有在明确选择 HTML 路线时，才读取 `references/v05-html-visual-contracts.md` 和 `references/v05-template-map.md`。四套视觉系统不是审美描述，而是 HTML 可执行的构图、文字效果和辅助元素合同。
 
