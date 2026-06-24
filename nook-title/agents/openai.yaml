@@ -1,0 +1,6 @@
+interface:
+  display_name: "Nook Title"
+  short_description: "生成和评分公众号/AI资讯标题"
+  default_prompt: "Use $nook-title to generate and score fact-bound Chinese WeChat title candidates."
+policy:
+  allow_implicit_invocation: true
