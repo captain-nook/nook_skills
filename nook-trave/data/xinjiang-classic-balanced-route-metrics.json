@@ -1,0 +1,287 @@
+{
+  "source_route": "D:\\nook_vault\\82_Skills\\nook-skills\\skills\\nook-trave\\nook-trave\\data\\xinjiang-classic-balanced-route.json",
+  "provider": "amap_direction_driving",
+  "verification": "distances and durations are API estimates; still recheck before departure",
+  "days": [
+    {
+      "day": 1,
+      "date": "2026-07-20",
+      "start": "成都",
+      "end": "兰州/天水",
+      "theme": "出川进甘",
+      "status": "verified_by_amap",
+      "distance_km": 869.2,
+      "duration_hours": 9.8,
+      "duration_text": "9h50m"
+    },
+    {
+      "day": 2,
+      "date": "2026-07-21",
+      "start": "兰州/天水",
+      "end": "张掖",
+      "theme": "河西走廊推进",
+      "status": "verified_by_amap",
+      "distance_km": 508.5,
+      "duration_hours": 5.8,
+      "duration_text": "5h49m"
+    },
+    {
+      "day": 3,
+      "date": "2026-07-22",
+      "start": "张掖",
+      "end": "敦煌/嘉峪关",
+      "theme": "河西走廊落脚",
+      "status": "verified_by_amap",
+      "distance_km": 590.6,
+      "duration_hours": 6.1,
+      "duration_text": "6h07m"
+    },
+    {
+      "day": 4,
+      "date": "2026-07-23",
+      "start": "敦煌",
+      "end": "哈密",
+      "theme": "正式进疆",
+      "status": "verified_by_amap",
+      "distance_km": 416.3,
+      "duration_hours": 5.0,
+      "duration_text": "5h00m"
+    },
+    {
+      "day": 5,
+      "date": "2026-07-24",
+      "start": "哈密",
+      "end": "乌鲁木齐",
+      "theme": "进入新疆主线",
+      "status": "verified_by_amap",
+      "distance_km": 594.8,
+      "duration_hours": 7.1,
+      "duration_text": "7h03m"
+    },
+    {
+      "day": 6,
+      "date": "2026-07-25",
+      "start": "乌鲁木齐",
+      "end": "赛里木湖/博乐",
+      "theme": "北疆湖景前置",
+      "status": "verified_by_amap",
+      "distance_km": 559.2,
+      "duration_hours": 6.0,
+      "duration_text": "6h00m"
+    },
+    {
+      "day": 7,
+      "date": "2026-07-26",
+      "start": "赛里木湖/博乐",
+      "end": "伊宁",
+      "theme": "湖畔公路与伊犁补给",
+      "status": "verified_by_amap",
+      "distance_km": 156.3,
+      "duration_hours": 2.5,
+      "duration_text": "2h29m"
+    },
+    {
+      "day": 8,
+      "date": "2026-07-27",
+      "start": "伊宁",
+      "end": "昭苏/特克斯",
+      "theme": "伊犁草原过渡",
+      "status": "verified_by_amap",
+      "distance_km": 132.3,
+      "duration_hours": 2.6,
+      "duration_text": "2h34m"
+    },
+    {
+      "day": 9,
+      "date": "2026-07-28",
+      "start": "昭苏/特克斯",
+      "end": "那拉提",
+      "theme": "草原景观日",
+      "status": "verified_by_amap",
+      "distance_km": 220.9,
+      "duration_hours": 3.5,
+      "duration_text": "3h28m"
+    },
+    {
+      "day": 10,
+      "date": "2026-07-29",
+      "start": "那拉提",
+      "end": "巴音布鲁克",
+      "theme": "高海拔草原",
+      "status": "verified_by_amap",
+      "distance_km": 160.0,
+      "duration_hours": 2.9,
+      "duration_text": "2h53m"
+    },
+    {
+      "day": 11,
+      "date": "2026-07-30",
+      "start": "巴音布鲁克",
+      "end": "库车",
+      "theme": "独库南段核心驾驶日",
+      "status": "verified_by_amap",
+      "distance_km": 256.8,
+      "duration_hours": 4.1,
+      "duration_text": "4h04m"
+    },
+    {
+      "day": 12,
+      "date": "2026-07-31",
+      "start": "库车",
+      "end": "库车",
+      "theme": "南疆前休整",
+      "status": "skipped",
+      "reason": "rest day, flexible day, or unknown coordinate"
+    },
+    {
+      "day": 13,
+      "date": "2026-08-01",
+      "start": "库车",
+      "end": "阿克苏",
+      "theme": "南疆推进",
+      "status": "verified_by_amap",
+      "distance_km": 253.5,
+      "duration_hours": 2.8,
+      "duration_text": "2h47m"
+    },
+    {
+      "day": 14,
+      "date": "2026-08-02",
+      "start": "阿克苏",
+      "end": "喀什",
+      "theme": "抵达南疆核心",
+      "status": "verified_by_amap",
+      "distance_km": 466.8,
+      "duration_hours": 4.7,
+      "duration_text": "4h42m"
+    },
+    {
+      "day": 15,
+      "date": "2026-08-03",
+      "start": "喀什",
+      "end": "喀什",
+      "theme": "喀什人文休整",
+      "status": "skipped",
+      "reason": "rest day, flexible day, or unknown coordinate"
+    },
+    {
+      "day": 16,
+      "date": "2026-08-04",
+      "start": "喀什",
+      "end": "塔什库尔干",
+      "theme": "帕米尔高原",
+      "status": "verified_by_amap",
+      "distance_km": 288.9,
+      "duration_hours": 4.6,
+      "duration_text": "4h35m"
+    },
+    {
+      "day": 17,
+      "date": "2026-08-05",
+      "start": "塔什库尔干",
+      "end": "喀什",
+      "theme": "帕米尔返程",
+      "status": "verified_by_amap",
+      "distance_km": 280.1,
+      "duration_hours": 4.5,
+      "duration_text": "4h29m"
+    },
+    {
+      "day": 18,
+      "date": "2026-08-06",
+      "start": "喀什",
+      "end": "和田",
+      "theme": "南疆城市推进",
+      "status": "verified_by_amap",
+      "distance_km": 498.9,
+      "duration_hours": 5.4,
+      "duration_text": "5h24m"
+    },
+    {
+      "day": 19,
+      "date": "2026-08-07",
+      "start": "和田",
+      "end": "民丰/且末",
+      "theme": "塔克拉玛干南缘",
+      "status": "verified_by_amap",
+      "distance_km": 305.6,
+      "duration_hours": 3.6,
+      "duration_text": "3h34m"
+    },
+    {
+      "day": 20,
+      "date": "2026-08-08",
+      "start": "民丰/且末",
+      "end": "若羌",
+      "theme": "东出新疆准备",
+      "status": "verified_by_amap",
+      "distance_km": 566.9,
+      "duration_hours": 5.6,
+      "duration_text": "5h34m"
+    },
+    {
+      "day": 21,
+      "date": "2026-08-09",
+      "start": "若羌",
+      "end": "茫崖/花土沟",
+      "theme": "出疆弱补给段",
+      "status": "verified_by_amap",
+      "distance_km": 355.7,
+      "duration_hours": 4.5,
+      "duration_text": "4h27m"
+    },
+    {
+      "day": 22,
+      "date": "2026-08-10",
+      "start": "茫崖/花土沟",
+      "end": "德令哈",
+      "theme": "青海西部穿越",
+      "status": "verified_by_amap",
+      "distance_km": 689.7,
+      "duration_hours": 9.3,
+      "duration_text": "9h20m"
+    },
+    {
+      "day": 23,
+      "date": "2026-08-11",
+      "start": "德令哈",
+      "end": "青海湖/西宁",
+      "theme": "回程缓冲",
+      "status": "verified_by_amap",
+      "distance_km": 310.2,
+      "duration_hours": 3.6,
+      "duration_text": "3h36m"
+    },
+    {
+      "day": 24,
+      "date": "2026-08-12",
+      "start": "西宁",
+      "end": "兰州/陇南",
+      "theme": "回程推进",
+      "status": "verified_by_amap",
+      "distance_km": 220.3,
+      "duration_hours": 2.7,
+      "duration_text": "2h40m"
+    },
+    {
+      "day": 25,
+      "date": "2026-08-13",
+      "start": "兰州/陇南",
+      "end": "成都",
+      "theme": "返蓉",
+      "status": "verified_by_amap",
+      "distance_km": 869.8,
+      "duration_hours": 9.9,
+      "duration_text": "9h51m"
+    },
+    {
+      "day": 26,
+      "date": "2026-08-14",
+      "start": "机动",
+      "end": "机动",
+      "theme": "缓冲日",
+      "status": "skipped",
+      "reason": "rest day, flexible day, or unknown coordinate"
+    }
+  ]
+}

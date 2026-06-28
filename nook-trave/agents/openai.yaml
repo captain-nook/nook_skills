@@ -1,0 +1,7 @@
+interface:
+  display_name: "Nook Trave"
+  short_description: "生成可执行的竖屏自驾旅行路书与路线手册"
+  brand_color: "#B68A45"
+  default_prompt: "Use $nook-trave to plan a 25-day Xinjiang self-driving roadbook from Chengdu."
+policy:
+  allow_implicit_invocation: true

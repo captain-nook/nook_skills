@@ -1,0 +1,32 @@
+{
+  "version": "classic-balanced-v0.2-adjustment-plan",
+  "basis": "Amap route metrics from data/xinjiang-classic-balanced-route-metrics.json",
+  "core_judgment": "The v0.1 route is feasible for coverage-oriented travelers with two drivers, but it is not truly balanced unless three high-intensity days are split or explicitly protected by the buffer day.",
+  "must_fix_days": [
+    {
+      "day": 1,
+      "original": "成都 -> 兰州/天水，869.2km / 9h50m",
+      "problem": "第一天即接近 10 小时驾驶，容易造成后续疲劳累积。",
+      "recommended_fix": "Day 1 改为成都 -> 天水或陇南；Day 2 再到张掖或武威/张掖之间。若坚持 26 天不变，则压缩库车休整或使用机动日。",
+      "roadbook_rule": "若用户选择覆盖优先，可保留为高强度转场日，但必须提示 06:30 前出发、两司机轮换、夜间不再安排活动。"
+    },
+    {
+      "day": 22,
+      "original": "茫崖/花土沟 -> 德令哈，689.7km / 9h20m",
+      "problem": "青海西部路段长、补给感弱，连续旅行后期疲劳明显。",
+      "recommended_fix": "改为茫崖/花土沟 -> 大柴旦/格尔木方向中转，再到德令哈/西宁；或把 Day 23 的青海湖游览压缩为纯回程。",
+      "roadbook_rule": "这一天必须设置中途住宿备选和油量检查点。"
+    },
+    {
+      "day": 25,
+      "original": "兰州/陇南 -> 成都，869.8km / 9h51m",
+      "problem": "最后一天超长驾驶，事故风险和疲劳风险高。",
+      "recommended_fix": "优先使用 Day 26 机动日拆成两天回成都；若 Day 26 已被前面消耗，则 Day 24 需要更靠近陇南/广元方向。",
+      "roadbook_rule": "最终路书不能把这天写成轻松返程，必须列为高强度返程日或拆分。"
+    }
+  ],
+  "route_decision": {
+    "recommended_demo_path": "保留 v0.1 骨架用于展示地图核算如何发现问题；同时生成 v0.2 调整版，体现 AI 会纠偏，而不是只美化路线。",
+    "next_output": "Generate v0.2 daily skeleton with Day 1 and Day 25 split by the buffer day, and mark Day 22 as mandatory recheck / optional split."
+  }
+}

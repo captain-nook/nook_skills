@@ -1,0 +1,40 @@
+{
+  "source_route": "D:\\nook_vault\\82_Skills\\nook-skills\\skills\\nook-trave\\nook-trave\\data\\xinjiang-classic-balanced-route.json",
+  "provider": "amap_direction_driving",
+  "verification": "distances and durations are API estimates; still recheck before departure",
+  "days": [
+    {
+      "day": 1,
+      "date": "2026-07-20",
+      "start": "成都",
+      "end": "兰州/天水",
+      "theme": "出川进甘",
+      "status": "verified_by_amap",
+      "distance_km": 869.2,
+      "duration_hours": 9.8,
+      "duration_text": "9h50m"
+    },
+    {
+      "day": 2,
+      "date": "2026-07-21",
+      "start": "兰州/天水",
+      "end": "张掖",
+      "theme": "河西走廊推进",
+      "status": "verified_by_amap",
+      "distance_km": 508.5,
+      "duration_hours": 5.8,
+      "duration_text": "5h49m"
+    },
+    {
+      "day": 3,
+      "date": "2026-07-22",
+      "start": "张掖",
+      "end": "敦煌/嘉峪关",
+      "theme": "河西走廊落脚",
+      "status": "verified_by_amap",
+      "distance_km": 590.6,
+      "duration_hours": 6.1,
+      "duration_text": "6h06m"
+    }
+  ]
+}

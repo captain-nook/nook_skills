@@ -1,0 +1,18 @@
+{
+  "title": "Chengdu Xinjiang classic balanced route overview",
+  "size": "1024*768",
+  "zoom": 4,
+  "center": "94.000000,38.500000",
+  "points": [
+    { "name": "Chengdu", "location": "104.066541,30.572269" },
+    { "name": "Lanzhou", "location": "103.834303,36.061089" },
+    { "name": "Zhangye", "location": "100.449818,38.925875" },
+    { "name": "Dunhuang", "location": "94.661967,40.142128" },
+    { "name": "Hami", "location": "93.514916,42.818501" },
+    { "name": "Urumqi", "location": "87.616824,43.825377" },
+    { "name": "Sayram", "location": "81.184590,44.602001" },
+    { "name": "Kuqa", "location": "82.962016,41.717906" },
+    { "name": "Kashgar", "location": "75.989138,39.467664" },
+    { "name": "Ruoqiang", "location": "88.168807,39.023807" }
+  ]
+}

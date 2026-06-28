@@ -1,0 +1,51 @@
+{
+  "trip_profile": {
+    "name": "成都出发新疆经典均衡版",
+    "departure": "成都",
+    "start_date": "2026-07-20",
+    "max_days": 26,
+    "travelers": "1-2 位成年人",
+    "health": "身体状态稳定",
+    "vehicle": "油车 SUV",
+    "drivers": 2,
+    "driving_style": "覆盖优先，可接受少数 500km+ 长途日",
+    "priority": "经典点优先，兼顾南北疆",
+    "lodging": "经济干净",
+    "tradeoff": "尽量多覆盖，累一点可以接受"
+  },
+  "route_summary": {
+    "version": "classic-balanced-v0.1",
+    "map_status": "static-overview-generated; mileage-needs-amap-driving-verification",
+    "overview_map": "output/maps/overview.png",
+    "core_spots": ["赛里木湖", "伊犁", "那拉提", "巴音布鲁克", "独库公路", "库车", "喀什", "塔什库尔干", "和田", "若羌"],
+    "high_risk_nodes": ["敦煌-哈密进疆长途", "乌鲁木齐-赛里木湖长途", "那拉提-巴音布鲁克高海拔", "巴音布鲁克-库车独库南段", "喀什-塔县帕米尔高原", "若羌-茫崖弱补给"]
+  },
+  "days": [
+    {"day":1,"date":"2026-07-20","start":"成都","end":"兰州/天水","theme":"出川进甘","fatigue":"高","risk":"长途转场","delete_rule":"不安排景点"},
+    {"day":2,"date":"2026-07-21","start":"兰州/天水","end":"张掖","theme":"河西走廊推进","fatigue":"中高","risk":"连续长途","delete_rule":"晚到则取消夜间游览"},
+    {"day":3,"date":"2026-07-22","start":"张掖","end":"敦煌/嘉峪关","theme":"河西走廊落脚","fatigue":"中","risk":"景点贪多","delete_rule":"只保留一个核心停靠"},
+    {"day":4,"date":"2026-07-23","start":"敦煌","end":"哈密","theme":"正式进疆","fatigue":"高","risk":"长距离和补给","delete_rule":"不安排晚间活动"},
+    {"day":5,"date":"2026-07-24","start":"哈密","end":"乌鲁木齐","via":["吐鲁番"],"theme":"进入新疆主线","fatigue":"中高","risk":"高温和长途","delete_rule":"吐鲁番只做轻量停留"},
+    {"day":6,"date":"2026-07-25","start":"乌鲁木齐","end":"赛里木湖/博乐","theme":"北疆湖景前置","fatigue":"高","risk":"长途抵达湖区","delete_rule":"晚到则住博乐"},
+    {"day":7,"date":"2026-07-26","start":"赛里木湖/博乐","end":"伊宁","theme":"湖畔公路与伊犁补给","fatigue":"低","risk":"湖区大风","delete_rule":"大风时缩短湖边停留"},
+    {"day":8,"date":"2026-07-27","start":"伊宁","end":"昭苏/特克斯","theme":"伊犁草原过渡","fatigue":"中","risk":"山路和天气","delete_rule":"晚点则二选一夏塔/八卦城"},
+    {"day":9,"date":"2026-07-28","start":"昭苏/特克斯","end":"那拉提","theme":"草原景观日","fatigue":"中","risk":"景区停留过长","delete_rule":"控制拍照点数量"},
+    {"day":10,"date":"2026-07-29","start":"那拉提","end":"巴音布鲁克","theme":"高海拔草原","fatigue":"中高","risk":"天气和高海拔","delete_rule":"天气差则减少草原停留"},
+    {"day":11,"date":"2026-07-30","start":"巴音布鲁克","end":"库车","theme":"独库南段核心驾驶日","fatigue":"高","risk":"独库开放、山路、落石、天气","delete_rule":"独库封闭则改走备用绕行"},
+    {"day":12,"date":"2026-07-31","start":"库车","end":"库车","theme":"南疆前休整","fatigue":"低","risk":"恢复不足","delete_rule":"以休整优先"},
+    {"day":13,"date":"2026-08-01","start":"库车","end":"阿克苏","theme":"南疆推进","fatigue":"中","risk":"长路段单调","delete_rule":"不增加绕路景点"},
+    {"day":14,"date":"2026-08-02","start":"阿克苏","end":"喀什","theme":"抵达南疆核心","fatigue":"中高","risk":"晚到影响休整","delete_rule":"晚到直接入住"},
+    {"day":15,"date":"2026-08-03","start":"喀什","end":"喀什","theme":"喀什人文休整","fatigue":"低","risk":"古城拥挤和高温","delete_rule":"午后避晒"},
+    {"day":16,"date":"2026-08-04","start":"喀什","end":"塔什库尔干","theme":"帕米尔高原","fatigue":"高","risk":"高海拔和边境路段","delete_rule":"身体不适则不到塔县"},
+    {"day":17,"date":"2026-08-05","start":"塔什库尔干","end":"喀什","theme":"帕米尔返程","fatigue":"中高","risk":"高海拔返程疲劳","delete_rule":"只保留白沙湖/慕士塔格沿线重点"},
+    {"day":18,"date":"2026-08-06","start":"喀什","end":"和田","theme":"南疆城市推进","fatigue":"中高","risk":"长途和高温","delete_rule":"不加沙漠支线"},
+    {"day":19,"date":"2026-08-07","start":"和田","end":"民丰/且末","theme":"塔克拉玛干南缘","fatigue":"高","risk":"弱补给长路段","delete_rule":"优先保证天黑前入住"},
+    {"day":20,"date":"2026-08-08","start":"民丰/且末","end":"若羌","theme":"东出新疆准备","fatigue":"高","risk":"弱补给和疲劳累积","delete_rule":"必要时拆分住宿"},
+    {"day":21,"date":"2026-08-09","start":"若羌","end":"茫崖/花土沟","theme":"出疆弱补给段","fatigue":"高","risk":"长距离、弱补给、天气","delete_rule":"提前确认油量和住宿"},
+    {"day":22,"date":"2026-08-10","start":"茫崖/花土沟","end":"德令哈","theme":"青海西部穿越","fatigue":"高","risk":"连续高强度驾驶","delete_rule":"不安排景区深玩"},
+    {"day":23,"date":"2026-08-11","start":"德令哈","end":"青海湖/西宁","theme":"回程缓冲","fatigue":"中","risk":"疲劳后段","delete_rule":"体力差则直达西宁"},
+    {"day":24,"date":"2026-08-12","start":"西宁","end":"兰州/陇南","theme":"回程推进","fatigue":"中高","risk":"城市路况","delete_rule":"不安排绕路"},
+    {"day":25,"date":"2026-08-13","start":"兰州/陇南","end":"成都","theme":"返蓉","fatigue":"高","risk":"最后长途","delete_rule":"必要时拆为两天"},
+    {"day":26,"date":"2026-08-14","start":"机动","end":"机动","theme":"缓冲日","fatigue":"可调","risk":"独库、塔县、车辆、天气","delete_rule":"用于吸收前序延误"}
+  ]
+}
