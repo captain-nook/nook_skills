@@ -1,4 +1,4 @@
-# Nook Skills
+﻿# Nook Skills
 
 这是 Nook 的公开 Codex Skills 发布库。
 放已经沉淀成可复用能力的 skill：写作、审校、标题、视觉生成、封面生产、图片 provider，以及少量第三方能力封装。
@@ -13,9 +13,11 @@
 | 你要做的事 | 优先调用 | 说明 |
 |---|---|---|
 | 写微信公众号长文、改稿、从素材成文 | `nook-wechat-writer` | 负责文章角度、结构、正文、摘要、跨平台改写。 |
+| 做抖音/小红书/视频号一周内容规划、短视频逐字稿、小红书图文 | `nook-short` | 负责 12 条周内容矩阵、平台采样参考、内容任务书、口播稿和图文页结构。 |
 | 给已经定稿的文章取标题 | `nook-title` | 负责标题事实钩子、候选标题、标题评分和事实边界。 |
 | 判断一段中文有没有 AI 味、做自然化审校 | `nook-humanizer-zh-review` | 作为写作 skill 的最终审校层，也可单独使用。 |
 | 做知识卡片、图文卡片、可视化卡片 | `nook-card` | 负责卡片结构、视觉系统、交付规格。 |
+| 做中文演示、HTML slides、可编辑 PPTX | `nook-html-slides` | 负责内容门、页面形式门、模板驱动 PPTX、duotone-zine 模板包、构建与校验。 |
 | 做小红书/公众号/B站等封面，尤其有标题文字层 | `nook-cover` | 多平台封面生产主 skill，当前重点覆盖小红书封面。 |
 | 做视频封面：YouTube/B站/抖音/小红书/视频号 | `nook-tv-cover` | 负责横封面、短封面、竖封面的科技风封面输出。 |
 | 需要稳定调用 GPT Image 类图片生成能力 | `nook-image-gpt` / `nook-image2-gpt` | 原子图片 provider，供上层视觉 skill 调用。 |
@@ -45,6 +47,29 @@
 - 单独去 AI 味：用 `nook-humanizer-zh-review`；
 - 发布排版、头图尾图装配：应由专门的发布/packager skill 负责。
 
+
+### `nook-short`
+
+短视频 / 图文内容规划 skill。
+
+它负责把中视频逐字稿、项目复盘、闪念、热点、平台样本，转成抖音、小红书、视频号的一周内容规划。默认结构是抖音 4 条短视频、小红书 2 篇图文 + 2 条视频、视频号 4 条短视频。
+
+适用场景：
+
+- 把一个中视频逐字稿拆成三平台一周内容；
+- 根据项目复盘、工具更新、闪念生成内容矩阵；
+- 用户问“今天小红书有什么消息”时，用平台样本补充 `live_lane`；
+- 写短视频逐字稿、小红书图文页结构和正文；
+- 避免一周 12 条都讲同一件事，做审美疲劳检查。
+
+它的核心分工：先规划，再落地。规划层输出内容任务书；落地层再写逐字稿、图文正文和小红书页面结构。
+
+不要用它做：
+
+- 长公众号文章：用 `nook-wechat-writer`；
+- 单独标题评分：用 `nook-title`；
+- 最终中文去 AI 味审校：用 `nook-humanizer-zh-review`；
+- 具体图片生成 provider：用 `nook-image2-gpt` 或对应视觉 skill。
 ### `nook-title`
 
 标题生成和标题评分 skill。
@@ -100,6 +125,33 @@
 - B站/YouTube/抖音/视频号等平台封面规划；
 - 需要标题文字层稳定落版的封面。
 
+### `nook-html-slides`
+
+中文演示文稿和可编辑 PPTX 生产 skill。
+
+它的目标不是让模型临场自由设计 PPT，而是把内容确认、页面形式确认、模板包填槽、PPTX 构建和校验固定成一条可复用流程。当前重点支持 `duotone-zine` 双色独立刊物风模板包。
+
+适用场景：
+
+- 从主题、笔记、文章、培训大纲生成中文演示；
+- 需要先确认内容结构和每页呈现形式，再生成 PPT；
+- 需要可编辑 PPTX，而不是纯图片或一次性截图；
+- 需要模板驱动的组件生成器、构建日志、component map 和校验；
+- 需要沉淀新的视觉系统模板包。
+
+当前包含：
+
+- `scripts/build_deck.py`：读取 `deck_plan.json`，生成可编辑 PPTX；
+- `scripts/validate_deck.py`：检查 PPTX 包结构、页数、施工污染词；
+- `scripts/diagnose_deck.py`：检查文本框数量、字符量、shape 数、黑块数量等粗指标；
+- `assets/templates/duotone-zine/`：双色独立刊物风组件库 PPTX 和源脚本；
+- `references/duotone-zine-template-package.md`：模板包执行契约。
+
+重要边界：
+
+- 不能把项目成品 PPT、用户素材、Obsidian 笔记过程文件提交进本仓库；
+- 不能把模板当作灵感图后自由重画，生成阶段应按模板包填槽；
+- 结构校验不能替代 PowerPoint 实际渲染复核，特别是中文自动换行和标点孤行。
 ### `nook-tv-cover`
 
 视频封面专项 skill。
