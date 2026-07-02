@@ -4,6 +4,16 @@
 
 ![nook-slides 工作流示意图](assets/illustrations/nook-slides-workflow.svg)
 
+## 视觉样张
+
+下面几张是 Nook 已有的封面 / 插图生产样张，放在这里用于快速感受当前视觉资产的气质。`nook-slides` 做 PPT 时不会直接把这些图当成事实素材；它们更适合作为封面、氛围页、章节页或生成资产页的视觉参考。
+
+![image2.0 直出封面候选](assets/readme/image2-direct-cover.png)
+
+![稳定文字层封面样张](assets/readme/html-text-layer-cover.png)
+
+![视觉系统样张九宫格](assets/readme/v04-2-contact-sheet.jpg)
+
 ## 它解决什么问题
 
 很多 AI 做 PPT 的问题不在于不会写，而在于太容易跳步：一上来问太多问题，文案还没锁就开始做版式，版式不合适又临场改字，最后生成出来的 PPT 看似完成，其实不可复盘。
