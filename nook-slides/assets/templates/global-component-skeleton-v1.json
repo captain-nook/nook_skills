@@ -1,0 +1,2745 @@
+{
+  "schema_version": 1,
+  "name": "global-component-skeleton-v1",
+  "source": "duotone-zine/component-library-source.py",
+  "source_mode": "extracted_from_duotone_component_library_source",
+  "page_size": {
+    "width_in": 16,
+    "height_in": 9
+  },
+  "components": [
+    {
+      "code": "C01",
+      "source_function": "slide_01_giant_title",
+      "name": "巨型标题页",
+      "component": "zine.hero-title",
+      "note": "适用：封面 / 章节页 / 大观点开场",
+      "ops": [
+        {
+          "op": "page_header",
+          "code": "C01 / GIANT TITLE",
+          "title": "巨型标题页",
+          "subtitle": "少字 / 大字 / 强入口",
+          "folio": "P01 / GIANT TITLE"
+        },
+        {
+          "op": "image_slot",
+          "x": 9.65,
+          "y": 1.55,
+          "w": 4.85,
+          "h": 5.85,
+          "code": "IMG-A",
+          "caption": "竖版主图槽 4:5",
+          "accent": "a"
+        },
+        {
+          "op": "text_box",
+          "value": "可编辑\nPPT\n不是截图",
+          "x": 0.9,
+          "y": 1.62,
+          "w": 7.9,
+          "h": 2.95,
+          "font": "title_font",
+          "size": 52,
+          "color": "ink",
+          "bold": true,
+          "line_spacing": 0.82
+        },
+        {
+          "op": "tiny_rule",
+          "x": 0.95,
+          "y": 5.05,
+          "w": 1.1,
+          "color": "b"
+        },
+        {
+          "op": "text_box",
+          "value": "它是一套能被拆开、移动、重排、再编辑的出版组件。",
+          "x": 0.92,
+          "y": 5.35,
+          "w": 6.2,
+          "h": 0.46,
+          "font": "body_font",
+          "size": 20,
+          "color": "muted",
+          "bold": false
+        },
+        {
+          "op": "component_note",
+          "value": "适用：封面 / 章节页 / 大观点开场"
+        }
+      ]
+    },
+    {
+      "code": "C02",
+      "source_function": "slide_02_one_sentence",
+      "name": "一句话判断页",
+      "component": "zine.statement",
+      "note": "适用：结论页 / 转场页 / 警示页",
+      "ops": [
+        {
+          "op": "page_header",
+          "code": "C02 / ONE SENTENCE",
+          "title": "一句话判断页",
+          "subtitle": "一句话占主导，不写小作文",
+          "folio": "P02 / ONE SENTENCE"
+        },
+        {
+          "op": "shadow_rect",
+          "x": 1.0,
+          "y": 1.75,
+          "w": 13.3,
+          "h": 3.35,
+          "color": "a",
+          "dx": 0.08,
+          "dy": 0.08
+        },
+        {
+          "op": "rect",
+          "x": 1.0,
+          "y": 1.75,
+          "w": 13.3,
+          "h": 3.35,
+          "fill": "dark",
+          "line": "ink",
+          "lw": 2.4,
+          "radius": false,
+          "dash": false
+        },
+        {
+          "op": "text_box",
+          "value": "模型不能临场\n发明页面",
+          "x": 1.45,
+          "y": 2.2,
+          "w": 7.2,
+          "h": 1.35,
+          "font": "title_font",
+          "size": 43,
+          "color": "white",
+          "bold": true,
+          "line_spacing": 0.86
+        },
+        {
+          "op": "text_box",
+          "value": "它只能从组件白名单里选择、组合、替换内容。",
+          "x": 1.48,
+          "y": 3.95,
+          "w": 8.7,
+          "h": 0.35,
+          "font": "body_font",
+          "size": 20,
+          "color": "white",
+          "bold": false
+        },
+        {
+          "op": "label",
+          "value": "CORE JUDGEMENT",
+          "x": 11.15,
+          "y": 2.18,
+          "w": 2.2
+        },
+        {
+          "op": "text_box",
+          "value": "深底白字\n最多两行标题",
+          "x": 11.05,
+          "y": 3.0,
+          "w": 2.4,
+          "h": 0.56,
+          "font": "mono_font",
+          "size": 11,
+          "color": "white",
+          "bold": false,
+          "align": "center (2)"
+        },
+        {
+          "op": "component_note",
+          "value": "适用：结论页 / 转场页 / 警示页"
+        }
+      ]
+    },
+    {
+      "code": "C03",
+      "source_function": "slide_03_big_number",
+      "name": "大数字页",
+      "component": "zine.big-number",
+      "note": "适用：数据页 / 进度页 / 章节摘要",
+      "ops": [
+        {
+          "op": "page_header",
+          "code": "C03 / BIG NUMBER",
+          "title": "大数字页",
+          "subtitle": "数字是主角，文字只解释",
+          "folio": "P03 / BIG NUMBER"
+        },
+        {
+          "op": "big_num",
+          "value": "12",
+          "x": 0.9,
+          "y": 1.65,
+          "size": 96
+        },
+        {
+          "op": "text_box",
+          "value": "类组件",
+          "x": 3.55,
+          "y": 2.1,
+          "w": 2.2,
+          "h": 0.48,
+          "font": "title_font",
+          "size": 28,
+          "color": "ink",
+          "bold": true
+        },
+        {
+          "op": "text_box",
+          "value": "第一套组件库不追求多，追求少而稳定。",
+          "x": 0.98,
+          "y": 4.0,
+          "w": 5.7,
+          "h": 0.44,
+          "font": "body_font",
+          "size": 20,
+          "color": "muted",
+          "bold": false
+        },
+        {
+          "op": "shadow_rect",
+          "x": 7.0,
+          "y": 2.0,
+          "w": 2.2,
+          "h": 2.9,
+          "color": "a",
+          "dx": 0.055,
+          "dy": 0.055
+        },
+        {
+          "op": "rect",
+          "x": 7.0,
+          "y": 2.0,
+          "w": 2.2,
+          "h": 2.9,
+          "fill": "panel",
+          "line": "ink",
+          "lw": 2.0,
+          "radius": false,
+          "dash": false
+        },
+        {
+          "op": "text_box",
+          "value": "05",
+          "x": 7.22,
+          "y": 2.28,
+          "w": 1.2,
+          "h": 0.52,
+          "font": "num_font",
+          "size": 34,
+          "color": "ink",
+          "bold": true
+        },
+        {
+          "op": "tiny_rule",
+          "x": 7.25,
+          "y": 3.05,
+          "w": 0.9,
+          "color": "a"
+        },
+        {
+          "op": "text_box",
+          "value": "图片槽",
+          "x": 7.25,
+          "y": 3.38,
+          "w": 1.6,
+          "h": 0.25,
+          "font": "title_font",
+          "size": 18,
+          "color": "ink",
+          "bold": true
+        },
+        {
+          "op": "text_box",
+          "value": "多图页面的核心",
+          "x": 7.25,
+          "y": 3.82,
+          "w": 1.6,
+          "h": 0.35,
+          "font": "body_font",
+          "size": 12.5,
+          "color": "muted",
+          "bold": false
+        },
+        {
+          "op": "shadow_rect",
+          "x": 9.65,
+          "y": 2.0,
+          "w": 2.2,
+          "h": 2.9,
+          "color": "b",
+          "dx": 0.055,
+          "dy": 0.055
+        },
+        {
+          "op": "rect",
+          "x": 9.65,
+          "y": 2.0,
+          "w": 2.2,
+          "h": 2.9,
+          "fill": "panel",
+          "line": "ink",
+          "lw": 2.0,
+          "radius": false,
+          "dash": false
+        },
+        {
+          "op": "text_box",
+          "value": "04",
+          "x": 9.870000000000001,
+          "y": 2.28,
+          "w": 1.2,
+          "h": 0.52,
+          "font": "num_font",
+          "size": 34,
+          "color": "ink",
+          "bold": true
+        },
+        {
+          "op": "tiny_rule",
+          "x": 9.9,
+          "y": 3.05,
+          "w": 0.9,
+          "color": "b"
+        },
+        {
+          "op": "text_box",
+          "value": "文本框",
+          "x": 9.9,
+          "y": 3.38,
+          "w": 1.6,
+          "h": 0.25,
+          "font": "title_font",
+          "size": 18,
+          "color": "ink",
+          "bold": true
+        },
+        {
+          "op": "text_box",
+          "value": "少字大字的基础",
+          "x": 9.9,
+          "y": 3.82,
+          "w": 1.6,
+          "h": 0.35,
+          "font": "body_font",
+          "size": 12.5,
+          "color": "muted",
+          "bold": false
+        },
+        {
+          "op": "shadow_rect",
+          "x": 12.3,
+          "y": 2.0,
+          "w": 2.2,
+          "h": 2.9,
+          "color": "c",
+          "dx": 0.055,
+          "dy": 0.055
+        },
+        {
+          "op": "rect",
+          "x": 12.3,
+          "y": 2.0,
+          "w": 2.2,
+          "h": 2.9,
+          "fill": "panel",
+          "line": "ink",
+          "lw": 2.0,
+          "radius": false,
+          "dash": false
+        },
+        {
+          "op": "text_box",
+          "value": "03",
+          "x": 12.520000000000001,
+          "y": 2.28,
+          "w": 1.2,
+          "h": 0.52,
+          "font": "num_font",
+          "size": 34,
+          "color": "ink",
+          "bold": true
+        },
+        {
+          "op": "tiny_rule",
+          "x": 12.55,
+          "y": 3.05,
+          "w": 0.9,
+          "color": "c"
+        },
+        {
+          "op": "text_box",
+          "value": "结构图",
+          "x": 12.55,
+          "y": 3.38,
+          "w": 1.6,
+          "h": 0.25,
+          "font": "title_font",
+          "size": 18,
+          "color": "ink",
+          "bold": true
+        },
+        {
+          "op": "text_box",
+          "value": "时间轴、循环、层级",
+          "x": 12.55,
+          "y": 3.82,
+          "w": 1.6,
+          "h": 0.35,
+          "font": "body_font",
+          "size": 12.5,
+          "color": "muted",
+          "bold": false
+        },
+        {
+          "op": "component_note",
+          "value": "适用：数据页 / 进度页 / 章节摘要"
+        }
+      ]
+    },
+    {
+      "code": "C04",
+      "source_function": "slide_04_process_cards",
+      "name": "流程卡组",
+      "component": "zine.process-cards",
+      "note": "适用：线性流程 / 方法论步骤 / 操作说明",
+      "ops": [
+        {
+          "op": "page_header",
+          "code": "C04 / PROCESS CARDS",
+          "title": "流程卡组",
+          "subtitle": "可复制的步骤文本框",
+          "folio": "P04 / PROCESS CARDS"
+        },
+        {
+          "op": "shadow_rect",
+          "x": 0.85,
+          "y": 2.05,
+          "w": 3.05,
+          "h": 4.25,
+          "color": "a",
+          "dx": 0.06,
+          "dy": 0.06
+        },
+        {
+          "op": "rect",
+          "x": 0.85,
+          "y": 2.05,
+          "w": 3.05,
+          "h": 4.25,
+          "fill": "panel",
+          "line": "ink",
+          "lw": 2.1,
+          "radius": false,
+          "dash": false
+        },
+        {
+          "op": "rect",
+          "x": 0.85,
+          "y": 2.05,
+          "w": 3.05,
+          "h": 0.72,
+          "fill": "a",
+          "line": "ink",
+          "lw": 2.1,
+          "radius": false,
+          "dash": false
+        },
+        {
+          "op": "text_box",
+          "value": "01",
+          "x": 1.03,
+          "y": 2.18,
+          "w": 0.72,
+          "h": 0.4,
+          "font": "num_font",
+          "size": 28,
+          "color": "white",
+          "bold": true
+        },
+        {
+          "op": "text_box",
+          "value": "输入",
+          "x": 1.9,
+          "y": 2.34,
+          "w": 1.65,
+          "h": 0.14,
+          "font": "mono_font",
+          "size": 8.4,
+          "color": "white",
+          "bold": false
+        },
+        {
+          "op": "text_box",
+          "value": "收集材料",
+          "x": 1.17,
+          "y": 3.15,
+          "w": 2.2,
+          "h": 0.32,
+          "font": "title_font",
+          "size": 21,
+          "color": "ink",
+          "bold": true
+        },
+        {
+          "op": "tiny_rule",
+          "x": 1.18,
+          "y": 3.7,
+          "w": 1.1,
+          "color": "a"
+        },
+        {
+          "op": "bullet_text",
+          "lines": [
+            "文本",
+            "图片",
+            "品牌资产"
+          ],
+          "x": 1.2,
+          "y": 4.1,
+          "w": 2.25,
+          "h": 1.0,
+          "size": 13.5,
+          "color": "muted"
+        },
+        {
+          "op": "shadow_rect",
+          "x": 4.5,
+          "y": 2.05,
+          "w": 3.05,
+          "h": 4.25,
+          "color": "b",
+          "dx": 0.06,
+          "dy": 0.06
+        },
+        {
+          "op": "rect",
+          "x": 4.5,
+          "y": 2.05,
+          "w": 3.05,
+          "h": 4.25,
+          "fill": "panel",
+          "line": "ink",
+          "lw": 2.1,
+          "radius": false,
+          "dash": false
+        },
+        {
+          "op": "rect",
+          "x": 4.5,
+          "y": 2.05,
+          "w": 3.05,
+          "h": 0.72,
+          "fill": "b",
+          "line": "ink",
+          "lw": 2.1,
+          "radius": false,
+          "dash": false
+        },
+        {
+          "op": "text_box",
+          "value": "02",
+          "x": 4.68,
+          "y": 2.18,
+          "w": 0.72,
+          "h": 0.4,
+          "font": "num_font",
+          "size": 28,
+          "color": "white",
+          "bold": true
+        },
+        {
+          "op": "text_box",
+          "value": "处理",
+          "x": 5.55,
+          "y": 2.34,
+          "w": 1.65,
+          "h": 0.14,
+          "font": "mono_font",
+          "size": 8.4,
+          "color": "white",
+          "bold": false
+        },
+        {
+          "op": "text_box",
+          "value": "拆成组件",
+          "x": 4.82,
+          "y": 3.15,
+          "w": 2.2,
+          "h": 0.32,
+          "font": "title_font",
+          "size": 21,
+          "color": "ink",
+          "bold": true
+        },
+        {
+          "op": "tiny_rule",
+          "x": 4.83,
+          "y": 3.7,
+          "w": 1.1,
+          "color": "b"
+        },
+        {
+          "op": "bullet_text",
+          "lines": [
+            "内容压缩",
+            "图片入槽",
+            "字体检查"
+          ],
+          "x": 4.85,
+          "y": 4.1,
+          "w": 2.25,
+          "h": 1.0,
+          "size": 13.5,
+          "color": "muted"
+        },
+        {
+          "op": "shadow_rect",
+          "x": 8.15,
+          "y": 2.05,
+          "w": 3.05,
+          "h": 4.25,
+          "color": "c",
+          "dx": 0.06,
+          "dy": 0.06
+        },
+        {
+          "op": "rect",
+          "x": 8.15,
+          "y": 2.05,
+          "w": 3.05,
+          "h": 4.25,
+          "fill": "panel",
+          "line": "ink",
+          "lw": 2.1,
+          "radius": false,
+          "dash": false
+        },
+        {
+          "op": "rect",
+          "x": 8.15,
+          "y": 2.05,
+          "w": 3.05,
+          "h": 0.72,
+          "fill": "c",
+          "line": "ink",
+          "lw": 2.1,
+          "radius": false,
+          "dash": false
+        },
+        {
+          "op": "text_box",
+          "value": "03",
+          "x": 8.33,
+          "y": 2.18,
+          "w": 0.72,
+          "h": 0.4,
+          "font": "num_font",
+          "size": 28,
+          "color": "ink",
+          "bold": true
+        },
+        {
+          "op": "text_box",
+          "value": "生成",
+          "x": 9.200000000000001,
+          "y": 2.34,
+          "w": 1.65,
+          "h": 0.14,
+          "font": "mono_font",
+          "size": 8.4,
+          "color": "ink",
+          "bold": false
+        },
+        {
+          "op": "text_box",
+          "value": "拼成页面",
+          "x": 8.47,
+          "y": 3.15,
+          "w": 2.2,
+          "h": 0.32,
+          "font": "title_font",
+          "size": 21,
+          "color": "ink",
+          "bold": true
+        },
+        {
+          "op": "tiny_rule",
+          "x": 8.48,
+          "y": 3.7,
+          "w": 1.1,
+          "color": "c"
+        },
+        {
+          "op": "bullet_text",
+          "lines": [
+            "选择版式",
+            "替换文案",
+            "输出 PPT"
+          ],
+          "x": 8.5,
+          "y": 4.1,
+          "w": 2.25,
+          "h": 1.0,
+          "size": 13.5,
+          "color": "muted"
+        },
+        {
+          "op": "shadow_rect",
+          "x": 11.799999999999999,
+          "y": 2.05,
+          "w": 3.05,
+          "h": 4.25,
+          "color": "ink",
+          "dx": 0.06,
+          "dy": 0.06
+        },
+        {
+          "op": "rect",
+          "x": 11.799999999999999,
+          "y": 2.05,
+          "w": 3.05,
+          "h": 4.25,
+          "fill": "panel",
+          "line": "ink",
+          "lw": 2.1,
+          "radius": false,
+          "dash": false
+        },
+        {
+          "op": "rect",
+          "x": 11.799999999999999,
+          "y": 2.05,
+          "w": 3.05,
+          "h": 0.72,
+          "fill": "ink",
+          "line": "ink",
+          "lw": 2.1,
+          "radius": false,
+          "dash": false
+        },
+        {
+          "op": "text_box",
+          "value": "04",
+          "x": 11.979999999999999,
+          "y": 2.18,
+          "w": 0.72,
+          "h": 0.4,
+          "font": "num_font",
+          "size": 28,
+          "color": "white",
+          "bold": true
+        },
+        {
+          "op": "text_box",
+          "value": "检查",
+          "x": 12.85,
+          "y": 2.34,
+          "w": 1.65,
+          "h": 0.14,
+          "font": "mono_font",
+          "size": 8.4,
+          "color": "white",
+          "bold": false
+        },
+        {
+          "op": "text_box",
+          "value": "人工审美",
+          "x": 12.12,
+          "y": 3.15,
+          "w": 2.2,
+          "h": 0.32,
+          "font": "title_font",
+          "size": 21,
+          "color": "ink",
+          "bold": true
+        },
+        {
+          "op": "tiny_rule",
+          "x": 12.129999999999999,
+          "y": 3.7,
+          "w": 1.1,
+          "color": "ink"
+        },
+        {
+          "op": "bullet_text",
+          "lines": [
+            "可编辑",
+            "不出框",
+            "风格统一"
+          ],
+          "x": 12.149999999999999,
+          "y": 4.1,
+          "w": 2.25,
+          "h": 1.0,
+          "size": 13.5,
+          "color": "muted"
+        },
+        {
+          "op": "component_note",
+          "value": "适用：线性流程 / 方法论步骤 / 操作说明"
+        }
+      ]
+    },
+    {
+      "code": "C05",
+      "source_function": "slide_05_timeline",
+      "name": "时间轴",
+      "component": "zine.timeline",
+      "note": "适用：历史线 / 项目里程碑 / 版本演进",
+      "ops": [
+        {
+          "op": "page_header",
+          "code": "C05 / TIMELINE",
+          "title": "时间轴",
+          "subtitle": "横向主轴 + 事件卡片",
+          "folio": "P05 / TIMELINE"
+        },
+        {
+          "op": "line",
+          "x1": 1.1,
+          "y1": 4.45,
+          "x2": 14.2,
+          "y2": 4.45,
+          "color": "a",
+          "width": 9,
+          "dash": false
+        },
+        {
+          "op": "line",
+          "x1": 1.1,
+          "y1": 4.58,
+          "x2": 14.2,
+          "y2": 4.58,
+          "color": "b",
+          "width": 4,
+          "dash": false
+        },
+        {
+          "op": "big_num",
+          "value": "1920s",
+          "x": 1.05,
+          "y": 1.15,
+          "size": 34
+        },
+        {
+          "op": "shadow_rect",
+          "x": 1.1500000000000001,
+          "y": 2.35,
+          "w": 2.5,
+          "h": 1.25,
+          "color": "a",
+          "dx": 0.05,
+          "dy": 0.05
+        },
+        {
+          "op": "rect",
+          "x": 1.1500000000000001,
+          "y": 2.35,
+          "w": 2.5,
+          "h": 1.25,
+          "fill": "ink",
+          "line": "ink",
+          "lw": 1.8,
+          "radius": false,
+          "dash": false
+        },
+        {
+          "op": "rect",
+          "x": 1.1500000000000001,
+          "y": 2.35,
+          "w": 2.5,
+          "h": 0.38,
+          "fill": "a",
+          "line": "ink",
+          "lw": 1.6,
+          "radius": false,
+          "dash": false
+        },
+        {
+          "op": "text_box",
+          "value": "源头",
+          "x": 1.3,
+          "y": 2.43,
+          "w": 2.15,
+          "h": 0.14,
+          "font": "title_font",
+          "size": 13,
+          "color": "white",
+          "bold": false,
+          "align": "center (2)"
+        },
+        {
+          "op": "text_box",
+          "value": "小众出版\n手作表达",
+          "x": 1.33,
+          "y": 2.88,
+          "w": 2.0,
+          "h": 0.38,
+          "font": "body_font",
+          "size": 11,
+          "color": "white",
+          "bold": false,
+          "align": "center (2)"
+        },
+        {
+          "op": "line",
+          "x1": 2.4000000000000004,
+          "y1": 3.6,
+          "x2": 2.4000000000000004,
+          "y2": 4.43,
+          "color": "ink",
+          "width": 2.2,
+          "dash": false
+        },
+        {
+          "op": "big_num",
+          "value": "1976",
+          "x": 5.0,
+          "y": 0.7000000000000001,
+          "size": 46
+        },
+        {
+          "op": "shadow_rect",
+          "x": 5.1,
+          "y": 1.9,
+          "w": 2.5,
+          "h": 1.25,
+          "color": "c",
+          "dx": 0.05,
+          "dy": 0.05
+        },
+        {
+          "op": "rect",
+          "x": 5.1,
+          "y": 1.9,
+          "w": 2.5,
+          "h": 1.25,
+          "fill": "ink",
+          "line": "ink",
+          "lw": 1.8,
+          "radius": false,
+          "dash": false
+        },
+        {
+          "op": "rect",
+          "x": 5.1,
+          "y": 1.9,
+          "w": 2.5,
+          "h": 0.38,
+          "fill": "c",
+          "line": "ink",
+          "lw": 1.6,
+          "radius": false,
+          "dash": false
+        },
+        {
+          "op": "text_box",
+          "value": "浪潮",
+          "x": 5.25,
+          "y": 1.98,
+          "w": 2.15,
+          "h": 0.14,
+          "font": "title_font",
+          "size": 13,
+          "color": "ink",
+          "bold": false,
+          "align": "center (2)"
+        },
+        {
+          "op": "text_box",
+          "value": "ZINE 文化\n开始扩散",
+          "x": 5.28,
+          "y": 2.43,
+          "w": 2.0,
+          "h": 0.38,
+          "font": "body_font",
+          "size": 11,
+          "color": "white",
+          "bold": false,
+          "align": "center (2)"
+        },
+        {
+          "op": "line",
+          "x1": 6.35,
+          "y1": 3.1500000000000004,
+          "x2": 6.35,
+          "y2": 4.43,
+          "color": "ink",
+          "width": 2.2,
+          "dash": false
+        },
+        {
+          "op": "big_num",
+          "value": "1991",
+          "x": 8.95,
+          "y": 4.07,
+          "size": 46
+        },
+        {
+          "op": "shadow_rect",
+          "x": 9.049999999999999,
+          "y": 5.27,
+          "w": 2.5,
+          "h": 1.25,
+          "color": "b",
+          "dx": 0.05,
+          "dy": 0.05
+        },
+        {
+          "op": "rect",
+          "x": 9.049999999999999,
+          "y": 5.27,
+          "w": 2.5,
+          "h": 1.25,
+          "fill": "ink",
+          "line": "ink",
+          "lw": 1.8,
+          "radius": false,
+          "dash": false
+        },
+        {
+          "op": "rect",
+          "x": 9.049999999999999,
+          "y": 5.27,
+          "w": 2.5,
+          "h": 0.38,
+          "fill": "b",
+          "line": "ink",
+          "lw": 1.6,
+          "radius": false,
+          "dash": false
+        },
+        {
+          "op": "text_box",
+          "value": "转折",
+          "x": 9.2,
+          "y": 5.35,
+          "w": 2.15,
+          "h": 0.14,
+          "font": "title_font",
+          "size": 13,
+          "color": "white",
+          "bold": false,
+          "align": "center (2)"
+        },
+        {
+          "op": "text_box",
+          "value": "社群、音乐\n与女性主义",
+          "x": 9.229999999999999,
+          "y": 5.8,
+          "w": 2.0,
+          "h": 0.38,
+          "font": "body_font",
+          "size": 11,
+          "color": "white",
+          "bold": false,
+          "align": "center (2)"
+        },
+        {
+          "op": "line",
+          "x1": 10.299999999999999,
+          "y1": 6.52,
+          "x2": 10.299999999999999,
+          "y2": 4.43,
+          "color": "ink",
+          "width": 2.2,
+          "dash": false
+        },
+        {
+          "op": "big_num",
+          "value": "2010s+",
+          "x": 12.25,
+          "y": 1.0,
+          "size": 34
+        },
+        {
+          "op": "shadow_rect",
+          "x": 12.35,
+          "y": 2.2,
+          "w": 2.5,
+          "h": 1.25,
+          "color": "a",
+          "dx": 0.05,
+          "dy": 0.05
+        },
+        {
+          "op": "rect",
+          "x": 12.35,
+          "y": 2.2,
+          "w": 2.5,
+          "h": 1.25,
+          "fill": "ink",
+          "line": "ink",
+          "lw": 1.8,
+          "radius": false,
+          "dash": false
+        },
+        {
+          "op": "rect",
+          "x": 12.35,
+          "y": 2.2,
+          "w": 2.5,
+          "h": 0.38,
+          "fill": "a",
+          "line": "ink",
+          "lw": 1.6,
+          "radius": false,
+          "dash": false
+        },
+        {
+          "op": "text_box",
+          "value": "复兴",
+          "x": 12.5,
+          "y": 2.2800000000000002,
+          "w": 2.15,
+          "h": 0.14,
+          "font": "title_font",
+          "size": 13,
+          "color": "white",
+          "bold": false,
+          "align": "center (2)"
+        },
+        {
+          "op": "text_box",
+          "value": "书展、馆藏\n与独立出版",
+          "x": 12.53,
+          "y": 2.73,
+          "w": 2.0,
+          "h": 0.38,
+          "font": "body_font",
+          "size": 11,
+          "color": "white",
+          "bold": false,
+          "align": "center (2)"
+        },
+        {
+          "op": "line",
+          "x1": 13.6,
+          "y1": 3.45,
+          "x2": 13.6,
+          "y2": 4.43,
+          "color": "ink",
+          "width": 2.2,
+          "dash": false
+        },
+        {
+          "op": "component_note",
+          "value": "适用：历史线 / 项目里程碑 / 版本演进"
+        }
+      ]
+    },
+    {
+      "code": "C06",
+      "source_function": "slide_06_cycle",
+      "name": "循环图",
+      "component": "zine.cycle",
+      "note": "适用：反馈循环 / 生成-检查-迭代 / 闭环系统",
+      "ops": [
+        {
+          "op": "page_header",
+          "code": "C06 / CYCLE",
+          "title": "循环图",
+          "subtitle": "3-4 步循环，不做复杂飞轮",
+          "folio": "P06 / CYCLE"
+        },
+        {
+          "op": "line",
+          "x1": 8.9,
+          "y1": 2.35,
+          "x2": 10.45,
+          "y2": 3.72,
+          "color": "a",
+          "width": 3,
+          "dash": false
+        },
+        {
+          "op": "line",
+          "x1": 10.7,
+          "y1": 5.0,
+          "x2": 8.9,
+          "y2": 6.28,
+          "color": "b",
+          "width": 3,
+          "dash": false
+        },
+        {
+          "op": "line",
+          "x1": 7.05,
+          "y1": 6.3,
+          "x2": 5.5,
+          "y2": 5.0,
+          "color": "c",
+          "width": 3,
+          "dash": false
+        },
+        {
+          "op": "line",
+          "x1": 5.55,
+          "y1": 3.7,
+          "x2": 7.05,
+          "y2": 2.35,
+          "color": "ink",
+          "width": 3,
+          "dash": false
+        },
+        {
+          "op": "shadow_rect",
+          "x": 7.25,
+          "y": 1.4000000000000001,
+          "w": 1.5,
+          "h": 0.9,
+          "color": "a",
+          "dx": 0.05,
+          "dy": 0.05
+        },
+        {
+          "op": "rect",
+          "x": 7.25,
+          "y": 1.4000000000000001,
+          "w": 1.5,
+          "h": 0.9,
+          "fill": "panel",
+          "line": "ink",
+          "lw": 2.0,
+          "radius": false,
+          "dash": false
+        },
+        {
+          "op": "text_box",
+          "value": "01",
+          "x": 7.45,
+          "y": 1.6,
+          "w": 0.45,
+          "h": 0.22,
+          "font": "num_font",
+          "size": 18,
+          "color": "a",
+          "bold": true
+        },
+        {
+          "op": "text_box",
+          "value": "输入",
+          "x": 7.95,
+          "y": 1.6700000000000002,
+          "w": 0.55,
+          "h": 0.18,
+          "font": "title_font",
+          "size": 14,
+          "color": "ink",
+          "bold": true
+        },
+        {
+          "op": "shadow_rect",
+          "x": 10.45,
+          "y": 3.8999999999999995,
+          "w": 1.5,
+          "h": 0.9,
+          "color": "b",
+          "dx": 0.05,
+          "dy": 0.05
+        },
+        {
+          "op": "rect",
+          "x": 10.45,
+          "y": 3.8999999999999995,
+          "w": 1.5,
+          "h": 0.9,
+          "fill": "panel",
+          "line": "ink",
+          "lw": 2.0,
+          "radius": false,
+          "dash": false
+        },
+        {
+          "op": "text_box",
+          "value": "02",
+          "x": 10.649999999999999,
+          "y": 4.1,
+          "w": 0.45,
+          "h": 0.22,
+          "font": "num_font",
+          "size": 18,
+          "color": "b",
+          "bold": true
+        },
+        {
+          "op": "text_box",
+          "value": "生成",
+          "x": 11.149999999999999,
+          "y": 4.17,
+          "w": 0.55,
+          "h": 0.18,
+          "font": "title_font",
+          "size": 14,
+          "color": "ink",
+          "bold": true
+        },
+        {
+          "op": "shadow_rect",
+          "x": 7.25,
+          "y": 6.3,
+          "w": 1.5,
+          "h": 0.9,
+          "color": "c",
+          "dx": 0.05,
+          "dy": 0.05
+        },
+        {
+          "op": "rect",
+          "x": 7.25,
+          "y": 6.3,
+          "w": 1.5,
+          "h": 0.9,
+          "fill": "panel",
+          "line": "ink",
+          "lw": 2.0,
+          "radius": false,
+          "dash": false
+        },
+        {
+          "op": "text_box",
+          "value": "03",
+          "x": 7.45,
+          "y": 6.5,
+          "w": 0.45,
+          "h": 0.22,
+          "font": "num_font",
+          "size": 18,
+          "color": "c",
+          "bold": true
+        },
+        {
+          "op": "text_box",
+          "value": "检查",
+          "x": 7.95,
+          "y": 6.57,
+          "w": 0.55,
+          "h": 0.18,
+          "font": "title_font",
+          "size": 14,
+          "color": "ink",
+          "bold": true
+        },
+        {
+          "op": "shadow_rect",
+          "x": 4.05,
+          "y": 3.8999999999999995,
+          "w": 1.5,
+          "h": 0.9,
+          "color": "ink",
+          "dx": 0.05,
+          "dy": 0.05
+        },
+        {
+          "op": "rect",
+          "x": 4.05,
+          "y": 3.8999999999999995,
+          "w": 1.5,
+          "h": 0.9,
+          "fill": "panel",
+          "line": "ink",
+          "lw": 2.0,
+          "radius": false,
+          "dash": false
+        },
+        {
+          "op": "text_box",
+          "value": "04",
+          "x": 4.25,
+          "y": 4.1,
+          "w": 0.45,
+          "h": 0.22,
+          "font": "num_font",
+          "size": 18,
+          "color": "ink",
+          "bold": true
+        },
+        {
+          "op": "text_box",
+          "value": "迭代",
+          "x": 4.75,
+          "y": 4.17,
+          "w": 0.55,
+          "h": 0.18,
+          "font": "title_font",
+          "size": 14,
+          "color": "ink",
+          "bold": true
+        },
+        {
+          "op": "text_box",
+          "value": "一轮不求完美\n只求能被检查",
+          "x": 0.95,
+          "y": 2.25,
+          "w": 4.2,
+          "h": 0.88,
+          "font": "title_font",
+          "size": 30,
+          "color": "ink",
+          "bold": true,
+          "line_spacing": 0.9
+        },
+        {
+          "op": "text_box",
+          "value": "循环图用于表达反复校准的工作流，不用于承载大量文字。",
+          "x": 1.0,
+          "y": 4.1,
+          "w": 4.3,
+          "h": 0.42,
+          "font": "body_font",
+          "size": 17,
+          "color": "muted",
+          "bold": false
+        },
+        {
+          "op": "component_note",
+          "value": "适用：反馈循环 / 生成-检查-迭代 / 闭环系统"
+        }
+      ]
+    },
+    {
+      "code": "C07",
+      "source_function": "slide_07_hierarchy",
+      "name": "层级图",
+      "component": "zine.hierarchy",
+      "note": "适用：系统分层 / 依赖关系 / 优先级",
+      "ops": [
+        {
+          "op": "page_header",
+          "code": "C07 / HIERARCHY",
+          "title": "层级图",
+          "subtitle": "堆叠卡 / 上下游 / 金字塔替代",
+          "folio": "P07 / HIERARCHY"
+        },
+        {
+          "op": "shadow_rect",
+          "x": 2.0,
+          "y": 1.65,
+          "w": 12.0,
+          "h": 0.82,
+          "color": "a",
+          "dx": 0.06,
+          "dy": 0.06
+        },
+        {
+          "op": "rect",
+          "x": 2.0,
+          "y": 1.65,
+          "w": 12.0,
+          "h": 0.82,
+          "fill": "panel",
+          "line": "ink",
+          "lw": 2.1,
+          "radius": false,
+          "dash": false
+        },
+        {
+          "op": "rect",
+          "x": 2.0,
+          "y": 1.65,
+          "w": 0.3,
+          "h": 0.82,
+          "fill": "a",
+          "line": "ink",
+          "lw": 1.0,
+          "radius": false,
+          "dash": false
+        },
+        {
+          "op": "text_box",
+          "value": "视觉体系",
+          "x": 2.55,
+          "y": 1.8299999999999998,
+          "w": 2.2,
+          "h": 0.18,
+          "font": "title_font",
+          "size": 17,
+          "color": "ink",
+          "bold": true
+        },
+        {
+          "op": "text_box",
+          "value": "颜色、字体、纹理、母版",
+          "x": 5.0,
+          "y": 1.89,
+          "w": 8.7,
+          "h": 0.15,
+          "font": "body_font",
+          "size": 13.5,
+          "color": "muted",
+          "bold": false
+        },
+        {
+          "op": "shadow_rect",
+          "x": 2.65,
+          "y": 3.0,
+          "w": 10.7,
+          "h": 0.82,
+          "color": "b",
+          "dx": 0.06,
+          "dy": 0.06
+        },
+        {
+          "op": "rect",
+          "x": 2.65,
+          "y": 3.0,
+          "w": 10.7,
+          "h": 0.82,
+          "fill": "panel",
+          "line": "ink",
+          "lw": 2.1,
+          "radius": false,
+          "dash": false
+        },
+        {
+          "op": "rect",
+          "x": 2.65,
+          "y": 3.0,
+          "w": 0.3,
+          "h": 0.82,
+          "fill": "b",
+          "line": "ink",
+          "lw": 1.0,
+          "radius": false,
+          "dash": false
+        },
+        {
+          "op": "text_box",
+          "value": "组件白名单",
+          "x": 3.2,
+          "y": 3.18,
+          "w": 2.2,
+          "h": 0.18,
+          "font": "title_font",
+          "size": 17,
+          "color": "ink",
+          "bold": true
+        },
+        {
+          "op": "text_box",
+          "value": "文本框、图片槽、结构图",
+          "x": 5.65,
+          "y": 3.24,
+          "w": 7.3999999999999995,
+          "h": 0.15,
+          "font": "body_font",
+          "size": 13.5,
+          "color": "muted",
+          "bold": false
+        },
+        {
+          "op": "shadow_rect",
+          "x": 3.3,
+          "y": 4.35,
+          "w": 9.4,
+          "h": 0.82,
+          "color": "c",
+          "dx": 0.06,
+          "dy": 0.06
+        },
+        {
+          "op": "rect",
+          "x": 3.3,
+          "y": 4.35,
+          "w": 9.4,
+          "h": 0.82,
+          "fill": "panel",
+          "line": "ink",
+          "lw": 2.1,
+          "radius": false,
+          "dash": false
+        },
+        {
+          "op": "rect",
+          "x": 3.3,
+          "y": 4.35,
+          "w": 0.3,
+          "h": 0.82,
+          "fill": "c",
+          "line": "ink",
+          "lw": 1.0,
+          "radius": false,
+          "dash": false
+        },
+        {
+          "op": "text_box",
+          "value": "页面版式",
+          "x": 3.8499999999999996,
+          "y": 4.529999999999999,
+          "w": 2.2,
+          "h": 0.18,
+          "font": "title_font",
+          "size": 17,
+          "color": "ink",
+          "bold": true
+        },
+        {
+          "op": "text_box",
+          "value": "封面、目录、流程、时间线",
+          "x": 6.3,
+          "y": 4.59,
+          "w": 6.1000000000000005,
+          "h": 0.15,
+          "font": "body_font",
+          "size": 13.5,
+          "color": "muted",
+          "bold": false
+        },
+        {
+          "op": "shadow_rect",
+          "x": 3.95,
+          "y": 5.7,
+          "w": 8.1,
+          "h": 0.82,
+          "color": "ink",
+          "dx": 0.06,
+          "dy": 0.06
+        },
+        {
+          "op": "rect",
+          "x": 3.95,
+          "y": 5.7,
+          "w": 8.1,
+          "h": 0.82,
+          "fill": "panel",
+          "line": "ink",
+          "lw": 2.1,
+          "radius": false,
+          "dash": false
+        },
+        {
+          "op": "rect",
+          "x": 3.95,
+          "y": 5.7,
+          "w": 0.3,
+          "h": 0.82,
+          "fill": "ink",
+          "line": "ink",
+          "lw": 1.0,
+          "radius": false,
+          "dash": false
+        },
+        {
+          "op": "text_box",
+          "value": "具体内容",
+          "x": 4.5,
+          "y": 5.88,
+          "w": 2.2,
+          "h": 0.18,
+          "font": "title_font",
+          "size": 17,
+          "color": "ink",
+          "bold": true
+        },
+        {
+          "op": "text_box",
+          "value": "替换文字与素材，不临场发明",
+          "x": 6.95,
+          "y": 5.94,
+          "w": 4.8,
+          "h": 0.15,
+          "font": "body_font",
+          "size": 13.5,
+          "color": "muted",
+          "bold": false
+        },
+        {
+          "op": "component_note",
+          "value": "适用：系统分层 / 依赖关系 / 优先级"
+        }
+      ]
+    },
+    {
+      "code": "C08",
+      "source_function": "slide_08_comparison",
+      "name": "对比图",
+      "component": "zine.comparison",
+      "note": "适用：方案对比 / 前后对比 / 取舍判断",
+      "ops": [
+        {
+          "op": "page_header",
+          "code": "C08 / COMPARISON",
+          "title": "对比图",
+          "subtitle": "左右对照 / 三栏对照",
+          "folio": "P08 / COMPARISON"
+        },
+        {
+          "op": "shadow_rect",
+          "x": 1.05,
+          "y": 1.85,
+          "w": 5.95,
+          "h": 4.75,
+          "color": "b",
+          "dx": 0.07,
+          "dy": 0.07
+        },
+        {
+          "op": "rect",
+          "x": 1.05,
+          "y": 1.85,
+          "w": 5.95,
+          "h": 4.75,
+          "fill": "panel",
+          "line": "ink",
+          "lw": 2.4,
+          "radius": false,
+          "dash": false
+        },
+        {
+          "op": "rect",
+          "x": 1.05,
+          "y": 1.85,
+          "w": 5.95,
+          "h": 0.68,
+          "fill": "b",
+          "line": "ink",
+          "lw": 2.0,
+          "radius": false,
+          "dash": false
+        },
+        {
+          "op": "text_box",
+          "value": "随机生成",
+          "x": 1.5,
+          "y": 2.85,
+          "w": 4.8,
+          "h": 0.48,
+          "font": "title_font",
+          "size": 30,
+          "color": "ink",
+          "bold": true
+        },
+        {
+          "op": "text_box",
+          "value": "风格漂移\n文字容易满\n图片乱摆",
+          "x": 1.55,
+          "y": 3.8,
+          "w": 4.0,
+          "h": 0.9,
+          "font": "body_font",
+          "size": 21,
+          "color": "muted",
+          "bold": false,
+          "line_spacing": 0.9
+        },
+        {
+          "op": "label",
+          "value": "不采用",
+          "x": 1.5,
+          "y": 5.6,
+          "w": 1.7
+        },
+        {
+          "op": "shadow_rect",
+          "x": 8.1,
+          "y": 1.85,
+          "w": 5.95,
+          "h": 4.75,
+          "color": "a",
+          "dx": 0.07,
+          "dy": 0.07
+        },
+        {
+          "op": "rect",
+          "x": 8.1,
+          "y": 1.85,
+          "w": 5.95,
+          "h": 4.75,
+          "fill": "panel",
+          "line": "ink",
+          "lw": 2.4,
+          "radius": false,
+          "dash": false
+        },
+        {
+          "op": "rect",
+          "x": 8.1,
+          "y": 1.85,
+          "w": 5.95,
+          "h": 0.68,
+          "fill": "a",
+          "line": "ink",
+          "lw": 2.0,
+          "radius": false,
+          "dash": false
+        },
+        {
+          "op": "text_box",
+          "value": "组件驱动",
+          "x": 8.549999999999999,
+          "y": 2.85,
+          "w": 4.8,
+          "h": 0.48,
+          "font": "title_font",
+          "size": 30,
+          "color": "ink",
+          "bold": true
+        },
+        {
+          "op": "text_box",
+          "value": "组件白名单\n图片先入槽\n输出可检查",
+          "x": 8.6,
+          "y": 3.8,
+          "w": 4.0,
+          "h": 0.9,
+          "font": "body_font",
+          "size": 21,
+          "color": "muted",
+          "bold": false,
+          "line_spacing": 0.9
+        },
+        {
+          "op": "label",
+          "value": "采用",
+          "x": 8.549999999999999,
+          "y": 5.6,
+          "w": 1.7
+        },
+        {
+          "op": "component_note",
+          "value": "适用：方案对比 / 前后对比 / 取舍判断"
+        }
+      ]
+    },
+    {
+      "code": "C09",
+      "source_function": "slide_09_image_text",
+      "name": "图文混排页",
+      "component": "zine.image-text",
+      "note": "适用：多图章节 / 案例页 / 插画解释页",
+      "ops": [
+        {
+          "op": "page_header",
+          "code": "C09 / IMAGE + TEXT",
+          "title": "图文混排页",
+          "subtitle": "图大，字少，文字只做锚点",
+          "folio": "P09 / IMAGE TEXT"
+        },
+        {
+          "op": "image_slot",
+          "x": 0.95,
+          "y": 1.55,
+          "w": 8.1,
+          "h": 5.95,
+          "code": "IMG-B",
+          "caption": "横版主图 / 16:9 或近似",
+          "accent": "a"
+        },
+        {
+          "op": "text_box",
+          "value": "图片先决定页面气质",
+          "x": 9.65,
+          "y": 1.9,
+          "w": 4.65,
+          "h": 0.8,
+          "font": "title_font",
+          "size": 33,
+          "color": "ink",
+          "bold": true,
+          "line_spacing": 0.9
+        },
+        {
+          "op": "tiny_rule",
+          "x": 9.72,
+          "y": 3.05,
+          "w": 1.0,
+          "color": "b"
+        },
+        {
+          "op": "text_box",
+          "value": "这类页面只允许一段短说明。图片不是装饰，它是主内容。",
+          "x": 9.72,
+          "y": 3.4,
+          "w": 4.1,
+          "h": 0.65,
+          "font": "body_font",
+          "size": 18,
+          "color": "muted",
+          "bold": false
+        },
+        {
+          "op": "label",
+          "value": "CAPTION",
+          "x": 9.72,
+          "y": 5.55,
+          "w": 1.25
+        },
+        {
+          "op": "text_box",
+          "value": "图片来源 / 生成提示 / 风格化说明",
+          "x": 9.72,
+          "y": 6.0,
+          "w": 4.0,
+          "h": 0.28,
+          "font": "mono_font",
+          "size": 9,
+          "color": "muted",
+          "bold": false
+        },
+        {
+          "op": "component_note",
+          "value": "适用：多图章节 / 案例页 / 插画解释页"
+        }
+      ]
+    },
+    {
+      "code": "C10",
+      "source_function": "slide_10_collage",
+      "name": "图片拼贴页",
+      "component": "zine.image-collage",
+      "note": "适用：案例合集 / 视觉证据 / 多图讲述",
+      "ops": [
+        {
+          "op": "page_header",
+          "code": "C10 / COLLAGE",
+          "title": "图片拼贴页",
+          "subtitle": "主图 + 辅图，不平均分配",
+          "folio": "P10 / COLLAGE"
+        },
+        {
+          "op": "image_slot",
+          "x": 0.95,
+          "y": 1.55,
+          "w": 6.6,
+          "h": 5.85,
+          "code": "IMG-A",
+          "caption": "主图槽",
+          "accent": "a"
+        },
+        {
+          "op": "image_slot",
+          "x": 8.05,
+          "y": 1.55,
+          "w": 3.1,
+          "h": 2.45,
+          "code": "IMG-E1",
+          "caption": "辅图",
+          "accent": "b"
+        },
+        {
+          "op": "image_slot",
+          "x": 11.55,
+          "y": 1.55,
+          "w": 3.1,
+          "h": 2.45,
+          "code": "IMG-E2",
+          "caption": "辅图",
+          "accent": "c"
+        },
+        {
+          "op": "image_slot",
+          "x": 8.05,
+          "y": 4.45,
+          "w": 6.6,
+          "h": 2.95,
+          "code": "IMG-B",
+          "caption": "宽幅辅图",
+          "accent": "b"
+        },
+        {
+          "op": "text_box",
+          "value": "拼贴不是网格平均分。主图必须明确，辅图只做证据。",
+          "x": 8.12,
+          "y": 7.62,
+          "w": 6.2,
+          "h": 0.25,
+          "font": "body_font",
+          "size": 14,
+          "color": "muted",
+          "bold": false
+        },
+        {
+          "op": "component_note",
+          "value": "适用：案例合集 / 视觉证据 / 多图讲述"
+        }
+      ]
+    },
+    {
+      "code": "C11",
+      "source_function": "slide_11_master_ip_logo",
+      "name": "IP / Logo 母版页",
+      "component": "zine.brand-master",
+      "note": "适用：品牌母版 / 角色资产 / 统一出图规则",
+      "ops": [
+        {
+          "op": "page_header",
+          "code": "C11 / MASTER ASSETS",
+          "title": "IP / Logo 母版页",
+          "subtitle": "Logo 原样，IP 风格化后入槽",
+          "folio": "P11 / MASTER ASSETS"
+        },
+        {
+          "op": "shadow_rect",
+          "x": 0.95,
+          "y": 1.65,
+          "w": 4.55,
+          "h": 2.55,
+          "color": "a",
+          "dx": 0.06,
+          "dy": 0.06
+        },
+        {
+          "op": "rect",
+          "x": 0.95,
+          "y": 1.65,
+          "w": 4.55,
+          "h": 2.55,
+          "fill": "panel",
+          "line": "ink",
+          "lw": 2.1,
+          "radius": false,
+          "dash": false
+        },
+        {
+          "op": "text_box",
+          "value": "Logo：原样角标",
+          "x": 1.25,
+          "y": 2.0,
+          "w": 2.8,
+          "h": 0.32,
+          "font": "title_font",
+          "size": 22,
+          "color": "ink",
+          "bold": true
+        },
+        {
+          "op": "rect",
+          "x": 3.88,
+          "y": 2.18,
+          "w": 1.12,
+          "h": 0.36,
+          "fill": "bg",
+          "line": "muted",
+          "lw": 1.1,
+          "radius": false,
+          "dash": true
+        },
+        {
+          "op": "text_box",
+          "value": "USER LOGO",
+          "x": 3.98,
+          "y": 2.3,
+          "w": 0.92,
+          "h": 0.08,
+          "font": "mono_font",
+          "size": 6.2,
+          "color": "muted",
+          "bold": false,
+          "align": "center (2)"
+        },
+        {
+          "op": "text_box",
+          "value": "不重绘、不改色、不套颗粒。\n只做小尺寸固定角标。",
+          "x": 1.25,
+          "y": 2.72,
+          "w": 3.5,
+          "h": 0.55,
+          "font": "body_font",
+          "size": 14,
+          "color": "muted",
+          "bold": false
+        },
+        {
+          "op": "shadow_rect",
+          "x": 6.15,
+          "y": 1.65,
+          "w": 8.45,
+          "h": 2.55,
+          "color": "b",
+          "dx": 0.06,
+          "dy": 0.06
+        },
+        {
+          "op": "rect",
+          "x": 6.15,
+          "y": 1.65,
+          "w": 8.45,
+          "h": 2.55,
+          "fill": "dark",
+          "line": "ink",
+          "lw": 2.1,
+          "radius": false,
+          "dash": false
+        },
+        {
+          "op": "text_box",
+          "value": "IP：必须先风格化",
+          "x": 6.48,
+          "y": 2.0,
+          "w": 3.0,
+          "h": 0.32,
+          "font": "title_font",
+          "size": 22,
+          "color": "white",
+          "bold": true
+        },
+        {
+          "op": "text_box",
+          "value": "用户提供原图 → 确认保留特征 → 图生图转成双色老印刷 → 抠图入槽",
+          "x": 6.48,
+          "y": 2.65,
+          "w": 6.7,
+          "h": 0.36,
+          "font": "body_font",
+          "size": 14,
+          "color": "white",
+          "bold": false
+        },
+        {
+          "op": "image_slot",
+          "x": 0.95,
+          "y": 4.75,
+          "w": 3.6,
+          "h": 2.25,
+          "code": "IP-A",
+          "caption": "主视觉 IP 槽",
+          "accent": "a"
+        },
+        {
+          "op": "image_slot",
+          "x": 4.95,
+          "y": 4.75,
+          "w": 3.0,
+          "h": 2.25,
+          "code": "IP-B",
+          "caption": "旁白 IP 槽",
+          "accent": "b"
+        },
+        {
+          "op": "image_slot",
+          "x": 8.35,
+          "y": 4.75,
+          "w": 2.7,
+          "h": 2.25,
+          "code": "IP-C",
+          "caption": "动作 IP 槽",
+          "accent": "c"
+        },
+        {
+          "op": "image_slot",
+          "x": 11.45,
+          "y": 4.75,
+          "w": 3.1,
+          "h": 2.25,
+          "code": "IP-D",
+          "caption": "流程小图标槽",
+          "accent": "ink"
+        },
+        {
+          "op": "component_note",
+          "value": "适用：品牌母版 / 角色资产 / 统一出图规则"
+        }
+      ]
+    },
+    {
+      "code": "C12",
+      "source_function": "slide_12_image_generation_assets",
+      "name": "出图资产页",
+      "component": "zine.generated-asset",
+      "note": "适用：出图任务 / 图生图 / 图片资产收口",
+      "ops": [
+        {
+          "op": "page_header",
+          "code": "C12 / IMAGE GENERATION",
+          "title": "出图资产页",
+          "subtitle": "把生图变成可控页面元素",
+          "folio": "P12 / IMAGE ASSETS"
+        },
+        {
+          "op": "text_box",
+          "value": "出图不是自由发挥\n而是进入槽位",
+          "x": 0.95,
+          "y": 1.65,
+          "w": 6.2,
+          "h": 1.35,
+          "font": "title_font",
+          "size": 37,
+          "color": "ink",
+          "bold": true,
+          "line_spacing": 0.86
+        },
+        {
+          "op": "text_box",
+          "value": "每张图都要先确定：用途、比例、是否抠图、是否需要图生图统一风格。",
+          "x": 1.0,
+          "y": 3.38,
+          "w": 5.8,
+          "h": 0.46,
+          "font": "body_font",
+          "size": 18,
+          "color": "muted",
+          "bold": false
+        },
+        {
+          "op": "shadow_rect",
+          "x": 7.35,
+          "y": 1.75,
+          "w": 2.95,
+          "h": 1.65,
+          "color": "a",
+          "dx": 0.055,
+          "dy": 0.055
+        },
+        {
+          "op": "rect",
+          "x": 7.35,
+          "y": 1.75,
+          "w": 2.95,
+          "h": 1.65,
+          "fill": "panel",
+          "line": "ink",
+          "lw": 2.0,
+          "radius": false,
+          "dash": false
+        },
+        {
+          "op": "rect",
+          "x": 7.569999999999999,
+          "y": 1.97,
+          "w": 0.52,
+          "h": 0.52,
+          "fill": "a",
+          "line": "ink",
+          "lw": 1.3,
+          "radius": false,
+          "dash": false
+        },
+        {
+          "op": "text_box",
+          "value": "A",
+          "x": 7.659999999999999,
+          "y": 2.09,
+          "w": 0.34,
+          "h": 0.15,
+          "font": "num_font",
+          "size": 13,
+          "color": "white",
+          "bold": false,
+          "align": "center (2)"
+        },
+        {
+          "op": "text_box",
+          "value": "原图输入",
+          "x": 8.27,
+          "y": 2.05,
+          "w": 1.6,
+          "h": 0.22,
+          "font": "title_font",
+          "size": 16,
+          "color": "ink",
+          "bold": true
+        },
+        {
+          "op": "text_box",
+          "value": "用户图 / 素材图 / IP",
+          "x": 7.6499999999999995,
+          "y": 2.67,
+          "w": 2.35,
+          "h": 0.32,
+          "font": "body_font",
+          "size": 12,
+          "color": "muted",
+          "bold": false
+        },
+        {
+          "op": "shadow_rect",
+          "x": 10.8,
+          "y": 1.75,
+          "w": 2.95,
+          "h": 1.65,
+          "color": "b",
+          "dx": 0.055,
+          "dy": 0.055
+        },
+        {
+          "op": "rect",
+          "x": 10.8,
+          "y": 1.75,
+          "w": 2.95,
+          "h": 1.65,
+          "fill": "panel",
+          "line": "ink",
+          "lw": 2.0,
+          "radius": false,
+          "dash": false
+        },
+        {
+          "op": "rect",
+          "x": 11.020000000000001,
+          "y": 1.97,
+          "w": 0.52,
+          "h": 0.52,
+          "fill": "b",
+          "line": "ink",
+          "lw": 1.3,
+          "radius": false,
+          "dash": false
+        },
+        {
+          "op": "text_box",
+          "value": "B",
+          "x": 11.110000000000001,
+          "y": 2.09,
+          "w": 0.34,
+          "h": 0.15,
+          "font": "num_font",
+          "size": 13,
+          "color": "white",
+          "bold": false,
+          "align": "center (2)"
+        },
+        {
+          "op": "text_box",
+          "value": "风格化",
+          "x": 11.72,
+          "y": 2.05,
+          "w": 1.6,
+          "h": 0.22,
+          "font": "title_font",
+          "size": 16,
+          "color": "ink",
+          "bold": true
+        },
+        {
+          "op": "text_box",
+          "value": "双色、纸感、网点、错位",
+          "x": 11.100000000000001,
+          "y": 2.67,
+          "w": 2.35,
+          "h": 0.32,
+          "font": "body_font",
+          "size": 12,
+          "color": "muted",
+          "bold": false
+        },
+        {
+          "op": "shadow_rect",
+          "x": 7.35,
+          "y": 4.2,
+          "w": 2.95,
+          "h": 1.65,
+          "color": "c",
+          "dx": 0.055,
+          "dy": 0.055
+        },
+        {
+          "op": "rect",
+          "x": 7.35,
+          "y": 4.2,
+          "w": 2.95,
+          "h": 1.65,
+          "fill": "panel",
+          "line": "ink",
+          "lw": 2.0,
+          "radius": false,
+          "dash": false
+        },
+        {
+          "op": "rect",
+          "x": 7.569999999999999,
+          "y": 4.42,
+          "w": 0.52,
+          "h": 0.52,
+          "fill": "c",
+          "line": "ink",
+          "lw": 1.3,
+          "radius": false,
+          "dash": false
+        },
+        {
+          "op": "text_box",
+          "value": "C",
+          "x": 7.659999999999999,
+          "y": 4.54,
+          "w": 0.34,
+          "h": 0.15,
+          "font": "num_font",
+          "size": 13,
+          "color": "ink",
+          "bold": false,
+          "align": "center (2)"
+        },
+        {
+          "op": "text_box",
+          "value": "抠图裁切",
+          "x": 8.27,
+          "y": 4.5,
+          "w": 1.6,
+          "h": 0.22,
+          "font": "title_font",
+          "size": 16,
+          "color": "ink",
+          "bold": true
+        },
+        {
+          "op": "text_box",
+          "value": "透明 PNG / 固定比例",
+          "x": 7.6499999999999995,
+          "y": 5.12,
+          "w": 2.35,
+          "h": 0.32,
+          "font": "body_font",
+          "size": 12,
+          "color": "muted",
+          "bold": false
+        },
+        {
+          "op": "shadow_rect",
+          "x": 10.8,
+          "y": 4.2,
+          "w": 2.95,
+          "h": 1.65,
+          "color": "ink",
+          "dx": 0.055,
+          "dy": 0.055
+        },
+        {
+          "op": "rect",
+          "x": 10.8,
+          "y": 4.2,
+          "w": 2.95,
+          "h": 1.65,
+          "fill": "panel",
+          "line": "ink",
+          "lw": 2.0,
+          "radius": false,
+          "dash": false
+        },
+        {
+          "op": "rect",
+          "x": 11.020000000000001,
+          "y": 4.42,
+          "w": 0.52,
+          "h": 0.52,
+          "fill": "ink",
+          "line": "ink",
+          "lw": 1.3,
+          "radius": false,
+          "dash": false
+        },
+        {
+          "op": "text_box",
+          "value": "D",
+          "x": 11.110000000000001,
+          "y": 4.54,
+          "w": 0.34,
+          "h": 0.15,
+          "font": "num_font",
+          "size": 13,
+          "color": "white",
+          "bold": false,
+          "align": "center (2)"
+        },
+        {
+          "op": "text_box",
+          "value": "进入槽位",
+          "x": 11.72,
+          "y": 4.5,
+          "w": 1.6,
+          "h": 0.22,
+          "font": "title_font",
+          "size": 16,
+          "color": "ink",
+          "bold": true
+        },
+        {
+          "op": "text_box",
+          "value": "A/B/C/D/E 图片容器",
+          "x": 11.100000000000001,
+          "y": 5.12,
+          "w": 2.35,
+          "h": 0.32,
+          "font": "body_font",
+          "size": 12,
+          "color": "muted",
+          "bold": false
+        },
+        {
+          "op": "shadow_rect",
+          "x": 1.0,
+          "y": 5.35,
+          "w": 5.85,
+          "h": 1.5,
+          "color": "b",
+          "dx": 0.06,
+          "dy": 0.06
+        },
+        {
+          "op": "rect",
+          "x": 1.0,
+          "y": 5.35,
+          "w": 5.85,
+          "h": 1.5,
+          "fill": "dark",
+          "line": "ink",
+          "lw": 2.0,
+          "radius": false,
+          "dash": false
+        },
+        {
+          "op": "text_box",
+          "value": "运行时必须问：有没有 logo？有没有 IP？是否允许风格化和抠图？",
+          "x": 1.35,
+          "y": 5.85,
+          "w": 5.1,
+          "h": 0.3,
+          "font": "body_font",
+          "size": 15.5,
+          "color": "white",
+          "bold": false,
+          "align": "center (2)"
+        },
+        {
+          "op": "component_note",
+          "value": "适用：出图任务 / 图生图 / 图片资产收口"
+        }
+      ]
+    },
+    {
+      "code": "C13",
+      "source_function": "slide_13_card_group",
+      "name": "并列卡片组",
+      "component": "zine.card-group",
+      "note": "适用：并列模块 / 案例 / 角色 / 交付物",
+      "ops": [
+        {
+          "op": "page_header",
+          "code": "C13 / CARD GROUP",
+          "title": "并列卡片组",
+          "subtitle": "同字段 / 同权重 / 无方向关系",
+          "folio": "P13 / CARD GROUP"
+        },
+        {
+          "op": "text_box",
+          "value": "卡片只表达并列",
+          "x": 0.92,
+          "y": 1.52,
+          "w": 7.2,
+          "h": 0.72,
+          "font": "title_font",
+          "size": 34,
+          "color": "ink",
+          "bold": true
+        },
+        {
+          "op": "text_box",
+          "value": "没有箭头、主轴、闭环或父子关系。",
+          "x": 0.96,
+          "y": 2.38,
+          "w": 7.2,
+          "h": 0.36,
+          "font": "body_font",
+          "size": 18,
+          "color": "muted",
+          "bold": false
+        },
+        {
+          "op": "shadow_rect",
+          "x": 1.05,
+          "y": 3.18,
+          "w": 3.95,
+          "h": 3.0,
+          "color": "a",
+          "dx": 0.065,
+          "dy": 0.065
+        },
+        {
+          "op": "rect",
+          "x": 1.05,
+          "y": 3.18,
+          "w": 3.95,
+          "h": 3.0,
+          "fill": "panel",
+          "line": "ink",
+          "lw": 2.0,
+          "radius": false,
+          "dash": false
+        },
+        {
+          "op": "text_box",
+          "value": "01",
+          "x": 1.33,
+          "y": 3.54,
+          "w": 0.92,
+          "h": 0.46,
+          "font": "num_font",
+          "size": 30,
+          "color": "ink",
+          "bold": true
+        },
+        {
+          "op": "tiny_rule",
+          "x": 1.35,
+          "y": 4.25,
+          "w": 1.05,
+          "color": "a"
+        },
+        {
+          "op": "text_box",
+          "value": "内容",
+          "x": 1.37,
+          "y": 4.64,
+          "w": 2.9,
+          "h": 0.42,
+          "font": "title_font",
+          "size": 22,
+          "color": "ink",
+          "bold": true
+        },
+        {
+          "op": "text_box",
+          "value": "锁定页数和可见文字",
+          "x": 1.3900000000000001,
+          "y": 5.34,
+          "w": 3.1,
+          "h": 0.38,
+          "font": "body_font",
+          "size": 14.5,
+          "color": "muted",
+          "bold": false
+        },
+        {
+          "op": "shadow_rect",
+          "x": 5.83,
+          "y": 3.18,
+          "w": 3.95,
+          "h": 3.0,
+          "color": "b",
+          "dx": 0.065,
+          "dy": 0.065
+        },
+        {
+          "op": "rect",
+          "x": 5.83,
+          "y": 3.18,
+          "w": 3.95,
+          "h": 3.0,
+          "fill": "panel",
+          "line": "ink",
+          "lw": 2.0,
+          "radius": false,
+          "dash": false
+        },
+        {
+          "op": "text_box",
+          "value": "02",
+          "x": 6.11,
+          "y": 3.54,
+          "w": 0.92,
+          "h": 0.46,
+          "font": "num_font",
+          "size": 30,
+          "color": "ink",
+          "bold": true
+        },
+        {
+          "op": "tiny_rule",
+          "x": 6.13,
+          "y": 4.25,
+          "w": 1.05,
+          "color": "b"
+        },
+        {
+          "op": "text_box",
+          "value": "形式",
+          "x": 6.15,
+          "y": 4.64,
+          "w": 2.9,
+          "h": 0.42,
+          "font": "title_font",
+          "size": 22,
+          "color": "ink",
+          "bold": true
+        },
+        {
+          "op": "text_box",
+          "value": "确认页面任务和变体",
+          "x": 6.17,
+          "y": 5.34,
+          "w": 3.1,
+          "h": 0.38,
+          "font": "body_font",
+          "size": 14.5,
+          "color": "muted",
+          "bold": false
+        },
+        {
+          "op": "shadow_rect",
+          "x": 10.610000000000001,
+          "y": 3.18,
+          "w": 3.95,
+          "h": 3.0,
+          "color": "c",
+          "dx": 0.065,
+          "dy": 0.065
+        },
+        {
+          "op": "rect",
+          "x": 10.610000000000001,
+          "y": 3.18,
+          "w": 3.95,
+          "h": 3.0,
+          "fill": "panel",
+          "line": "ink",
+          "lw": 2.0,
+          "radius": false,
+          "dash": false
+        },
+        {
+          "op": "text_box",
+          "value": "03",
+          "x": 10.89,
+          "y": 3.54,
+          "w": 0.92,
+          "h": 0.46,
+          "font": "num_font",
+          "size": 30,
+          "color": "ink",
+          "bold": true
+        },
+        {
+          "op": "tiny_rule",
+          "x": 10.910000000000002,
+          "y": 4.25,
+          "w": 1.05,
+          "color": "c"
+        },
+        {
+          "op": "text_box",
+          "value": "资产",
+          "x": 10.930000000000001,
+          "y": 4.64,
+          "w": 2.9,
+          "h": 0.42,
+          "font": "title_font",
+          "size": 22,
+          "color": "ink",
+          "bold": true
+        },
+        {
+          "op": "text_box",
+          "value": "确认截图、插图和数据",
+          "x": 10.950000000000001,
+          "y": 5.34,
+          "w": 3.1,
+          "h": 0.38,
+          "font": "body_font",
+          "size": 14.5,
+          "color": "muted",
+          "bold": false
+        },
+        {
+          "op": "component_note",
+          "value": "适用：并列模块 / 案例 / 角色 / 交付物"
+        }
+      ]
+    }
+  ]
+}

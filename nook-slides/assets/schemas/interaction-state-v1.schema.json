@@ -1,0 +1,113 @@
+﻿{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "nook-slides/interaction-state-v1.schema.json",
+  "title": "nook slides interaction state v1",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["schema_version", "project", "interaction_policy", "current_gate", "delivery_target", "gates"],
+  "properties": {
+    "schema_version": {"const": 1},
+    "project": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["slug", "folder"],
+      "properties": {
+        "slug": {"type": "string", "minLength": 1},
+        "folder": {"type": "string", "minLength": 1},
+        "title": {"type": "string"},
+        "created": {"type": "string"}
+      }
+    },
+    "interaction_policy": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "default_to_choices",
+        "max_intake_questions_per_round",
+        "max_decision_cards_per_round",
+        "text_lock_after_gate"
+      ],
+      "properties": {
+        "default_to_choices": {"const": true},
+        "max_intake_questions_per_round": {"type": "integer", "minimum": 1, "maximum": 3},
+        "max_decision_cards_per_round": {"type": "integer", "minimum": 1, "maximum": 4},
+        "source_material_open_allowed": {"type": "boolean"},
+        "text_lock_after_gate": {"const": "gate2_page_forms"}
+      }
+    },
+    "current_gate": {
+      "enum": [
+        "intake",
+        "gate1_content",
+        "gate2_page_forms",
+        "gate3_visual_system",
+        "gate4_assets",
+        "final_lock",
+        "plan_built",
+        "rendered",
+        "delivered",
+        "blocked"
+      ]
+    },
+    "delivery_target": {
+      "enum": ["schema-only", "prototype", "sample-review", "editable-pptx"]
+    },
+    "gates": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "intake",
+        "gate1_content",
+        "gate2_page_forms",
+        "gate3_visual_system",
+        "gate4_assets",
+        "final_lock",
+        "plan_built",
+        "rendered",
+        "delivered"
+      ],
+      "properties": {
+        "intake": {"$ref": "#/$defs/gateStatus"},
+        "gate1_content": {"$ref": "#/$defs/gateStatus"},
+        "gate2_page_forms": {"$ref": "#/$defs/gateStatus"},
+        "gate3_visual_system": {"$ref": "#/$defs/gateStatus"},
+        "gate4_assets": {"$ref": "#/$defs/gateStatus"},
+        "final_lock": {"$ref": "#/$defs/gateStatus"},
+        "plan_built": {"$ref": "#/$defs/gateStatus"},
+        "rendered": {"$ref": "#/$defs/gateStatus"},
+        "delivered": {"$ref": "#/$defs/gateStatus"}
+      }
+    },
+    "intake": {"type": "object"},
+    "active_questions": {
+      "type": "array",
+      "maxItems": 4,
+      "items": {"type": "object"}
+    },
+    "pages": {"type": "array", "items": {"type": "object"}},
+    "pending_decision_cards": {
+      "type": "array",
+      "maxItems": 4,
+      "items": {"type": "object"}
+    },
+    "visual_system": {"type": "object"},
+    "assets": {"type": "object"},
+    "locks": {"type": "object"},
+    "history": {"type": "array", "items": {"type": "object"}}
+  },
+  "$defs": {
+    "gateStatus": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["status"],
+      "properties": {
+        "status": {
+          "enum": ["pending", "in_progress", "confirmed", "blocked", "skipped"]
+        },
+        "confirmed_at": {"type": "string"},
+        "confirmed_by": {"type": "string"},
+        "note": {"type": "string"}
+      }
+    }
+  }
+}

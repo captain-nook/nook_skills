@@ -1,0 +1,286 @@
+﻿{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "nook-slides/deck-plan-v1.schema.json",
+  "title": "nook slides locked deck plan v1",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["theme", "pages"],
+  "properties": {
+    "schema_version": {"const": 1},
+    "plan_status": {"enum": ["prototype", "accepted"]},
+    "theme": {
+      "enum": [
+        "duotone-zine",
+        "oriental-dark-yaji",
+        "bright-street-dance"
+      ]
+    },
+    "title": {"type": "string", "maxLength": 24},
+    "logo": {"type": "string"},
+    "assets": {"type": "object"},
+    "content_lock": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["source_path", "sha256", "copy_path", "copy_sha256", "approved_at"],
+      "properties": {
+        "source_path": {"type": "string", "minLength": 1},
+        "sha256": {"type": "string", "pattern": "^[0-9a-fA-F]{64}$"},
+        "copy_path": {"type": "string", "minLength": 1},
+        "copy_sha256": {"type": "string", "pattern": "^[0-9a-fA-F]{64}$"},
+        "approved_at": {"type": "string", "minLength": 1}
+      }
+    },
+    "pages": {
+      "type": "array",
+      "minItems": 1,
+      "items": {"$ref": "#/$defs/page"}
+    }
+  },
+  "allOf": [
+    {
+      "if": {"properties": {"plan_status": {"const": "accepted"}}, "required": ["plan_status"]},
+      "then": {"required": ["content_lock"]}
+    }
+  ],
+  "$defs": {
+    "accent": {"enum": ["blue", "pink", "gold", "black", "cream"]},
+    "card": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["title"],
+      "properties": {
+        "title": {"type": "string", "minLength": 1, "maxLength": 16},
+        "body": {"type": "string", "maxLength": 60},
+        "label": {"type": "string", "maxLength": 12},
+        "year": {"type": "string", "maxLength": 10},
+        "accent": {"$ref": "#/$defs/accent"}
+      }
+    },
+    "imageSlot": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "path": {"type": "string"},
+        "placeholder": {"type": "string", "maxLength": 24},
+        "fit": {"enum": ["contain", "cover"]},
+        "accent": {"$ref": "#/$defs/accent"},
+        "status": {"type": "string", "maxLength": 24},
+        "focus_x": {"type": "number", "minimum": 0, "maximum": 1},
+        "focus_y": {"type": "number", "minimum": 0, "maximum": 1}
+      },
+      "anyOf": [{"required": ["path"]}, {"required": ["placeholder"]}]
+    },
+    "basePage": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["page_no", "component", "variant", "visual_carrier", "title"],
+      "properties": {
+        "page_no": {"type": "integer", "minimum": 1},
+        "component": {
+          "enum": [
+            "zine.hero-title",
+            "zine.statement",
+            "zine.big-number",
+            "zine.process-cards",
+            "zine.timeline",
+            "zine.cycle",
+            "zine.hierarchy",
+            "zine.comparison",
+            "zine.card-group",
+            "zine.image-text",
+            "zine.image-collage",
+            "zine.brand-master",
+            "zine.generated-asset"
+          ]
+        },
+        "variant": {"type": "string", "minLength": 1},
+        "visual_carrier": {"enum": ["statement", "image", "screenshot", "chart", "table", "structure"]},
+        "title": {"type": "string", "minLength": 1, "maxLength": 24},
+        "subtitle": {"type": "string", "maxLength": 36},
+        "body": {"type": "string", "maxLength": 80},
+        "footer": {"type": "string", "maxLength": 40},
+        "number": {"type": ["string", "number"]},
+        "center": {"type": "string", "maxLength": 18},
+        "center_body": {"type": "string", "maxLength": 40},
+        "cards": {"type": "array", "items": {"$ref": "#/$defs/card"}},
+        "chips": {
+          "type": "array",
+          "items": {"type": "string", "maxLength": 12}
+        },
+        "image_slots": {
+          "type": "array",
+          "items": {"$ref": "#/$defs/imageSlot"}
+        }
+      }
+    },
+    "page": {
+      "allOf": [
+        {"$ref": "#/$defs/basePage"},
+        {
+          "oneOf": [
+            {"$ref": "#/$defs/heroTitlePage"},
+            {"$ref": "#/$defs/statementPage"},
+            {"$ref": "#/$defs/bigNumberPage"},
+            {"$ref": "#/$defs/processCardsPage"},
+            {"$ref": "#/$defs/timelinePage"},
+            {"$ref": "#/$defs/cyclePage"},
+            {"$ref": "#/$defs/hierarchyPage"},
+            {"$ref": "#/$defs/comparisonPage"},
+            {"$ref": "#/$defs/cardGroupPage"},
+            {"$ref": "#/$defs/imageTextPage"},
+            {"$ref": "#/$defs/imageCollagePage"},
+            {"$ref": "#/$defs/brandMasterPage"},
+            {"$ref": "#/$defs/generatedAssetPage"}
+          ]
+        }
+      ]
+    },
+    "heroTitlePage": {
+      "properties": {
+        "component": {"const": "zine.hero-title"},
+        "variant": {"enum": ["cover-left-type-right-image", "cover-image-right", "case-opener"]},
+        "title": {"maxLength": 18},
+        "subtitle": {"maxLength": 28},
+        "body": {"maxLength": 45},
+        "footer": {"maxLength": 20},
+        "image_slots": {"minItems": 0, "maxItems": 1}
+      },
+      "not": {"anyOf": [{"required": ["cards"]}, {"required": ["center"]}, {"required": ["center_body"]}]}
+    },
+    "statementPage": {
+      "properties": {
+        "component": {"const": "zine.statement"},
+        "variant": {"enum": ["single-judgement", "fragment-cards"]},
+        "visual_carrier": {"const": "statement"},
+        "title": {"maxLength": 20},
+        "body": {"maxLength": 45},
+        "chips": {"minItems": 0, "maxItems": 3},
+        "cards": {"minItems": 2, "maxItems": 4}
+      },
+      "not": {"anyOf": [{"required": ["image_slots"]}, {"required": ["number"]}, {"required": ["center"]}]}
+    },
+    "bigNumberPage": {
+      "required": ["cards"],
+      "properties": {
+        "component": {"const": "zine.big-number"},
+        "variant": {"const": "three-column"},
+        "title": {"maxLength": 18},
+        "cards": {"minItems": 3, "maxItems": 3}
+      },
+      "not": {"anyOf": [{"required": ["image_slots"]}, {"required": ["chips"]}, {"required": ["center"]}]}
+    },
+    "processCardsPage": {
+      "required": ["cards"],
+      "properties": {
+        "component": {"const": "zine.process-cards"},
+        "variant": {"enum": ["four-step", "three-deliverables", "system-chain"]},
+        "visual_carrier": {"const": "structure"},
+        "title": {"maxLength": 18},
+        "cards": {"minItems": 3, "maxItems": 5}
+      },
+      "not": {"anyOf": [{"required": ["image_slots"]}, {"required": ["number"]}, {"required": ["center"]}]}
+    },
+    "timelinePage": {
+      "required": ["cards"],
+      "properties": {
+        "component": {"const": "zine.timeline"},
+        "variant": {"enum": ["four-event", "five-layer", "cpr"]},
+        "visual_carrier": {"const": "structure"},
+        "title": {"maxLength": 18},
+        "cards": {"minItems": 3, "maxItems": 5}
+      },
+      "not": {"anyOf": [{"required": ["image_slots"]}, {"required": ["chips"]}, {"required": ["center"]}]}
+    },
+    "cyclePage": {
+      "required": ["cards"],
+      "properties": {
+        "component": {"const": "zine.cycle"},
+        "variant": {"enum": ["four-node", "action-rhythm"]},
+        "visual_carrier": {"const": "structure"},
+        "title": {"maxLength": 18},
+        "center": {"maxLength": 12},
+        "center_body": {"maxLength": 28},
+        "cards": {"minItems": 4, "maxItems": 4}
+      },
+      "not": {"anyOf": [{"required": ["image_slots"]}, {"required": ["number"]}]}
+    },
+    "hierarchyPage": {
+      "required": ["cards"],
+      "properties": {
+        "component": {"const": "zine.hierarchy"},
+        "variant": {"enum": ["four-layer", "skill-structure", "five-layer-preview"]},
+        "visual_carrier": {"const": "structure"},
+        "title": {"maxLength": 18},
+        "cards": {"minItems": 3, "maxItems": 6}
+      },
+      "not": {"anyOf": [{"required": ["image_slots"]}, {"required": ["number"]}, {"required": ["chips"]}]}
+    },
+    "comparisonPage": {
+      "required": ["cards"],
+      "properties": {
+        "component": {"const": "zine.comparison"},
+        "variant": {"enum": ["two-column", "three-case-summary", "template-vs-context", "old-solutions", "shell"]},
+        "visual_carrier": {"const": "structure"},
+        "title": {"maxLength": 18},
+        "cards": {"minItems": 2, "maxItems": 5}
+      },
+      "not": {"anyOf": [{"required": ["image_slots"]}, {"required": ["number"]}, {"required": ["center"]}]}
+    },
+    "cardGroupPage": {
+      "required": ["cards"],
+      "properties": {
+        "component": {"const": "zine.card-group"},
+        "variant": {"const": "parallel-three"},
+        "visual_carrier": {"const": "structure"},
+        "title": {"maxLength": 18},
+        "body": {"maxLength": 45},
+        "cards": {"minItems": 3, "maxItems": 3}
+      },
+      "not": {"anyOf": [{"required": ["image_slots"]}, {"required": ["number"]}, {"required": ["center"]}]}
+    },
+    "imageTextPage": {
+      "required": ["image_slots"],
+      "properties": {
+        "component": {"const": "zine.image-text"},
+        "variant": {"enum": ["large-image-left", "illustration-statement", "screenshot-evidence", "project-structure", "project-root"]},
+        "title": {"maxLength": 18},
+        "body": {"maxLength": 60},
+        "footer": {"maxLength": 32},
+        "image_slots": {"minItems": 1, "maxItems": 1}
+      },
+      "not": {"anyOf": [{"required": ["cards"]}, {"required": ["number"]}, {"required": ["center"]}]}
+    },
+    "imageCollagePage": {
+      "required": ["image_slots"],
+      "properties": {
+        "component": {"const": "zine.image-collage"},
+        "variant": {"enum": ["three-image", "evidence-triptych"]},
+        "visual_carrier": {"enum": ["image", "screenshot"]},
+        "title": {"maxLength": 18},
+        "body": {"maxLength": 45},
+        "image_slots": {"minItems": 3, "maxItems": 3}
+      },
+      "not": {"anyOf": [{"required": ["cards"]}, {"required": ["number"]}, {"required": ["center"]}]}
+    },
+    "brandMasterPage": {
+      "properties": {
+        "component": {"const": "zine.brand-master"},
+        "variant": {"const": "logo-ip-rules"},
+        "title": {"maxLength": 18},
+        "body": {"maxLength": 60},
+        "cards": {"minItems": 2, "maxItems": 4},
+        "image_slots": {"minItems": 1, "maxItems": 4}
+      }
+    },
+    "generatedAssetPage": {
+      "properties": {
+        "component": {"const": "zine.generated-asset"},
+        "variant": {"const": "asset-spec"},
+        "title": {"maxLength": 18},
+        "body": {"maxLength": 60},
+        "cards": {"minItems": 3, "maxItems": 4},
+        "image_slots": {"minItems": 0, "maxItems": 1}
+      }
+    }
+  }
+}

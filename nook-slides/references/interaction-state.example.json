@@ -1,0 +1,101 @@
+{
+  "schema_version": 1,
+  "project": {
+    "slug": "example-deck",
+    "folder": "260702-example-deck",
+    "title": "示例 deck",
+    "created": "2026-07-02"
+  },
+  "interaction_policy": {
+    "default_to_choices": true,
+    "max_intake_questions_per_round": 3,
+    "max_decision_cards_per_round": 4,
+    "source_material_open_allowed": true,
+    "text_lock_after_gate": "gate2_page_forms"
+  },
+  "current_gate": "gate3_visual_system",
+  "delivery_target": "editable-pptx",
+  "gates": {
+    "intake": {"status": "confirmed", "confirmed_at": "2026-07-02T10:00:00+08:00"},
+    "gate1_content": {"status": "confirmed", "confirmed_at": "2026-07-02T10:10:00+08:00"},
+    "gate2_page_forms": {"status": "confirmed", "confirmed_at": "2026-07-02T10:20:00+08:00"},
+    "gate3_visual_system": {"status": "in_progress"},
+    "gate4_assets": {"status": "pending"},
+    "final_lock": {"status": "pending"},
+    "plan_built": {"status": "pending"},
+    "rendered": {"status": "pending"},
+    "delivered": {"status": "pending"}
+  },
+  "intake": {
+    "source_material": "content/source.md",
+    "purpose": "course",
+    "audience": "students",
+    "outcome": "learn",
+    "length": "short",
+    "density": "speaker-led",
+    "delivery_target": "editable-pptx"
+  },
+  "active_questions": [],
+  "pages": [
+    {
+      "page_no": 1,
+      "title": "先把流程锁住",
+      "visual_carrier": "statement",
+      "content_status": "confirmed",
+      "visible_copy": {
+        "title": "先把流程锁住",
+        "body": "交互先确认，再进入填空。"
+      },
+      "page_form": {
+        "status": "confirmed",
+        "natural_form": "一句话判断页",
+        "component": "zine.statement",
+        "variant": "single-judgement"
+      }
+    },
+    {
+      "page_no": 2,
+      "title": "三段式落地",
+      "visual_carrier": "structure",
+      "content_status": "confirmed",
+      "visible_copy": {
+        "title": "三段式落地",
+        "cards": [
+          {"title": "确认内容"},
+          {"title": "确认页型"},
+          {"title": "填入 schema"}
+        ]
+      },
+      "page_form": {
+        "status": "confirmed",
+        "natural_form": "流程页",
+        "component": "zine.process-cards",
+        "variant": "three-deliverables"
+      }
+    }
+  ],
+  "pending_decision_cards": [],
+  "visual_system": {
+    "status": "in_progress",
+    "theme": "",
+    "renderer_status": ""
+  },
+  "assets": {
+    "status": "pending",
+    "items": []
+  },
+  "locks": {
+    "text_locked": true,
+    "locked_after_gate": "gate2_page_forms",
+    "accepted_copy_path": "content/accepted-copy.md",
+    "visible_copy_path": "content/visible-copy.json",
+    "approved_at": "2026-07-02T10:20:00+08:00"
+  },
+  "history": [
+    {
+      "at": "2026-07-02T10:20:00+08:00",
+      "gate": "gate2_page_forms",
+      "event": "page forms confirmed"
+    }
+  ]
+}
