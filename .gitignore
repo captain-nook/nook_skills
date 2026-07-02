@@ -15,3 +15,7 @@ generated/
 !skills/**/assets/**/*.jpg
 !skills/**/assets/**/*.jpeg
 !skills/**/assets/**/*.webp
+!*/assets/**/*.png
+!*/assets/**/*.jpg
+!*/assets/**/*.jpeg
+!*/assets/**/*.webp

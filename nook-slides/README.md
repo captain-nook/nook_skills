@@ -6,13 +6,13 @@
 
 ## 视觉样张
 
-下面几张是 Nook 已有的封面 / 插图生产样张，放在这里用于快速感受当前视觉资产的气质。`nook-slides` 做 PPT 时不会直接把这些图当成事实素材；它们更适合作为封面、氛围页、章节页或生成资产页的视觉参考。
+下面 3 张图来自当前 `nook-slides` 项目跑通的《AI 训练》PPT，均已写入该项目的 `assets_manifest.yml` 和 `deck_plan.json`，并实际用于 PPT 页面中。它们不是外部素材库图片，也不是其他项目的封面样张。
 
-![image2.0 直出封面候选](assets/readme/image2-direct-cover.png)
+![《AI 训练》PPT 第 1 页封面插图](assets/readme/ai-training-cover-worksite-zine.png)
 
-![稳定文字层封面样张](assets/readme/html-text-layer-cover.png)
+![《AI 训练》PPT 第 5 页知识库隐喻插图](assets/readme/ai-training-context-roots-library.png)
 
-![视觉系统样张九宫格](assets/readme/v04-2-contact-sheet.jpg)
+![《AI 训练》PPT 第 7 页行动场景插图](assets/readme/ai-training-action-rhythm-scene.png)
 
 ## 它解决什么问题
 

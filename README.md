@@ -17,7 +17,7 @@
 | 给已经定稿的文章取标题 | `nook-title` | 负责标题事实钩子、候选标题、标题评分和事实边界。 |
 | 判断一段中文有没有 AI 味、做自然化审校 | `nook-humanizer-zh-review` | 作为写作 skill 的最终审校层，也可单独使用。 |
 | 做知识卡片、图文卡片、可视化卡片 | `nook-card` | 负责卡片结构、视觉系统、交付规格。 |
-| 做中文演示、HTML slides、可编辑 PPTX | `nook-html-slides` | 负责内容门、页面形式门、模板驱动 PPTX、duotone-zine 模板包、构建与校验。 |
+| 做中文演示、slides、可编辑 PPTX | `nook-slides` | 负责内容门、页面形式门、模板驱动 PPTX、duotone-zine 模板包、构建与校验。 |
 | 做自驾游路线规划、路书、手机竖屏旅行手册 | `nook-trave` | 负责 8 问收敛、路线方向、地图核算、每日底图、竖屏路书 HTML。 |
 | 做小红书/公众号/B站等封面，尤其有标题文字层 | `nook-cover` | 多平台封面生产主 skill，当前重点覆盖小红书封面。 |
 | 做视频封面：YouTube/B站/抖音/小红书/视频号 | `nook-tv-cover` | 负责横封面、短封面、竖封面的科技风封面输出。 |
@@ -126,7 +126,7 @@
 - B站/YouTube/抖音/视频号等平台封面规划；
 - 需要标题文字层稳定落版的封面。
 
-### `nook-html-slides`
+### `nook-slides`
 
 中文演示文稿和可编辑 PPTX 生产 skill。
 
