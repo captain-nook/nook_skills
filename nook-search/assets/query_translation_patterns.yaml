@@ -1,0 +1,287 @@
+# nook-search 翻译层资产
+# query 翻译模式库：意图模式 → keyword 模板 → 多域 rephrase 模板
+# 维护者：nook-search 自身
+# 升级影响：AnySearch 域/sdp 改名 → 只改本文件 + domain_map.yaml
+# 最后更新：2026-07-21（基于 live API 实测 + 官方 instructions）
+
+version: 0.1.0
+last_updated: 2026-07-21
+doc_source: live_api   # 所有规则来自 live API instructions + tools/list description
+
+# ============ 意图模式分类 ============
+# 根据用户原话识别意图类型，决定走 Path A / Path B / Hybrid
+intent_patterns:
+
+  # Path A 触发（通用搜索，一等公民默认）
+  path_a_triggers:
+    - pattern: "新闻/概念/人物/公司查询"
+      examples:
+        - "最近的 AI 新闻"
+        - "马斯克的最新动态"
+        - "OpenAI 公司背景"
+      action: "search(query='<natural_language>', max_results=5)"
+      note: "不传 domain；query 是纯自然语言"
+    - pattern: "URL 验证/事实核查"
+      examples:
+        - "这个链接 https://... 是真是假"
+        - "核实一下这条新闻"
+      action: "search(query='<natural_language>', max_results=5)"
+    - pattern: "对比/观点"
+      examples:
+        - "Claude vs GPT 哪个好"
+        - "大家对 Cursor 的评价"
+      action: "search(query='<natural_language>', max_results=5)"
+    - pattern: "最新事件/无结构化标识符"
+      examples:
+        - "今天有什么 AI 新动向"
+        - "本周热点"
+      action: "search(query='<natural_language>', max_results=5)"
+
+  # Path B 触发（垂直搜索，含结构化标识符）
+  path_b_triggers:
+    - pattern: "结构化标识符"
+      examples:
+        - "查特斯拉股票" → ticker=TSLA → finance.quote
+        - "查这篇论文" → DOI=10.xxx → academic.search
+        - "查 CVE-2024-xxxx" → cve_id → security.*
+        - "查 PEK 到 SHA 航班" → iata → travel.flight_status
+      action: "get_sub_domains(domains=[<domain>]) → search(query, domain, sub_domain, sdp)"
+      required: "必须先调 get_sub_domains 确认 sdp 参数"
+    - pattern: "专门垂类"
+      examples:
+        - "查天气" → environment.weather
+        - "查汇率" → finance.quote (forex)
+        - "查药品" → health.drug
+        - "查法律案例" → legal.case
+      action: "get_sub_domains(domains=[<domain>]) → search(query, domain, sub_domain, sdp)"
+
+  # Hybrid 触发（拿不准时）
+  hybrid_triggers:
+    - pattern: "模糊/两可查询"
+      examples:
+        - "AI 监管对医疗投资的影响"（跨 legal/health/finance）
+        - "气候变化的农业供应链影响"（跨 environment/agriculture/business）
+      action: "batch_search(queries=[1 个 Path A + N 个 Path B])"
+      official_quote: "Coverage beats guessing."
+
+# ============ keyword 具体化模板 ============
+# 把用户原话翻译成具体化 keyword
+# 硬规则 12：禁用单泛词，必须多词短语或专有名词
+keyword_templates:
+
+  # 单字主题 → 多词短语
+  specific_phrase:
+    - raw: "AI"
+      translated: ["AI large models", "AI Agent tutorial", "AI regulation healthcare"]
+      reason: "单字 AI 太泛；按用户意图加角度词"
+    - raw: "科技"
+      translated: ["科技互联网趋势", "科技公司财报", "科技产品评测"]
+      reason: "单字科技太泛；按场景加细分"
+    - raw: "新闻"
+      translated: ["AI 新闻 July 2026", "科技行业周报", "公司最新动态"]
+      reason: "单字新闻太泛；加时间/行业限定"
+
+  # 专有名词（直接用，不翻译）
+  proper_noun:
+    - raw: "马斯克"
+      translated: "Musk"
+      reason: "专有名词，官方示例"
+    - raw: "<博主名>"
+      translated: "<博主名>"
+      reason: "博主名是专有名词，直接用"
+    - raw: "特斯拉"
+      translated: "TSLA"
+      reason: "股票代码是结构化标识符，走 Path B"
+
+  # 场景化模板
+  by_scenario:
+
+    topic_research:
+      template: "<主题> + <角度>"
+      examples:
+        - "AI Agent 入门路径"
+        - "AI 工具对比评测"
+        - "Claude Code 实战案例"
+      reason: "选题调研需要差异化角度，不能只给主题"
+
+    blogger_research:
+      template: "<博主名/ID>"
+      examples:
+        - "<博主名>"
+        - "@username"
+      reason: "博主名是专有名词，直接搜"
+
+    comment_mining:
+      template: "<主题> + <痛点词>"
+      examples:
+        - "AI Agent 踩坑"
+        - "LangChain 学习路径"
+        - "Claude Code 常见问题"
+      reason: "评论区挖掘要找痛点，加痛点词"
+
+    cross_platform_compare:
+      template: "<具体工具名> + <对比维度>"
+      examples:
+        - "Claude Code review"
+        - "Cursor IDE 用户体验"
+        - "GitHub Copilot 评测"
+      reason: "跨平台对比需要具体工具名，不能用泛词"
+
+    image_procurement:
+      template: "<主题> + <风格/类型>"
+      examples:
+        - "AI robot futuristic minimalist cover art"
+        - "AI brain vector graphic icon"
+      reason: "图片搜索需要视觉描述词"
+
+# ============ 多域 rephrase 模板（官方 Pattern 2）============
+# 同主题跨域时，按每个域的视角重新表述同一个核心问题
+multi_domain_rephrase_templates:
+
+  # 模板 1：AI 监管类话题
+  ai_regulation:
+    core_topic: "AI 监管对医疗投资的影响"
+    rephrase_by_domain:
+      finance:
+        rephrase: "AI regulation impact on healthcare investment trends 2025"
+        why: "finance 关注投资趋势和资金流向"
+      health:
+        rephrase: "healthcare AI regulatory compliance requirements"
+        why: "health 关注合规要求和医疗场景"
+      legal:
+        rephrase: "AI medical device regulation legal framework"
+        why: "legal 关注法律框架和监管条文"
+
+  # 模板 2：气候/环境类话题
+  climate_agriculture:
+    core_topic: "气候变化对农业供应链的影响"
+    rephrase_by_domain:
+      environment:
+        rephrase: "climate change impact on agriculture regions"
+        why: "environment 关注气候数据和区域影响"
+      agriculture:
+        rephrase: "agricultural supply chain climate vulnerability"
+        why: "agriculture 关注供应链和作物影响"
+      business:
+        rephrase: "agriculture commodities climate risk investment"
+        why: "business 关注商品价格和投资风险"
+
+  # 模板 3：AI 工具类话题（场景 4 跨平台对比）
+  ai_tool_review:
+    core_topic: "Claude Code 用户体验"
+    rephrase_by_domain:
+      social_media.zhihu_hot:
+        rephrase: "Claude Code 深度评测 中文"
+        why: "知乎偏深度长文评测"
+      social_media.x_top:
+        rephrase: "Claude Code review feedback"
+        why: "X 偏快讯和即时反馈"
+      social_media.reddit_post:
+        rephrase: "Claude Code discussion experience"
+        why: "Reddit 偏深度讨论和真实体验"
+      social_media.wechatmp:
+        rephrase: "Claude Code 教程案例"
+        why: "公众号偏教程和实战案例"
+      social_media.weibo_hot:
+        rephrase: "Claude Code 工具演示"
+        why: "微博偏热搜和演示视频"
+
+# ============ 时间窗翻译模板 ============
+# 识别时间窗词，翻译成 query 自然语言或 sdp 参数
+time_window_templates:
+
+  # 时间窗词识别
+  detection:
+    patterns:
+      - regex: "72\\s*[小时Hh]"
+        canonical: "72h"
+        query_phrase: "in the last 72 hours"
+      - regex: "24\\s*[小时Hh]"
+        canonical: "24h"
+        query_phrase: "in the last 24 hours"
+      - regex: "本周|这周|this week"
+        canonical: "7d"
+        query_phrase: "this week"
+      - regex: "最近\\s*N\\s*天|last N days"
+        canonical: "Nd"
+        query_phrase: "in the last N days"
+      - regex: "最新|latest|recent|today|now"
+        canonical: "latest"
+        query_phrase: "latest"
+
+  # 按域翻译策略
+  translation_by_domain:
+
+    social_media:
+      strategy: "query_nl_only"
+      query_template: "<topic> in the last <N> hours"
+      sdp_param: null
+      note: "social_media 不支持时间参数；时间词只能写进 query"
+      fallback: "呈现层标 time_window_check: FAILED"
+
+    finance:
+      strategy: "sdp_period_param"
+      sdp_template: "period=<Nd>"
+      valid_values: [7d, 14d, 30d, 90d, 180d, 1y, 5y, "{N}d_custom"]
+      note: "直接传 period 参数；72h 可用 3d 近似"
+
+    academic:
+      strategy: "sdp_year_param"
+      sdp_template: "year_from=<YYYY>"
+      note: "粒度到年；72h 需求只能近似用 year_from=当前年"
+
+    general:
+      strategy: "query_nl_only"
+      query_template: "<topic> in the last <N> hours"
+      sdp_param: null
+      note: "通用 search 无时间参数；依赖后端排序引擎"
+
+# ============ 翻译 checklist ============
+# 每条 query 落地前必须过这 5 条自检
+translation_checklist:
+  - id: 1
+    name: "意图类型已识别"
+    pass_condition: "标了 path_a / path_b / hybrid"
+    fail_action: "拒跑，回到环 1 重新识别"
+  - id: 2
+    name: "keyword 具体化"
+    pass_condition: "不是单泛词；是多词短语或专有名词"
+    fail_action: "拒跑，回到环 1 重新具体化"
+    examples:
+      bad: ["AI", "科技", "新闻", "教程"]
+      good: ["AI large models", "Python developer", "Musk", "AI Agent tutorial"]
+  - id: 3
+    name: "多域 rephrase（如适用）"
+    pass_condition: "同主题跨域时每个域换了视角"
+    fail_action: "如果是跨域场景，拒跑；单域场景跳过此项"
+  - id: 4
+    name: "单一意图"
+    pass_condition: "一个 query 只承载一个意图"
+    fail_action: "拆成 batch_search 多个 query"
+  - id: 5
+    name: "结构化参数走 sdp"
+    pass_condition: "query 是纯自然语言，不含 type=/keyword=/region= 等"
+    fail_action: "拒跑，把结构化参数移到 sdp 字段"
+
+# ============ 官方原文引用（溯源用）============
+official_quotes:
+  path_a_default: |
+    "Path A — General search (default for any non-structured query)...
+    This is a first-class default — not a fallback or rare exception."
+  path_b_required: |
+    "NEVER call search with domain/sub_domain/sub_domain_params unless get_sub_domains was called first in this context.
+    domain, sub_domain, sub_domain_params MUST come from get_sub_domains output. NEVER guess."
+  keyword_precedence: |
+    "Search keywords take precedence over query fields."
+  one_intent: |
+    "ONE intent per search call. Split multi-intent queries with batch_search."
+  query_pure_nl: |
+    "query is pure natural language. Structured params → sub_domain_params, NEVER in query."
+  hybrid: |
+    "When unsure → Hybrid via batch_search. Fire one Path A query (general, no domain)
+    AND one or more Path B queries (vertical, with domain) in the SAME batch_search call.
+    Coverage beats guessing."
+  pattern_2: |
+    "A SINGLE topic spans multiple domains. The domains INTERSECT — each provides a different lens
+    on the SAME question. Strategy: get_sub_domains with ALL intersecting domains, then batch_search
+    — rephrase the SAME core question for each domain's perspective."

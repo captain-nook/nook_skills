@@ -1,0 +1,419 @@
+# nook-search 核心资产
+# 目标类型 → AnySearch 域组合映射表
+# 维护者：nook-search 自身
+# 升级影响：AnySearch 域/sdp 改名 → 只改本文件
+# 最后更新：2026-07-21（基于 live API 实测，不引用过时静态 doc_spec.md）
+
+version: 0.2.0
+last_updated: 2026-07-21
+anysearch_version: v2.1.0
+doc_source: live_api   # live_api（权威）| static_doc_spec（仅断网 fallback）
+
+# 目标类型 → 域组合
+target_routes:
+
+  # ============ 自媒体场景 ============
+  topic_research:
+    description: "选题调研（跨平台热点 + 痛点 + 权威引用）"
+    primary:
+      - domain: social_media
+        sub_domain: social_media.social_media
+        sdp_template: "type=<platform>,keyword=<query>"
+        platforms: [zhihu_hot, x_top, reddit_post, wechatmp, weibo_hot]
+        max_results: 5
+    secondary:
+      - domain: academic
+        sub_domain: academic.search
+        sdp_template: "<query>,year_from=2024,min_citations=50"
+        max_results: 5
+    optional:
+      - domain: resource
+        sub_domain: resource.image
+        sdp_template: "<query> 封面"
+        max_results: 20
+    rationale: |
+      选题的核心是跨平台对比 + 评论区需求 + 权威背书 + 配图。
+      social_media 五平台覆盖主流量；academic 给可信度；resource 给配图。
+
+  blogger_research:
+    description: "对标博主全网足迹拼接"
+    primary:
+      - domain: social_media
+        sub_domain: social_media.social_media
+        sdp_template: "type=zhihu,keyword=<blogger_name>"
+        max_results: 5
+      - domain: social_media
+        sub_domain: social_media.social_media
+        sdp_template: "type=wechatmp,keyword=<blogger_name>"
+        max_results: 5
+      - domain: general
+        sub_domain: general.general
+        sdp_template: "<blogger_name>"
+        max_results: 5
+    extract_targets:
+      - host: xiaoyuzhoufm.com
+        reason: 播客 Show Notes
+      - host: weixin.sogou.com
+        reason: 公众号文章列表
+      - host: mp.weixin.qq.com
+        reason: 公众号原文
+    rationale: |
+      任何博主都会在"知乎/公众号/即刻/播客"等几个平台留下内容，
+      通过 general 补足长尾。
+
+  image_procurement:
+    description: "配图素材合规采购"
+    primary:
+      - domain: resource
+        sub_domain: resource.image
+        sdp_template: "<query>"
+        max_results: 20
+    license_filter: [CC0, "Unsplash License", "Pexels License", "Pixabay License"]
+    license_warn: [CC BY, "CC BY-SA", "CC BY-NC"]
+    rationale: |
+      商用图库只能入 CC0 / Unsplash / Pexels / Pixabay。
+      CC BY 类需署名，公众号/小红书配图不友好。
+
+  cross_platform_compare:
+    description: "跨平台调性对比"
+    primary:
+      - domain: social_media
+        sub_domain: social_media.social_media
+        sdp_template: "type=<platform>,keyword=<query>"
+        platforms: [zhihu_hot, x_top, reddit_post, wechatmp, weibo_hot]
+        max_results: 5
+    strategy_hint: parallel
+    rationale: |
+      5 路 batch_search 一次跑通，3-5 秒拿到 5 平台对比。
+      输出表格化，适合直接放进表格类工具二次处理。
+
+  comment_mining:
+    description: "评论区选题挖掘"
+    primary:
+      - domain: social_media
+        sub_domain: social_media.social_media
+        sdp_template: "type=reddit_comment,keyword=<query>"
+        max_results: 20
+    supplement:
+      - domain: social_media
+        sub_domain: social_media.social_media
+        sdp_template: "type=zhihu,keyword=<query> 怎么"
+        max_results: 10
+    cluster_method: llm_semantic
+    min_cluster_size: 3
+    rationale: |
+      评论区反复问的才是未满足的需求。
+      Reddit 评论质量最高（深度讨论）；知乎补充中文痛点。
+
+  # ============ 调研场景 ============
+  fact_check:
+    description: "事实核查（公众号/中视频背景资料）"
+    primary:
+      - domain: academic
+        sub_domain: academic.search
+        max_results: 5
+      - domain: general
+        sub_domain: general.general
+        max_results: 5
+    supplement:
+      - domain: business
+        sub_domain: business.company
+        max_results: 3
+
+  industry_research:
+    description: "行业调研（AI/金融/医疗 等垂类）"
+    primary:
+      - domain: academic
+        sub_domain: academic.search
+        max_results: 5
+      - domain: general
+        sub_domain: general.general
+        max_results: 5
+    supplement_by_industry:
+      ai: [code.snippet, code.doc, business.jobs]
+      finance: [finance.news, finance.macro]
+      healthcare: [health.drug, health.trial, health.stats]
+      legal: [legal.case, legal.statute]
+
+  # ============ 工具/技术查询 ============
+  code_lookup:
+    description: "代码/技术资料查询"
+    primary:
+      - domain: code
+        sub_domain: code.snippet
+        max_results: 10
+      - domain: code
+        sub_domain: code.doc
+        max_results: 5
+
+  tool_review:
+    description: "工具评测（找竞品 + 用户反馈）"
+    primary:
+      - domain: social_media
+        sub_domain: social_media.social_media
+        sdp_template: "type=reddit_post,keyword=<tool_name> review"
+        max_results: 10
+      - domain: social_media
+        sub_domain: social_media.social_media
+        sdp_template: "type=x_top,keyword=<tool_name>"
+        max_results: 5
+
+  # ============ 个人/生活场景 ============
+  travel_planning:
+    description: "旅行规划（机票 + 当地信息）"
+    primary:
+      - domain: travel
+        sub_domain: travel.flight
+      - domain: travel
+        sub_domain: travel.flight_status
+    supplement:
+      - domain: environment
+        sub_domain: environment.aqi
+      - domain: general
+        sub_domain: general.general
+        sdp_template: "<destination> 攻略"
+
+  finance_quick:
+    description: "金融快讯（股票/外汇/资讯）"
+    primary:
+      - domain: finance
+        sub_domain: finance.quote
+      - domain: finance
+        sub_domain: finance.news
+    supplement:
+      - domain: finance
+        sub_domain: finance.macro
+
+  legal_lookup:
+    description: "法律案例/法规查询"
+    primary:
+      - domain: legal
+        sub_domain: legal.case
+      - domain: legal
+        sub_domain: legal.statute
+
+  health_query:
+    description: "健康/医疗查询"
+    primary:
+      - domain: health
+        sub_domain: health.drug
+      - domain: health
+        sub_domain: health.trial
+
+# ============ 失败降级映射 ============
+fallback_rules:
+  - condition: "social_media 主域失败"
+    fallback: "general.general"
+  - condition: "academic 主域失败"
+    fallback: "general.general"
+  - condition: "X API 限流（HTTP 429）"
+    fallback: "reddit_post + zhihu + weibo_hot"
+  - condition: "微信公众号 wechatmp 失败"
+    fallback: "general 关键词搜索"
+  - condition: "resource.image 失败"
+    fallback: "general 图片关键词搜索（不保证 License）"
+  - condition: "AnySearch 整体不可用"
+    fallback: "abort + 用户通知"
+
+# ============ QPS / 限流配置 ============
+rate_limit:
+  qps_per_key: 20
+  daily_quota: 1000
+  batch_search_max_concurrent: 5
+  warn_threshold: 0.8  # 80% 触发用户告警
+
+# ============ sdp 校验规则（v0.1 初稿）============
+sdp_validator:
+  social_media.social_media:
+    required_keys: [type]
+    valid_types: [weibo, weibo_hot, zhihu, zhihu_hot, x_top, x_latest, x_media, x_people, x_lists, reddit_post, reddit_community, reddit_comment, reddit_media, reddit_people, linkedin_people, linkedin_jobs, linkedin_company, linkedin_posts, wechatmp]
+  academic.search:
+    optional_keys: [year_from, min_citations, category, author]
+  finance.quote:
+    required_keys: [symbol]
+  resource.image:
+    optional_keys: [license, orientation, color]
+
+# ============ 平台行为实测说明（live API，260721）============
+# 用于环 2 选路决策与环 4 清洗预期管理
+# 与 sdp_validator / time_window_support 联动
+platform_behaviors:
+  description: |
+    各 social_media sdp 平台的实际行为，基于 260721 live API 实测。
+    仅供选路与清洗预期管理参考，不代表平台官方承诺。
+  platforms:
+
+    weibo_hot:
+      keyword_effective: false
+      behavior: |
+        weibo_hot sdp 返回的是微博热搜榜单，与传入的 keyword 参数无关。
+        keyword 字段会被静默忽略。即使传 keyword=AI Agent，返回的依然是当下热搜 Top N。
+      selection_advice: |
+        适合"看微博在热搜什么"的场景（无 keyword）；
+        不适合"在微博里搜特定话题"的场景（应改用 general 域 + 关键词）。
+      cleaning_advice: |
+        清洗时不应期待返回内容与 keyword 强相关；
+        适合作为"平台调性样本"而非"精准命中结果"使用。
+
+    wechatmp:
+      coverage: mixed
+      behavior: |
+        wechatmp sdp 名为"微信公众号"，但实际返回内容不全是公众号文章。
+        260721 实测：返回结果中混有 github.com、blog.csdn.net、个人博客等其他网页。
+        公众号文章仍是主体，但比例不是 100%。
+      selection_advice: |
+        适合"中文长文深度内容"的宽口径搜索；
+        不适合"严格只要公众号文章"的场景（需在清洗层 host 过滤）。
+      cleaning_advice: |
+        清洗时若用户要求"严格公众号"，需按 host=mp.weixin.qq.com 过滤；
+        否则保留全部，但在元信息中标注 mixed_coverage: true。
+      anonymity_risk_override: low
+      anonymity_risk_reason: |
+        公众号主体需实名认证，故 anonymity_risk 仍标 low；
+        但 mixed_coverage 内容若非 mp.weixin.qq.com host，需重新评估匿名性。
+
+    zhihu_hot:
+      keyword_effective: true
+      behavior: |
+        zhihu_hot sdp 接受 keyword 参数，返回知乎热榜中与 keyword 相关的内容。
+        与 weibo_hot 不同，keyword 实际生效。
+      selection_advice: |
+        适合"知乎里搜特定话题"的场景。
+      cleaning_advice: |
+        正常清洗即可，无特殊处理。
+
+    reddit_post:
+      keyword_effective: true
+      behavior: |
+        reddit_post sdp 接受 keyword 参数，返回 Reddit 帖子。
+        260721 实测：keyword 生效，返回内容与 keyword 强相关。
+      selection_advice: |
+        适合"Reddit 里搜特定话题"的场景，是 comment_mining 场景的主入口。
+      cleaning_advice: |
+        正常清洗即可；注意 Reddit 无 published_at 字段，时间窗走 § 4.5 失败路径。
+
+    x_top:
+      keyword_effective: true
+      behavior: |
+        x_top sdp 接受 keyword 参数，返回 X/Twitter 热门推文。
+      selection_advice: |
+        适合"X 上看话题热度"的场景。
+      cleaning_advice: |
+        正常清洗即可；注意 X 无 published_at 字段，时间窗走 § 4.5 失败路径。
+
+# ============ 时间参数支持表（live API 实测，260721）============
+# 用于环 2 § 2.4.5 时间窗降级处理决策
+# 与 04_结果清洗_排版规则.md § 4.5 时间窗 skill 层过滤联动
+time_window_support:
+  description: |
+    各域/sub_domain 是否支持原生时间过滤参数。
+    live API 实测时间：2026-07-21。
+    数据源：get_sub_domains 实测 + tools/list 的 search inputSchema。
+  domains:
+
+    social_media:
+      supports_time_param: false
+      params_available: [type, keyword, region]
+      time_params: []
+      note: |
+        social_media 域 sdp 完全不支持时间参数。
+        type 里的 x_latest / x_top 是 feed 排序模式，不是时间窗口。
+        时间窗需求必须走：① 翻译层写进 query 自然语言；③ 呈现层标 FAILED。
+      sub_domains:
+        social_media.social_media:
+          params: [type, keyword, region]
+          time_params: []
+
+    finance:
+      supports_time_param: true
+      time_param_name: period
+      time_param_values: [7d, 14d, 30d, 90d, 180d, 1y, 5y, "{N}d_custom"]
+      note: |
+        finance 域支持 period 参数，可自定义 {N}d（如 3d = 72h 近似）。
+        时间窗需求走：② 参数层直接传 period。
+      sub_domains:
+        finance.quote: { params: [symbol, period], time_params: [period] }
+        finance.macro: { params: [type, period], time_params: [period] }
+        finance.calendar: { params: [type, period], time_params: [period] }
+        finance.fundamental: { params: [symbol, type, period], time_params: [period] }
+        finance.news: { params: [type, period], time_params: [period], note: "type=flash/announcement 默认 1d" }
+
+    academic:
+      supports_time_param: true
+      time_param_names: [year_from, year_to]
+      time_param_format: "YYYY or YYYY-MM-DD"
+      note: |
+        academic 域用 year_from/year_to，粒度到年或 YYYY-MM-DD。
+        不是小时级窗口；72h 需求只能近似用 year_from=YYYY。
+        时间窗需求走：② 参数层传 year_from/year_to。
+      sub_domains:
+        academic.search: { params: [keyword, year_from, year_to], time_params: [year_from, year_to] }
+        academic.preprint: { params: [keyword, year_from, year_to], time_params: [year_from, year_to] }
+        academic.citation: { params: [keyword, year_from, year_to], time_params: [year_from, year_to] }
+        academic.dataset: { params: [keyword, year_from, year_to], time_params: [year_from, year_to] }
+        academic.biomedical: { params: [keyword, year_from, year_to, date_type], time_params: [year_from, year_to] }
+
+    general:
+      supports_time_param: false
+      params_available: [query, max_results]
+      time_params: []
+      note: |
+        通用 search 顶层只有 query/domain/sub_domain/sub_domain_params/max_results 五个参数。
+        无顶层时间参数；时间窗只能写进 query 自然语言（"in the last 72 hours"）。
+
+  fallback_strategies:
+    - condition: "social_media + 时间窗需求"
+      strategy: "query 写时间词 + 呈现层标 FAILED + 提示 extract 二次抓取"
+    - condition: "finance + 时间窗需求"
+      strategy: "直接传 period 参数（支持 7d/14d/30d/90d/180d/1y/5y/{N}d）"
+    - condition: "academic + 时间窗需求"
+      strategy: "传 year_from/year_to（粒度到年或 YYYY-MM-DD）"
+    - condition: "general + 时间窗需求"
+      strategy: "query 写时间词（'in the last 72 hours'），依赖后端排序引擎"
+
+# ============ 匿名性风险表（用于环 4 可信度加权）============
+# 与 04_结果清洗_排版规则.md § 4.3.5 ai_generated_detection 联动
+# 高匿名 + ai_suspected 双重命中 → 可信度再降一档
+anonymity_risk:
+  description: |
+    平台匿名性等级，用于环 4 清洗时对内容可信度加权。
+    高匿名平台的内容需要更多交叉验证（与 academic / fact_check 联动）。
+    本表只描述平台属性，不代表单条内容真假。
+  levels:
+    low:                          # 实名 / 强身份验证
+      platforms:
+        - linkedin_people
+        - linkedin_posts
+        - linkedin_company
+        - linkedin_jobs
+        - wechatmp          # 公众号需主体认证
+      weight_multiplier: 1.0      # 可信度基准
+      note: "实名或机构账号，可作为单一来源引用"
+    medium:                       # 半匿名（有账号但发言可匿名）
+      platforms:
+        - zhihu
+        - zhihu_hot
+        - weibo
+        - weibo_hot
+      weight_multiplier: 0.8
+      note: "需结合账号历史与互动数据判断；单条不作权威引用"
+    high:                         # 完全匿名
+      platforms:
+        - x_top
+        - x_latest
+        - x_media
+        - x_people
+        - x_lists
+        - reddit_post
+        - reddit_community
+        - reddit_comment
+        - reddit_media
+        - reddit_people
+      weight_multiplier: 0.6
+      note: "评论与投票数据可作为群体信号；单条内容不得作为权威引用"
+  rules:
+    - "高匿名平台单条内容不得作为 fact_check 的唯一来源"
+    - "高匿名平台内容若被 academic.search 引用背书，可信度提升至 medium"
+    - "comment_mining 场景不受匿名等级影响（聚类看群体信号，不看单条）"
+    - "高匿名 + ai_suspected: true 双重命中 → weight_multiplier 再 ×0.5"
+    - "low 等级平台若检出 ai_suspected: true，降级为 medium 处理"
