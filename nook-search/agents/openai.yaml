@@ -1,0 +1,4 @@
+interface:
+  display_name: "nook Search"
+  short_description: "Translate a request into precise AnySearch queries, orchestrate, clean, and store results."
+  default_prompt: "Use $nook-search to interpret my request, route it to the right AnySearch domain, run the search, clean the results, and save them."
