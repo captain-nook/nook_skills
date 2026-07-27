@@ -19,3 +19,7 @@ generated/
 !*/assets/**/*.jpg
 !*/assets/**/*.jpeg
 !*/assets/**/*.webp
+
+# 创作者个人档案，含账号信息，不进仓库
+profile.md
+!profile.example.md
