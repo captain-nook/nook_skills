@@ -100,6 +100,7 @@ nook-h3/
 │   ├── check_h3_dialogue.ps1
 │   ├── set_h3_qc_result.ps1
 │   ├── run_h3_batch.ps1
+│   ├── test_h3_prompt.ps1
 │   └── submit_h3_workflow.ps1
 └── assets/
     └── readme/
@@ -113,6 +114,7 @@ nook-h3/
 - `references/`：H3 提示词、任务清单和工作流配置说明；
 - `scripts/submit_h3_workflow.ps1`：提交并可选等待一条任务；
 - `scripts/run_h3_batch.ps1`：按照清单顺序逐条生成，并在每条输出后强制暂停质检；
+- `scripts/test_h3_prompt.ps1`：在提交前检查官方字段顺序、精确台词标签、无 BGM 设置和可选的镜头级规则；
 - `scripts/prepare_h3_qc.py`：生成技术报告和接触表，供 Agent 做逐镜语义质检；
 - `scripts/check_h3_dialogue.ps1`：使用 Windows 离线中文识别器核对预期台词，输出匹配与置信度证据；
 - `scripts/set_h3_qc_result.ps1`：记录通过、立即重试、返工或人工复核，并解除或保留队列闸门；
@@ -258,6 +260,8 @@ http://127.0.0.1:8188
 - 提示词中的时长必须和任务的 `duration` 一致；
 - 场景参考图只承担场景职责，人物参考图只在需要人物一致性时加入。
 
+批处理还会在提交前运行机械预检。任务可通过 `prompt_checks.expected_dialogue` 要求精确中文台词，通过 `prompt_checks.calm_cloud_sea` 拦截灾难式云海词汇并要求稳定轮廓与轻微横向纹理漂移，通过 `prompt_checks.opening_subject_required` 拦截主体从画外迟入场。预检失败时不会占用 ComfyUI 队列。
+
 ## 单条生成
 
 先准备好 ComfyUI 工作流和输入图片，然后运行：
@@ -290,13 +294,14 @@ powershell -ExecutionPolicy Bypass -File .\scripts\run_h3_batch.ps1 `
 
 1. 检查任务 ID 是否为空或重复；
 2. 检查 ComfyUI 的 `/system_stats`；
-3. 根据任务模式加载对应工作流；
-4. 注入首帧、尾帧、参考图、提示词、时长、精度和输出前缀；
-5. 提交一条任务并监听历史记录；
-6. 推理成功后写入 `awaiting_qc` 并强制暂停，不提交下一条；
-7. 生成技术报告与接触表，再按分镜做语义质检；
-8. 合格后写入 `completed`；不合格时更换种子、修订失败项并重跑；
-9. 重启后根据状态文件继续，不越过尚未质检的任务。
+3. 校验官方提示词结构以及该镜头的 `prompt_checks`；
+4. 根据任务模式加载对应工作流；
+5. 注入首帧、尾帧、参考图、提示词、时长、精度和输出前缀；
+6. 提交一条任务并监听历史记录；
+7. 推理成功后写入 `awaiting_qc` 并强制暂停，不提交下一条；
+8. 生成技术报告与接触表，再按分镜做语义质检；
+9. 合格后写入 `completed`；不合格时更换种子、修订失败项并重跑；
+10. 重启后根据状态文件继续，不越过尚未质检的任务。
 
 默认会在 manifest 所在目录生成：
 
