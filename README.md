@@ -22,6 +22,7 @@
 | 做自驾游路线规划、路书、手机竖屏旅行手册 | `nook-trave` | 负责 8 问收敛、路线方向、地图核算、每日底图、竖屏路书 HTML。 |
 | 做小红书/公众号/B站等封面，尤其有标题文字层 | `nook-cover` | 多平台封面生产主 skill，当前重点覆盖小红书封面。 |
 | 做视频封面：YouTube/B站/抖音/小红书/视频号 | `nook-tv-cover` | 负责横封面、短封面、竖封面的科技风封面输出。 |
+| 用 MiniMax H3 + ComfyUI 生成视频片段并批量监听 | `nook-h3` | 负责 I2VA、FL2VA、L2VA、Ref2VA、T2VA 的任务编排、UTF-8 提交、顺序轮询、重试和断点续跑。 |
 | 需要稳定调用 GPT Image 类图片生成能力 | `nook-image-gpt` / `nook-image2-gpt` | 原子图片 provider，供上层视觉 skill 调用。 |
 | 需要低成本快速探索图片草稿 | `nook-zimage` | ModelScope Z-Image Turbo，适合草稿、批量探索、低风险素材。 |
 | 需要中文海报、封面、高质量文字渲染 | `nook-qwen-image` | ModelScope Qwen-Image，适合中文视觉和更高质量产出。 |
@@ -325,4 +326,39 @@ Obsidian 笔记库不由本仓库管理：
 
 - `nook_vault`
 - `nook_lab`
+
+## 10. 视频生成与 ComfyUI
+
+### `nook-h3`
+
+`nook-h3` 是 MiniMax H3 + ComfyUI 的本地视频生成编排 Skill。它不绑定某个项目、某个故事或固定镜头数量，而是把项目差异放进外部任务清单，把容易出错的提交和监听流程固定下来。
+
+它适合以下工作：
+
+- 根据分镜选择 I2VA、FL2VA、L2VA、Ref2VA 或 T2VA；
+- 按官方 H3 规范整理提示词和对白；
+- 挂载首帧、尾帧、人物设定图、场景图和道具参考图；
+- 通过 UTF-8 API 提交中文提示词；
+- 一条任务完成后再提交下一条任务；
+- 对失败任务重试，并保存状态支持断点续跑；
+- 批量处理任意数量的片段，不需要为 3 条、7 条或 100 条任务重新写脚本。
+
+![nook-h3 场景参考：仙界街道](nook-h3/assets/readme/h3-scene-street.png)
+
+![nook-h3 场景参考：云上店铺](nook-h3/assets/readme/h3-scene-tea-shop.png)
+
+上面的图片只用于展示“场景参考物料”这一类输入。公开仓库不包含 ComfyUI、H3 模型权重、账号密钥、运行日志或任何特定项目的私有任务清单。
+
+#### 最小使用方式
+
+准备自己的 ComfyUI 工作流、输入图片和 `h3_tasks.json` 后：
+
+```powershell
+powershell -ExecutionPolicy Bypass -File .\nook-h3\scripts\run_h3_batch.ps1 `
+  -ManifestPath .\h3_tasks.json
+```
+
+任务数量由 JSON 中的 `tasks` 数组决定。每个 task 代表一段待生成的视频素材；一条最终成片可以由多个 task 组成。多个最终视频可以分别维护 manifest，也可以在一个总 manifest 中通过 `video_id` 区分。
+
+详细说明见 [`nook-h3/README.md`](nook-h3/README.md)，官方 H3 提示词规范需要单独安装 `h3-prompt-writing` Skill。
 
