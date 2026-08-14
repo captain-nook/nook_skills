@@ -34,6 +34,8 @@ Write the structural text in English. Preserve dialogue exactly in its original 
 
 At every actual vocal event, attach the speaker ID directly to the speaking subject: `<Subject 1> (S1) ... says: <d>[Chinese] ...</d>`. Do not rely on an `(S1)` marker that appeared only in an earlier composition sentence. Describe exact pronunciation and syllable-synchronized mouth articulation at the same event.
 
+For a short critical dialogue line, stage the audio in playback order. Keep the speaker in the foreground and competing ambience restrained until the final syllable is complete; introduce footsteps, bells, birds, crowd layers, or other stronger effects afterward when the action permits. Do not ask all sound layers to peak during the line.
+
 ## Exact frame-alignment lines
 
 I2VA must begin with:
