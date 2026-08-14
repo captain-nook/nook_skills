@@ -38,6 +38,7 @@ Use the mode stated by the storyboard or manifest. Do not replace a required ref
 - Walking shots need natural, audible footsteps. Busy locations need their local ambience. Keep BGM separate when it will be edited later by setting non-diegetic music to `N/A`.
 - If the story is celestial, describe moving mist/cloud layers with depth and continuity in every applicable task; say what they must not obscure.
 - Keep each task as one continuous clip unless the selected workflow and storyboard explicitly require a different structure.
+- Run `scripts/test_h3_prompt.ps1` directly for one-off preflight checks. The batch runner invokes it automatically and uses each task's optional `prompt_checks` gates before touching the ComfyUI queue.
 
 ## Single task
 

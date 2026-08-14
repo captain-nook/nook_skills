@@ -114,6 +114,16 @@ function New-WorkflowForTask($Task, $Defaults, [string]$ManifestDir, [string]$Wo
     if (-not $seedApplied) { throw "Workflow $workflowPath has no RandomNoise noise_seed input." }
     $prompt = [string](Get-Field $Task 'prompt' '')
     if ([string]::IsNullOrWhiteSpace($prompt)) { throw "Task $($Task.id) has an empty prompt." }
+    $promptChecks = Get-Field $Task 'prompt_checks' ([pscustomobject]@{})
+    $promptPreflight = Join-Path $PSScriptRoot 'test_h3_prompt.ps1'
+    $preflightArgs = @{
+        Mode = $mode
+        Prompt = $prompt
+        ExpectedDialogue = [string](Get-Field $promptChecks 'expected_dialogue' '')
+        CalmCloudSea = [bool](Get-Field $promptChecks 'calm_cloud_sea' $false)
+        OpeningSubjectRequired = [bool](Get-Field $promptChecks 'opening_subject_required' $false)
+    }
+    & $promptPreflight @preflightArgs | Out-Null
     $duration = [double](Get-Field $Task 'duration' (Get-Field $Defaults 'duration' 4.0))
     $megapixels = [double](Get-Field $Task 'megapixels' (Get-Field $Defaults 'megapixels' 0.9))
     $outputPrefix = [string](Get-Field $Task 'output_prefix' ("video/" + $Task.id))
