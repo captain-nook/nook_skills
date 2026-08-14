@@ -23,7 +23,7 @@ Mode-specific fields:
 
 ## Optional defaults and overrides
 
-Put common values under `defaults`. A task can override `comfy_url`, workflow paths, `megapixels`, `duration`, `poll_seconds`, and `max_retries`.
+Put common values under `defaults`. A task can override `comfy_url`, workflow paths, `megapixels`, `duration`, `poll_seconds`, `max_retries`, `retry_backoff_seconds`, and `retry_backoff_max_seconds`. Failed attempts are recorded, then retried with a new seed after exponential backoff plus small jitter; capacity, network, or inference failures therefore do not silently terminate the whole batch.
 
 Use `seed` to set the first attempt seed. Each retry increments it so the same failed sample is not reproduced. If omitted, the runner creates a seed and records it.
 
@@ -44,6 +44,8 @@ Inference output is not final approval. The state file uses `attempts`, `awaitin
     "duration": 4,
     "poll_seconds": 30,
     "max_retries": 3,
+    "retry_backoff_seconds": 30,
+    "retry_backoff_max_seconds": 300,
     "output_dir": ""
   },
   "tasks": [

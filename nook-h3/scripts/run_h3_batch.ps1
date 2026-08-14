@@ -323,14 +323,22 @@ Write-Log "BATCH START tasks=$($tasks.Count) comfy_url=$comfyUrl workspace=$work
             break taskLoop
         }
         catch {
-            Write-Log "FAIL id=$id attempt=$attempt error=$($_.Exception.Message)"
+            $failureMessage = $_.Exception.Message
+            Write-Log "FAIL id=$id attempt=$attempt error=$failureMessage"
+            Set-StateRecord $state 'attempts' "$id-$attempt" ([pscustomobject]@{ status = 'failed'; attempt = $attempt; seed = ($baseSeed + $attempt - 1); error = $failureMessage; failed_at = (Get-Date).ToString('o') })
             if ($retryIndex -ge $maxRetries) {
-                Set-StateRecord $state 'rework_pending' $id ([pscustomobject]@{ status = 'rework_pending'; attempts = $attempt; last_seed = ($baseSeed + $attempt - 1); error = $_.Exception.Message; queued_at = (Get-Date).ToString('o') })
+                Set-StateRecord $state 'rework_pending' $id ([pscustomobject]@{ status = 'rework_pending'; attempts = $attempt; last_seed = ($baseSeed + $attempt - 1); error = $failureMessage; queued_at = (Get-Date).ToString('o') })
                 Write-Log "REWORK_PENDING id=$id attempts=$attempt reason=inference_failure"
                 $done = $true
                 continue
             }
-            Start-Sleep -Seconds 5
+            $backoffBase = [int](Get-Field $task 'retry_backoff_seconds' (Get-Field $defaults 'retry_backoff_seconds' 30))
+            $backoffMax = [int](Get-Field $task 'retry_backoff_max_seconds' (Get-Field $defaults 'retry_backoff_max_seconds' 300))
+            if ($backoffBase -lt 1) { $backoffBase = 1 }
+            if ($backoffMax -lt $backoffBase) { $backoffMax = $backoffBase }
+            $retryDelay = [Math]::Min($backoffMax, [int]($backoffBase * [Math]::Pow(2, $retryIndex - 1))) + (Get-Random -Minimum 0 -Maximum 6)
+            Write-Log "RETRY_WAIT id=$id next_attempt=$($attempt + 1) seconds=$retryDelay"
+            Start-Sleep -Seconds $retryDelay
         }
     }
 }

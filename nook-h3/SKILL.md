@@ -72,6 +72,8 @@ The manifest array is the only place that determines the batch size. To create 3
 
 Before a long unattended batch, verify ComfyUI is reachable, the selected workflow templates exist, all input aliases are available to ComfyUI, the GPU can sustain the run, and the computer will not sleep. Never launch two runners against the same queue unless the user explicitly wants concurrent scheduling.
 
+Transient submission, capacity, network, and inference failures are recorded per attempt and retried with a new seed using exponential backoff. Configure `retry_backoff_seconds`, `retry_backoff_max_seconds`, and `max_retries` in the manifest. Reaching the retry limit moves the task to `rework_pending`; it must not be marked complete.
+
 Treat the storyboard or manifest as the production source of truth. Do not run a project-specific legacy script merely because it exists beside the storyboard. Before submission, compare the task ID, mode, duration, opening composition, reference aliases, and output prefix against the current shot card.
 
 ## Sharing with another person
