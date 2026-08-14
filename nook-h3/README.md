@@ -281,6 +281,8 @@ powershell -ExecutionPolicy Bypass -File .\scripts\submit_h3_workflow.ps1 `
 
 如果只想提交、不等待，可以去掉 `-Wait`。生产时建议保留等待，确认本条任务完成后再进入下一条。
 
+单条提交也会自动运行提示词预检。镜头有精确中文台词时传入 `-ExpectedDialogue`；要求平静仙界云海时传入 `-CalmCloudSea`；开场主体必须已经在画内时传入 `-OpeningSubjectRequired`。不合格的提示词会在进入 ComfyUI 队列前停止。
+
 脚本使用 UTF-8 `WebClient.UploadData` 提交 JSON，专门避免中文提示词通过 PowerShell 请求体传输时变成问号。
 
 ## 批量生成

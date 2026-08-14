@@ -7,6 +7,9 @@ param(
     [string]$WorkflowPath = '',
     [Parameter(Mandatory=$true)]
     [string]$Prompt,
+    [string]$ExpectedDialogue = '',
+    [switch]$CalmCloudSea,
+    [switch]$OpeningSubjectRequired,
     [string]$FirstFrame = '',
     [string]$LastFrame = '',
     [string[]]$ReferenceImages = @(),
@@ -20,6 +23,9 @@ param(
 )
 
 $ErrorActionPreference = 'Stop'
+
+$promptPreflight = Join-Path $PSScriptRoot 'test_h3_prompt.ps1'
+& $promptPreflight -Mode $Mode -Prompt $Prompt -ExpectedDialogue $ExpectedDialogue -CalmCloudSea:$CalmCloudSea -OpeningSubjectRequired:$OpeningSubjectRequired | Out-Null
 
 function Set-JsonProperty($Object, [string]$Name, $Value) {
     $property = $Object.PSObject.Properties[$Name]
