@@ -26,7 +26,11 @@ $recognizer.LoadGrammar([System.Speech.Recognition.DictationGrammar]::new())
 $recognizer.SetInputToWaveFile((Resolve-Path -LiteralPath $WavPath).Path)
 $segments = @()
 while ($true) {
-    $result = $recognizer.Recognize()
+    try { $result = $recognizer.Recognize() }
+    catch [System.InvalidOperationException] {
+        if ($_.Exception.Message -match 'No audio input is supplied') { break }
+        throw
+    }
     if ($null -eq $result) { break }
     $segments += [pscustomobject]@{
         text = $result.Text
