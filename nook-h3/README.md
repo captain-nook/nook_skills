@@ -2,7 +2,7 @@
 
 一个面向 MiniMax H3 + ComfyUI 的可复用视频生成 Skill。
 
-它负责把“分镜表或任务清单”转换成可执行的视频生成任务：选择 H3 工作流、组织官方格式提示词、挂载首帧/尾帧/参考图、提交 UTF-8 API 请求、逐条监听任务、失败重试、保存状态并支持断点续跑。
+它负责把“分镜表或任务清单”转换成可执行的视频生成任务：选择 H3 工作流、组织官方格式提示词、挂载首帧/尾帧/参考图、提交 UTF-8 API 请求、逐条监听任务、输出技术证据、逐镜质检、失败重试、保存状态并支持断点续跑。
 
 它不包含 ComfyUI、H3 模型权重、私有素材、账号凭证或任何特定项目的分镜内容。
 
@@ -38,6 +38,7 @@
 - 中文提示词通过 API 传输时编码损坏；
 - 首帧、尾帧和参考图挂错工作流；
 - 还没生成完成就提交下一条任务，导致队列失控；
+- 推理成功就被误当成可用成片，台词、肢体、构图、运镜、云层和环境声没有经过质检；
 - 生成失败后不知道从哪里继续；
 - 同一个角色在不同镜头里误用了上一条生成结果；
 - 3条和100条任务需要不同脚本，无法复用；
@@ -61,9 +62,12 @@
         │
         ▼
   ComfyUI /history/{prompt_id}
-        │ 轮询成功、记录输出、失败重试
+        │ 轮询推理结果并记录输出
         ▼
-  视频片段 + 状态文件 + 日志
+  技术报告 + 接触表 + 语义质检
+        │ 合格进入下一条；不合格换种子并按失败项重跑
+        ▼
+  可用视频片段 + 状态文件 + 日志
 ```
 
 一个 `task` 是一段 H3 视频素材，不等同于最终剪辑后的整条视频。最终视频可以由多个 task 组成。
@@ -75,7 +79,8 @@
 3. 提交一条任务；
 4. 轮询该任务直到成功或失败；
 5. 保存 prompt ID、输出文件和状态；
-6. 成功后才进入下一条任务。
+6. 生成技术报告与接触表，按分镜检查主体、构图、运镜、环境运动、台词和声音；
+7. 合格后才进入下一条；不合格则更换种子并按失败项重跑。
 
 ## 目录结构
 
@@ -88,8 +93,12 @@ nook-h3/
 ├── references/
 │   ├── h3-prompt-contract.md
 │   ├── manifest-schema.md
+│   ├── quality-control.md
 │   └── workflow-and-assets.md
 ├── scripts/
+│   ├── prepare_h3_qc.py
+│   ├── check_h3_dialogue.ps1
+│   ├── set_h3_qc_result.ps1
 │   ├── run_h3_batch.ps1
 │   └── submit_h3_workflow.ps1
 └── assets/
@@ -103,7 +112,10 @@ nook-h3/
 - `README.md`：给人阅读的安装、配置和使用说明；
 - `references/`：H3 提示词、任务清单和工作流配置说明；
 - `scripts/submit_h3_workflow.ps1`：提交并可选等待一条任务；
-- `scripts/run_h3_batch.ps1`：按照清单顺序批量生成；
+- `scripts/run_h3_batch.ps1`：按照清单顺序逐条生成，并在每条输出后强制暂停质检；
+- `scripts/prepare_h3_qc.py`：生成技术报告和接触表，供 Agent 做逐镜语义质检；
+- `scripts/check_h3_dialogue.ps1`：使用 Windows 离线中文识别器核对预期台词，输出匹配与置信度证据；
+- `scripts/set_h3_qc_result.ps1`：记录通过、立即重试、返工或人工复核，并解除或保留队列闸门；
 - `assets/readme/`：只用于仓库 README 的展示图，不参与视频生成。
 
 ## 安装与依赖
@@ -281,9 +293,10 @@ powershell -ExecutionPolicy Bypass -File .\scripts\run_h3_batch.ps1 `
 3. 根据任务模式加载对应工作流；
 4. 注入首帧、尾帧、参考图、提示词、时长、精度和输出前缀；
 5. 提交一条任务并监听历史记录；
-6. 成功后保存状态，再继续下一条；
-7. 失败时按 `max_retries` 重试；
-8. 重启后根据状态文件或可选输出目录跳过已完成任务。
+6. 推理成功后写入 `awaiting_qc` 并强制暂停，不提交下一条；
+7. 生成技术报告与接触表，再按分镜做语义质检；
+8. 合格后写入 `completed`；不合格时更换种子、修订失败项并重跑；
+9. 重启后根据状态文件继续，不越过尚未质检的任务。
 
 默认会在 manifest 所在目录生成：
 
@@ -293,6 +306,21 @@ h3-batch.log
 ```
 
 这两个文件包含运行状态和本地输出信息，通常不应该提交到公开仓库。
+
+完成技术与语义质检后，用状态脚本记录结果：
+
+```powershell
+powershell -ExecutionPolicy Bypass -File .\scripts\set_h3_qc_result.ps1 `
+  -StatePath .\.h3-batch-state.json `
+  -TaskId 'clip-001' `
+  -Result retry `
+  -FailureReasons @('cloud_wave_motion','subject_late_entry') `
+  -PromptRevision 'stable cloud contour; subject fully composed in first frame' `
+  -ManifestPath .\h3_tasks.json `
+  -RevisedPrompt $revisedPrompt
+```
+
+`pass` 会写入 `completed`；`retry` 会解除当前闸门，并在下次运行时自动递增尝试次数、随机种子和输出前缀；提供 `ManifestPath` 与完整 `RevisedPrompt` 时，修订后的官方提示词会同时写回对应任务；`rework` 进入返工队列；`manual` 标记人工复核。
 
 ## 3条、7条、100条应该怎么做
 
@@ -344,7 +372,7 @@ video-c/clip-001
 
 如果在 `defaults.output_dir` 中配置了输出目录，执行器还会按照 `output_prefix` 检查已有输出。建议每个任务使用唯一前缀，避免把别的任务误判为已完成。
 
-单个任务连续达到 `max_retries` 仍然失败时，批量会在该任务处停止，而不是静默跳过。修复工作流、输入图或 ComfyUI 后，重新运行即可从状态文件继续。
+ComfyUI 推理成功不等于镜头合格。每条输出都会停在 `awaiting_qc`；只有技术质检和语义质检均通过才写入 `completed`。台词错误、主体迟入画、肢体异常、固定机位、远景云层静止、云层海浪化或现场声音缺失，都应记录失败原因并使用新种子重跑。达到即时重试上限后移入 `rework_pending`，不要把失败素材冒充成片。
 
 ## 分享给别人
 

@@ -1,4 +1,4 @@
 interface:
   display_name: "nook-h3"
-  short_description: "Generate and monitor MiniMax H3 clips through ComfyUI"
-  default_prompt: "Use nook-h3 to turn a storyboard task manifest into sequential MiniMax H3 ComfyUI video clips with official prompts, references, polling, retries, and resume state."
+  short_description: "Generate, review, and retry MiniMax H3 clips through ComfyUI"
+  default_prompt: "Use nook-h3 to turn a storyboard manifest into sequential MiniMax H3 ComfyUI clips with official prompts, explicit references, polling, technical and semantic QC, failure-specific retries, a rework queue, and resumable state."

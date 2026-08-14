@@ -13,6 +13,7 @@ param(
     [string]$OutputPrefix = 'video/h3_clip',
     [double]$Megapixels = 0.9,
     [double]$Duration = 4.0,
+    [long]$Seed = -1,
     [switch]$Wait,
     [int]$PollSeconds = 30,
     [int]$MaxMinutes = 120
@@ -44,6 +45,16 @@ if ([string]::IsNullOrWhiteSpace($WorkflowPath)) {
 if (-not (Test-Path -LiteralPath $WorkflowPath)) { throw "Workflow JSON not found: $WorkflowPath" }
 
 $workflow = Get-Content -Raw -Encoding UTF8 -LiteralPath $WorkflowPath | ConvertFrom-Json
+if ($Seed -lt 0) { $Seed = [long]((Get-Date).Ticks % 1000000000000000) }
+$seedApplied = $false
+foreach ($nodeProperty in $workflow.PSObject.Properties) {
+    $node = $nodeProperty.Value
+    if ($null -ne $node -and [string]$node.class_type -eq 'RandomNoise' -and $null -ne $node.inputs.PSObject.Properties['noise_seed']) {
+        $node.inputs.noise_seed = $Seed
+        $seedApplied = $true
+    }
+}
+if (-not $seedApplied) { throw "Workflow has no RandomNoise noise_seed input: $WorkflowPath" }
 if ($Mode -eq 'Ref2VA') {
     if ($ReferenceImages.Count -lt 2) { throw 'Ref2VA requires at least two reference images.' }
     $workflow.'137'.inputs.image = $ReferenceImages[0]
@@ -94,7 +105,7 @@ $client.Headers['Content-Type'] = 'application/json; charset=utf-8'
 $response = [System.Text.Encoding]::UTF8.GetString($client.UploadData("$ComfyUrl/prompt", 'POST', $bytes)) | ConvertFrom-Json
 $promptId = $response.prompt_id
 if ([string]::IsNullOrWhiteSpace($promptId)) { throw 'ComfyUI did not return a prompt_id.' }
-Write-Output "SUBMITTED mode=$Mode prompt_id=$promptId output_prefix=$OutputPrefix"
+Write-Output "SUBMITTED mode=$Mode prompt_id=$promptId seed=$Seed output_prefix=$OutputPrefix"
 
 if ($Wait) {
     $deadline = (Get-Date).AddMinutes($MaxMinutes)

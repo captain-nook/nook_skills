@@ -74,6 +74,14 @@ function Set-StateRecord($State, [string]$SectionName, [string]$TaskId, $Record)
     Save-State $State
 }
 
+function Remove-StateRecord($State, [string]$SectionName, [string]$TaskId) {
+    $section = Get-Field $State $SectionName $null
+    if ($null -ne $section -and $null -ne $section.PSObject.Properties[$TaskId]) {
+        $section.PSObject.Properties.Remove($TaskId)
+        Save-State $State
+    }
+}
+
 function Get-WorkflowPath($Task, $Defaults, [string]$Mode, [string]$ManifestDir, [string]$Workspace) {
     $key = switch ($Mode) {
         'Ref2VA' { 'ref2v_workflow' }
@@ -90,11 +98,20 @@ function Get-WorkflowPath($Task, $Defaults, [string]$Mode, [string]$ManifestDir,
     return $path
 }
 
-function New-WorkflowForTask($Task, $Defaults, [string]$ManifestDir, [string]$Workspace) {
+function New-WorkflowForTask($Task, $Defaults, [string]$ManifestDir, [string]$Workspace, [long]$Seed) {
     $mode = [string](Get-Field $Task 'mode' '')
     if ($mode -notin @('I2VA','FL2VA','Ref2VA','T2VA','L2VA')) { throw "Unsupported mode: $mode" }
     $workflowPath = Get-WorkflowPath $Task $Defaults $mode $ManifestDir $Workspace
     $workflow = Get-Content -Raw -Encoding UTF8 -LiteralPath $workflowPath | ConvertFrom-Json
+    $seedApplied = $false
+    foreach ($nodeProperty in $workflow.PSObject.Properties) {
+        $node = $nodeProperty.Value
+        if ($null -ne $node -and [string]$node.class_type -eq 'RandomNoise' -and $null -ne $node.inputs.PSObject.Properties['noise_seed']) {
+            $node.inputs.noise_seed = $Seed
+            $seedApplied = $true
+        }
+    }
+    if (-not $seedApplied) { throw "Workflow $workflowPath has no RandomNoise noise_seed input." }
     $prompt = [string](Get-Field $Task 'prompt' '')
     if ([string]::IsNullOrWhiteSpace($prompt)) { throw "Task $($Task.id) has an empty prompt." }
     $duration = [double](Get-Field $Task 'duration' (Get-Field $Defaults 'duration' 4.0))
@@ -163,7 +180,7 @@ function New-WorkflowForTask($Task, $Defaults, [string]$ManifestDir, [string]$Wo
             Set-JsonProperty $workflow.PSObject.Properties[$videoId].Value.inputs 'last_frame' @($lastNodeId, 0)
         }
     }
-    return [pscustomobject]@{ Workflow = $workflow; Mode = $mode; OutputPrefix = $outputPrefix; Duration = $duration; Megapixels = $megapixels }
+    return [pscustomobject]@{ Workflow = $workflow; Mode = $mode; OutputPrefix = $outputPrefix; Duration = $duration; Megapixels = $megapixels; Seed = $Seed }
 }
 
 function Submit-Task($Prepared, [string]$ComfyUrl) {
@@ -227,8 +244,14 @@ if (Test-Path -LiteralPath $script:ResolvedStatePath) {
     $state = Get-Content -Raw -Encoding UTF8 -LiteralPath $script:ResolvedStatePath | ConvertFrom-Json
 }
 else {
-    $state = [pscustomobject]@{ completed = [pscustomobject]@{}; failed = [pscustomobject]@{} }
+    $state = [pscustomobject]@{ completed = [pscustomobject]@{}; awaiting_qc = [pscustomobject]@{}; rework_pending = [pscustomobject]@{}; failed = [pscustomobject]@{}; attempts = [pscustomobject]@{} }
     Save-State $state
+}
+
+$pendingQc = @((Get-Field $state 'awaiting_qc' ([pscustomobject]@{})).PSObject.Properties)
+if ($pendingQc.Count -gt 0) {
+    Write-Log "BATCH PAUSED awaiting_qc=$(($pendingQc.Name) -join ',')"
+    exit 0
 }
 
 try {
@@ -239,45 +262,66 @@ catch {
 }
 
 Write-Log "BATCH START tasks=$($tasks.Count) comfy_url=$comfyUrl workspace=$workspace"
-foreach ($task in $tasks) {
+:taskLoop foreach ($task in $tasks) {
     $id = [string]$task.id
     $completed = Get-Field (Get-Field $state 'completed' $null) $id $null
     if ($null -ne $completed -and (Get-Field $completed 'status' '') -eq 'success') {
         Write-Log "SKIP id=$id reason=state_completed"
         continue
     }
-    $outputPrefix = [string](Get-Field $task 'output_prefix' ("video/" + $id))
-    $existingOutputs = @(Find-ExistingOutput $outputPrefix $outputDir)
-    if ($existingOutputs.Count -gt 0) {
-        Set-StateRecord $state 'completed' $id ([pscustomobject]@{ status = 'success'; prompt_id = 'existing-output'; outputs = $existingOutputs; completed_at = (Get-Date).ToString('o') })
-        Write-Log "SKIP id=$id reason=existing_output outputs=$($existingOutputs -join ',')"
+    $manual = Get-Field (Get-Field $state 'failed' $null) $id $null
+    if ($null -ne $manual -and (Get-Field $manual 'status' '') -eq 'manual_review') {
+        Write-Log "SKIP id=$id reason=manual_review"
         continue
+    }
+    $priorAttempts = @((Get-Field $state 'attempts' ([pscustomobject]@{})).PSObject.Properties | Where-Object { $_.Name -like "$id-*" })
+    $attemptOffset = $priorAttempts.Count
+    $reworkRecord = Get-Field (Get-Field $state 'rework_pending' $null) $id $null
+    $outputPrefix = [string](Get-Field $task 'output_prefix' ("video/" + $id))
+    $existingOutputs = if ($attemptOffset -eq 0 -and $null -eq $reworkRecord) { @(Find-ExistingOutput $outputPrefix $outputDir) } else { @() }
+    if ($existingOutputs.Count -gt 0) {
+        Set-StateRecord $state 'awaiting_qc' $id ([pscustomobject]@{ status = 'awaiting_qc'; prompt_id = 'existing-output'; outputs = $existingOutputs; detected_at = (Get-Date).ToString('o') })
+        Write-Log "AWAITING_QC id=$id reason=existing_output outputs=$($existingOutputs -join ',')"
+        break taskLoop
     }
     $mode = [string](Get-Field $task 'mode' '')
     $maxRetries = [int](Get-Field $task 'max_retries' (Get-Field $defaults 'max_retries' 3))
     if ($maxRetries -lt 1) { throw "Task $id has max_retries less than 1." }
     $taskPoll = [int](Get-Field $task 'poll_seconds' (Get-Field $defaults 'poll_seconds' $PollSeconds))
     $taskMaxMinutes = [int](Get-Field $task 'max_minutes' (Get-Field $defaults 'max_minutes' $MaxMinutes))
+    $baseSeed = [long](Get-Field $task 'seed' -1)
+    if ($baseSeed -lt 0) { $baseSeed = [long]((Get-Date).Ticks % 1000000000000000) }
     $done = $false
-    for ($attempt = 1; $attempt -le $maxRetries -and -not $done; $attempt++) {
+    for ($retryIndex = 1; $retryIndex -le $maxRetries -and -not $done; $retryIndex++) {
         try {
-            $prepared = New-WorkflowForTask $task $defaults $manifestDir $workspace
-            Write-Log "SUBMIT id=$id attempt=$attempt mode=$mode duration=$($prepared.Duration) megapixels=$($prepared.Megapixels)"
+            $attempt = $attemptOffset + $retryIndex
+            $attemptSeed = $baseSeed + $attempt - 1
+            $taskForAttempt = $task.PSObject.Copy()
+            $attemptOutputPrefix = if ($attempt -eq 1) { $outputPrefix } else { "$outputPrefix-attempt-$attempt" }
+            Set-Field $taskForAttempt 'output_prefix' $attemptOutputPrefix
+            $prepared = New-WorkflowForTask $taskForAttempt $defaults $manifestDir $workspace $attemptSeed
+            Write-Log "SUBMIT id=$id attempt=$attempt mode=$mode duration=$($prepared.Duration) megapixels=$($prepared.Megapixels) seed=$($prepared.Seed)"
             $promptId = Submit-Task $prepared $comfyUrl
-            Write-Log "POLL id=$id prompt_id=$promptId"
+            Set-StateRecord $state 'attempts' "$id-$attempt" ([pscustomobject]@{ status = 'running'; attempt = $attempt; seed = $prepared.Seed; prompt_id = $promptId; submitted_at = (Get-Date).ToString('o') })
+            Write-Log "POLL id=$id prompt_id=$promptId seed=$($prepared.Seed)"
             $result = Wait-Task $comfyUrl $promptId $taskPoll $taskMaxMinutes
-            Set-StateRecord $state 'completed' $id ([pscustomobject]@{ status = 'success'; prompt_id = $result.PromptId; outputs = @($result.Outputs); completed_at = (Get-Date).ToString('o') })
-            Write-Log "SUCCESS id=$id prompt_id=$($result.PromptId) outputs=$($result.Outputs -join ',')"
+            Set-StateRecord $state 'attempts' "$id-$attempt" ([pscustomobject]@{ status = 'inference_success'; attempt = $attempt; seed = $prepared.Seed; prompt_id = $result.PromptId; outputs = @($result.Outputs); finished_at = (Get-Date).ToString('o') })
+            Remove-StateRecord $state 'rework_pending' $id
+            Set-StateRecord $state 'awaiting_qc' $id ([pscustomobject]@{ status = 'awaiting_qc'; attempt = $attempt; seed = $prepared.Seed; prompt_id = $result.PromptId; outputs = @($result.Outputs); queued_at = (Get-Date).ToString('o') })
+            Write-Log "INFERENCE_SUCCESS_AWAITING_QC id=$id prompt_id=$($result.PromptId) seed=$($prepared.Seed) outputs=$($result.Outputs -join ',')"
             $done = $true
+            break taskLoop
         }
         catch {
             Write-Log "FAIL id=$id attempt=$attempt error=$($_.Exception.Message)"
-            if ($attempt -ge $maxRetries) {
-                Set-StateRecord $state 'failed' $id ([pscustomobject]@{ status = 'failed'; attempts = $attempt; error = $_.Exception.Message; failed_at = (Get-Date).ToString('o') })
-                throw "Batch stopped at task $id after $attempt attempts."
+            if ($retryIndex -ge $maxRetries) {
+                Set-StateRecord $state 'rework_pending' $id ([pscustomobject]@{ status = 'rework_pending'; attempts = $attempt; last_seed = ($baseSeed + $attempt - 1); error = $_.Exception.Message; queued_at = (Get-Date).ToString('o') })
+                Write-Log "REWORK_PENDING id=$id attempts=$attempt reason=inference_failure"
+                $done = $true
+                continue
             }
             Start-Sleep -Seconds 5
         }
     }
 }
-Write-Log 'BATCH COMPLETE all tasks succeeded or were already completed'
+Write-Log 'BATCH PAUSED OR QUEUE COMPLETE; resolve awaiting_qc before the next submission and inspect rework_pending before declaring completion'

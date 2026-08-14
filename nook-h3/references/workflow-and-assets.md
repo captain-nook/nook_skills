@@ -12,6 +12,8 @@ This reference describes configuration, not a particular project. Paths and alia
 
 The runner never assumes a user's input or output directory. If output-based resume is needed, set an optional `output_dir` in the manifest defaults. Otherwise the state file is the source of truth.
 
+The current storyboard or manifest is the production source of truth for task ID, mode, duration, opening composition, references, and output prefix. Ignore obsolete project-specific runners or cached task arrays that disagree with it.
+
 ## Standard node mapping
 
 The bundled examples use the usual MiniMax H3 templates. Node IDs belong to the workflow JSON, not to H3 itself. Verify them in the actual template and override them with `defaults.node_map` or a task-level `node_map` if a template changes.

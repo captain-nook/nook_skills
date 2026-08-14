@@ -25,6 +25,10 @@ Mode-specific fields:
 
 Put common values under `defaults`. A task can override `comfy_url`, workflow paths, `megapixels`, `duration`, `poll_seconds`, and `max_retries`.
 
+Use `seed` to set the first attempt seed. Each retry increments it so the same failed sample is not reproduced. If omitted, the runner creates a seed and records it.
+
+Inference output is not final approval. The state file uses `attempts`, `awaiting_qc`, `rework_pending`, and `completed`. Only a clip that passes technical and semantic review belongs in `completed`. Store failure reasons and the failure-specific prompt revision before retrying a semantic failure. The runner pauses while any task is in `awaiting_qc`. Record the decision with `scripts/set_h3_qc_result.ps1`. For a semantic retry, pass the manifest path and the complete revised official prompt so the task prompt is updated before resubmission. The retry increments the attempt number and seed and writes to a new attempt-specific output prefix, so the rejected file cannot be mistaken for the new result.
+
 ```json
 {
   "defaults": {

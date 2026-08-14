@@ -1,6 +1,6 @@
 ---
 name: nook-h3
-description: "Generate and monitor MiniMax H3 video clips through a local ComfyUI API. Use when a storyboard or task manifest must be converted into I2VA, FL2VA, L2VA, Ref2VA, or T2VA clips with official prompt structure, explicit references, sequential polling, retries, and resumable batching for any number of tasks."
+description: "Generate, monitor, quality-check, and retry MiniMax H3 video clips through a local ComfyUI API. Use when a storyboard or task manifest must be converted into I2VA, FL2VA, L2VA, Ref2VA, or T2VA clips with official prompt structure, explicit references, sequential polling, semantic output review, failure-specific retries, and resumable batching for any number of tasks."
 ---
 
 # nook-h3
@@ -15,6 +15,7 @@ The number of clips is data, not code. Put 3, 7, 100, or any other number of tas
 2. Read [h3-prompt-contract.md](references/h3-prompt-contract.md) for the compact local contract.
 3. Read [workflow-and-assets.md](references/workflow-and-assets.md) for workflow configuration and node mapping.
 4. Read [manifest-schema.md](references/manifest-schema.md) when creating or reviewing a batch manifest.
+5. Read [quality-control.md](references/quality-control.md) before declaring any generated clip complete or starting an unattended batch.
 
 Do not hard-code a user's drive letter, project title, storyboard filename, asset names, or task count into this skill.
 
@@ -53,11 +54,13 @@ powershell -ExecutionPolicy Bypass -File .\scripts\submit_h3_workflow.ps1 `
   -Megapixels 0.9 -Duration 4 -Wait
 ```
 
-The helper submits UTF-8 JSON and can poll one prompt to completion. It does not assume a particular project or output directory.
+The helper submits UTF-8 JSON and can poll one prompt to inference completion. Inference success is not content approval: inspect the actual output under [quality-control.md](references/quality-control.md) before marking the clip complete or submitting the next clip.
+
+After inference, run `scripts/prepare_h3_qc.py` to extract a contact sheet, standard WAV audio, and technical report. For a dialogue shot, run `scripts/check_h3_dialogue.ps1` with the exact expected line. Then perform the remaining semantic checks in [quality-control.md](references/quality-control.md). These reports are evidence, not automatic semantic approval.
 
 ## Batch task
 
-Use `scripts/run_h3_batch.ps1` with a manifest. It submits exactly one task, polls `/history/{prompt_id}` until success, records state, and only then submits the next task. It retries a recoverable task up to the manifest limit and resumes from the state file after interruption.
+Use `scripts/run_h3_batch.ps1` with a manifest. It submits exactly one task, polls `/history/{prompt_id}` until inference success, records the attempt as `awaiting_qc`, and pauses before any next submission. Treat `awaiting_qc` as unfinished. Review the output against the shot card and [quality-control.md](references/quality-control.md), then use `scripts/set_h3_qc_result.ps1` to record `pass`, `retry`, `rework`, or `manual`. Only a passed clip belongs in `completed`. On failure, use a new seed and a failure-specific prompt revision. Move a clip that reaches its immediate retry limit into `rework_pending`, continue the first-pass queue, and revisit rework items after the remaining shots so one difficult clip cannot block a long batch.
 
 ```powershell
 powershell -ExecutionPolicy Bypass -File .\scripts\run_h3_batch.ps1 `
@@ -67,6 +70,8 @@ powershell -ExecutionPolicy Bypass -File .\scripts\run_h3_batch.ps1 `
 The manifest array is the only place that determines the batch size. To create 3, 7, or 100 clips, add that many task objects; no script change is required. For several finished videos, either use one manifest per video or put all clips in one manifest with a `video_id` metadata field and unique output prefixes. Every task should have a unique `id`, explicit `mode`, official prompt, output prefix, and the references required by its mode.
 
 Before a long unattended batch, verify ComfyUI is reachable, the selected workflow templates exist, all input aliases are available to ComfyUI, the GPU can sustain the run, and the computer will not sleep. Never launch two runners against the same queue unless the user explicitly wants concurrent scheduling.
+
+Treat the storyboard or manifest as the production source of truth. Do not run a project-specific legacy script merely because it exists beside the storyboard. Before submission, compare the task ID, mode, duration, opening composition, reference aliases, and output prefix against the current shot card.
 
 ## Sharing with another person
 
