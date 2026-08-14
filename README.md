@@ -347,7 +347,9 @@ Obsidian 笔记库不由本仓库管理：
 
 ![nook-h3 场景参考：云上店铺](nook-h3/assets/readme/h3-scene-tea-shop.png)
 
-上面的图片只用于展示“场景参考物料”这一类输入。公开仓库不包含 ComfyUI、H3 模型权重、账号密钥、运行日志或任何特定项目的私有任务清单。
+![nook-h3 人物多角度参考](nook-h3/assets/readme/h3-hero-multiview.png)
+
+上面的图片只用于展示“场景参考物料”和“人物多角度参考物料”这两类输入。公开仓库不包含 ComfyUI、H3 模型权重、账号密钥、运行日志或任何特定项目的私有任务清单。
 
 #### 最小使用方式
 

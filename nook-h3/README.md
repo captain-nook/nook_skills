@@ -10,7 +10,9 @@
 
 ![H3 scene reference example: shop](assets/readme/h3-scene-tea-shop.png)
 
-上图只是 README 的视觉示意。实际使用时，应替换成当前项目自己的场景图、人物设定图和分镜物料。
+![H3 character reference example](assets/readme/h3-hero-multiview.png)
+
+上面的图片只是 README 的视觉示意。实际使用时，应替换成当前项目自己的场景图、人物设定图和分镜物料。
 
 ## 目录
 
