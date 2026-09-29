@@ -1,0 +1,51 @@
+[
+ {
+  "name": "moon2",
+  "seed": 311,
+  "alpha": true,
+  "lora": null,
+  "prompt": "The image features a full moon in traditional Chinese ink wash painting style, sumi-e xieyi brushwork, layered black and grey ink wash tones with delicate translucent wash, elegant negative space, minimalistic and tranquil, high quality calligraphic art, a perfectly round disc painted with one bold circular brushstroke in pale grey ink and filled with a very light grey wash, smooth and clean without craters or realistic texture, a soft faint halo, a few dry-brush flying-white streaks. Nothing else.",
+  "w": 1024,
+  "h": 1024
+ },
+ {
+  "name": "cat_reach",
+  "seed": 312,
+  "alpha": true,
+  "lora": null,
+  "prompt": "Keep the ink wash cat from <image1> exactly as it is: its grey and black wash patches, white chest and paws, black tail tip, thin whiskers, and the loose ink wash brushwork, and the same overall size. Change only the pose: standing upright on its hind legs stretching its whole body upward, both front paws raised high above its head reaching for something, head tilted far back, tail straight out behind for balance. Full body, centered.",
+  "refs": [
+   "素材/cat_sit.png"
+  ]
+ },
+ {
+  "name": "cat_crouch",
+  "seed": 313,
+  "alpha": true,
+  "lora": null,
+  "prompt": "Keep the ink wash cat from <image1> exactly as it is: its grey and black wash patches, white chest and paws, black tail tip, thin whiskers, and the loose ink wash brushwork, and the same overall size. Change only the pose: sitting at the edge of the water seen from behind and slightly from the side, hunched, head bowed looking down, tail curled around its feet, shoulders slumped and disappointed. Full body, centered.",
+  "refs": [
+   "素材/cat_sit.png"
+  ]
+ },
+ {
+  "name": "cat_run",
+  "seed": 314,
+  "alpha": true,
+  "lora": null,
+  "prompt": "Keep the ink wash cat from <image1> exactly as it is: its grey and black wash patches, white chest and paws, black tail tip, thin whiskers, and the loose ink wash brushwork, and the same overall size. Change only the pose: running fast in side view facing right, body stretched long, all four legs off the ground, head lifted, eyes fixed forward, tail streaming behind. Full body, centered.",
+  "refs": [
+   "素材/cat_sit.png"
+  ]
+ },
+ {
+  "name": "cat_swat",
+  "seed": 315,
+  "alpha": true,
+  "lora": null,
+  "prompt": "Keep the ink wash cat from <image1> exactly as it is: its grey and black wash patches, white chest and paws, black tail tip, thin whiskers, and the loose ink wash brushwork, and the same overall size. Change only the pose: crouching low in side view facing right, one front paw stretched forward swatting at something, the other paws planted, tail whipping up behind, mischievous eyes. Full body, centered.",
+  "refs": [
+   "素材/cat_sit.png"
+  ]
+ }
+]

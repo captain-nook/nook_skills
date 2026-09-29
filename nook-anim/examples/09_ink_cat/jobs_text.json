@@ -1,0 +1,11 @@
+[
+ {
+  "name": "title",
+  "seed": 341,
+  "alpha": true,
+  "lora": null,
+  "w": 640,
+  "h": 1600,
+  "prompt": "The image features the title \"墨猫与月亮\" written vertically in one column from top to bottom in expressive Chinese brush calligraphy, freehand semi-cursive running script, the five characters drawn with black sumi ink in bold strokes with dry-brush flying-white streaks, natural ink bleeding at the stroke ends, varying stroke thickness, in traditional Chinese ink wash style with elegant negative space. The lettering fills most of the canvas height. The image contains only the calligraphy."
+ }
+]

@@ -1,0 +1,93 @@
+[
+ {
+  "name": "chef_carry",
+  "seed": 111,
+  "alpha": true,
+  "lora": null,
+  "refs": [
+   "素材/chef.png",
+   "素材/cake.png"
+  ],
+  "prompt": "Keep the little chubby chef from <image1> exactly as he is: his tall white chef hat, round face with rosy cheeks, curly black mustache, red neckerchief, white double-breasted jacket with grey buttons, dark striped trousers, black shoes, and the flat hand-drawn paper cut-out style with colored pencil texture, clean dark outlines and a thin white paper border, and the same overall size. Change only the pose: he walks toward the right in a three-quarter view, both hands holding the whole birthday cake from <image2> on its silver board at chest height, elbows bent, proud and careful smile, one foot forward. Full body, centered."
+ },
+ {
+  "name": "chef_ta",
+  "seed": 112,
+  "alpha": true,
+  "lora": null,
+  "refs": [
+   "素材/chef.png"
+  ],
+  "prompt": "Keep the little chubby chef from <image1> exactly as he is: his tall white chef hat, round face with rosy cheeks, curly black mustache, red neckerchief, white double-breasted jacket with grey buttons, dark striped trousers, black shoes, and the flat hand-drawn paper cut-out style with colored pencil texture, clean dark outlines and a thin white paper border, and the same overall size. Change only the pose: both arms thrown straight up high in a joyful ta-da gesture, eyes closed in a big happy smile, standing on tiptoes. Full body, centered."
+ },
+ {
+  "name": "chef_look",
+  "seed": 113,
+  "alpha": true,
+  "lora": null,
+  "refs": [
+   "素材/chef.png"
+  ],
+  "prompt": "Keep the little chubby chef from <image1> exactly as he is: his tall white chef hat, round face with rosy cheeks, curly black mustache, red neckerchief, white double-breasted jacket with grey buttons, dark striped trousers, black shoes, and the flat hand-drawn paper cut-out style with colored pencil texture, clean dark outlines and a thin white paper border, and the same overall size. Change only the pose: he stands with his body turned away toward the left but his head turned back toward the viewer, one hand on his chin, eyes narrowed with a suspicious look and one raised eyebrow. Full body, centered."
+ },
+ {
+  "name": "chef_match",
+  "seed": 114,
+  "alpha": true,
+  "lora": null,
+  "refs": [
+   "素材/chef.png"
+  ],
+  "prompt": "Keep the little chubby chef from <image1> exactly as he is: his tall white chef hat, round face with rosy cheeks, curly black mustache, red neckerchief, white double-breasted jacket with grey buttons, dark striped trousers, black shoes, and the flat hand-drawn paper cut-out style with colored pencil texture, clean dark outlines and a thin white paper border, and the same overall size. Change only the pose: his right hand raised holding one big wooden matchstick with a red tip up by his shoulder, his left fist on his hip, a confident grin. Full body, centered."
+ },
+ {
+  "name": "chef_shock",
+  "seed": 115,
+  "alpha": true,
+  "lora": null,
+  "refs": [
+   "素材/chef.png"
+  ],
+  "prompt": "Keep the little chubby chef from <image1> exactly as he is: his tall white chef hat, round face with rosy cheeks, curly black mustache, red neckerchief, white double-breasted jacket with grey buttons, dark striped trousers, black shoes, and the flat hand-drawn paper cut-out style with colored pencil texture, clean dark outlines and a thin white paper border, and the same overall size. Change only the pose: both hands pressed on his cheeks, mouth wide open in a shout, eyes huge and round, the tip of his mustache standing up. Full body, centered."
+ },
+ {
+  "name": "mouse_sneak",
+  "seed": 121,
+  "alpha": true,
+  "lora": null,
+  "refs": [
+   "素材/mouse.png"
+  ],
+  "prompt": "Keep the small grey mouse from <image1> exactly as it is: its round pink ears, black bead eyes, pink nose, whiskers, soft grey fur, long thin pink tail, and the flat hand-drawn paper cut-out style with a thin white paper border, and the same overall size. Change only the pose: seen from the side facing right, tiptoeing forward on its hind toes with its body leaning forward, front paws held up close to its chest, a sly grin with one eyebrow raised. Full body, centered."
+ },
+ {
+  "name": "mouse_freeze",
+  "seed": 122,
+  "alpha": true,
+  "lora": null,
+  "refs": [
+   "素材/mouse.png"
+  ],
+  "prompt": "Keep the small grey mouse from <image1> exactly as it is: its round pink ears, black bead eyes, pink nose, whiskers, soft grey fur, long thin pink tail, and the flat hand-drawn paper cut-out style with a thin white paper border, and the same overall size. Change only the pose: standing perfectly rigid and upright facing the viewer like a candle, arms pressed straight down along its sides, tail hanging straight down, eyes wide open staring straight ahead with a tiny nervous smile. Full body, centered."
+ },
+ {
+  "name": "mouse_full",
+  "seed": 123,
+  "alpha": true,
+  "lora": null,
+  "refs": [
+   "素材/mouse.png"
+  ],
+  "prompt": "Keep the small grey mouse from <image1> exactly as it is: its round pink ears, black bead eyes, pink nose, whiskers, soft grey fur, long thin pink tail, and the flat hand-drawn paper cut-out style with a thin white paper border, and the same overall size. Change only the pose: sitting on its bottom with a huge round full belly, one paw holding a shiny red cherry, the other paw patting its belly, cream smudges around its mouth, eyes half closed in a smug satisfied smile. Full body, centered."
+ },
+ {
+  "name": "mouse_yelp",
+  "seed": 124,
+  "alpha": true,
+  "lora": null,
+  "refs": [
+   "素材/mouse.png"
+  ],
+  "prompt": "Keep the small grey mouse from <image1> exactly as it is: its round pink ears, black bead eyes, pink nose, whiskers, soft grey fur, long thin pink tail, and the flat hand-drawn paper cut-out style with a thin white paper border, and the same overall size. Change only the pose: jumping high in the air facing the viewer with all four paws spread out, mouth wide open screaming, eyes wide, the tail sticking straight up, tiny motion lines. Full body, centered."
+ }
+]

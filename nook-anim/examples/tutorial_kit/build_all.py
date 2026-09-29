@@ -1,8 +1,8 @@
 """整批渲染：8 条 B-roll（10 秒，静音）+ 8 条标题（4 秒，带音效）。用法：python build_all.py [broll|titles|all]"""
 import pathlib, subprocess, sys, time, importlib
 D = pathlib.Path(__file__).parent
-RUN = D.parents[3] / "82_Skills" / "nook-skills" / "skills" / "nook-anim" / "scripts" / "run.py"
-OUT_B, OUT_T = D.parent / "成片" / "Broll", D.parent / "成片" / "标题"
+RUN = D.parents[1] / "scripts" / "run.py"
+OUT_B, OUT_T = D / "成片" / "Broll", D / "成片" / "标题"
 BROLL = [("broll_01_code", "broll-01_本质就是代码"), ("broll_02_tiers", "broll-02_三档"), ("broll_03_steps", "broll-03_画原型截图拼接"),
          ("broll_04_puppet", "broll-04_皮影戏"), ("broll_05_styles", "broll-05_六种风格"), ("broll_06_beats", "broll-06_画面对音乐"),
          ("broll_07_flow", "broll-07_skill流程"), ("broll_08_judgment", "broll-08_判断自己做")]

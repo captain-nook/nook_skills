@@ -1,0 +1,47 @@
+[
+ {
+  "name": "cat_sit",
+  "seed": 301,
+  "alpha": true,
+  "w": 1024,
+  "h": 1024,
+  "prompt": "The image features a small round cat sitting upright in side view with its head turned toward the right and its tail curling behind, in traditional Chinese ink wash painting style, sumi-e xieyi brushwork, layered black and grey ink wash tones with delicate translucent wash, elegant negative space, minimalistic and tranquil, high quality calligraphic art, drawn with a few soft grey washes and bold dark ink strokes for the ears, eyes and tail. The cat is lively and chubby.",
+  "lora": null
+ },
+ {
+  "name": "moon",
+  "seed": 302,
+  "alpha": true,
+  "w": 1024,
+  "h": 1024,
+  "prompt": "The image features a full round moon in traditional Chinese ink wash painting style, sumi-e xieyi brushwork, layered black and grey ink wash tones with delicate translucent wash, elegant negative space, minimalistic and tranquil, high quality calligraphic art, a large disc created with pale grey wash and a soft misty halo around it, a few dry-brush flying-white strokes across its lower half, no other elements.",
+  "lora": null
+ },
+ {
+  "name": "hills",
+  "seed": 303,
+  "alpha": true,
+  "w": 2240,
+  "h": 640,
+  "prompt": "The image features a long strip of distant misty mountain silhouettes in traditional Chinese ink wash painting style, sumi-e xieyi brushwork, layered black and grey ink wash tones with delicate translucent wash, elegant negative space, minimalistic and tranquil, high quality calligraphic art, pale grey ink wash peaks fading into mist at the bottom, elegant negative space.",
+  "lora": null
+ },
+ {
+  "name": "bank",
+  "seed": 304,
+  "alpha": true,
+  "w": 2240,
+  "h": 640,
+  "prompt": "The image features a foreground river bank with a few tall reeds and one dark rock, in traditional Chinese ink wash painting style, sumi-e xieyi brushwork, layered black and grey ink wash tones with delicate translucent wash, elegant negative space, minimalistic and tranquil, high quality calligraphic art, bold dark ink strokes for the reeds and rock with soft grey wash, the bank is a low band at the bottom of the frame, elegant negative space above.",
+  "lora": null
+ },
+ {
+  "name": "ink_drop",
+  "seed": 305,
+  "alpha": true,
+  "w": 1024,
+  "h": 1024,
+  "prompt": "The image features a single small round drop of dark ink with a soft blooming halo of grey wash, in traditional Chinese ink wash painting style, sumi-e xieyi brushwork, layered black and grey ink wash tones with delicate translucent wash, elegant negative space, minimalistic and tranquil, high quality calligraphic art, centered, nothing else.",
+  "lora": null
+ }
+]

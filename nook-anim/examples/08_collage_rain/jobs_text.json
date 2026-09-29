@@ -1,0 +1,11 @@
+[
+ {
+  "name": "title",
+  "seed": 241,
+  "alpha": true,
+  "lora": null,
+  "w": 2048,
+  "h": 640,
+  "prompt": "The image features the title \"撕开下雨天\" as big bold lettering, every character hand-torn from a different colored sheet of paper: slate grey, coral, lemon yellow, mint green and sky blue, glued in a slightly overlapping row, each character with irregular torn edges showing white fibrous paper fibers, visible paper grain and soft realistic drop shadows between the layers, handmade collage look, slightly tilted at different angles. The lettering fills most of the canvas width. The image contains only the lettering."
+ }
+]

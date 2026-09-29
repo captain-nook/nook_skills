@@ -1,0 +1,37 @@
+[
+ {
+  "name": "table",
+  "seed": 101,
+  "w": 3072,
+  "h": 1280,
+  "prompt": "The image is a realistic macro photograph of a warm wooden kitchen table seen from a low angle, with warm golden side light from the left and a shallow depth of field. In the middle right of the table stands an empty round white ceramic plate with a thin blue rim. The far background is a softly blurred cozy kitchen with a hint of green plants and warm yellow bokeh lights. The whole foreground table surface is clear and empty, with fine wood grain. The image contains only the table, the plate and the blurred kitchen.",
+  "lora": null
+ },
+ {
+  "name": "chef",
+  "seed": 102,
+  "alpha": true,
+  "w": 1024,
+  "h": 1024,
+  "prompt": "The image features a tiny chubby chef standing facing the viewer, paper cut-out cartoon character, flat hand-drawn illustration with watercolor and colored pencil texture, clean dark outlines, a thin white paper border around the whole silhouette like a sticker cut out from paper. He wears a tall white chef hat, a white double-breasted jacket with two buttons, a red neckerchief and a curly black mustache, with rosy cheeks and small round black eyes, arms relaxed at his sides. Full body, centered.",
+  "lora": null
+ },
+ {
+  "name": "mouse",
+  "seed": 103,
+  "alpha": true,
+  "w": 1024,
+  "h": 1024,
+  "prompt": "The image features a small grey mouse standing on its hind legs seen from the front, paper cut-out cartoon character, flat hand-drawn illustration with watercolor and colored pencil texture, clean dark outlines, a thin white paper border around the whole silhouette like a sticker cut out from paper. It has big round pink ears, black bead eyes, a tiny pink nose, whiskers drawn with thin marker lines and a long thin pink tail curling to one side. Full body, centered.",
+  "lora": null
+ },
+ {
+  "name": "cake",
+  "seed": 104,
+  "alpha": true,
+  "w": 1024,
+  "h": 1024,
+  "prompt": "The image features a realistic three-layer birthday cake photographed in macro photography with warm golden side light, shallow depth of field: vanilla sponge layers with pink strawberry cream between them, smooth white frosting, piped cream rosettes around the top edge and one glossy red cherry at the center of the top, standing on a thin round silver cake board. Every edge has a soft rim highlight. The cake is seen from a slightly high front angle.",
+  "lora": null
+ }
+]

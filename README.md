@@ -382,7 +382,7 @@ powershell -ExecutionPolicy Bypass -File .\nook-h3\scripts\run_h3_batch.ps1 `
 
 ![nook-anim 六种风格](nook-anim/assets/readme/hero-six-styles.jpg)
 
-公开仓库里带三条可直接渲染的纯代码样例（`nook-anim/examples/`），不包含 ComfyUI、模型权重和任何账号密钥。生图和配乐两个可选环节用到千问 Image 2.1 与 MiniMax Music3，两者的使用条款请以各自官方仓库的 LICENSE 为准。
+公开仓库里带六条可直接渲染的样例短片（`nook-anim/examples/`，其中三条纯代码、三条用千问出图和 Music3 配乐），不包含 ComfyUI、模型权重和任何账号密钥。生图和配乐两个可选环节用到千问 Image 2.1 与 MiniMax Music3，两者的使用条款请以各自官方仓库的 LICENSE 为准。
 
 #### 最小使用方式
 

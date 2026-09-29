@@ -60,7 +60,11 @@ python <S>/run.py render path/to/scene.py video --out film.mp4 --audio final_mix
 - `examples/06_cat_day/`《一只猫的一天》扁平动态图形、纯代码，含代码合成音效与配乐。
 - `examples/tutorial_kit/` 教程视频 Broll 与章节标题的共用件（桌面舞台、玻璃卡片、图标、角色走路、标题动效与音效）加一条 Broll、一条标题和批量渲染脚本。角色姿势、桌面背景、标题字 PNG 由千问出图，素材不随库提供，做法见 [references/image-gen.md](references/image-gen.md)。给口播视频配画面时照它起步，流程见 [references/content.md](references/content.md) 的"给口播视频配 Broll 与标题"，风格见 [references/styles/07_教程桌面舞台.md](references/styles/07_教程桌面舞台.md)。
 
-用法：`cd examples/05_last_pizza && python <S>/run.py render scene.py video --out film.mp4`，`<S>` 是本 skill 的 `scripts/` 目录。撕纸拼贴、水墨水彩、纸片定格三种风格的样例依赖千问出的素材，没有随库提供，写法见各自风格卡。
+- `examples/07_paper_cake/`《蛋糕保卫战》纸片定格、千问出图 + Music3 配乐 + 千问出标题字，完整走过出图、对拍、终混的流程。
+- `examples/08_collage_rain/`《撕开下雨天》撕纸拼贴，同上，撕开转场做成主题。
+- `examples/09_ink_cat/`《墨猫与月亮》水墨水彩，墨滴洇成夜空、留白成月亮、倒影涟漪。
+
+用法：`cd examples/05_last_pizza && python <S>/run.py render scene.py video --out film.mp4`，`<S>` 是本 skill 的 `scripts/` 目录。各样例的命令见 [examples/README.md](examples/README.md)。
 
 ## 1.4 交付
 

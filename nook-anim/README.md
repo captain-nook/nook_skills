@@ -55,11 +55,19 @@
 
 ![纸片定格](assets/readme/style-01-paper-stopmotion.jpg)
 
+公开样例《蛋糕保卫战》（`examples/07_paper_cake/`）：千问出图、Music3 配乐、千问出标题字。
+
+![公开样例《蛋糕保卫战》（`examples/07_paper_cake/`）：千问出图、Music3 配乐、千问出标题字。](assets/readme/sample-07-paper-cake.jpg)
+
 写实微距桌面 + 外圈带白纸边的剪纸角色。角色按 12fps 换姿势（每张停两格），墨线、浪、镜头按 24fps，两种节奏形成手工感。角色和场景由 Qwen Image 出图，代码负责透视贴墨线、逐笔画出、定格调度、镜头推拉。适合情节短片、品牌故事。
 
 ### 1.3.2 撕纸拼贴
 
 ![撕纸拼贴](assets/readme/style-02-torn-collage.jpg)
+
+公开样例《撕开下雨天》（`examples/08_collage_rain/`）：撕开转场做成主题。
+
+![公开样例《撕开下雨天》（`examples/08_collage_rain/`）：撕开转场做成主题。](assets/readme/sample-08-collage-rain.jpg)
 
 纸张、图案、角色由生图出透明底素材，撕边、纤维白边、投影、层叠由代码做。纸片"啪"地贴上有过冲、回弹、投影收紧三个阶段，转场是一张纸从画面上撕开。适合观点表达、节目片头。
 
@@ -84,6 +92,10 @@
 ### 1.3.6 水墨水彩
 
 ![水墨水彩](assets/readme/style-06-ink-wash.jpg)
+
+公开样例《墨猫与月亮》（`examples/09_ink_cat/`）：墨滴洇成夜空，留白成月亮。
+
+![公开样例《墨猫与月亮》（`examples/09_ink_cat/`）：墨滴洇成夜空，留白成月亮。](assets/readme/sample-09-ink-cat.jpg)
 
 山、松、舟、鸟由生图出水墨素材，生宣纸纹、墨滴晕开、水纹、倒影、题款和印章由代码生成，素材一律正片叠底到纸上。构图先定水平线和留白区，镜头平移展开长卷。适合中式叙事、文化内容、金句短片。
 
@@ -226,7 +238,7 @@ nook-anim/
 │   ├── rules.md             通用规则（每条注明来由）
 │   ├── checklist.md         交付前质量自查清单
 │   └── styles/              六张默认风格卡 + 一张扩展卡 + 索引
-├── examples/                可直接渲染的样例场景（三条纯代码短片 + 教程 Broll 与标题的共用件）
+├── examples/                可直接渲染的样例场景（六条短片 + 教程 Broll 与标题的共用件），命令见 examples/README.md
 └── scripts/
     ├── run.py               命令行入口（自动把 scripts/ 加进路径）
     ├── preview_launcher.py  预览工作台

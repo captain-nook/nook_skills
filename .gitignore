@@ -23,3 +23,6 @@ generated/
 # 创作者个人档案，含账号信息，不进仓库
 profile.md
 !profile.example.md
+
+# nook-anim 样例的素材图需要随库提供
+!nook-anim/examples/**/*.png

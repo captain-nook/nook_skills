@@ -1,0 +1,11 @@
+[
+ {
+  "name": "title",
+  "seed": 141,
+  "alpha": true,
+  "lora": null,
+  "w": 2048,
+  "h": 640,
+  "prompt": "The image features the title \"蛋糕保卫战\" as chunky playful lettering, every character cut from thick colored construction paper like a paper cut-out sticker: the five characters in cherry red, sunny yellow, mint green, sky blue and orange paper in turn, each character surrounded by a thin white paper border and a slightly wobbly hand-cut edge, with fine colored-pencil hatching and a soft paper texture, each character tilted at a slightly different angle, cheerful, warm and handmade. The lettering fills most of the canvas width. The image contains only the lettering."
+ }
+]

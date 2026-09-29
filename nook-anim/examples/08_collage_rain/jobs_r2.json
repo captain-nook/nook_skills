@@ -1,0 +1,60 @@
+[
+ {
+  "name": "umbrella",
+  "seed": 211,
+  "alpha": true,
+  "lora": null,
+  "prompt": "The image features one large open red umbrella seen from the front and slightly above, handmade torn paper collage illustration, layered cut and torn paper pieces with visible white fibrous torn edges, rich paper grain and subtle fiber texture, soft realistic drop shadows between paper layers, tactile craft look photographed under soft studio light, made of red paper panels with white hand-torn edges and a dark brown wooden handle.",
+  "w": 1024,
+  "h": 1024
+ },
+ {
+  "name": "bird_red",
+  "seed": 212,
+  "alpha": true,
+  "lora": null,
+  "prompt": "Turn the open red umbrella from <image1> into a flying paper bird: the red paper panels of the umbrella become the layered red feathers of the bird's two big spread wings and body, the wooden handle becomes its tail, a small round black eye and a small yellow paper beak, keeping the handmade torn paper collage look with white fibrous torn edges. Side view, wings raised.",
+  "refs": [
+   "素材/umbrella.png"
+  ]
+ },
+ {
+  "name": "man_reach",
+  "seed": 213,
+  "alpha": true,
+  "lora": null,
+  "prompt": "Keep the small collage man from <image1> exactly as he is: his tousled brown paper hair, big round eyes, yellow paper raincoat with white torn edges, navy trousers, red paper rain boots, and the handmade torn paper collage look with white fibrous torn edges, and the same overall size. Change only the pose: no umbrella at all, both arms stretched straight up high above his head with open hands reaching up, standing on tiptoes, face tilted up with a determined, hopeful expression. Full body, centered.",
+  "refs": [
+   "素材/man.png"
+  ]
+ },
+ {
+  "name": "man_cheer",
+  "seed": 214,
+  "alpha": true,
+  "lora": null,
+  "prompt": "Keep the small collage man from <image1> exactly as he is: his tousled brown paper hair, big round eyes, yellow paper raincoat with white torn edges, navy trousers, red paper rain boots, and the handmade torn paper collage look with white fibrous torn edges, and the same overall size. Change only the pose: no umbrella at all, both arms thrown wide open, head tilted back, eyes closed, a huge joyful smile, standing with feet apart. Full body, centered.",
+  "refs": [
+   "素材/man.png"
+  ]
+ },
+ {
+  "name": "man_wave",
+  "seed": 215,
+  "alpha": true,
+  "lora": null,
+  "prompt": "Keep the small collage man from <image1> exactly as he is: his tousled brown paper hair, big round eyes, yellow paper raincoat with white torn edges, navy trousers, red paper rain boots, and the handmade torn paper collage look with white fibrous torn edges, and the same overall size. Change only the pose: no umbrella at all, one hand raised high waving goodbye, the other hand in his pocket, looking up with a warm happy smile. Full body, centered.",
+  "refs": [
+   "素材/man.png"
+  ]
+ },
+ {
+  "name": "rainbow",
+  "seed": 216,
+  "alpha": true,
+  "lora": null,
+  "prompt": "The image features one large rainbow arch, handmade torn paper collage illustration, layered cut and torn paper pieces with visible white fibrous torn edges, rich paper grain and subtle fiber texture, soft realistic drop shadows between paper layers, tactile craft look photographed under soft studio light, made of seven curved bands of torn paper in red, orange, yellow, green, sky blue, indigo and violet, each band with hand-torn edges and visible white fibers, the two ends of the arch fading out into small torn paper clouds.",
+  "w": 2240,
+  "h": 1152
+ }
+]

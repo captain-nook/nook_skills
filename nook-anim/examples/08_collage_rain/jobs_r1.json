@@ -1,0 +1,45 @@
+[
+ {
+  "name": "bg_gray",
+  "seed": 201,
+  "w": 2240,
+  "h": 1280,
+  "prompt": "The image is a wide handmade torn paper collage illustration, layered cut and torn paper pieces with visible white fibrous torn edges, rich paper grain and subtle fiber texture, soft realistic drop shadows between paper layers, tactile craft look photographed under soft studio light, showing a gloomy rainy city street in shades of cool grey and slate blue papers: heavy dark grey torn paper clouds fill the upper half, a row of torn paper apartment buildings with tiny yellow paper windows stands in the middle, and a wet grey street in the lower third with small torn white paper puddles. The whole frame is filled edge to edge with paper, calm and melancholy, with no people.",
+  "lora": null
+ },
+ {
+  "name": "bg_sunny",
+  "seed": 202,
+  "w": 2240,
+  "h": 1280,
+  "prompt": "The image is a wide handmade torn paper collage illustration, layered cut and torn paper pieces with visible white fibrous torn edges, rich paper grain and subtle fiber texture, soft realistic drop shadows between paper layers, tactile craft look photographed under soft studio light, showing the same cheerful sunny city street in bright colors: a clear sky of light turquoise and warm lemon yellow papers with a torn paper sun, a row of torn paper apartment buildings in coral, mint, mustard and lilac papers with sunny yellow windows in the middle, and a warm peach street in the lower third with small green paper bushes. The whole frame is filled edge to edge with paper, bright, joyful and hopeful, with no people.",
+  "lora": null
+ },
+ {
+  "name": "man",
+  "seed": 203,
+  "alpha": true,
+  "w": 1024,
+  "h": 1024,
+  "prompt": "The image features a small man standing facing the viewer, handmade torn paper collage illustration, layered cut and torn paper pieces with visible white fibrous torn edges, rich paper grain and subtle fiber texture, soft realistic drop shadows between paper layers, tactile craft look photographed under soft studio light: he wears a bright yellow paper raincoat with the hood down, tousled brown paper hair, dark navy paper trousers, red paper rain boots, a sad droopy face with big round eyes and a small downturned mouth, and holds a large red paper umbrella over his head with one hand. Every edge is hand-torn with a white fibrous rim. Full body, centered.",
+  "lora": null
+ },
+ {
+  "name": "flowers",
+  "seed": 204,
+  "alpha": true,
+  "w": 1024,
+  "h": 768,
+  "prompt": "The image features a cluster of three paper flowers of different heights on green paper stems with leaves, handmade torn paper collage illustration, layered cut and torn paper pieces with visible white fibrous torn edges, rich paper grain and subtle fiber texture, soft realistic drop shadows between paper layers, tactile craft look photographed under soft studio light: a pink poppy, a yellow daisy and an orange tulip, all with hand-torn petals and white fibrous edges.",
+  "lora": null
+ },
+ {
+  "name": "cloud",
+  "seed": 205,
+  "alpha": true,
+  "w": 1536,
+  "h": 768,
+  "prompt": "The image features one large fluffy storm cloud torn from dark grey paper with a slightly lighter grey underlayer, handmade torn paper collage illustration, layered cut and torn paper pieces with visible white fibrous torn edges, rich paper grain and subtle fiber texture, soft realistic drop shadows between paper layers, tactile craft look photographed under soft studio light, irregular hand-torn outline with a thin white fibrous rim.",
+  "lora": null
+ }
+]
