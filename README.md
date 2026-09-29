@@ -23,6 +23,7 @@
 | 做小红书/公众号/B站等封面，尤其有标题文字层 | `nook-cover` | 多平台封面生产主 skill，当前重点覆盖小红书封面。 |
 | 做视频封面：YouTube/B站/抖音/小红书/视频号 | `nook-tv-cover` | 负责横封面、短封面、竖封面的科技风封面输出。 |
 | 用 MiniMax H3 + ComfyUI 生成视频片段、逐条质检并安全重试 | `nook-h3` | 负责 I2VA、FL2VA、L2VA、Ref2VA、T2VA 的官方提示词、物料挂载、UTF-8 提交、顺序轮询、技术/语义质检、失败重跑和断点续跑。 |
+| 用代码做动画短片、给口播/教程视频配 Broll 和章节标题卡（不用视频模型） | `nook-anim` | 代码逐帧渲染为主，千问 Image 2.1 只补角色和场景；六种默认风格（纸片定格、撕纸拼贴、手绘线稿、火柴人、扁平动态图形、水墨水彩）加教程桌面舞台，音效与配乐由代码合成或对拍。 |
 | 需要稳定调用 GPT Image 类图片生成能力 | `nook-image-gpt` / `nook-image2-gpt` | 原子图片 provider，供上层视觉 skill 调用。 |
 | 需要低成本快速探索图片草稿 | `nook-zimage` | ModelScope Z-Image Turbo，适合草稿、批量探索、低风险素材。 |
 | 需要中文海报、封面、高质量文字渲染 | `nook-qwen-image` | ModelScope Qwen-Image，适合中文视觉和更高质量产出。 |
@@ -368,3 +369,26 @@ powershell -ExecutionPolicy Bypass -File .\nook-h3\scripts\run_h3_batch.ps1 `
 
 详细说明见 [`nook-h3/README.md`](nook-h3/README.md)，官方 H3 提示词规范需要单独安装 `h3-prompt-writing` Skill。
 
+### `nook-anim`
+
+代码动画 skill。一句需求进去，一条 1920×1080 的动画短片出来：画面由 `nookanim` 引擎（Python + OpenCV）逐帧渲染，生图只补足代码画不出的角色和场景，生视频默认关闭。渲染是纯函数 `render(t)`，没有 GPU 队列，改一处就能重渲一条。
+
+它适合以下工作：
+
+- 火柴人小剧场、扁平动态图形、手绘线稿、纸片定格、撕纸拼贴、水墨水彩这六种风格的短片；
+- 给口播、教程、科普视频配 Broll 和章节标题卡（整期风格一致、标题带弹出效果和音效）；
+- Logo 片头动效；
+- 音效和配乐由代码合成，或者用 MiniMax Music3 生成后由代码测拍、对拍。
+
+![nook-anim 六种风格](nook-anim/assets/readme/hero-six-styles.jpg)
+
+公开仓库里带三条可直接渲染的纯代码样例（`nook-anim/examples/`），不包含 ComfyUI、模型权重和任何账号密钥。生图和配乐两个可选环节用到千问 Image 2.1 与 MiniMax Music3，两者的使用条款请以各自官方仓库的 LICENSE 为准。
+
+#### 最小使用方式
+
+```bash
+cd nook-anim/examples/05_last_pizza
+python ../../scripts/run.py render scene.py video --out film.mp4
+```
+
+需要 Python 3 和 `pip install opencv-python numpy pillow scipy imageio-ffmpeg`。详细说明见 [`nook-anim/README.md`](nook-anim/README.md)。

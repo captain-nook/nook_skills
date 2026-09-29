@@ -1,0 +1,4 @@
+interface:
+  display_name: "nook-anim"
+  short_description: "Make short animations mostly by code: stick figures, paper cut-outs, motion graphics, B-roll and title cards"
+  default_prompt: "Use nook-anim to turn a content idea into a short animated video: pick a content type and style card, storyboard it, generate character and scene assets with Qwen Image 2.1 only where code cannot draw them, render frame by frame with the nookanim engine, add code-synthesized sound or beat-matched music, and check the final mp4 against the quality checklist."
