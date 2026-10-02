@@ -1,0 +1,30 @@
+[
+ {
+  "name": "bento_p",
+  "w": 1536,
+  "h": 640,
+  "seed": 41,
+  "prompt": "A premium 3D render on a pure black background, wide cinematic composition: the left two thirds of the frame is completely empty black, the subject sits in the right third. A sleek glossy glass paper-plane arrow launching diagonally upward to the right, glowing warm orange and amber along its edges with a soft comet trail of light. Fine film grain, soft reflections. Keynote product shot."
+ },
+ {
+  "name": "bento_a",
+  "w": 1536,
+  "h": 640,
+  "seed": 42,
+  "prompt": "A premium 3D render on a pure black background, wide cinematic composition: the left two thirds of the frame is completely empty black, the subject sits in the right third. Three concentric thin glass rings floating one inside another like an orbit, glowing electric blue along their edges with a bright core point at the center. Fine film grain, soft reflections. Keynote product shot."
+ },
+ {
+  "name": "bento_r",
+  "w": 1536,
+  "h": 640,
+  "seed": 47,
+  "prompt": "A premium 3D render on a pure black background, wide cinematic composition: the left two thirds of the frame is completely empty black, the subject sits in the right third. A neat stack of five thin frosted-glass slabs offset like pages in a library, glowing mint green and soft teal along their edges, reflecting on a dark glossy floor. Fine film grain, soft reflections. Keynote product shot."
+ },
+ {
+  "name": "bento_x",
+  "w": 1536,
+  "h": 640,
+  "seed": 44,
+  "prompt": "A premium 3D render on a pure black background, wide cinematic composition: the left two thirds of the frame is completely empty black, the subject sits in the right third. A closed brushed-titanium box with a thin cool cyan light line along its lid seam, resting on a dark glossy floor with a soft reflection. Fine film grain, soft reflections. Keynote product shot."
+ }
+]

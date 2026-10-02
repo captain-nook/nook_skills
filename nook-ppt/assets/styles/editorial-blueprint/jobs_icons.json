@@ -1,0 +1,209 @@
+[
+ {
+  "name": "icon_material",
+  "seed": 1201,
+  "alpha": true,
+  "lora": null,
+  "w": 1024,
+  "h": 1024,
+  "prompt": "Flat editorial illustration icon in a limited palette of deep navy blue, engineering orange and cream white, clean thick navy outlines, simple geometric shapes, playful hand-drawn feel, centered, transparent background. The icon shows a neat stack of three index cards fanned out, each with a few lines of text and a small colored tag on top, like organized material cards"
+ },
+ {
+  "name": "icon_time_c1",
+  "seed": 1300,
+  "alpha": true,
+  "lora": null,
+  "w": 1024,
+  "h": 1024,
+  "prompt": "Flat editorial illustration icon in a limited palette of deep navy blue, engineering orange and cream white with a touch of light blue, clean thick navy outlines, simple geometric shapes, playful hand-drawn feel, centered, transparent background. The icon shows a smartphone with a scrolling feed of small thumbnail cards and a tiny fire emoji-like flame badge"
+ },
+ {
+  "name": "icon_time_c2",
+  "seed": 1301,
+  "alpha": true,
+  "lora": null,
+  "w": 1024,
+  "h": 1024,
+  "prompt": "Flat editorial illustration icon in a limited palette of deep navy blue, engineering orange and cream white with a touch of light blue, clean thick navy outlines, simple geometric shapes, playful hand-drawn feel, centered, transparent background. The icon shows three crumpled paper balls next to a pencil and one blank page, like drafts being thrown away"
+ },
+ {
+  "name": "icon_time_c3",
+  "seed": 1302,
+  "alpha": true,
+  "lora": null,
+  "w": 1024,
+  "h": 1024,
+  "prompt": "Flat editorial illustration icon in a limited palette of deep navy blue, engineering orange and cream white with a touch of light blue, clean thick navy outlines, simple geometric shapes, playful hand-drawn feel, centered, transparent background. The icon shows a magnifying glass over a document with tidy aligned lines, like checking and reformatting a text"
+ },
+ {
+  "name": "icon_time_c4",
+  "seed": 1303,
+  "alpha": true,
+  "lora": null,
+  "w": 1024,
+  "h": 1024,
+  "prompt": "Flat editorial illustration icon in a limited palette of deep navy blue, engineering orange and cream white with a touch of light blue, clean thick navy outlines, simple geometric shapes, playful hand-drawn feel, centered, transparent background. The icon shows a folded paper airplane flying up-right with a small dotted trail, like sending something out"
+ },
+ {
+  "name": "f_laptop",
+  "seed": 3000,
+  "alpha": true,
+  "lora": null,
+  "w": 1024,
+  "h": 1024,
+  "prompt": "Editorial technical illustration icon in a limited palette of deep navy ink and engineering orange with pale blue tint fills, precise thin uniform navy line art like an engineering blueprint or patent drawing, sharp clean geometry, a few small orange accent shapes, no shading, no gradients, no text or letters, centered on a transparent background. The icon shows an open laptop seen slightly from the side, its screen showing a simple window with a title bar and three blank lines, and a small orange cursor"
+ },
+ {
+  "name": "f_folder",
+  "seed": 3001,
+  "alpha": true,
+  "lora": null,
+  "w": 1024,
+  "h": 1024,
+  "prompt": "Editorial technical illustration icon in a limited palette of deep navy ink and engineering orange with pale blue tint fills, precise thin uniform navy line art like an engineering blueprint or patent drawing, sharp clean geometry, a few small orange accent shapes, no shading, no gradients, no text or letters, centered on a transparent background. The icon shows a manila folder half open with several paper sheets sticking out, one sheet marked with an orange tab"
+ },
+ {
+  "name": "f_key",
+  "seed": 3002,
+  "alpha": true,
+  "lora": null,
+  "w": 1024,
+  "h": 1024,
+  "prompt": "Editorial technical illustration icon in a limited palette of deep navy ink and engineering orange with pale blue tint fills, precise thin uniform navy line art like an engineering blueprint or patent drawing, sharp clean geometry, a few small orange accent shapes, no shading, no gradients, no text or letters, centered on a transparent background. The icon shows an old-fashioned key with a round bow and a toothed bit, with a small orange tag hanging from it"
+ },
+ {
+  "name": "f_chat",
+  "seed": 3003,
+  "alpha": true,
+  "lora": null,
+  "w": 1024,
+  "h": 1024,
+  "prompt": "Editorial technical illustration icon in a limited palette of deep navy ink and engineering orange with pale blue tint fills, precise thin uniform navy line art like an engineering blueprint or patent drawing, sharp clean geometry, a few small orange accent shapes, no shading, no gradients, no text or letters, centered on a transparent background. The icon shows two overlapping speech bubbles, one holding three short lines, the other holding a single orange line, like a chat window"
+ },
+ {
+  "name": "f_model",
+  "seed": 3004,
+  "alpha": true,
+  "lora": null,
+  "w": 1024,
+  "h": 1024,
+  "prompt": "Editorial technical illustration icon in a limited palette of deep navy ink and engineering orange with pale blue tint fills, precise thin uniform navy line art like an engineering blueprint or patent drawing, sharp clean geometry, a few small orange accent shapes, no shading, no gradients, no text or letters, centered on a transparent background. The icon shows a square microchip with pins on every side and a small orange spark in the center, connected by thin lines to three small nodes"
+ },
+ {
+  "name": "f_agent",
+  "seed": 3005,
+  "alpha": true,
+  "lora": null,
+  "w": 1024,
+  "h": 1024,
+  "prompt": "Editorial technical illustration icon in a limited palette of deep navy ink and engineering orange with pale blue tint fills, precise thin uniform navy line art like an engineering blueprint or patent drawing, sharp clean geometry, a few small orange accent shapes, no shading, no gradients, no text or letters, centered on a transparent background. The icon shows a friendly minimalist robot assistant head with a rectangular face, two round eyes, an antenna with an orange tip, and a small mouse cursor arrow beside it"
+ },
+ {
+  "name": "f_mdfile",
+  "seed": 3006,
+  "alpha": true,
+  "lora": null,
+  "w": 1024,
+  "h": 1024,
+  "prompt": "Editorial technical illustration icon in a limited palette of deep navy ink and engineering orange with pale blue tint fills, precise thin uniform navy line art like an engineering blueprint or patent drawing, sharp clean geometry, a few small orange accent shapes, no shading, no gradients, no text or letters, centered on a transparent background. The icon shows a document page with a folded corner, a large hash symbol as its first heading line in orange and several plain text lines below"
+ },
+ {
+  "name": "f_shield",
+  "seed": 3007,
+  "alpha": true,
+  "lora": null,
+  "w": 1024,
+  "h": 1024,
+  "prompt": "Editorial technical illustration icon in a limited palette of deep navy ink and engineering orange with pale blue tint fills, precise thin uniform navy line art like an engineering blueprint or patent drawing, sharp clean geometry, a few small orange accent shapes, no shading, no gradients, no text or letters, centered on a transparent background. The icon shows a shield with a bold check mark in orange, small hand-drawn permission toggle switches beside it"
+ },
+ {
+  "name": "f_stop",
+  "seed": 3008,
+  "alpha": true,
+  "lora": null,
+  "w": 1024,
+  "h": 1024,
+  "prompt": "Editorial technical illustration icon in a limited palette of deep navy ink and engineering orange with pale blue tint fills, precise thin uniform navy line art like an engineering blueprint or patent drawing, sharp clean geometry, a few small orange accent shapes, no shading, no gradients, no text or letters, centered on a transparent background. The icon shows an open palm stop hand inside an octagon sign, drawn in navy line with an orange octagon fill"
+ },
+ {
+  "name": "f_wrench",
+  "seed": 3009,
+  "alpha": true,
+  "lora": null,
+  "w": 1024,
+  "h": 1024,
+  "prompt": "Editorial technical illustration icon in a limited palette of deep navy ink and engineering orange with pale blue tint fills, precise thin uniform navy line art like an engineering blueprint or patent drawing, sharp clean geometry, a few small orange accent shapes, no shading, no gradients, no text or letters, centered on a transparent background. The icon shows a wrench crossed with a screwdriver over a small terminal window with a prompt symbol, orange handles"
+ },
+ {
+  "name": "f_plan",
+  "seed": 3010,
+  "alpha": true,
+  "lora": null,
+  "w": 1024,
+  "h": 1024,
+  "prompt": "Editorial technical illustration icon in a limited palette of deep navy ink and engineering orange with pale blue tint fills, precise thin uniform navy line art like an engineering blueprint or patent drawing, sharp clean geometry, a few small orange accent shapes, no shading, no gradients, no text or letters, centered on a transparent background. The icon shows a clipboard with a checklist where the first line is ticked in orange and the others are empty boxes, a pencil resting on it"
+ },
+ {
+  "name": "f_backup",
+  "seed": 3011,
+  "alpha": true,
+  "lora": null,
+  "w": 1024,
+  "h": 1024,
+  "prompt": "Editorial technical illustration icon in a limited palette of deep navy ink and engineering orange with pale blue tint fills, precise thin uniform navy line art like an engineering blueprint or patent drawing, sharp clean geometry, a few small orange accent shapes, no shading, no gradients, no text or letters, centered on a transparent background. The icon shows an open storage box with a document and an arrow curving into it, a small calendar tag on the box"
+ },
+ {
+  "name": "f_undo",
+  "seed": 3012,
+  "alpha": true,
+  "lora": null,
+  "w": 1024,
+  "h": 1024,
+  "prompt": "Editorial technical illustration icon in a limited palette of deep navy ink and engineering orange with pale blue tint fills, precise thin uniform navy line art like an engineering blueprint or patent drawing, sharp clean geometry, a few small orange accent shapes, no shading, no gradients, no text or letters, centered on a transparent background. The icon shows a document page with a large curved undo arrow in orange going backwards around it"
+ },
+ {
+  "name": "f_checklist",
+  "seed": 3013,
+  "alpha": true,
+  "lora": null,
+  "w": 1024,
+  "h": 1024,
+  "prompt": "Editorial technical illustration icon in a limited palette of deep navy ink and engineering orange with pale blue tint fills, precise thin uniform navy line art like an engineering blueprint or patent drawing, sharp clean geometry, a few small orange accent shapes, no shading, no gradients, no text or letters, centered on a transparent background. The icon shows a tall sheet of paper with five rows of checkboxes each ticked in orange, and a rubber stamp beside it"
+ },
+ {
+  "name": "f_coins",
+  "seed": 3014,
+  "alpha": true,
+  "lora": null,
+  "w": 1024,
+  "h": 1024,
+  "prompt": "Editorial technical illustration icon in a limited palette of deep navy ink and engineering orange with pale blue tint fills, precise thin uniform navy line art like an engineering blueprint or patent drawing, sharp clean geometry, a few small orange accent shapes, no shading, no gradients, no text or letters, centered on a transparent background. The icon shows a stack of three coins and a small gauge meter with an orange needle, suggesting pay per usage"
+ },
+ {
+  "name": "f_warning",
+  "seed": 3015,
+  "alpha": true,
+  "lora": null,
+  "w": 1024,
+  "h": 1024,
+  "prompt": "Editorial technical illustration icon in a limited palette of deep navy ink and engineering orange with pale blue tint fills, precise thin uniform navy line art like an engineering blueprint or patent drawing, sharp clean geometry, a few small orange accent shapes, no shading, no gradients, no text or letters, centered on a transparent background. The icon shows a triangular warning sign with an exclamation mark in orange, and a small broken link chain beside it"
+ },
+ {
+  "name": "f_signpost",
+  "seed": 3016,
+  "alpha": true,
+  "lora": null,
+  "w": 1024,
+  "h": 1024,
+  "prompt": "Editorial technical illustration icon in a limited palette of deep navy ink and engineering orange with pale blue tint fills, precise thin uniform navy line art like an engineering blueprint or patent drawing, sharp clean geometry, a few small orange accent shapes, no shading, no gradients, no text or letters, centered on a transparent background. The icon shows a wooden-style signpost with one arrow pointing right in orange and one blank arrow, small path lines below"
+ },
+ {
+  "name": "f_globe",
+  "seed": 3017,
+  "alpha": true,
+  "lora": null,
+  "w": 1024,
+  "h": 1024,
+  "prompt": "Editorial technical illustration icon in a limited palette of deep navy ink and engineering orange with pale blue tint fills, precise thin uniform navy line art like an engineering blueprint or patent drawing, sharp clean geometry, a few small orange accent shapes, no shading, no gradients, no text or letters, centered on a transparent background. The icon shows a wireframe globe with latitude and longitude lines and a small orange location pin on it"
+ }
+]

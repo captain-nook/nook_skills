@@ -1,0 +1,4 @@
+interface:
+  display_name: "nook-ppt"
+  short_description: "Build editable, animated PPTX decks in six visual styles with native diagrams (cycle, pyramid, funnel, matrix) and measured text"
+  default_prompt: "Use nook-ppt to turn an outline or article into an editable PPTX: choose a style pack, lay out parts on the grid with measured text, use matching diagrams for cycles, hierarchies and funnels, run the one-click pipeline to check overflow and lint, and deliver one animated deck."

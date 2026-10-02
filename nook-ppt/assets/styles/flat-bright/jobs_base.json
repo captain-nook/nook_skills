@@ -1,0 +1,110 @@
+[
+ {
+  "name": "flat/bulb",
+  "seed": 4200,
+  "alpha": true,
+  "lora": null,
+  "w": 1024,
+  "h": 1024,
+  "prompt": "Flat vector icon in bright candy colors (coral, sunny yellow, mint, sky blue, purple) with a deep navy accent, smooth rounded geometric shapes, no outlines, subtle flat two-tone shading, generous rounded corners, friendly playful modern motion-graphics look, centered on a transparent background, no text. The icon shows a glowing light bulb with a few short ray strokes around it"
+ },
+ {
+  "name": "flat/pencil",
+  "seed": 4201,
+  "alpha": true,
+  "lora": null,
+  "w": 1024,
+  "h": 1024,
+  "prompt": "Flat vector icon in bright candy colors (coral, sunny yellow, mint, sky blue, purple) with a deep navy accent, smooth rounded geometric shapes, no outlines, subtle flat two-tone shading, generous rounded corners, friendly playful modern motion-graphics look, centered on a transparent background, no text. The icon shows a pencil lying diagonally with a sharpened tip and an eraser end"
+ },
+ {
+  "name": "flat/paperclip",
+  "seed": 4202,
+  "alpha": true,
+  "lora": null,
+  "w": 1024,
+  "h": 1024,
+  "prompt": "Flat vector icon in bright candy colors (coral, sunny yellow, mint, sky blue, purple) with a deep navy accent, smooth rounded geometric shapes, no outlines, subtle flat two-tone shading, generous rounded corners, friendly playful modern motion-graphics look, centered on a transparent background, no text. The icon shows a big curly paperclip"
+ },
+ {
+  "name": "flat/star",
+  "seed": 4203,
+  "alpha": true,
+  "lora": null,
+  "w": 1024,
+  "h": 1024,
+  "prompt": "Flat vector icon in bright candy colors (coral, sunny yellow, mint, sky blue, purple) with a deep navy accent, smooth rounded geometric shapes, no outlines, subtle flat two-tone shading, generous rounded corners, friendly playful modern motion-graphics look, centered on a transparent background, no text. The icon shows a chunky five-pointed star with a smaller sparkle beside it"
+ },
+ {
+  "name": "flat/folder",
+  "seed": 4204,
+  "alpha": true,
+  "lora": null,
+  "w": 1024,
+  "h": 1024,
+  "prompt": "Flat vector icon in bright candy colors (coral, sunny yellow, mint, sky blue, purple) with a deep navy accent, smooth rounded geometric shapes, no outlines, subtle flat two-tone shading, generous rounded corners, friendly playful modern motion-graphics look, centered on a transparent background, no text. The icon shows an open folder with a few sheets of paper sticking out"
+ },
+ {
+  "name": "flat/laptop",
+  "seed": 4205,
+  "alpha": true,
+  "lora": null,
+  "w": 1024,
+  "h": 1024,
+  "prompt": "Flat vector icon in bright candy colors (coral, sunny yellow, mint, sky blue, purple) with a deep navy accent, smooth rounded geometric shapes, no outlines, subtle flat two-tone shading, generous rounded corners, friendly playful modern motion-graphics look, centered on a transparent background, no text. The icon shows an open laptop showing a blank window with a few text lines"
+ },
+ {
+  "name": "flat/chat",
+  "seed": 4206,
+  "alpha": true,
+  "lora": null,
+  "w": 1024,
+  "h": 1024,
+  "prompt": "Flat vector icon in bright candy colors (coral, sunny yellow, mint, sky blue, purple) with a deep navy accent, smooth rounded geometric shapes, no outlines, subtle flat two-tone shading, generous rounded corners, friendly playful modern motion-graphics look, centered on a transparent background, no text. The icon shows two overlapping speech bubbles"
+ },
+ {
+  "name": "flat/key",
+  "seed": 4207,
+  "alpha": true,
+  "lora": null,
+  "w": 1024,
+  "h": 1024,
+  "prompt": "Flat vector icon in bright candy colors (coral, sunny yellow, mint, sky blue, purple) with a deep navy accent, smooth rounded geometric shapes, no outlines, subtle flat two-tone shading, generous rounded corners, friendly playful modern motion-graphics look, centered on a transparent background, no text. The icon shows a classic key with a round bow"
+ },
+ {
+  "name": "flat/checklist",
+  "seed": 4208,
+  "alpha": true,
+  "lora": null,
+  "w": 1024,
+  "h": 1024,
+  "prompt": "Flat vector icon in bright candy colors (coral, sunny yellow, mint, sky blue, purple) with a deep navy accent, smooth rounded geometric shapes, no outlines, subtle flat two-tone shading, generous rounded corners, friendly playful modern motion-graphics look, centered on a transparent background, no text. The icon shows a clipboard with a checklist of ticked boxes"
+ },
+ {
+  "name": "flat/plant",
+  "seed": 4209,
+  "alpha": true,
+  "lora": null,
+  "w": 1024,
+  "h": 1024,
+  "prompt": "Flat vector icon in bright candy colors (coral, sunny yellow, mint, sky blue, purple) with a deep navy accent, smooth rounded geometric shapes, no outlines, subtle flat two-tone shading, generous rounded corners, friendly playful modern motion-graphics look, centered on a transparent background, no text. The icon shows a small potted plant with three leaves in a round pot"
+ },
+ {
+  "name": "flat/coffee",
+  "seed": 4210,
+  "alpha": true,
+  "lora": null,
+  "w": 1024,
+  "h": 1024,
+  "prompt": "Flat vector icon in bright candy colors (coral, sunny yellow, mint, sky blue, purple) with a deep navy accent, smooth rounded geometric shapes, no outlines, subtle flat two-tone shading, generous rounded corners, friendly playful modern motion-graphics look, centered on a transparent background, no text. The icon shows a coffee cup with a little steam swirl"
+ },
+ {
+  "name": "flat/arrow",
+  "seed": 4211,
+  "alpha": true,
+  "lora": null,
+  "w": 1024,
+  "h": 1024,
+  "prompt": "Flat vector icon in bright candy colors (coral, sunny yellow, mint, sky blue, purple) with a deep navy accent, smooth rounded geometric shapes, no outlines, subtle flat two-tone shading, generous rounded corners, friendly playful modern motion-graphics look, centered on a transparent background, no text. The icon shows a bold curved arrow pointing right"
+ }
+]

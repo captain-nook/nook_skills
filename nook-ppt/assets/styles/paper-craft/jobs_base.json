@@ -1,0 +1,128 @@
+[
+ {
+  "name": "paper/bg_light",
+  "seed": 4001,
+  "alpha": false,
+  "lora": null,
+  "w": 1920,
+  "h": 1088,
+  "prompt": "Top-down photograph of a warm cream and light kraft craft paper desk surface with subtle paper fibers, very soft even studio lighting, faint pencil grid marks, completely empty, no objects, no text."
+ },
+ {
+  "name": "paper/bg_dark",
+  "seed": 4002,
+  "alpha": false,
+  "lora": null,
+  "w": 1920,
+  "h": 1088,
+  "prompt": "Top-down view of a dark navy blue textured paper desk surface at night with a warm soft pool of lamp light from the upper right corner fading into deep darkness, subtle paper grain, completely empty, no objects, no text."
+ },
+ {
+  "name": "paper/bulb",
+  "seed": 4100,
+  "alpha": true,
+  "lora": null,
+  "w": 1024,
+  "h": 1024,
+  "prompt": "Handmade torn paper collage icon, layered cut and torn colored paper pieces with visible white fibrous torn edges, rich paper grain, soft realistic drop shadows between paper layers, warm palette of coral, mustard, mint, sky blue and cream, viewed flat from above, centered on a transparent background, no text. The icon shows a glowing light bulb with a few short ray strokes around it"
+ },
+ {
+  "name": "paper/pencil",
+  "seed": 4101,
+  "alpha": true,
+  "lora": null,
+  "w": 1024,
+  "h": 1024,
+  "prompt": "Handmade torn paper collage icon, layered cut and torn colored paper pieces with visible white fibrous torn edges, rich paper grain, soft realistic drop shadows between paper layers, warm palette of coral, mustard, mint, sky blue and cream, viewed flat from above, centered on a transparent background, no text. The icon shows a pencil lying diagonally with a sharpened tip and an eraser end"
+ },
+ {
+  "name": "paper/paperclip",
+  "seed": 4102,
+  "alpha": true,
+  "lora": null,
+  "w": 1024,
+  "h": 1024,
+  "prompt": "Handmade torn paper collage icon, layered cut and torn colored paper pieces with visible white fibrous torn edges, rich paper grain, soft realistic drop shadows between paper layers, warm palette of coral, mustard, mint, sky blue and cream, viewed flat from above, centered on a transparent background, no text. The icon shows a big curly paperclip"
+ },
+ {
+  "name": "paper/star",
+  "seed": 4103,
+  "alpha": true,
+  "lora": null,
+  "w": 1024,
+  "h": 1024,
+  "prompt": "Handmade torn paper collage icon, layered cut and torn colored paper pieces with visible white fibrous torn edges, rich paper grain, soft realistic drop shadows between paper layers, warm palette of coral, mustard, mint, sky blue and cream, viewed flat from above, centered on a transparent background, no text. The icon shows a chunky five-pointed star with a smaller sparkle beside it"
+ },
+ {
+  "name": "paper/folder",
+  "seed": 4104,
+  "alpha": true,
+  "lora": null,
+  "w": 1024,
+  "h": 1024,
+  "prompt": "Handmade torn paper collage icon, layered cut and torn colored paper pieces with visible white fibrous torn edges, rich paper grain, soft realistic drop shadows between paper layers, warm palette of coral, mustard, mint, sky blue and cream, viewed flat from above, centered on a transparent background, no text. The icon shows an open folder with a few sheets of paper sticking out"
+ },
+ {
+  "name": "paper/laptop",
+  "seed": 4105,
+  "alpha": true,
+  "lora": null,
+  "w": 1024,
+  "h": 1024,
+  "prompt": "Handmade torn paper collage icon, layered cut and torn colored paper pieces with visible white fibrous torn edges, rich paper grain, soft realistic drop shadows between paper layers, warm palette of coral, mustard, mint, sky blue and cream, viewed flat from above, centered on a transparent background, no text. The icon shows an open laptop showing a blank window with a few text lines"
+ },
+ {
+  "name": "paper/chat",
+  "seed": 4106,
+  "alpha": true,
+  "lora": null,
+  "w": 1024,
+  "h": 1024,
+  "prompt": "Handmade torn paper collage icon, layered cut and torn colored paper pieces with visible white fibrous torn edges, rich paper grain, soft realistic drop shadows between paper layers, warm palette of coral, mustard, mint, sky blue and cream, viewed flat from above, centered on a transparent background, no text. The icon shows two overlapping speech bubbles"
+ },
+ {
+  "name": "paper/key",
+  "seed": 4107,
+  "alpha": true,
+  "lora": null,
+  "w": 1024,
+  "h": 1024,
+  "prompt": "Handmade torn paper collage icon, layered cut and torn colored paper pieces with visible white fibrous torn edges, rich paper grain, soft realistic drop shadows between paper layers, warm palette of coral, mustard, mint, sky blue and cream, viewed flat from above, centered on a transparent background, no text. The icon shows a classic key with a round bow"
+ },
+ {
+  "name": "paper/checklist",
+  "seed": 4108,
+  "alpha": true,
+  "lora": null,
+  "w": 1024,
+  "h": 1024,
+  "prompt": "Handmade torn paper collage icon, layered cut and torn colored paper pieces with visible white fibrous torn edges, rich paper grain, soft realistic drop shadows between paper layers, warm palette of coral, mustard, mint, sky blue and cream, viewed flat from above, centered on a transparent background, no text. The icon shows a clipboard with a checklist of ticked boxes"
+ },
+ {
+  "name": "paper/plant",
+  "seed": 4109,
+  "alpha": true,
+  "lora": null,
+  "w": 1024,
+  "h": 1024,
+  "prompt": "Handmade torn paper collage icon, layered cut and torn colored paper pieces with visible white fibrous torn edges, rich paper grain, soft realistic drop shadows between paper layers, warm palette of coral, mustard, mint, sky blue and cream, viewed flat from above, centered on a transparent background, no text. The icon shows a small potted plant with three leaves in a round pot"
+ },
+ {
+  "name": "paper/coffee",
+  "seed": 4110,
+  "alpha": true,
+  "lora": null,
+  "w": 1024,
+  "h": 1024,
+  "prompt": "Handmade torn paper collage icon, layered cut and torn colored paper pieces with visible white fibrous torn edges, rich paper grain, soft realistic drop shadows between paper layers, warm palette of coral, mustard, mint, sky blue and cream, viewed flat from above, centered on a transparent background, no text. The icon shows a coffee cup with a little steam swirl"
+ },
+ {
+  "name": "paper/arrow",
+  "seed": 4111,
+  "alpha": true,
+  "lora": null,
+  "w": 1024,
+  "h": 1024,
+  "prompt": "Handmade torn paper collage icon, layered cut and torn colored paper pieces with visible white fibrous torn edges, rich paper grain, soft realistic drop shadows between paper layers, warm palette of coral, mustard, mint, sky blue and cream, viewed flat from above, centered on a transparent background, no text. The icon shows a bold curved arrow pointing right"
+ }
+]

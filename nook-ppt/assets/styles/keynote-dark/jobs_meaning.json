@@ -1,0 +1,72 @@
+[
+ {
+  "name": "hero_voice",
+  "w": 1536,
+  "h": 864,
+  "seed": 301,
+  "prompt": "A premium 3D render on a pure black background: a large glossy glass speech bubble floating at center right, glowing blue-white from within, thin cool rim light, soft reflection on a dark glossy floor. The left half of the frame is completely empty black, the subject sits in the right half. Fine film grain, soft reflections, deep black empty space around. Cinematic keynote product shot."
+ },
+ {
+  "name": "hero_voice_end",
+  "w": 1536,
+  "h": 864,
+  "seed": 302,
+  "prompt": "A premium 3D render on a pure black background: thin concentric rings of cool white-blue light radiating outward like sound waves from a small glass speech bubble at the right side, the rings fading into darkness. The left half of the frame is completely empty black, the subject sits in the right half. Fine film grain, soft reflections, deep black empty space around. Cinematic keynote product shot."
+ },
+ {
+  "name": "tile_jar",
+  "w": 1024,
+  "h": 1024,
+  "seed": 303,
+  "prompt": "A premium 3D render on a pure black background: a sealed frosted glass jar with its lid closed, a bright glowing orb trapped inside, soft reflection on a dark glossy floor, centered. Fine film grain, soft reflections, deep black empty space around. Cinematic keynote product shot."
+ },
+ {
+  "name": "tile_loop",
+  "w": 1024,
+  "h": 1024,
+  "seed": 304,
+  "prompt": "A premium 3D render on a pure black background: a glowing glass ring shaped like a circular arrow loop, a closed circular band with a flowing arrowhead, cool white-blue light, centered. Fine film grain, soft reflections, deep black empty space around. Cinematic keynote product shot."
+ },
+ {
+  "name": "tile_puzzle",
+  "w": 1024,
+  "h": 1024,
+  "seed": 305,
+  "prompt": "A premium 3D render on a pure black background: four glossy glass jigsaw puzzle pieces fitted together into a square with one piece missing, the empty slot glowing with bright cool light, centered. Fine film grain, soft reflections, deep black empty space around. Cinematic keynote product shot."
+ },
+ {
+  "name": "hero_pile",
+  "w": 1536,
+  "h": 864,
+  "seed": 306,
+  "prompt": "A premium 3D render on a pure black background: a tall chaotic heap of translucent glass folders and sheets piled up and spilling over, faintly glowing cool white at the edges, resting on a dark glossy floor. The upper left of the frame is empty black, the heap sits in the lower right. Fine film grain, soft reflections, deep black empty space around. Cinematic keynote product shot."
+ },
+ {
+  "name": "hero_question",
+  "w": 1536,
+  "h": 864,
+  "seed": 307,
+  "prompt": "A premium 3D render on a pure black background: a large glossy glass question mark floating at center right, glowing blue-white from within, thin cool rim light, soft reflection on a dark glossy floor. The left half of the frame is completely empty black, the subject sits in the right half. Fine film grain, soft reflections, deep black empty space around. Cinematic keynote product shot."
+ },
+ {
+  "name": "hero_lens",
+  "w": 1536,
+  "h": 864,
+  "seed": 308,
+  "prompt": "A premium 3D render on a pure black background: a glass magnifying lens floating above a small stack of glass folders, a bright point of light focused through the lens, cool white-blue glow. The left half of the frame is completely empty black, the subject sits in the right half. Fine film grain, soft reflections, deep black empty space around. Cinematic keynote product shot."
+ },
+ {
+  "name": "tile_book",
+  "w": 1024,
+  "h": 1024,
+  "seed": 309,
+  "prompt": "A premium 3D render on a pure black background: a closed glossy glass book standing upright, a soft cool white light seeping out from between its pages, reflection on a dark glossy floor, centered. Fine film grain, soft reflections, deep black empty space around. Cinematic keynote product shot."
+ },
+ {
+  "name": "hero_sawtooth",
+  "w": 1536,
+  "h": 864,
+  "seed": 310,
+  "prompt": "A premium 3D render on a pure black background: a glowing ribbon of cool white-blue light that falls and is lifted back up in repeated steps like a rising sawtooth, glassy highlights, tiny luminous particles. The upper left of the frame is empty black. Fine film grain, soft reflections, deep black empty space around. Cinematic keynote product shot."
+ }
+]

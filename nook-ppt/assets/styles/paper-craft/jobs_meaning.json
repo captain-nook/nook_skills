@@ -1,0 +1,56 @@
+[
+ {
+  "name": "calendar",
+  "seed": 5000,
+  "alpha": true,
+  "lora": null,
+  "w": 1024,
+  "h": 1024,
+  "prompt": "Handmade torn paper collage icon, layered cut and torn colored paper pieces with visible white fibrous torn edges, rich paper grain, soft realistic drop shadows between paper layers, warm palette of coral, mustard, mint, sky blue and cream, viewed flat from above, centered on a transparent background, no text. The icon shows a wall calendar page with a grid of day squares, a coral header strip and two binder rings"
+ },
+ {
+  "name": "stopwatch",
+  "seed": 5001,
+  "alpha": true,
+  "lora": null,
+  "w": 1024,
+  "h": 1024,
+  "prompt": "Handmade torn paper collage icon, layered cut and torn colored paper pieces with visible white fibrous torn edges, rich paper grain, soft realistic drop shadows between paper layers, warm palette of coral, mustard, mint, sky blue and cream, viewed flat from above, centered on a transparent background, no text. The icon shows a round stopwatch with a button on top and tick marks around its face"
+ },
+ {
+  "name": "envelope",
+  "seed": 5002,
+  "alpha": true,
+  "lora": null,
+  "w": 1024,
+  "h": 1024,
+  "prompt": "Handmade torn paper collage icon, layered cut and torn colored paper pieces with visible white fibrous torn edges, rich paper grain, soft realistic drop shadows between paper layers, warm palette of coral, mustard, mint, sky blue and cream, viewed flat from above, centered on a transparent background, no text. The icon shows a mail envelope with a small heart seal on the flap"
+ },
+ {
+  "name": "magnifier",
+  "seed": 5003,
+  "alpha": true,
+  "lora": null,
+  "w": 1024,
+  "h": 1024,
+  "prompt": "Handmade torn paper collage icon, layered cut and torn colored paper pieces with visible white fibrous torn edges, rich paper grain, soft realistic drop shadows between paper layers, warm palette of coral, mustard, mint, sky blue and cream, viewed flat from above, centered on a transparent background, no text. The icon shows a big magnifying glass with a round lens"
+ },
+ {
+  "name": "box",
+  "seed": 5004,
+  "alpha": true,
+  "lora": null,
+  "w": 1024,
+  "h": 1024,
+  "prompt": "Handmade torn paper collage icon, layered cut and torn colored paper pieces with visible white fibrous torn edges, rich paper grain, soft realistic drop shadows between paper layers, warm palette of coral, mustard, mint, sky blue and cream, viewed flat from above, centered on a transparent background, no text. The icon shows an open cardboard storage box with a few papers sticking out"
+ },
+ {
+  "name": "flag",
+  "seed": 5005,
+  "alpha": true,
+  "lora": null,
+  "w": 1024,
+  "h": 1024,
+  "prompt": "Handmade torn paper collage icon, layered cut and torn colored paper pieces with visible white fibrous torn edges, rich paper grain, soft realistic drop shadows between paper layers, warm palette of coral, mustard, mint, sky blue and cream, viewed flat from above, centered on a transparent background, no text. The icon shows a small pennant flag on a pole planted in a little mound"
+ }
+]

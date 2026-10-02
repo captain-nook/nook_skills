@@ -1,0 +1,6 @@
+# nook-ppt 依赖（Windows + Microsoft PowerPoint；核验、动效、PDF 导出通过 PowerPoint 的 COM 完成）
+python-pptx>=1.0
+lxml
+Pillow
+numpy
+opencv-python        # 仅素材槽位里放视频时用到（取封面帧）

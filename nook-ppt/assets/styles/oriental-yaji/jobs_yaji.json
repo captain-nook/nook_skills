@@ -1,0 +1,86 @@
+[
+ {
+  "name": "hero_l",
+  "w": 1536,
+  "h": 864,
+  "seed": 61,
+  "prompt": "A Chinese ink wash painting (shuimo) on warm off-white xuan rice paper with delicate paper fibers, soft grey-black ink, refined and minimal, generous empty paper. Layered distant mountains dissolving into pale mist, a few small pine trees on the nearest ridge, the upper left of the frame empty paper."
+ },
+ {
+  "name": "hero_d",
+  "w": 1536,
+  "h": 864,
+  "seed": 62,
+  "prompt": "A refined Chinese drawing in thin gold ink contour lines on a deep ink-green (dark teal-black) background with subtle paper grain, soft dark jade gradients, premium and minimal, generous empty dark space. Layered mountain ridges with drifting mist rendered as soft gradients of dark jade, fine gold contour lines, the upper left of the frame empty dark space."
+ },
+ {
+  "name": "tile_moon_l",
+  "w": 1024,
+  "h": 1024,
+  "seed": 63,
+  "prompt": "A Chinese ink wash painting (shuimo) on warm off-white xuan rice paper with delicate paper fibers, soft grey-black ink, refined and minimal, generous empty paper. A large full moon as a pale circle behind a gnarled pine branch, mist below, centered composition."
+ },
+ {
+  "name": "tile_moon_d",
+  "w": 1024,
+  "h": 1024,
+  "seed": 64,
+  "prompt": "A refined Chinese drawing in thin gold ink contour lines on a deep ink-green (dark teal-black) background with subtle paper grain, soft dark jade gradients, premium and minimal, generous empty dark space. A large full moon drawn as a thin gold circle behind a gnarled pine branch, mist below, centered composition."
+ },
+ {
+  "name": "bento_bamboo_l",
+  "w": 1536,
+  "h": 640,
+  "seed": 70,
+  "prompt": "A Chinese ink wash painting (shuimo) on warm off-white xuan rice paper with delicate paper fibers, soft grey-black ink, refined and minimal, generous empty paper. the left two thirds of the frame is completely empty, the subject sits in the right third. A few bamboo stalks with leaves."
+ },
+ {
+  "name": "bento_bamboo_d",
+  "w": 1536,
+  "h": 640,
+  "seed": 92,
+  "prompt": "A refined Chinese drawing in thin gold ink contour lines on a deep ink-green (dark teal-black) background with subtle paper grain, soft dark jade gradients, premium and minimal, generous empty dark space. the left two thirds of the frame is completely empty, the subject sits in the right third. A cluster of tall bamboo stalks with slender leaves and a few small rocks at the base."
+ },
+ {
+  "name": "bento_plum_l",
+  "w": 1536,
+  "h": 640,
+  "seed": 71,
+  "prompt": "A Chinese ink wash painting (shuimo) on warm off-white xuan rice paper with delicate paper fibers, soft grey-black ink, refined and minimal, generous empty paper. the left two thirds of the frame is completely empty, the subject sits in the right third. A plum branch with blossoms."
+ },
+ {
+  "name": "bento_plum_d",
+  "w": 1536,
+  "h": 640,
+  "seed": 81,
+  "prompt": "A refined Chinese drawing in thin gold ink contour lines on a deep ink-green (dark teal-black) background with subtle paper grain, soft dark jade gradients, premium and minimal, generous empty dark space. the left two thirds of the frame is completely empty, the subject sits in the right third. A plum branch with blossoms."
+ },
+ {
+  "name": "bento_crane_l",
+  "w": 1536,
+  "h": 640,
+  "seed": 72,
+  "prompt": "A Chinese ink wash painting (shuimo) on warm off-white xuan rice paper with delicate paper fibers, soft grey-black ink, refined and minimal, generous empty paper. the left two thirds of the frame is completely empty, the subject sits in the right third. A crane in flight above a wisp of mist."
+ },
+ {
+  "name": "bento_crane_d",
+  "w": 1536,
+  "h": 640,
+  "seed": 82,
+  "prompt": "A refined Chinese drawing in thin gold ink contour lines on a deep ink-green (dark teal-black) background with subtle paper grain, soft dark jade gradients, premium and minimal, generous empty dark space. the left two thirds of the frame is completely empty, the subject sits in the right third. A crane in flight above a wisp of mist."
+ },
+ {
+  "name": "bento_pine_l",
+  "w": 1536,
+  "h": 640,
+  "seed": 73,
+  "prompt": "A Chinese ink wash painting (shuimo) on warm off-white xuan rice paper with delicate paper fibers, soft grey-black ink, refined and minimal, generous empty paper. the left two thirds of the frame is completely empty, the subject sits in the right third. A pine tree on a rocky cliff."
+ },
+ {
+  "name": "bento_pine_d",
+  "w": 1536,
+  "h": 640,
+  "seed": 83,
+  "prompt": "A refined Chinese drawing in thin gold ink contour lines on a deep ink-green (dark teal-black) background with subtle paper grain, soft dark jade gradients, premium and minimal, generous empty dark space. the left two thirds of the frame is completely empty, the subject sits in the right third. A pine tree on a rocky cliff."
+ }
+]

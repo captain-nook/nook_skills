@@ -1,0 +1,100 @@
+[
+ {
+  "name": "hero_dial_l",
+  "w": 1536,
+  "h": 864,
+  "seed": 100,
+  "prompt": "A Chinese ink wash painting (shuimo) on warm off-white xuan rice paper with delicate paper fibers, soft grey-black ink, refined and minimal, generous empty paper. A stone sundial on a weathered stone terrace in the lower right, the long shadow of its gnomon across the dial, layered misty mountains in the distance, the upper left of the frame empty."
+ },
+ {
+  "name": "hero_dial_d",
+  "w": 1536,
+  "h": 864,
+  "seed": 101,
+  "prompt": "A refined Chinese drawing in thin gold ink contour lines on a deep ink-green (dark teal-black) background with subtle paper grain, soft dark jade gradients, premium and minimal, generous empty dark space. A stone sundial on a weathered stone terrace in the lower right, the long shadow of its gnomon across the dial, layered misty mountains in the distance, the upper left of the frame empty."
+ },
+ {
+  "name": "hero_summit_l",
+  "w": 1536,
+  "h": 864,
+  "seed": 102,
+  "prompt": "A Chinese ink wash painting (shuimo) on warm off-white xuan rice paper with delicate paper fibers, soft grey-black ink, refined and minimal, generous empty paper. A small solitary scholar figure standing on a high cliff edge in the lower right, looking out over layered distant mountains and a sea of clouds, the upper left of the frame empty."
+ },
+ {
+  "name": "hero_summit_d",
+  "w": 1536,
+  "h": 864,
+  "seed": 103,
+  "prompt": "A refined Chinese drawing in thin gold ink contour lines on a deep ink-green (dark teal-black) background with subtle paper grain, soft dark jade gradients, premium and minimal, generous empty dark space. A small solitary scholar figure standing on a high cliff edge in the lower right, looking out over layered distant mountains and a sea of clouds, the upper left of the frame empty."
+ },
+ {
+  "name": "tile_scrolls_l",
+  "w": 1024,
+  "h": 1024,
+  "seed": 104,
+  "prompt": "A Chinese ink wash painting (shuimo) on warm off-white xuan rice paper with delicate paper fibers, soft grey-black ink, refined and minimal, generous empty paper. A low wooden desk piled high with stacked scrolls and bamboo slips, a single brush resting on an inkstone, centered composition."
+ },
+ {
+  "name": "tile_scrolls_d",
+  "w": 1024,
+  "h": 1024,
+  "seed": 105,
+  "prompt": "A refined Chinese drawing in thin gold ink contour lines on a deep ink-green (dark teal-black) background with subtle paper grain, soft dark jade gradients, premium and minimal, generous empty dark space. A low wooden desk piled high with stacked scrolls and bamboo slips, a single brush resting on an inkstone, centered composition."
+ },
+ {
+  "name": "bento_beacon_l",
+  "w": 1536,
+  "h": 640,
+  "seed": 106,
+  "prompt": "A Chinese ink wash painting (shuimo) on warm off-white xuan rice paper with delicate paper fibers, soft grey-black ink, refined and minimal, generous empty paper. the left two thirds of the frame is completely empty, the subject sits in the right third. A tall ancient beacon tower on a rocky ridge with a column of smoke rising from its top."
+ },
+ {
+  "name": "bento_beacon_d",
+  "w": 1536,
+  "h": 640,
+  "seed": 107,
+  "prompt": "A refined Chinese drawing in thin gold ink contour lines on a deep ink-green (dark teal-black) background with subtle paper grain, soft dark jade gradients, premium and minimal, generous empty dark space. the left two thirds of the frame is completely empty, the subject sits in the right third. A tall ancient beacon tower on a rocky ridge with a column of smoke rising from its top."
+ },
+ {
+  "name": "bento_whet_l",
+  "w": 1536,
+  "h": 640,
+  "seed": 108,
+  "prompt": "A Chinese ink wash painting (shuimo) on warm off-white xuan rice paper with delicate paper fibers, soft grey-black ink, refined and minimal, generous empty paper. the left two thirds of the frame is completely empty, the subject sits in the right third. A rectangular whetstone with a bronze knife resting on it and a few drops of water, calm and focused."
+ },
+ {
+  "name": "bento_whet_d",
+  "w": 1536,
+  "h": 640,
+  "seed": 109,
+  "prompt": "A refined Chinese drawing in thin gold ink contour lines on a deep ink-green (dark teal-black) background with subtle paper grain, soft dark jade gradients, premium and minimal, generous empty dark space. the left two thirds of the frame is completely empty, the subject sits in the right third. A rectangular whetstone with a bronze knife resting on it and a few drops of water, calm and focused."
+ },
+ {
+  "name": "bento_courier_l",
+  "w": 1536,
+  "h": 640,
+  "seed": 110,
+  "prompt": "A Chinese ink wash painting (shuimo) on warm off-white xuan rice paper with delicate paper fibers, soft grey-black ink, refined and minimal, generous empty paper. the left two thirds of the frame is completely empty, the subject sits in the right third. A horseman galloping at speed carrying a small flag, dust trailing behind, dynamic brush strokes."
+ },
+ {
+  "name": "bento_courier_d",
+  "w": 1536,
+  "h": 640,
+  "seed": 111,
+  "prompt": "A refined Chinese drawing in thin gold ink contour lines on a deep ink-green (dark teal-black) background with subtle paper grain, soft dark jade gradients, premium and minimal, generous empty dark space. the left two thirds of the frame is completely empty, the subject sits in the right third. A horseman galloping at speed carrying a small flag, dust trailing behind, dynamic brush strokes."
+ },
+ {
+  "name": "bento_leaf_l",
+  "w": 1536,
+  "h": 640,
+  "seed": 112,
+  "prompt": "A Chinese ink wash painting (shuimo) on warm off-white xuan rice paper with delicate paper fibers, soft grey-black ink, refined and minimal, generous empty paper. the left two thirds of the frame is completely empty, the subject sits in the right third. A few fallen leaves drifting away on gently flowing water."
+ },
+ {
+  "name": "bento_leaf_d",
+  "w": 1536,
+  "h": 640,
+  "seed": 113,
+  "prompt": "A refined Chinese drawing in thin gold ink contour lines on a deep ink-green (dark teal-black) background with subtle paper grain, soft dark jade gradients, premium and minimal, generous empty dark space. the left two thirds of the frame is completely empty, the subject sits in the right third. A few fallen leaves drifting away on gently flowing water."
+ }
+]

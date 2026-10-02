@@ -1,0 +1,56 @@
+[
+ {
+  "name": "megaphone",
+  "seed": 5100,
+  "alpha": true,
+  "lora": null,
+  "w": 1024,
+  "h": 1024,
+  "prompt": "Flat vector icon in bright candy colors (coral, sunny yellow, mint, sky blue, purple) with a deep navy accent, smooth rounded geometric shapes, no outlines, subtle flat two-tone shading, generous rounded corners, friendly playful modern motion-graphics look, centered on a transparent background, no text. The icon shows a megaphone with a few sound-wave arcs"
+ },
+ {
+  "name": "gift",
+  "seed": 5101,
+  "alpha": true,
+  "lora": null,
+  "w": 1024,
+  "h": 1024,
+  "prompt": "Flat vector icon in bright candy colors (coral, sunny yellow, mint, sky blue, purple) with a deep navy accent, smooth rounded geometric shapes, no outlines, subtle flat two-tone shading, generous rounded corners, friendly playful modern motion-graphics look, centered on a transparent background, no text. The icon shows a gift box with a bow"
+ },
+ {
+  "name": "heart",
+  "seed": 5102,
+  "alpha": true,
+  "lora": null,
+  "w": 1024,
+  "h": 1024,
+  "prompt": "Flat vector icon in bright candy colors (coral, sunny yellow, mint, sky blue, purple) with a deep navy accent, smooth rounded geometric shapes, no outlines, subtle flat two-tone shading, generous rounded corners, friendly playful modern motion-graphics look, centered on a transparent background, no text. The icon shows a plump heart with a small sparkle"
+ },
+ {
+  "name": "magnifier",
+  "seed": 5103,
+  "alpha": true,
+  "lora": null,
+  "w": 1024,
+  "h": 1024,
+  "prompt": "Flat vector icon in bright candy colors (coral, sunny yellow, mint, sky blue, purple) with a deep navy accent, smooth rounded geometric shapes, no outlines, subtle flat two-tone shading, generous rounded corners, friendly playful modern motion-graphics look, centered on a transparent background, no text. The icon shows a magnifying glass with a round lens"
+ },
+ {
+  "name": "magnet",
+  "seed": 5104,
+  "alpha": true,
+  "lora": null,
+  "w": 1024,
+  "h": 1024,
+  "prompt": "Flat vector icon in bright candy colors (coral, sunny yellow, mint, sky blue, purple) with a deep navy accent, smooth rounded geometric shapes, no outlines, subtle flat two-tone shading, generous rounded corners, friendly playful modern motion-graphics look, centered on a transparent background, no text. The icon shows a horseshoe magnet with small attracted dots"
+ },
+ {
+  "name": "phone",
+  "seed": 5105,
+  "alpha": true,
+  "lora": null,
+  "w": 1024,
+  "h": 1024,
+  "prompt": "Flat vector icon in bright candy colors (coral, sunny yellow, mint, sky blue, purple) with a deep navy accent, smooth rounded geometric shapes, no outlines, subtle flat two-tone shading, generous rounded corners, friendly playful modern motion-graphics look, centered on a transparent background, no text. The icon shows a smartphone with a chat bubble on its screen"
+ }
+]

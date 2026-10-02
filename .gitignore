@@ -26,3 +26,6 @@ profile.md
 
 # nook-anim 样例的素材图需要随库提供
 !nook-anim/examples/**/*.png
+
+# nook-ppt 的 README 预览图
+!nook-ppt/docs/*.jpg
