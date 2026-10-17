@@ -1,0 +1,100 @@
+{
+ "meta": {
+  "theme": "ticket",
+  "title": "07_循环迭代",
+  "subject_terms": [
+   "改版",
+   "循环"
+  ],
+  "no": "261017",
+  "facts": [
+   {
+    "id": "f1",
+    "text": "第 1 圈 10 处修改",
+    "source": "素材"
+   },
+   {
+    "id": "f2",
+    "text": "第 2 圈 6 处修改",
+    "source": "素材"
+   },
+   {
+    "id": "f3",
+    "text": "第 3 圈 3 处修改",
+    "source": "素材"
+   }
+  ]
+ },
+ "pages": [
+  {
+   "type": "cover_quote",
+   "fields": {
+    "lines": [
+     "越改",
+     "越快",
+     "靠的是",
+     "[[循环]]"
+    ],
+    "caption": "每一圈都有记录"
+   }
+  },
+  {
+   "type": "cycle",
+   "fields": {
+    "title": "改版，走[[一圈]]",
+    "nodes": [
+     {
+      "name": "出样片",
+      "desc": "先看图",
+      "sticker": "camera"
+     },
+     {
+      "name": "提意见",
+      "desc": "具体到页",
+      "sticker": "pencil"
+     },
+     {
+      "name": "改规则",
+      "desc": "写规则",
+      "sticker": "gear_set"
+     },
+     {
+      "name": "再出图",
+      "desc": "对照检查",
+      "sticker": "magnifier"
+     }
+    ],
+    "footnote": "每一圈更稳"
+   }
+  },
+  {
+   "type": "line",
+   "fields": {
+    "title": "改了几圈，[[越来越快]]",
+    "points": [
+     {
+      "label": "第1圈",
+      "value": 10
+     },
+     {
+      "label": "第2圈",
+      "value": 6
+     },
+     {
+      "label": "第3圈",
+      "value": 3
+     }
+    ],
+    "axis": "修改处"
+   }
+  },
+  {
+   "type": "closing",
+   "fields": {
+    "line1": "收藏起来，",
+    "line2": "[[用的时候再翻]]",
+    "hint": "评论区说你卡在哪"
+   }
+  }
+ ]
+}

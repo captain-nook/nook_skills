@@ -17,6 +17,8 @@
 | 做抖音/小红书/视频号一周内容规划、短视频逐字稿、小红书图文 | `nook-short` | 负责 12 条周内容矩阵、平台采样参考、内容任务书、口播稿和图文页结构。 |
 | 给已经定稿的文章取标题 | `nook-title` | 负责标题事实钩子、候选标题、标题评分和事实边界。 |
 | 判断一段中文有没有 AI 味、做自然化审校 | `nook-humanizer-zh-review` | 作为写作 skill 的最终审校层，也可单独使用。 |
+| 做小红书图文：把素材提炼成事实清单、提纲、标题和正文，写出方案 | `nook-xhswrite` | 内容层：关卡流程（事实、提纲、素材需求、封面候选、方案和正文），事实只来自素材，交付前脚本检查。详见 [`nook-xhswrite/README.md`](nook-xhswrite/README.md)。 |
+| 把小红书图文方案渲染成成套 3:4 图片（封面加内页） | `nook-xhspage` | 呈现层：22 个页型、三套风格、161 个透明贴纸，代码绘制，不依赖 ComfyUI，带校验和自检。详见 [`nook-xhspage/README.md`](nook-xhspage/README.md)。 |
 | 做知识卡片、图文卡片、可视化卡片 | `nook-card` | 负责卡片结构、视觉系统、交付规格。 |
 | 做中文演示、slides、可编辑 PPTX | `nook-slides` | 负责内容门、页面形式门、模板驱动 PPTX、duotone-zine 模板包、构建与校验。 |
 | 做带动效的可编辑 PPTX：六套风格、循环/金字塔/漏斗等图示、自动量字和核验 | `nook-ppt` | 零件加网格加量字生成原生 PPTX，风格材质做成容器图片、文字仍可改；一键流程输出一份带动效的 PPTX（需要 Windows 和 PowerPoint）。预览版。 |

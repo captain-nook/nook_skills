@@ -1,0 +1,96 @@
+{
+ "meta": {
+  "theme": "paper",
+  "title": "01_步骤流程",
+  "subject_terms": [
+   "封面",
+   "五步"
+  ],
+  "no": "261017",
+  "facts": [
+   {
+    "id": "f1",
+    "text": "每期要填的内容有 5 样",
+    "source": "素材"
+   },
+   {
+    "id": "f2",
+    "text": "一次生成长版、方版和总图",
+    "source": "素材"
+   }
+  ]
+ },
+ "pages": [
+  {
+   "type": "cover_quote",
+   "fields": {
+    "lines": [
+     "做一期封面",
+     "只要",
+     "五步",
+     "[[出图]]"
+    ],
+    "caption": "填五样内容"
+   }
+  },
+  {
+   "type": "toc",
+   "fields": {
+    "title": "[[五步]]做封面",
+    "items": [
+     {
+      "name": "填期号和标题",
+      "desc": "五样内容"
+     },
+     {
+      "name": "选船长姿态"
+     },
+     {
+      "name": "点生成"
+     },
+     {
+      "name": "看三张图"
+     },
+     {
+      "name": "改字重出"
+     }
+    ]
+   }
+  },
+  {
+   "type": "step",
+   "fields": {
+    "step_no": 1,
+    "title": "填五样内容",
+    "subtitle": "期号 → 标题 → 姿态",
+    "screenshot": "inputs/tool_screenshot.png",
+    "red_box": [
+     0.06,
+     0.12,
+     0.33,
+     0.72
+    ],
+    "label": "先填左边"
+   }
+  },
+  {
+   "type": "result",
+   "fields": {
+    "title": "出来的[[成品]]",
+    "images": [
+     "inputs/result_long.png",
+     "inputs/result_square.png"
+    ],
+    "caption": "长版、方版一次出"
+   }
+  },
+  {
+   "type": "closing",
+   "fields": {
+    "line1": "收藏起来，",
+    "line2": "[[用的时候再翻]]",
+    "hint": "评论区说你卡在哪"
+   }
+  }
+ ]
+}

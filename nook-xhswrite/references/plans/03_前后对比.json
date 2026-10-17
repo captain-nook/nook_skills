@@ -1,0 +1,98 @@
+{
+ "meta": {
+  "theme": "ticket",
+  "title": "03_前后对比",
+  "subject_terms": [
+   "封面",
+   "差在哪"
+  ],
+  "no": "261017",
+  "facts": [
+   {
+    "id": "f1",
+    "text": "第 1 期用 3 小时",
+    "source": "素材"
+   },
+   {
+    "id": "f2",
+    "text": "第 2 期用 1.5 小时",
+    "source": "素材"
+   },
+   {
+    "id": "f3",
+    "text": "第 3 期用 0.5 小时",
+    "source": "素材"
+   }
+  ]
+ },
+ "pages": [
+  {
+   "type": "cover_quote",
+   "fields": {
+    "lines": [
+     "做封面",
+     "以前",
+     "和现在",
+     "[[差在哪]]"
+    ],
+    "caption": "同样的活"
+   }
+  },
+  {
+   "type": "compare",
+   "fields": {
+    "title": "做封面，[[差在哪]]",
+    "left": {
+     "tag": "以前",
+     "points": [
+      "打开设计软件",
+      "字号位置一项项调",
+      "改一字要整套重排"
+     ],
+     "sticker": "char_confused"
+    },
+    "right": {
+     "tag": "现在",
+     "points": [
+      "填 5 样内容",
+      "点一下，三张同出",
+      "改字再点，立刻重出"
+     ],
+     "sticker": "char_happy"
+    },
+    "footer": "同样的活，不一样的流程"
+   }
+  },
+  {
+   "type": "bar",
+   "fields": {
+    "title": "耗时，[[越来越短]]",
+    "items": [
+     {
+      "label": "第1期",
+      "value": 3,
+      "unit": "小时"
+     },
+     {
+      "label": "第2期",
+      "value": 1.5,
+      "unit": "小时"
+     },
+     {
+      "label": "第3期",
+      "value": 0.5,
+      "unit": "小时"
+     }
+    ]
+   }
+  },
+  {
+   "type": "closing",
+   "fields": {
+    "line1": "收藏起来，",
+    "line2": "[[用的时候再翻]]",
+    "hint": "评论区说你卡在哪"
+   }
+  }
+ ]
+}

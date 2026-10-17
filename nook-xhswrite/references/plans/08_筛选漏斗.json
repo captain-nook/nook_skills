@@ -1,0 +1,102 @@
+{
+ "meta": {
+  "theme": "dark",
+  "title": "08_筛选漏斗",
+  "subject_terms": [
+   "选题",
+   "怎么筛"
+  ],
+  "no": "261017",
+  "facts": [
+   {
+    "id": "f1",
+    "text": "灵感 20 个",
+    "source": "素材"
+   },
+   {
+    "id": "f2",
+    "text": "初筛 8 个",
+    "source": "素材"
+   },
+   {
+    "id": "f3",
+    "text": "打样 3 个",
+    "source": "素材"
+   },
+   {
+    "id": "f4",
+    "text": "发布 1 个",
+    "source": "素材"
+   }
+  ]
+ },
+ "pages": [
+  {
+   "type": "cover_quote",
+   "fields": {
+    "lines": [
+     "选题",
+     "怎么筛",
+     "只发",
+     "[[一个]]"
+    ],
+    "caption": "二十选一"
+   }
+  },
+  {
+   "type": "funnel",
+   "fields": {
+    "title": "选题，[[一层层]]筛",
+    "stages": [
+     {
+      "name": "灵感",
+      "value": "20 个",
+      "sticker": "bulb"
+     },
+     {
+      "name": "初筛",
+      "value": "8 个"
+     },
+     {
+      "name": "打样",
+      "value": "3 个"
+     },
+     {
+      "name": "发布",
+      "value": "1 个",
+      "sticker": "rocket"
+     }
+    ],
+    "footnote": "二十个想法，只发一个"
+   }
+  },
+  {
+   "type": "list",
+   "fields": {
+    "title": "每层的[[标准]]",
+    "items": [
+     {
+      "name": "初筛",
+      "desc": "读者是谁"
+     },
+     {
+      "name": "打样",
+      "desc": "能不能画成图"
+     },
+     {
+      "name": "发布",
+      "desc": "有没有可复用的东西"
+     }
+    ]
+   }
+  },
+  {
+   "type": "closing",
+   "fields": {
+    "line1": "收藏起来，",
+    "line2": "[[用的时候再翻]]",
+    "hint": "评论区说你卡在哪"
+   }
+  }
+ ]
+}

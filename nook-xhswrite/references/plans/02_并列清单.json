@@ -1,0 +1,78 @@
+{
+ "meta": {
+  "theme": "dark",
+  "title": "02_并列清单",
+  "subject_terms": [
+   "工具",
+   "skill"
+  ],
+  "no": "261017",
+  "facts": [
+   {
+    "id": "f1",
+    "text": "共 5 套工具",
+    "source": "素材"
+   }
+  ]
+ },
+ "pages": [
+  {
+   "type": "cover_list",
+   "fields": {
+    "lead": "Claude 帮我搭的",
+    "number": 5,
+    "unit": "套工具",
+    "items": [
+     "PPT 动效 skill",
+     "公众号封面工具",
+     "代码动画 skill",
+     "素材采集器",
+     "头图尾图模板"
+    ],
+    "footnote": "每天都在用"
+   }
+  },
+  {
+   "type": "list",
+   "fields": {
+    "title": "[[5 套]]，各管一件",
+    "items": [
+     {
+      "name": "PPT 动效 skill",
+      "desc": "讲稿变成带动效的 PPT"
+     },
+     {
+      "name": "公众号封面工具",
+      "desc": "填 5 样，出整套封面"
+     },
+     {
+      "name": "代码动画 skill",
+      "desc": "一句话变成短动画"
+     }
+    ]
+   }
+  },
+  {
+   "type": "idea",
+   "fields": {
+    "lines": [
+     "先挑",
+     "最常重复的",
+     "[[一件]]"
+    ],
+    "caption": [
+     "从最耗时的开始",
+     "做成工具再扩展"
+    ]
+   }
+  },
+  {
+   "type": "closing",
+   "fields": {
+    "line1": "收藏起来，",
+    "line2": "[[用的时候再翻]]",
+    "hint": "评论区说你卡在哪"
+   }
+  }
+ ]
+}

@@ -1,0 +1,87 @@
+{
+ "meta": {
+  "theme": "dark",
+  "title": "12_误区对照",
+  "subject_terms": [
+   "误区",
+   "封面"
+  ],
+  "no": "261017"
+ },
+ "pages": [
+  {
+   "type": "cover_quote",
+   "fields": {
+    "lines": [
+     "做封面",
+     "三个",
+     "常见",
+     "[[误区]]"
+    ],
+    "caption": "看看你中了几个"
+   }
+  },
+  {
+   "type": "list",
+   "fields": {
+    "title": "三个[[误区]]",
+    "items": [
+     {
+      "name": "字越多越好",
+      "desc": "缩略图读不清"
+     },
+     {
+      "name": "越花哨越好",
+      "desc": "没有重点"
+     },
+     {
+      "name": "每期换风格",
+      "desc": "没有系列感"
+     }
+    ]
+   }
+  },
+  {
+   "type": "compare",
+   "fields": {
+    "title": "字多，[[还是字少]]",
+    "left": {
+     "tag": "错",
+     "points": [
+      "整段文字",
+      "缩略图读不清",
+      "没有重点"
+     ],
+     "sticker": "char_confused"
+    },
+    "right": {
+     "tag": "对",
+     "points": [
+      "一句大字",
+      "缩略图一眼读懂",
+      "重点突出"
+     ],
+     "sticker": "char_happy"
+    }
+   }
+  },
+  {
+   "type": "idea",
+   "fields": {
+    "lines": [
+     "判断标准",
+     "缩到手机大小",
+     "[[还读得清]]"
+    ]
+   }
+  },
+  {
+   "type": "closing",
+   "fields": {
+    "line1": "收藏起来，",
+    "line2": "[[用的时候再翻]]",
+    "hint": "评论区说你卡在哪"
+   }
+  }
+ ]
+}

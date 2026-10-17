@@ -1,0 +1,1795 @@
+{
+ "version": 1,
+ "size": 512,
+ "items": [
+  {
+   "id": "char_box",
+   "file": "character/char_box.png",
+   "cn": "小人·搬箱子",
+   "category": "character",
+   "tags": [
+    "整理",
+    "搬运",
+    "交付"
+   ]
+  },
+  {
+   "id": "char_celebrate",
+   "file": "character/char_celebrate.png",
+   "cn": "小人·庆祝",
+   "category": "character",
+   "tags": [
+    "庆祝",
+    "完成",
+    "成功"
+   ]
+  },
+  {
+   "id": "char_cheer",
+   "file": "character/char_cheer.png",
+   "cn": "小人·加油",
+   "category": "character",
+   "tags": [
+    "鼓励",
+    "坚持",
+    "加油"
+   ]
+  },
+  {
+   "id": "char_coffee",
+   "file": "character/char_coffee.png",
+   "cn": "小人·喝咖啡",
+   "category": "character",
+   "tags": [
+    "休息",
+    "日常",
+    "轻松"
+   ]
+  },
+  {
+   "id": "char_collapse",
+   "file": "character/char_collapse.png",
+   "cn": "小人·崩溃",
+   "category": "character",
+   "tags": [
+    "崩溃",
+    "痛点",
+    "吐槽"
+   ]
+  },
+  {
+   "id": "char_confused",
+   "file": "character/char_confused.png",
+   "cn": "小人·困惑",
+   "category": "character",
+   "tags": [
+    "困惑",
+    "卡住",
+    "不会"
+   ]
+  },
+  {
+   "id": "char_happy",
+   "file": "character/char_happy.png",
+   "cn": "小人·开心",
+   "category": "character",
+   "tags": [
+    "开心",
+    "成功",
+    "搞定"
+   ]
+  },
+  {
+   "id": "char_idea",
+   "file": "character/char_idea.png",
+   "cn": "小人·有想法",
+   "category": "character",
+   "tags": [
+    "想法",
+    "灵感",
+    "点子"
+   ]
+  },
+  {
+   "id": "char_laptop",
+   "file": "character/char_laptop.png",
+   "cn": "小人·敲电脑",
+   "category": "character",
+   "tags": [
+    "电脑",
+    "写作",
+    "工作"
+   ]
+  },
+  {
+   "id": "char_point",
+   "file": "character/char_point.png",
+   "cn": "小人·指向",
+   "category": "character",
+   "tags": [
+    "指向",
+    "看这里",
+    "讲解"
+   ]
+  },
+  {
+   "id": "char_pointing_screen",
+   "file": "character/char_pointing_screen.png",
+   "cn": "小人·指着屏幕",
+   "category": "character",
+   "tags": [
+    "讲解",
+    "演示",
+    "展示",
+    "屏幕"
+   ]
+  },
+  {
+   "id": "char_proud",
+   "file": "character/char_proud.png",
+   "cn": "小人·自豪",
+   "category": "character",
+   "tags": [
+    "自豪",
+    "完成",
+    "成果",
+    "骄傲"
+   ]
+  },
+  {
+   "id": "char_read",
+   "file": "character/char_read.png",
+   "cn": "小人·看书",
+   "category": "character",
+   "tags": [
+    "学习",
+    "阅读",
+    "输入"
+   ]
+  },
+  {
+   "id": "char_robot_pair",
+   "file": "character/char_robot_pair.png",
+   "cn": "小人·和机器人",
+   "category": "character",
+   "tags": [
+    "AI",
+    "协作",
+    "助手"
+   ]
+  },
+  {
+   "id": "char_rocket",
+   "file": "character/char_rocket.png",
+   "cn": "小人·骑火箭",
+   "category": "character",
+   "tags": [
+    "起飞",
+    "增长",
+    "加速"
+   ]
+  },
+  {
+   "id": "char_search",
+   "file": "character/char_search.png",
+   "cn": "小人·找东西",
+   "category": "character",
+   "tags": [
+    "搜索",
+    "查找",
+    "调研"
+   ]
+  },
+  {
+   "id": "char_sign",
+   "file": "character/char_sign.png",
+   "cn": "小人·举牌",
+   "category": "character",
+   "tags": [
+    "展示",
+    "宣布",
+    "提示"
+   ]
+  },
+  {
+   "id": "char_sleep",
+   "file": "character/char_sleep.png",
+   "cn": "小人·睡觉",
+   "category": "character",
+   "tags": [
+    "休息",
+    "自动",
+    "放手"
+   ]
+  },
+  {
+   "id": "char_stack",
+   "file": "character/char_stack.png",
+   "cn": "小人·被文件淹没",
+   "category": "character",
+   "tags": [
+    "资料多",
+    "信息过载",
+    "整理"
+   ]
+  },
+  {
+   "id": "char_surprised",
+   "file": "character/char_surprised.png",
+   "cn": "小人·惊讶",
+   "category": "character",
+   "tags": [
+    "惊讶",
+    "没想到",
+    "反常识"
+   ]
+  },
+  {
+   "id": "char_thinking",
+   "file": "character/char_thinking.png",
+   "cn": "小人·思考",
+   "category": "character",
+   "tags": [
+    "思考",
+    "想",
+    "疑问"
+   ]
+  },
+  {
+   "id": "char_thinking_bulb",
+   "file": "character/char_thinking_bulb.png",
+   "cn": "小人·想到点子",
+   "category": "character",
+   "tags": [
+    "想到",
+    "灵感",
+    "点子",
+    "思考"
+   ]
+  },
+  {
+   "id": "char_thumbs",
+   "file": "character/char_thumbs.png",
+   "cn": "小人·点赞",
+   "category": "character",
+   "tags": [
+    "认可",
+    "好用",
+    "推荐"
+   ]
+  },
+  {
+   "id": "char_tired",
+   "file": "character/char_tired.png",
+   "cn": "小人·疲惫",
+   "category": "character",
+   "tags": [
+    "累",
+    "加班",
+    "重复劳动"
+   ]
+  },
+  {
+   "id": "char_walk",
+   "file": "character/char_walk.png",
+   "cn": "小人·走路",
+   "category": "character",
+   "tags": [
+    "出发",
+    "行动",
+    "开始"
+   ]
+  },
+  {
+   "id": "char_writing",
+   "file": "character/char_writing.png",
+   "cn": "小人·写字",
+   "category": "character",
+   "tags": [
+    "写作",
+    "记录",
+    "笔记",
+    "创作"
+   ]
+  },
+  {
+   "id": "cactus",
+   "file": "nature/cactus.png",
+   "cn": "仙人掌",
+   "category": "nature",
+   "tags": [
+    "盆栽",
+    "桌面",
+    "装饰"
+   ]
+  },
+  {
+   "id": "cloud",
+   "file": "nature/cloud.png",
+   "cn": "云朵",
+   "category": "nature",
+   "tags": [
+    "天气",
+    "装饰",
+    "云"
+   ]
+  },
+  {
+   "id": "flower",
+   "file": "nature/flower.png",
+   "cn": "小花",
+   "category": "nature",
+   "tags": [
+    "自然",
+    "装饰",
+    "可爱"
+   ]
+  },
+  {
+   "id": "leaf_big",
+   "file": "nature/leaf_big.png",
+   "cn": "大叶子",
+   "category": "nature",
+   "tags": [
+    "自然",
+    "装饰",
+    "清新"
+   ]
+  },
+  {
+   "id": "leaf_twig",
+   "file": "nature/leaf_twig.png",
+   "cn": "叶子树枝",
+   "category": "nature",
+   "tags": [
+    "自然",
+    "装饰",
+    "清新"
+   ]
+  },
+  {
+   "id": "moon",
+   "file": "nature/moon.png",
+   "cn": "月亮",
+   "category": "nature",
+   "tags": [
+    "夜晚",
+    "晚安",
+    "熬夜"
+   ]
+  },
+  {
+   "id": "mountain",
+   "file": "nature/mountain.png",
+   "cn": "山",
+   "category": "nature",
+   "tags": [
+    "风景",
+    "目标",
+    "攀登"
+   ]
+  },
+  {
+   "id": "plant_pot",
+   "file": "nature/plant_pot.png",
+   "cn": "绿植盆栽",
+   "category": "nature",
+   "tags": [
+    "盆栽",
+    "桌面",
+    "生长"
+   ]
+  },
+  {
+   "id": "rainbow",
+   "file": "nature/rainbow.png",
+   "cn": "彩虹",
+   "category": "nature",
+   "tags": [
+    "好心情",
+    "惊喜",
+    "装饰"
+   ]
+  },
+  {
+   "id": "stamp",
+   "file": "nature/stamp.png",
+   "cn": "邮票",
+   "category": "nature",
+   "tags": [
+    "装饰",
+    "旅行",
+    "纪念"
+   ]
+  },
+  {
+   "id": "sun",
+   "file": "nature/sun.png",
+   "cn": "太阳",
+   "category": "nature",
+   "tags": [
+    "天气",
+    "好心情",
+    "早安"
+   ]
+  },
+  {
+   "id": "tree",
+   "file": "nature/tree.png",
+   "cn": "小树",
+   "category": "nature",
+   "tags": [
+    "自然",
+    "成长",
+    "装饰"
+   ]
+  },
+  {
+   "id": "wave",
+   "file": "nature/wave.png",
+   "cn": "海浪",
+   "category": "nature",
+   "tags": [
+    "航海",
+    "船长",
+    "海"
+   ]
+  },
+  {
+   "id": "alarm_clock",
+   "file": "object/alarm_clock.png",
+   "cn": "闹钟",
+   "category": "object",
+   "tags": [
+    "时间",
+    "提醒",
+    "截止"
+   ]
+  },
+  {
+   "id": "anchor",
+   "file": "object/anchor.png",
+   "cn": "船锚",
+   "category": "object",
+   "tags": [
+    "稳定",
+    "航海",
+    "船长"
+   ]
+  },
+  {
+   "id": "bar_chart",
+   "file": "object/bar_chart.png",
+   "cn": "柱状图",
+   "category": "object",
+   "tags": [
+    "数据",
+    "增长",
+    "图表"
+   ]
+  },
+  {
+   "id": "battery",
+   "file": "object/battery.png",
+   "cn": "电池",
+   "category": "object",
+   "tags": [
+    "能量",
+    "精力",
+    "充电"
+   ]
+  },
+  {
+   "id": "bell",
+   "file": "object/bell.png",
+   "cn": "铃铛",
+   "category": "object",
+   "tags": [
+    "提醒",
+    "通知",
+    "订阅"
+   ]
+  },
+  {
+   "id": "book",
+   "file": "object/book.png",
+   "cn": "书",
+   "category": "object",
+   "tags": [
+    "学习",
+    "知识",
+    "阅读"
+   ]
+  },
+  {
+   "id": "bookmark",
+   "file": "object/bookmark.png",
+   "cn": "书签",
+   "category": "object",
+   "tags": [
+    "收藏",
+    "标记",
+    "保存"
+   ]
+  },
+  {
+   "id": "books_stack",
+   "file": "object/books_stack.png",
+   "cn": "书堆",
+   "category": "object",
+   "tags": [
+    "学习",
+    "资料",
+    "知识"
+   ]
+  },
+  {
+   "id": "box",
+   "file": "object/box.png",
+   "cn": "纸箱",
+   "category": "object",
+   "tags": [
+    "打包",
+    "交付",
+    "整理"
+   ]
+  },
+  {
+   "id": "bulb",
+   "file": "object/bulb.png",
+   "cn": "灯泡",
+   "category": "object",
+   "tags": [
+    "想法",
+    "灵感",
+    "提示"
+   ]
+  },
+  {
+   "id": "bulb_pen",
+   "file": "object/bulb_pen.png",
+   "cn": "灯泡加笔",
+   "category": "object",
+   "tags": [
+    "写作",
+    "灵感",
+    "创作",
+    "文案"
+   ]
+  },
+  {
+   "id": "calculator",
+   "file": "object/calculator.png",
+   "cn": "计算器",
+   "category": "object",
+   "tags": [
+    "数字",
+    "成本",
+    "计算"
+   ]
+  },
+  {
+   "id": "calendar",
+   "file": "object/calendar.png",
+   "cn": "日历",
+   "category": "object",
+   "tags": [
+    "日期",
+    "计划",
+    "时间"
+   ]
+  },
+  {
+   "id": "camera",
+   "file": "object/camera.png",
+   "cn": "相机",
+   "category": "object",
+   "tags": [
+    "拍照",
+    "截图",
+    "记录"
+   ]
+  },
+  {
+   "id": "chip",
+   "file": "object/chip.png",
+   "cn": "芯片",
+   "category": "object",
+   "tags": [
+    "算力",
+    "硬件",
+    "模型"
+   ]
+  },
+  {
+   "id": "clipboard",
+   "file": "object/clipboard.png",
+   "cn": "清单板",
+   "category": "object",
+   "tags": [
+    "清单",
+    "检查",
+    "任务"
+   ]
+  },
+  {
+   "id": "clock",
+   "file": "object/clock.png",
+   "cn": "时钟",
+   "category": "object",
+   "tags": [
+    "时间",
+    "效率",
+    "省时"
+   ]
+  },
+  {
+   "id": "cloud_upload",
+   "file": "object/cloud_upload.png",
+   "cn": "云端",
+   "category": "object",
+   "tags": [
+    "云",
+    "存储",
+    "同步"
+   ]
+  },
+  {
+   "id": "coffee",
+   "file": "object/coffee.png",
+   "cn": "咖啡",
+   "category": "object",
+   "tags": [
+    "休息",
+    "日常",
+    "加班"
+   ]
+  },
+  {
+   "id": "compare_scale",
+   "file": "object/compare_scale.png",
+   "cn": "天平",
+   "category": "object",
+   "tags": [
+    "对比",
+    "权衡",
+    "选择",
+    "取舍"
+   ]
+  },
+  {
+   "id": "compass",
+   "file": "object/compass.png",
+   "cn": "罗盘",
+   "category": "object",
+   "tags": [
+    "方向",
+    "导航",
+    "船长"
+   ]
+  },
+  {
+   "id": "database",
+   "file": "object/database.png",
+   "cn": "数据库",
+   "category": "object",
+   "tags": [
+    "数据",
+    "存储",
+    "后台"
+   ]
+  },
+  {
+   "id": "document",
+   "file": "object/document.png",
+   "cn": "文档",
+   "category": "object",
+   "tags": [
+    "文件",
+    "文章",
+    "资料"
+   ]
+  },
+  {
+   "id": "envelope",
+   "file": "object/envelope.png",
+   "cn": "信封",
+   "category": "object",
+   "tags": [
+    "邮件",
+    "私信",
+    "联系"
+   ]
+  },
+  {
+   "id": "file_stack",
+   "file": "object/file_stack.png",
+   "cn": "文件堆",
+   "category": "object",
+   "tags": [
+    "资料",
+    "整理",
+    "项目"
+   ]
+  },
+  {
+   "id": "flag",
+   "file": "object/flag.png",
+   "cn": "旗子",
+   "category": "object",
+   "tags": [
+    "目标",
+    "里程碑",
+    "起点"
+   ]
+  },
+  {
+   "id": "folder",
+   "file": "object/folder.png",
+   "cn": "文件夹",
+   "category": "object",
+   "tags": [
+    "文件",
+    "整理",
+    "资料"
+   ]
+  },
+  {
+   "id": "folder_check",
+   "file": "object/folder_check.png",
+   "cn": "文件夹对勾",
+   "category": "object",
+   "tags": [
+    "整理",
+    "归档",
+    "完成",
+    "资料"
+   ]
+  },
+  {
+   "id": "gift",
+   "file": "object/gift.png",
+   "cn": "礼物",
+   "category": "object",
+   "tags": [
+    "福利",
+    "赠送",
+    "惊喜"
+   ]
+  },
+  {
+   "id": "hand_point",
+   "file": "object/hand_point.png",
+   "cn": "手指",
+   "category": "object",
+   "tags": [
+    "指向",
+    "重点",
+    "看这里"
+   ]
+  },
+  {
+   "id": "headphones",
+   "file": "object/headphones.png",
+   "cn": "耳机",
+   "category": "object",
+   "tags": [
+    "音频",
+    "听",
+    "播客"
+   ]
+  },
+  {
+   "id": "heart_phone",
+   "file": "object/heart_phone.png",
+   "cn": "手机点赞",
+   "category": "object",
+   "tags": [
+    "点赞",
+    "互动",
+    "手机",
+    "小红书"
+   ]
+  },
+  {
+   "id": "hourglass",
+   "file": "object/hourglass.png",
+   "cn": "沙漏",
+   "category": "object",
+   "tags": [
+    "时间",
+    "等待",
+    "耐心"
+   ]
+  },
+  {
+   "id": "key",
+   "file": "object/key.png",
+   "cn": "钥匙",
+   "category": "object",
+   "tags": [
+    "权限",
+    "关键",
+    "解锁"
+   ]
+  },
+  {
+   "id": "keyboard",
+   "file": "object/keyboard.png",
+   "cn": "键盘",
+   "category": "object",
+   "tags": [
+    "电脑",
+    "打字",
+    "输入"
+   ]
+  },
+  {
+   "id": "laptop",
+   "file": "object/laptop.png",
+   "cn": "笔记本电脑",
+   "category": "object",
+   "tags": [
+    "电脑",
+    "工作",
+    "写作"
+   ]
+  },
+  {
+   "id": "lego_blocks",
+   "file": "object/lego_blocks.png",
+   "cn": "积木",
+   "category": "object",
+   "tags": [
+    "组合",
+    "搭建",
+    "拼装",
+    "模块"
+   ]
+  },
+  {
+   "id": "line_chart",
+   "file": "object/line_chart.png",
+   "cn": "折线图",
+   "category": "object",
+   "tags": [
+    "数据",
+    "趋势",
+    "图表"
+   ]
+  },
+  {
+   "id": "lock",
+   "file": "object/lock.png",
+   "cn": "锁",
+   "category": "object",
+   "tags": [
+    "安全",
+    "隐私",
+    "保密"
+   ]
+  },
+  {
+   "id": "magic_wand",
+   "file": "object/magic_wand.png",
+   "cn": "魔法棒",
+   "category": "object",
+   "tags": [
+    "魔法",
+    "自动",
+    "一键"
+   ]
+  },
+  {
+   "id": "magnifier",
+   "file": "object/magnifier.png",
+   "cn": "放大镜",
+   "category": "object",
+   "tags": [
+    "搜索",
+    "查找",
+    "调研"
+   ]
+  },
+  {
+   "id": "map",
+   "file": "object/map.png",
+   "cn": "地图",
+   "category": "object",
+   "tags": [
+    "路线",
+    "规划",
+    "航线"
+   ]
+  },
+  {
+   "id": "marker_pen",
+   "file": "object/marker_pen.png",
+   "cn": "马克笔",
+   "category": "object",
+   "tags": [
+    "标注",
+    "强调",
+    "笔"
+   ]
+  },
+  {
+   "id": "medal",
+   "file": "object/medal.png",
+   "cn": "奖牌",
+   "category": "object",
+   "tags": [
+    "成果",
+    "认可"
+   ]
+  },
+  {
+   "id": "megaphone",
+   "file": "object/megaphone.png",
+   "cn": "喇叭",
+   "category": "object",
+   "tags": [
+    "通知",
+    "宣布",
+    "传播"
+   ]
+  },
+  {
+   "id": "microphone",
+   "file": "object/microphone.png",
+   "cn": "麦克风",
+   "category": "object",
+   "tags": [
+    "声音",
+    "口播",
+    "采访"
+   ]
+  },
+  {
+   "id": "monitor",
+   "file": "object/monitor.png",
+   "cn": "显示器",
+   "category": "object",
+   "tags": [
+    "电脑",
+    "屏幕",
+    "工作"
+   ]
+  },
+  {
+   "id": "mouse",
+   "file": "object/mouse.png",
+   "cn": "鼠标",
+   "category": "object",
+   "tags": [
+    "电脑",
+    "点击"
+   ]
+  },
+  {
+   "id": "notebook",
+   "file": "object/notebook.png",
+   "cn": "本子",
+   "category": "object",
+   "tags": [
+    "笔记",
+    "记录",
+    "学习"
+   ]
+  },
+  {
+   "id": "open_book",
+   "file": "object/open_book.png",
+   "cn": "翻开的书",
+   "category": "object",
+   "tags": [
+    "学习",
+    "阅读",
+    "知识"
+   ]
+  },
+  {
+   "id": "open_notebook",
+   "file": "object/open_notebook.png",
+   "cn": "翻开的本子",
+   "category": "object",
+   "tags": [
+    "笔记",
+    "记录",
+    "计划"
+   ]
+  },
+  {
+   "id": "paper_clip",
+   "file": "object/paper_clip.png",
+   "cn": "回形针",
+   "category": "object",
+   "tags": [
+    "文件",
+    "附件",
+    "整理"
+   ]
+  },
+  {
+   "id": "pen",
+   "file": "object/pen.png",
+   "cn": "钢笔",
+   "category": "object",
+   "tags": [
+    "写作",
+    "笔",
+    "签名"
+   ]
+  },
+  {
+   "id": "pencil",
+   "file": "object/pencil.png",
+   "cn": "铅笔",
+   "category": "object",
+   "tags": [
+    "写作",
+    "笔",
+    "画"
+   ]
+  },
+  {
+   "id": "phone",
+   "file": "object/phone.png",
+   "cn": "手机",
+   "category": "object",
+   "tags": [
+    "手机",
+    "移动",
+    "小红书"
+   ]
+  },
+  {
+   "id": "pie_chart",
+   "file": "object/pie_chart.png",
+   "cn": "饼图",
+   "category": "object",
+   "tags": [
+    "数据",
+    "占比",
+    "图表"
+   ]
+  },
+  {
+   "id": "pin_note",
+   "file": "object/pin_note.png",
+   "cn": "便签钉",
+   "category": "object",
+   "tags": [
+    "提醒",
+    "注意",
+    "记住",
+    "笔记"
+   ]
+  },
+  {
+   "id": "play_button",
+   "file": "object/play_button.png",
+   "cn": "播放键",
+   "category": "object",
+   "tags": [
+    "视频",
+    "播放",
+    "演示"
+   ]
+  },
+  {
+   "id": "plug",
+   "file": "object/plug.png",
+   "cn": "插头",
+   "category": "object",
+   "tags": [
+    "连接",
+    "接入",
+    "电"
+   ]
+  },
+  {
+   "id": "price_tag",
+   "file": "object/price_tag.png",
+   "cn": "标签",
+   "category": "object",
+   "tags": [
+    "价格",
+    "分类",
+    "标注"
+   ]
+  },
+  {
+   "id": "pushpin",
+   "file": "object/pushpin.png",
+   "cn": "图钉",
+   "category": "object",
+   "tags": [
+    "标记",
+    "重点",
+    "固定"
+   ]
+  },
+  {
+   "id": "puzzle",
+   "file": "object/puzzle.png",
+   "cn": "拼图",
+   "category": "object",
+   "tags": [
+    "组合",
+    "方案",
+    "拼接"
+   ]
+  },
+  {
+   "id": "robot",
+   "file": "object/robot.png",
+   "cn": "机器人",
+   "category": "object",
+   "tags": [
+    "AI",
+    "助手",
+    "智能体"
+   ]
+  },
+  {
+   "id": "rocket",
+   "file": "object/rocket.png",
+   "cn": "火箭",
+   "category": "object",
+   "tags": [
+    "起飞",
+    "增长",
+    "启动"
+   ]
+  },
+  {
+   "id": "rocket_launch",
+   "file": "object/rocket_launch.png",
+   "cn": "火箭发射",
+   "category": "object",
+   "tags": [
+    "启动",
+    "发布",
+    "增长",
+    "起飞"
+   ]
+  },
+  {
+   "id": "sailboat",
+   "file": "object/sailboat.png",
+   "cn": "帆船",
+   "category": "object",
+   "tags": [
+    "航海",
+    "船长",
+    "出发"
+   ]
+  },
+  {
+   "id": "scissors",
+   "file": "object/scissors.png",
+   "cn": "剪刀",
+   "category": "object",
+   "tags": [
+    "剪辑",
+    "删减",
+    "裁"
+   ]
+  },
+  {
+   "id": "scroll_phone",
+   "file": "object/scroll_phone.png",
+   "cn": "刷手机",
+   "category": "object",
+   "tags": [
+    "小红书",
+    "手机",
+    "刷",
+    "内容"
+   ]
+  },
+  {
+   "id": "server",
+   "file": "object/server.png",
+   "cn": "服务器",
+   "category": "object",
+   "tags": [
+    "服务器",
+    "后台",
+    "部署"
+   ]
+  },
+  {
+   "id": "shield",
+   "file": "object/shield.png",
+   "cn": "盾牌",
+   "category": "object",
+   "tags": [
+    "安全",
+    "保护",
+    "防护"
+   ]
+  },
+  {
+   "id": "stapler",
+   "file": "object/stapler.png",
+   "cn": "订书机",
+   "category": "object",
+   "tags": [
+    "办公",
+    "文件"
+   ]
+  },
+  {
+   "id": "sticky_note",
+   "file": "object/sticky_note.png",
+   "cn": "便签纸",
+   "category": "object",
+   "tags": [
+    "便签",
+    "笔记",
+    "提醒"
+   ]
+  },
+  {
+   "id": "tape",
+   "file": "object/tape.png",
+   "cn": "胶带",
+   "category": "object",
+   "tags": [
+    "贴",
+    "整理",
+    "手账"
+   ]
+  },
+  {
+   "id": "target",
+   "file": "object/target.png",
+   "cn": "靶心",
+   "category": "object",
+   "tags": [
+    "目标",
+    "精准",
+    "定位"
+   ]
+  },
+  {
+   "id": "thumbs_up",
+   "file": "object/thumbs_up.png",
+   "cn": "点赞",
+   "category": "object",
+   "tags": [
+    "点赞",
+    "认可",
+    "好用"
+   ]
+  },
+  {
+   "id": "time_save",
+   "file": "object/time_save.png",
+   "cn": "省时间",
+   "category": "object",
+   "tags": [
+    "效率",
+    "省时",
+    "时间",
+    "加速"
+   ]
+  },
+  {
+   "id": "trash",
+   "file": "object/trash.png",
+   "cn": "垃圾桶",
+   "category": "object",
+   "tags": [
+    "删除",
+    "清理",
+    "丢弃"
+   ]
+  },
+  {
+   "id": "trophy",
+   "file": "object/trophy.png",
+   "cn": "奖杯",
+   "category": "object",
+   "tags": [
+    "成果",
+    "冠军",
+    "成就"
+   ]
+  },
+  {
+   "id": "umbrella",
+   "file": "object/umbrella.png",
+   "cn": "雨伞",
+   "category": "object",
+   "tags": [
+    "保护",
+    "兜底",
+    "风险"
+   ]
+  },
+  {
+   "id": "arrow_cycle",
+   "file": "symbol/arrow_cycle.png",
+   "cn": "循环箭头",
+   "category": "symbol",
+   "tags": [
+    "循环",
+    "重复",
+    "迭代"
+   ]
+  },
+  {
+   "id": "bubble_question",
+   "file": "symbol/bubble_question.png",
+   "cn": "问号气泡",
+   "category": "symbol",
+   "tags": [
+    "疑问",
+    "为什么",
+    "提问"
+   ]
+  },
+  {
+   "id": "bubble_talk",
+   "file": "symbol/bubble_talk.png",
+   "cn": "对话气泡",
+   "category": "symbol",
+   "tags": [
+    "说",
+    "回复",
+    "沟通"
+   ]
+  },
+  {
+   "id": "bubble_think",
+   "file": "symbol/bubble_think.png",
+   "cn": "思考云",
+   "category": "symbol",
+   "tags": [
+    "思考",
+    "想",
+    "琢磨"
+   ]
+  },
+  {
+   "id": "bubble_two",
+   "file": "symbol/bubble_two.png",
+   "cn": "双气泡",
+   "category": "symbol",
+   "tags": [
+    "对话",
+    "聊天",
+    "沟通"
+   ]
+  },
+  {
+   "id": "burst",
+   "file": "symbol/burst.png",
+   "cn": "爆炸线",
+   "category": "symbol",
+   "tags": [
+    "强调",
+    "惊喜",
+    "重点"
+   ]
+  },
+  {
+   "id": "check_badge",
+   "file": "symbol/check_badge.png",
+   "cn": "对勾圆章",
+   "category": "symbol",
+   "tags": [
+    "完成",
+    "正确",
+    "确认"
+   ]
+  },
+  {
+   "id": "cross_badge",
+   "file": "symbol/cross_badge.png",
+   "cn": "叉章",
+   "category": "symbol",
+   "tags": [
+    "错误",
+    "不要",
+    "避坑"
+   ]
+  },
+  {
+   "id": "exclaim",
+   "file": "symbol/exclaim.png",
+   "cn": "感叹号",
+   "category": "symbol",
+   "tags": [
+    "强调",
+    "注意",
+    "重点"
+   ]
+  },
+  {
+   "id": "heart",
+   "file": "symbol/heart.png",
+   "cn": "爱心",
+   "category": "symbol",
+   "tags": [
+    "喜欢",
+    "点赞",
+    "关注"
+   ]
+  },
+  {
+   "id": "light_check",
+   "file": "symbol/light_check.png",
+   "cn": "灯泡对勾",
+   "category": "symbol",
+   "tags": [
+    "想法",
+    "确认",
+    "方案",
+    "完成"
+   ]
+  },
+  {
+   "id": "lightning",
+   "file": "symbol/lightning.png",
+   "cn": "闪电",
+   "category": "symbol",
+   "tags": [
+    "快",
+    "速度",
+    "能量"
+   ]
+  },
+  {
+   "id": "music",
+   "file": "symbol/music.png",
+   "cn": "音符",
+   "category": "symbol",
+   "tags": [
+    "轻松",
+    "声音",
+    "背景"
+   ]
+  },
+  {
+   "id": "num_1",
+   "file": "symbol/num_1.png",
+   "cn": "序号1",
+   "category": "symbol",
+   "tags": [
+    "序号",
+    "一",
+    "第一步"
+   ]
+  },
+  {
+   "id": "num_2",
+   "file": "symbol/num_2.png",
+   "cn": "序号2",
+   "category": "symbol",
+   "tags": [
+    "序号",
+    "二",
+    "第二步"
+   ]
+  },
+  {
+   "id": "num_3",
+   "file": "symbol/num_3.png",
+   "cn": "序号3",
+   "category": "symbol",
+   "tags": [
+    "序号",
+    "三",
+    "第三步"
+   ]
+  },
+  {
+   "id": "num_4",
+   "file": "symbol/num_4.png",
+   "cn": "序号4",
+   "category": "symbol",
+   "tags": [
+    "序号",
+    "四",
+    "第四步"
+   ]
+  },
+  {
+   "id": "num_5",
+   "file": "symbol/num_5.png",
+   "cn": "序号5",
+   "category": "symbol",
+   "tags": [
+    "序号",
+    "五",
+    "第五步"
+   ]
+  },
+  {
+   "id": "plus_badge",
+   "file": "symbol/plus_badge.png",
+   "cn": "加号章",
+   "category": "symbol",
+   "tags": [
+    "添加",
+    "新增",
+    "更多"
+   ]
+  },
+  {
+   "id": "question",
+   "file": "symbol/question.png",
+   "cn": "问号",
+   "category": "symbol",
+   "tags": [
+    "疑问",
+    "为什么",
+    "思考"
+   ]
+  },
+  {
+   "id": "sparkle",
+   "file": "symbol/sparkle.png",
+   "cn": "星光",
+   "category": "symbol",
+   "tags": [
+    "闪光",
+    "惊艳",
+    "装饰"
+   ]
+  },
+  {
+   "id": "sparkles_big",
+   "file": "symbol/sparkles_big.png",
+   "cn": "闪光群",
+   "category": "symbol",
+   "tags": [
+    "惊艳",
+    "好看",
+    "完成"
+   ]
+  },
+  {
+   "id": "star",
+   "file": "symbol/star.png",
+   "cn": "星星",
+   "category": "symbol",
+   "tags": [
+    "好评",
+    "重点",
+    "收藏"
+   ]
+  },
+  {
+   "id": "star_rating",
+   "file": "symbol/star_rating.png",
+   "cn": "评分星",
+   "category": "symbol",
+   "tags": [
+    "评分",
+    "好评",
+    "推荐",
+    "口碑"
+   ]
+  },
+  {
+   "id": "agent_gear",
+   "file": "tool/agent_gear.png",
+   "cn": "智能体齿轮",
+   "category": "tool",
+   "tags": [
+    "智能体",
+    "自动化",
+    "agent",
+    "流程"
+   ]
+  },
+  {
+   "id": "ai_chip_spark",
+   "file": "tool/ai_chip_spark.png",
+   "cn": "AI芯片",
+   "category": "tool",
+   "tags": [
+    "AI",
+    "算力",
+    "芯片",
+    "模型"
+   ]
+  },
+  {
+   "id": "brain",
+   "file": "tool/brain.png",
+   "cn": "大脑",
+   "category": "tool",
+   "tags": [
+    "AI",
+    "思考",
+    "模型",
+    "智能"
+   ]
+  },
+  {
+   "id": "browser",
+   "file": "tool/browser.png",
+   "cn": "浏览器窗口",
+   "category": "tool",
+   "tags": [
+    "网页",
+    "浏览器",
+    "网站"
+   ]
+  },
+  {
+   "id": "chat_window",
+   "file": "tool/chat_window.png",
+   "cn": "聊天窗口",
+   "category": "tool",
+   "tags": [
+    "对话",
+    "AI",
+    "聊天"
+   ]
+  },
+  {
+   "id": "checklist",
+   "file": "tool/checklist.png",
+   "cn": "待办清单",
+   "category": "tool",
+   "tags": [
+    "待办",
+    "计划",
+    "任务"
+   ]
+  },
+  {
+   "id": "code_block",
+   "file": "tool/code_block.png",
+   "cn": "代码块",
+   "category": "tool",
+   "tags": [
+    "代码",
+    "脚本",
+    "编程"
+   ]
+  },
+  {
+   "id": "cursor",
+   "file": "tool/cursor.png",
+   "cn": "光标",
+   "category": "tool",
+   "tags": [
+    "点击",
+    "操作",
+    "鼠标"
+   ]
+  },
+  {
+   "id": "data_flow",
+   "file": "tool/data_flow.png",
+   "cn": "数据流",
+   "category": "tool",
+   "tags": [
+    "数据",
+    "传输",
+    "同步",
+    "云"
+   ]
+  },
+  {
+   "id": "download",
+   "file": "tool/download.png",
+   "cn": "下载",
+   "category": "tool",
+   "tags": [
+    "下载",
+    "获取",
+    "保存"
+   ]
+  },
+  {
+   "id": "folder_tree",
+   "file": "tool/folder_tree.png",
+   "cn": "文件夹树",
+   "category": "tool",
+   "tags": [
+    "目录",
+    "整理",
+    "知识库"
+   ]
+  },
+  {
+   "id": "gear_bolt",
+   "file": "tool/gear_bolt.png",
+   "cn": "齿轮闪电",
+   "category": "tool",
+   "tags": [
+    "自动化",
+    "系统",
+    "效率"
+   ]
+  },
+  {
+   "id": "gear_set",
+   "file": "tool/gear_set.png",
+   "cn": "齿轮组",
+   "category": "tool",
+   "tags": [
+    "设置",
+    "系统",
+    "自动化"
+   ]
+  },
+  {
+   "id": "neural_net",
+   "file": "tool/neural_net.png",
+   "cn": "神经网络",
+   "category": "tool",
+   "tags": [
+    "AI",
+    "网络",
+    "模型",
+    "连接"
+   ]
+  },
+  {
+   "id": "search_bar",
+   "file": "tool/search_bar.png",
+   "cn": "搜索框",
+   "category": "tool",
+   "tags": [
+    "搜索",
+    "查找",
+    "检索"
+   ]
+  },
+  {
+   "id": "skill_card",
+   "file": "tool/skill_card.png",
+   "cn": "技能卡",
+   "category": "tool",
+   "tags": [
+    "skill",
+    "技能",
+    "能力"
+   ]
+  },
+  {
+   "id": "toggle",
+   "file": "tool/toggle.png",
+   "cn": "开关",
+   "category": "tool",
+   "tags": [
+    "开关",
+    "设置",
+    "启用"
+   ]
+  },
+  {
+   "id": "workflow",
+   "file": "tool/workflow.png",
+   "cn": "流程节点",
+   "category": "tool",
+   "tags": [
+    "流程",
+    "步骤",
+    "自动化"
+   ]
+  },
+  {
+   "id": "workflow_arrows",
+   "file": "tool/workflow_arrows.png",
+   "cn": "流程箭头",
+   "category": "tool",
+   "tags": [
+    "流程",
+    "步骤",
+    "工作流",
+    "自动化"
+   ]
+  }
+ ]
+}

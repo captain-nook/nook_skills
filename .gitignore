@@ -29,3 +29,9 @@ profile.md
 
 # nook-ppt 的 README 预览图
 !nook-ppt/docs/*.jpg
+
+# nook-xhspage / nook-xhswrite 的 README 配图和示例截图
+!nook-xhspage/docs/*.jpg
+!nook-xhswrite/docs/*.jpg
+!nook-xhspage/examples/inputs/*.png
+!nook-xhswrite/references/plans/inputs/*.png

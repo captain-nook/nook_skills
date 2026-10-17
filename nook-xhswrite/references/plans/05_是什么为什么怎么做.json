@@ -1,0 +1,91 @@
+{
+ "meta": {
+  "theme": "dark",
+  "title": "05_是什么为什么怎么做",
+  "subject_terms": [
+   "skill",
+   "图文"
+  ],
+  "no": "261017"
+ },
+ "pages": [
+  {
+   "type": "cover_quote",
+   "fields": {
+    "lines": [
+     "一套",
+     "skill",
+     "做图文",
+     "[[全流程]]"
+    ],
+    "caption": "agent 照着做"
+   }
+  },
+  {
+   "type": "idea",
+   "fields": {
+    "lines": [
+     "skill",
+     "是一份",
+     "[[做事说明]]"
+    ],
+    "caption": [
+     "写给 agent 看",
+     "照着执行"
+    ]
+   }
+  },
+  {
+   "type": "list",
+   "fields": {
+    "title": "为什么要[[有约束]]",
+    "items": [
+     {
+      "name": "页型是固定的",
+      "desc": "不会画出怪版式"
+     },
+     {
+      "name": "字数有上限",
+      "desc": "放不下就报错"
+     },
+     {
+      "name": "素材有词表",
+      "desc": "不会乱找图"
+     }
+    ]
+   }
+  },
+  {
+   "type": "cycle",
+   "fields": {
+    "title": "怎么做，[[走一圈]]",
+    "nodes": [
+     {
+      "name": "填方案",
+      "desc": "写 JSON",
+      "sticker": "keyboard"
+     },
+     {
+      "name": "校验",
+      "desc": "报错就改",
+      "sticker": "shield"
+     },
+     {
+      "name": "出图",
+      "desc": "逐页看",
+      "sticker": "camera"
+     }
+    ],
+    "footnote": "每一圈更稳"
+   }
+  },
+  {
+   "type": "closing",
+   "fields": {
+    "line1": "收藏起来，",
+    "line2": "[[用的时候再翻]]",
+    "hint": "评论区说你卡在哪"
+   }
+  }
+ ]
+}

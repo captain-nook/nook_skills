@@ -1,0 +1,71 @@
+{
+ "meta": {
+  "theme": "paper",
+  "title": "06_层级体系",
+  "subject_terms": [
+   "工具",
+   "三层"
+  ],
+  "no": "261017"
+ },
+ "pages": [
+  {
+   "type": "cover_person",
+   "fields": {
+    "line1": "三层",
+    "line2": "[[搭起来]]",
+    "sub1": "工具不是一个",
+    "sub2": "是一套体系"
+   }
+  },
+  {
+   "type": "pyramid",
+   "fields": {
+    "title": "工具分[[三层]]",
+    "layers": [
+     {
+      "name": "成品",
+      "desc": "每期的封面和动画"
+     },
+     {
+      "name": "工具",
+      "desc": "填几样就出图的脚本"
+     },
+     {
+      "name": "规矩",
+      "desc": "写进 skill 的规矩"
+     }
+    ],
+    "footnote": "底层越稳，上层越快"
+   }
+  },
+  {
+   "type": "list",
+   "fields": {
+    "title": "先做[[底层]]",
+    "items": [
+     {
+      "name": "规矩",
+      "desc": "先把规矩写下来"
+     },
+     {
+      "name": "工具",
+      "desc": "再做成脚本"
+     },
+     {
+      "name": "成品",
+      "desc": "最后每期复用"
+     }
+    ]
+   }
+  },
+  {
+   "type": "closing",
+   "fields": {
+    "line1": "收藏起来，",
+    "line2": "[[用的时候再翻]]",
+    "hint": "评论区说你卡在哪"
+   }
+  }
+ ]
+}

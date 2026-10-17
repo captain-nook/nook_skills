@@ -1,0 +1,206 @@
+{
+ "meta": {
+  "theme": "dark",
+  "title": "demo_5套提效工具_dark",
+  "subject_terms": [
+   "AI",
+   "工作流"
+  ],
+  "no": "261016"
+ },
+ "pages": [
+  {
+   "type": "cover_person",
+   "fields": {
+    "line1": "重复的活",
+    "line2": "交给 [[AI]]",
+    "sub1": "我和 Claude 搭了",
+    "sub2": "一整套工作流",
+    "note": {
+     "title": "已经交出去的",
+     "items": [
+      "PPT 动效",
+      "公众号封面",
+      "代码动画"
+     ]
+    },
+    "stickers": [
+     "bulb",
+     "sparkle"
+    ]
+   }
+  },
+  {
+   "type": "step",
+   "fields": {
+    "step_no": 1,
+    "title": "填 5 样，点一下",
+    "subtitle": "期号 → 标题 → 姿态 → 生成",
+    "screenshot": "inputs/tool_screenshot.png",
+    "red_box": [
+     0.06,
+     0.12,
+     0.33,
+     0.72
+    ],
+    "arrow": {
+     "from": [
+      0.72,
+      0.02
+     ],
+     "to": [
+      0.4,
+      0.3
+     ]
+    },
+    "label": "先填左边"
+   }
+  },
+  {
+   "type": "prompt",
+   "fields": {
+    "title": "让 AI 帮你[[搭工具]]",
+    "body": [
+     "不要一上来就写代码。",
+     "先问我 5 个问题，把 [[每周重复做的事]] 问清楚。",
+     "再做成能反复用的工具，先给第一版。"
+    ],
+    "storyboard": [
+     {
+      "sticker": "char_confused",
+      "label": "第 1 次"
+     },
+     {
+      "sticker": "char_thinking",
+      "label": "第 2 次"
+     },
+     {
+      "sticker": "char_happy",
+      "label": "用起来"
+     }
+    ],
+    "sticker": "bubble_question"
+   }
+  },
+  {
+   "type": "cycle",
+   "fields": {
+    "title": "做封面，走[[一圈]]",
+    "nodes": [
+     {
+      "name": "填内容",
+      "desc": "5 样就够",
+      "sticker": "keyboard"
+     },
+     {
+      "name": "点生成",
+      "desc": "马上出图",
+      "sticker": "play_button"
+     },
+     {
+      "name": "看效果",
+      "desc": "先看图",
+      "sticker": "magnifier"
+     },
+     {
+      "name": "改一改",
+      "desc": "再来一遍",
+      "sticker": "pencil"
+     }
+    ],
+    "footnote": "每一圈，都比上一圈快"
+   }
+  },
+  {
+   "type": "compare",
+   "fields": {
+    "title": "做封面，[[差在哪]]",
+    "left": {
+     "tag": "以前",
+     "points": [
+      "打开设计软件",
+      "字号位置一项项调",
+      "改一字要整套重排"
+     ],
+     "sticker": "char_confused"
+    },
+    "right": {
+     "tag": "现在",
+     "points": [
+      "填 5 样内容",
+      "点一下，三张同出",
+      "改字再点，立刻重出"
+     ],
+     "sticker": "char_happy"
+    },
+    "footer": "同样的活，不一样的时间"
+   }
+  },
+  {
+   "type": "bar",
+   "fields": {
+    "title": "做一期封面，[[越来越快]]",
+    "items": [
+     {
+      "label": "第1期",
+      "value": 3,
+      "unit": "小时"
+     },
+     {
+      "label": "第2期",
+      "value": 1.5,
+      "unit": "小时"
+     },
+     {
+      "label": "第3期",
+      "value": 0.5,
+      "unit": "小时"
+     },
+     {
+      "label": "第4期",
+      "value": 0.1,
+      "unit": "小时"
+     }
+    ]
+   }
+  },
+  {
+   "type": "list",
+   "fields": {
+    "title": "[[5 套工具]]，全在用",
+    "items": [
+     {
+      "name": "PPT 动效 skill",
+      "desc": "讲稿变成带动效的 PPT"
+     },
+     {
+      "name": "公众号封面工具",
+      "desc": "填 5 样，出整套封面"
+     },
+     {
+      "name": "代码动画 skill",
+      "desc": "一句话变成短动画"
+     },
+     {
+      "name": "素材采集器",
+      "desc": "一个入口抓全网信号"
+     },
+     {
+      "name": "头图尾图模板",
+      "desc": "固定样式，每期复用"
+     }
+    ],
+    "footnote": "一个一个搭出来的"
+   }
+  },
+  {
+   "type": "closing",
+   "fields": {
+    "line1": "收藏起来，",
+    "line2": "搭你的[[第一套]]",
+    "hint": "有问题，评论区问我",
+    "sticker": "char_happy"
+   }
+  }
+ ]
+}

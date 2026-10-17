@@ -1,0 +1,106 @@
+{
+ "meta": {
+  "theme": "ticket",
+  "title": "10_数据变化",
+  "subject_terms": [
+   "涨粉",
+   "四周"
+  ],
+  "no": "261017",
+  "facts": [
+   {
+    "id": "f1",
+    "text": "第 1 周 10",
+    "source": "素材"
+   },
+   {
+    "id": "f2",
+    "text": "第 2 周 24",
+    "source": "素材"
+   },
+   {
+    "id": "f3",
+    "text": "第 3 周 58",
+    "source": "素材"
+   },
+   {
+    "id": "f4",
+    "text": "第 4 周 120",
+    "source": "素材"
+   },
+   {
+    "id": "f5",
+    "text": "第 4 周是第 1 周的 12 倍",
+    "source": "素材"
+   }
+  ]
+ },
+ "pages": [
+  {
+   "type": "cover_list",
+   "fields": {
+    "lead": "做满一个月",
+    "number": 4,
+    "unit": "周变化",
+    "items": [
+     "第 1 周 10",
+     "第 2 周 24",
+     "第 3 周 58",
+     "第 4 周 120"
+    ]
+   }
+  },
+  {
+   "type": "line",
+   "fields": {
+    "title": "四周，[[涨起来了]]",
+    "points": [
+     {
+      "label": "第1周",
+      "value": 10
+     },
+     {
+      "label": "第2周",
+      "value": 24
+     },
+     {
+      "label": "第3周",
+      "value": 58
+     },
+     {
+      "label": "第4周",
+      "value": 120
+     }
+    ],
+    "axis": "涨粉"
+   }
+  },
+  {
+   "type": "stats",
+   "fields": {
+    "title": "几个[[关键数字]]",
+    "items": [
+     {
+      "number": "120",
+      "unit": "人",
+      "label": "第 4 周新增"
+     },
+     {
+      "number": "12",
+      "unit": "倍",
+      "label": "对比第 1 周"
+     }
+    ],
+    "note": "数据来自后台"
+   }
+  },
+  {
+   "type": "closing",
+   "fields": {
+    "line1": "收藏起来，",
+    "line2": "[[用的时候再翻]]",
+    "hint": "评论区说你卡在哪"
+   }
+  }
+ ]
+}

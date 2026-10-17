@@ -1,0 +1,187 @@
+{
+ "meta": {
+  "theme": "dark",
+  "title": "demo2_更多页型_dark",
+  "subject_terms": [
+   "提效工具"
+  ],
+  "no": "261016"
+ },
+ "pages": [
+  {
+   "type": "cover_list",
+   "fields": {
+    "lead": "Claude 帮我搭的",
+    "number": 5,
+    "unit": "套提效工具",
+    "items": [
+     "PPT 动效 skill",
+     "公众号封面工具",
+     "代码动画 skill",
+     "素材采集器",
+     "头图尾图模板"
+    ],
+    "footnote": "全是我每天在用的"
+   }
+  },
+  {
+   "type": "toc",
+   "fields": {
+    "title": "这篇讲 [[4 件事]]",
+    "items": [
+     {
+      "name": "为什么要搭工具",
+      "desc": "重复三次就该交出去"
+     },
+     {
+      "name": "怎么搭",
+      "desc": "五步走"
+     },
+     {
+      "name": "先做哪个",
+      "desc": "价值乘难度"
+     },
+     {
+      "name": "怎么越用越快"
+     }
+    ]
+   }
+  },
+  {
+   "type": "matrix",
+   "fields": {
+    "title": "5 件事，[[先做哪个]]",
+    "xlabel": "难度",
+    "ylabel": "价值",
+    "cells": [
+     {
+      "tag": "先做",
+      "desc": "价值高、容易做",
+      "sticker": "rocket"
+     },
+     {
+      "tag": "排进计划",
+      "desc": "价值高、有难度",
+      "sticker": "calendar"
+     },
+     {
+      "tag": "顺手做",
+      "desc": "价值低、容易做",
+      "sticker": "coffee"
+     },
+     {
+      "tag": "先放着",
+      "desc": "价值低、有难度",
+      "sticker": "hourglass"
+     }
+    ]
+   }
+  },
+  {
+   "type": "quote",
+   "fields": {
+    "lines": [
+     "重复三次",
+     "就该做成",
+     "[[工具]]"
+    ],
+    "caption": "第一次做事，第三次交给工具",
+    "sticker": "magic_wand"
+   }
+  },
+  {
+   "type": "pyramid",
+   "fields": {
+    "title": "5 套工具，分 [[3 层]]",
+    "layers": [
+     {
+      "name": "成品",
+      "desc": "每期的封面、PPT、动画"
+     },
+     {
+      "name": "工具",
+      "desc": "填几样就出图的脚本"
+     },
+     {
+      "name": "规矩",
+      "desc": "写进 skill 的规矩"
+     }
+    ],
+    "footnote": "底层越稳，上层出活越快"
+   }
+  },
+  {
+   "type": "line",
+   "fields": {
+    "title": "做满一个月，[[涨起来了]]",
+    "points": [
+     {
+      "label": "第1周",
+      "value": 10
+     },
+     {
+      "label": "第2周",
+      "value": 24
+     },
+     {
+      "label": "第3周",
+      "value": 58
+     },
+     {
+      "label": "第4周",
+      "value": 120
+     }
+    ],
+    "axis": "涨粉"
+   }
+  },
+  {
+   "type": "funnel",
+   "fields": {
+    "title": "选题怎么筛，[[一层层]]",
+    "stages": [
+     {
+      "name": "灵感",
+      "value": "20 个",
+      "sticker": "bulb"
+     },
+     {
+      "name": "初筛",
+      "value": "8 个",
+      "sticker": "magnifier"
+     },
+     {
+      "name": "打样",
+      "value": "3 个",
+      "sticker": "pencil"
+     },
+     {
+      "name": "发布",
+      "value": "1 个",
+      "sticker": "rocket"
+     }
+    ],
+    "footnote": "20 个想法，最后只发 1 个"
+   }
+  },
+  {
+   "type": "result",
+   "fields": {
+    "title": "全是 AI [[做出来的]]",
+    "images": [
+     "inputs/result_long.png",
+     "inputs/result_square.png"
+    ],
+    "caption": "长版、方版一次出两张"
+   }
+  },
+  {
+   "type": "back_cover",
+   "fields": {
+    "line1": "我是船长",
+    "line2": "保持关注，[[持续更新]]",
+    "sticker": "sailboat"
+   }
+  }
+ ]
+}

@@ -1,0 +1,82 @@
+{
+ "meta": {
+  "theme": "paper",
+  "title": "04_问题原因做法",
+  "subject_terms": [
+   "封面",
+   "改不动"
+  ],
+  "no": "261017"
+ },
+ "pages": [
+  {
+   "type": "cover_quote",
+   "fields": {
+    "lines": [
+     "封面",
+     "总是",
+     "改不动",
+     "[[怎么办]]"
+    ],
+    "caption": "先看原因"
+   }
+  },
+  {
+   "type": "idea",
+   "fields": {
+    "lines": [
+     "封面",
+     "改一个字",
+     "[[全部重来]]"
+    ],
+    "caption": [
+     "字和图混在一起",
+     "没有固定版式"
+    ]
+   }
+  },
+  {
+   "type": "list",
+   "fields": {
+    "title": "问题出在[[哪里]]",
+    "items": [
+     {
+      "name": "字和图混在一起",
+      "desc": "改字要重画图"
+     },
+     {
+      "name": "没有固定版式",
+      "desc": "每期从头排"
+     },
+     {
+      "name": "没有素材库",
+      "desc": "每次重新找图"
+     }
+    ]
+   }
+  },
+  {
+   "type": "step",
+   "fields": {
+    "step_no": 1,
+    "title": "把版式固定下来",
+    "subtitle": "字归字，图归图",
+    "screenshot": "inputs/tool_screenshot.png",
+    "red_box": [
+     0.06,
+     0.12,
+     0.33,
+     0.72
+    ]
+   }
+  },
+  {
+   "type": "closing",
+   "fields": {
+    "line1": "收藏起来，",
+    "line2": "[[用的时候再翻]]",
+    "hint": "评论区说你卡在哪"
+   }
+  }
+ ]
+}

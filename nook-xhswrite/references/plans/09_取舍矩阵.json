@@ -1,0 +1,75 @@
+{
+ "meta": {
+  "theme": "paper",
+  "title": "09_取舍矩阵",
+  "subject_terms": [
+   "先做",
+   "五件事"
+  ],
+  "no": "261017"
+ },
+ "pages": [
+  {
+   "type": "cover_person",
+   "fields": {
+    "line1": "五件事",
+    "line2": "先做[[哪个]]",
+    "sub1": "价值和难度",
+    "sub2": "画成一张图"
+   }
+  },
+  {
+   "type": "matrix",
+   "fields": {
+    "title": "五件事，[[先做哪个]]",
+    "xlabel": "难度",
+    "ylabel": "价值",
+    "cells": [
+     {
+      "tag": "先做",
+      "desc": "价值高、容易做",
+      "sticker": "rocket"
+     },
+     {
+      "tag": "排进计划",
+      "desc": "价值高、有难度",
+      "sticker": "calendar"
+     },
+     {
+      "tag": "顺手做",
+      "desc": "价值低、容易做",
+      "sticker": "coffee"
+     },
+     {
+      "tag": "先放着",
+      "desc": "价值低、有难度",
+      "sticker": "hourglass"
+     }
+    ]
+   }
+  },
+  {
+   "type": "step",
+   "fields": {
+    "step_no": 1,
+    "title": "先做左上角",
+    "subtitle": "价值高、容易做",
+    "screenshot": "inputs/tool_screenshot.png",
+    "red_box": [
+     0.06,
+     0.12,
+     0.33,
+     0.72
+    ]
+   }
+  },
+  {
+   "type": "closing",
+   "fields": {
+    "line1": "收藏起来，",
+    "line2": "[[用的时候再翻]]",
+    "hint": "评论区说你卡在哪"
+   }
+  }
+ ]
+}

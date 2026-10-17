@@ -1,0 +1,92 @@
+{
+ "meta": {
+  "theme": "paper",
+  "title": "demo3_新页型",
+  "subject_terms": [
+   "封面工具"
+  ],
+  "no": "261017"
+ },
+ "pages": [
+  {
+   "type": "cover_quote",
+   "fields": {
+    "lines": [
+     "封面工具",
+     "改了",
+     "三个版本",
+     "[[现在]]稳定"
+    ],
+    "caption": "从脚本到界面"
+   }
+  },
+  {
+   "type": "timeline",
+   "fields": {
+    "title": "工具的[[三个版本]]",
+    "events": [
+     {
+      "time": "10月7日",
+      "name": "Q版活力",
+      "desc": "第一版，卡通表情"
+     },
+     {
+      "time": "10月15日",
+      "name": "青年版",
+      "desc": "船长人物，蓝白船票"
+     },
+     {
+      "time": "10月16日",
+      "name": "只出封面",
+      "desc": "头图尾图固定"
+     }
+    ],
+    "footnote": "每一版都留着"
+   }
+  },
+  {
+   "type": "stats",
+   "fields": {
+    "title": "做一期封面，[[用了多久]]",
+    "items": [
+     {
+      "number": "5",
+      "unit": "样",
+      "label": "每期要填的内容"
+     },
+     {
+      "number": "3",
+      "unit": "张",
+      "label": "一次出长版方版总图"
+     }
+    ],
+    "note": "数字来自工具说明"
+   }
+  },
+  {
+   "type": "shots",
+   "fields": {
+    "title": "工具长这样",
+    "shots": [
+     "inputs/tool_screenshot.png",
+     "inputs/result_long.png",
+     "inputs/result_square.png"
+    ],
+    "captions": [
+     "填内容",
+     "长版",
+     "方版"
+    ],
+    "label": "三张截图"
+   }
+  },
+  {
+   "type": "closing",
+   "fields": {
+    "line1": "收藏起来，",
+    "line2": "搭你的[[第一套]]",
+    "hint": "评论区说你卡在哪"
+   }
+  }
+ ]
+}

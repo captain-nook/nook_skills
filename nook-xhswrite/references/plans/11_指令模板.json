@@ -1,0 +1,99 @@
+{
+ "meta": {
+  "theme": "paper",
+  "title": "11_指令模板",
+  "subject_terms": [
+   "提示词",
+   "一个工具"
+  ],
+  "no": "261017",
+  "facts": [
+   {
+    "id": "f1",
+    "text": "提示词共 3 句，先问 5 个问题",
+    "source": "素材"
+   }
+  ]
+ },
+ "pages": [
+  {
+   "type": "cover_quote",
+   "fields": {
+    "lines": [
+     "一条",
+     "提示词",
+     "搭出",
+     "[[一个工具]]"
+    ],
+    "caption": "复制就能用"
+   }
+  },
+  {
+   "type": "idea",
+   "fields": {
+    "lines": [
+     "什么时候",
+     "用这条",
+     "[[提示词]]"
+    ],
+    "caption": [
+     "每周都在重复做",
+     "同一类事"
+    ]
+   }
+  },
+  {
+   "type": "prompt",
+   "fields": {
+    "title": "让 AI 帮你[[搭工具]]",
+    "body": [
+     "不要一上来就写代码。",
+     "先问我 5 个问题，把 [[每周重复做的事]] 问清楚。",
+     "再做成能反复用的工具，先给第一版。"
+    ],
+    "storyboard": [
+     {
+      "sticker": "char_confused",
+      "label": "第 1 次"
+     },
+     {
+      "sticker": "char_thinking",
+      "label": "第 2 次"
+     },
+     {
+      "sticker": "char_happy",
+      "label": "用起来"
+     }
+    ]
+   }
+  },
+  {
+   "type": "list",
+   "fields": {
+    "title": "怎么改成[[自己的]]",
+    "items": [
+     {
+      "name": "换事情",
+      "desc": "把每周的事换成你的"
+     },
+     {
+      "name": "回答问题",
+      "desc": "越具体越好"
+     },
+     {
+      "name": "先看效果",
+      "desc": "再提意见"
+     }
+    ]
+   }
+  },
+  {
+   "type": "closing",
+   "fields": {
+    "line1": "收藏起来，",
+    "line2": "[[用的时候再翻]]",
+    "hint": "评论区说你卡在哪"
+   }
+  }
+ ]
+}

@@ -1,0 +1,110 @@
+{
+  "meta": {
+    "theme": "paper",
+    "title": "看不懂谷歌了",
+    "subject_terms": ["谷歌", "Flash", "Pro"],
+    "facts": [
+      "3.1 Pro 之后八个月没发过 Pro（原文：2026年2月算起八个多月）",
+      "Flash 连发了 3.5、3.6、3.7、3.8 四代（原文）",
+      "谷歌超过七成收入来自搜索引擎广告点击（原文）",
+      "实时生成回答的单次成本至少是传统搜索的几十倍（原文，估计值）"
+    ]
+  },
+  "pages": [
+    {
+      "type": "cover_person",
+      "fields": {
+        "line1": "越来越",
+        "line2": "看不懂[[谷歌]]",
+        "sub1": "Pro 断更八个月",
+        "sub2": "只能连发 Flash",
+        "note": {
+          "title": "三件怪事",
+          "items": ["Pro断更8月", "四代Flash", "Argon 4"]
+        },
+        "pose": "a",
+        "stickers": ["bubble_question"]
+      }
+    },
+    {
+      "type": "timeline",
+      "fields": {
+        "title": "旗舰断更八个月",
+        "events": [
+          { "time": "2月", "name": "3.1 Pro", "desc": "最后一代旗舰，至今没接班" },
+          { "time": "3-6月", "name": "Flash3.5", "desc": "小版本开始密集连发" },
+          { "time": "7-9月", "name": "3.6→3.8", "desc": "上一版没用顺，下一版又来" },
+          { "time": "10月", "name": "Argon 4", "desc": "化学元素命名，看不懂" }
+        ],
+        "footnote": "隔壁旗舰都换两轮了"
+      }
+    },
+    {
+      "type": "compare",
+      "fields": {
+        "title": "双面 Flash",
+        "left": {
+          "tag": "跑分",
+          "points": ["测试题库刷高分", "数据上追平老主力", "总结问候速度快"],
+          "sticker": "bar_chart"
+        },
+        "right": {
+          "tag": "实战",
+          "points": ["任务复杂就认怂", "前面的要求全忘", "没人拿它干重活"],
+          "sticker": "char_collapse"
+        },
+        "footer": "被伤几次后，我早切去隔壁了"
+      }
+    },
+    {
+      "type": "idea",
+      "fields": {
+        "lines": ["小模型刷分", "救不了", "实际[[生产力]]"],
+        "caption": ["它只记得最新两句", "交代的条件全丢掉"],
+        "stickers": ["char_confused"]
+      }
+    },
+    {
+      "type": "stats",
+      "fields": {
+        "title": "谷歌的商业账",
+        "items": [
+          { "number": "70%", "unit": "收入", "label": "来自搜索广告" },
+          { "number": "0", "unit": "个", "label": "八个月没发 Pro" }
+        ],
+        "note": "模型越强，广告越没人点：两头亏"
+      }
+    },
+    {
+      "type": "list",
+      "fields": {
+        "title": "命名乱套的真相",
+        "items": [
+          { "name": "主力团队", "desc": "交不出及格的卷子" },
+          { "name": "小模型团队", "desc": "刷 KPI 连发微调版" },
+          { "name": "探索团队", "desc": "研发代号直接套壳上线" },
+          { "name": "老用户", "desc": "默默承担理解成本" }
+        ],
+        "footnote": "各有产出，只有用户吃亏"
+      }
+    },
+    {
+      "type": "quote",
+      "fields": {
+        "lines": ["用户很淳朴", "你不行，", "就换[[隔壁]]"],
+        "caption": "在乎的是能干活，不是跑分",
+        "sticker": "char_thumbs"
+      }
+    },
+    {
+      "type": "closing",
+      "fields": {
+        "line1": "Gemini",
+        "line2": "你还[[在用]]吗",
+        "hint": "评论区聊聊",
+        "pose": "c",
+        "sticker": "bubble_talk"
+      }
+    }
+  ]
+}

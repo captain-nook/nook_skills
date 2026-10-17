@@ -1,0 +1,16 @@
+本文件夹的三个字体都是开源字体，使用 SIL Open Font License 1.1（SIL OFL），可以免费商用，可以随本工具一起分发。字体文件里已嵌有许可文本。
+
+1. SourceHanSerifCN-Heavy-4.otf（思源宋体 Heavy）
+   Copyright © 2017 Adobe Systems Incorporated (http://www.adobe.com/), with Reserved Font Name 'Source'.
+   许可：SIL Open Font License 1.1，http://scripts.sil.org/OFL
+
+2. LXGWWenKai-Regular.ttf（霞鹜文楷）
+   Copyright 2021-2024 LXGW (https://github.com/lxgw/LxgwWenKai)
+   Copyright 2020 The Klee Project Authors (https://github.com/fontworks-fonts/Klee)
+   许可：SIL Open Font License 1.1，https://scripts.sil.org/OFL
+
+3. NotoSansSC-VF.ttf（思源黑体 / Noto Sans SC，可变字体，青年版用）
+   Copyright 2014-2021 Adobe (http://www.adobe.com/), with Reserved Font Name 'Source'.
+   许可：SIL Open Font License 1.1，https://scripts.sil.org/OFL
+
+OFL 的要点：可以使用、复制、分发、嵌入；不得单独出售字体本身；不得修改后沿用原字体名；分发时要带上版权声明和许可。把这个文件夹发给助理时，这个说明文件要一起带上。
