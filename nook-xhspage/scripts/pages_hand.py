@@ -23,6 +23,10 @@ def libfile(name):
     iid = CN2ID.get(name, name)
     if iid not in _MAN:
         raise KeyError(f"素材库里没有 id={iid}。可用 id：{', '.join(sorted(_MAN))}")
+    if THEME == "mint":      # 薄荷款优先用同 id 的薄荷配色版（assets/library/mint/），没有就用原版
+        v = paths.LIB / "mint" / f"{iid}.png"
+        if v.is_file():
+            return v
     return paths.LIB / _MAN[iid]["file"]
 W, H = 1242, 1656
 INK, BLUE, ORANGE, RED = "#1B2540", "#2F5BEA", "#E55A14", "#E5412D"
@@ -30,7 +34,8 @@ uri = P.uri
 
 
 DARK = False
-THEME = "paper"      # paper / dark / ticket；dark 由 DARK 控制
+THEME = "paper"      # paper / dark / ticket / mint；dark 由 DARK 控制
+PAGE_TYPE = ""       # 当前页型（由 render.page_html 设置，mint 款据此选封面或内页背景）
 ACCOUNT = ""         # 票根上的账号名（由 render.page_html 设置）
 TICKET_NO = ""       # 票号（可选，meta.no）
 HAS_LOGO = True
@@ -49,6 +54,19 @@ TICKET_MAP = [("#FBF7EC", "#EAF3FF"), ("#F6E7C8", "#CFE3FF"), ("#F3EAD7", "#DCEB
            ("#CFC4A6", "#A9C3EC"), ("#8A8470", "#6F86B3"), ("rgba(60,50,20,", "rgba(18,48,107,")]
 # 船票的三个颜色（外底、票根底、票根字），在颜色映射之后再替换，不会被映射改掉
 TICKET_COLORS = ("#C9DDF7", "#1F6FEB", "#FFFFFF")   # 外底、票根底、票根字（船票风：蓝白）
+# 薄荷款（通用款）：明亮的薄荷白底，墨绿蓝字，珊瑚红强调，柠檬黄高亮；背景是两张插画底图（封面类和内页）
+MINT_MAP = [("#FBF7EC", "#F4FBF7"), ("#F6E7C8", "#DDF3E8"), ("#F3EAD7", "#FDE9DD"), ("#FFFEF9", "#FFFFFF"), ("#1B2540", "#16323B"), ("#1A2440", "#16323B"),
+            ("#2F5BEA", "#137A6D"), ("#2F5BEC", "#137A6D"), ("#FFD46A", "#FFDD6E"), ("#FFE9A8", "#FFF0B8"), ("#E5412D", "#E2453C"),
+            ("#E55A14", "#EF6148"), ("#7D7560", "#52706E"), ("#D9CFB4", "#BFDCD2"), ("#F7E1BC", "#D4EFE2"), ("#F7E7C9", "#D4EFE2"),
+            ("#DDE8FF", "#D8F1E8"), ("#8FB0F0", "#86CDB9"), ("#FFF1C9", "#FFF3CC"), ("#6B6551", "#4A6664"), ("#CFC4A6", "#A5CDBF"),
+            ("#8A8470", "#678583"), ("rgba(60,50,20,", "rgba(22,50,59,")]
+
+
+def mint_css():
+    f = "cover" if PAGE_TYPE.startswith("cover") or PAGE_TYPE in ("closing", "back_cover") else "inner"
+    return f"body{{background:#F4FBF7 url('{uri(paths.THEME_DIR / 'mint' / ('bg_' + f + '.jpg'))}') 0 0/100% 100% no-repeat}}body:before{{display:none}}"
+
+
 def dark_css():
     v = dict(zip(DARK_KEYS, DARK_VALUES))
     return (f".tagc{{background:{v['#FFFEF9']}!important;border-color:{v['#8FB0F0']}!important;color:{v['#1B2540']}!important}}.nt{{color:#1A2440!important}}"
@@ -164,10 +182,13 @@ def base(body, page_no, extra_css=""):
     css = CSS % dict(sans=uri(P.FONT_SANS), kai=uri(P.FONT_KAI), blue=BLUE)
     ticket = THEME == "ticket"
     inner = ticket_wrap(body) if ticket else body
-    out = (f'<!doctype html><html><head><meta charset="utf-8"><style>{css}{extra_css}{dark_css() if DARK else ""}{TICKET_CSS if ticket else ""}</style></head>'
+    out = (f'<!doctype html><html><head><meta charset="utf-8"><style>{css}{extra_css}{dark_css() if DARK else ""}{TICKET_CSS if ticket else ""}{mint_css() if THEME == "mint" else ""}</style></head>'
            f'<body class="{"tkb" if ticket else ""}">{inner}</body></html>')
     if DARK:
         for a, b in dark_map():
+            out = out.replace(a, b)
+    elif THEME == "mint":
+        for a, b in MINT_MAP:
             out = out.replace(a, b)
     elif THEME == "ticket":
         for a, b in TICKET_MAP:

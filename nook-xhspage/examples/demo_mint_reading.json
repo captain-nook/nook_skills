@@ -1,0 +1,212 @@
+{
+ "meta": {
+  "theme": "mint",
+  "title": "demo_薄荷_读书",
+  "subject_terms": [
+   "读书",
+   "AI"
+  ]
+ },
+ "pages": [
+  {
+   "type": "cover_list",
+   "fields": {
+    "lead": "用 AI 读书",
+    "number": 5,
+    "unit": "个小习惯",
+    "items": [
+     "读前先问一个问题",
+     "读完只写三句话",
+     "每周回头翻一次",
+     "卡住就问 AI",
+     "一本只留一个行动"
+    ],
+    "footnote": "读完不再忘"
+   }
+  },
+  {
+   "type": "prompt",
+   "fields": {
+    "title": "AI 当你的[[读书搭子]]",
+    "body": [
+     "读完一章，把三句话发给我。",
+     "先别总结，先问我 3 个问题。",
+     "最后挑一件明天能做的事。"
+    ],
+    "storyboard": [
+     {
+      "sticker": "char_tired",
+      "label": "读完就忘"
+     },
+     {
+      "sticker": "char_thinking",
+      "label": "被追问"
+     },
+     {
+      "sticker": "char_happy",
+      "label": "记住了"
+     }
+    ],
+    "sticker": "bubble_question"
+   }
+  },
+  {
+   "type": "compare",
+   "fields": {
+    "title": "同一本书，[[差在哪]]",
+    "left": {
+     "tag": "以前",
+     "points": [
+      "从头读到尾",
+      "划线划了一大片",
+      "合上书就忘光"
+     ],
+     "sticker": "char_tired"
+    },
+    "right": {
+     "tag": "现在",
+     "points": [
+      "读一章，停一下",
+      "只留三句话",
+      "AI 追问，印象更深"
+     ],
+     "sticker": "char_celebrate"
+    },
+    "footer": "读得不多，记得更牢"
+   }
+  },
+  {
+   "type": "cycle",
+   "fields": {
+    "title": "读书笔记，走[[一圈]]",
+    "nodes": [
+     {
+      "name": "读一章",
+      "desc": "只读一章",
+      "sticker": "book"
+     },
+     {
+      "name": "写三句",
+      "desc": "用自己的话",
+      "sticker": "pencil"
+     },
+     {
+      "name": "被追问",
+      "desc": "AI 问三个",
+      "sticker": "bulb"
+     },
+     {
+      "name": "做一件",
+      "desc": "今天就做",
+      "sticker": "flag"
+     }
+    ],
+    "footnote": "每一圈，都比上一圈清楚"
+   }
+  },
+  {
+   "type": "matrix",
+   "fields": {
+    "title": "5 本书，[[先读哪本]]",
+    "xlabel": "难度",
+    "ylabel": "价值",
+    "cells": [
+     {
+      "tag": "马上读",
+      "desc": "价值高、不难",
+      "sticker": "rocket"
+     },
+     {
+      "tag": "排进计划",
+      "desc": "价值高、较难",
+      "sticker": "calendar"
+     },
+     {
+      "tag": "顺手读",
+      "desc": "价值低、不难",
+      "sticker": "coffee"
+     },
+     {
+      "tag": "先放着",
+      "desc": "价值低、较难",
+      "sticker": "hourglass"
+     }
+    ]
+   }
+  },
+  {
+   "type": "funnel",
+   "fields": {
+    "title": "想读的书，[[一层层筛]]",
+    "stages": [
+     {
+      "name": "想读",
+      "value": "20 本",
+      "sticker": "book"
+     },
+     {
+      "name": "粗筛",
+      "value": "8 本",
+      "sticker": "magnifier"
+     },
+     {
+      "name": "试读",
+      "value": "3 本",
+      "sticker": "pencil"
+     },
+     {
+      "name": "读完",
+      "value": "1 本",
+      "sticker": "trophy"
+     }
+    ],
+    "footnote": "20 本想读的，先读完 1 本"
+   }
+  },
+  {
+   "type": "quote",
+   "fields": {
+    "lines": [
+     "读得多",
+     "不如",
+     "[[记得牢]]"
+    ],
+    "caption": "一本书，留下一个行动",
+    "sticker": "magic_wand"
+   }
+  },
+  {
+   "type": "timeline",
+   "fields": {
+    "title": "一周读完[[一本书]]",
+    "events": [
+     {
+      "time": "周一",
+      "name": "选一本",
+      "desc": "别贪多"
+     },
+     {
+      "time": "周三",
+      "name": "读到一半",
+      "desc": "写下三句话"
+     },
+     {
+      "time": "周日",
+      "name": "回头翻",
+      "desc": "定下一个行动"
+     }
+    ],
+    "footnote": "节奏慢一点，更稳"
+   }
+  },
+  {
+   "type": "closing",
+   "fields": {
+    "line1": "收藏起来，",
+    "line2": "今晚就[[读一章]]",
+    "hint": "读完回来，评论区聊聊",
+    "sticker": "char_thumbs"
+   }
+  }
+ ]
+}

@@ -5,8 +5,8 @@ import pathlib
 
 import paths
 
-THEMES = {"paper": "手账浅色", "dark": "深色", "ticket": "船票风（蓝白，页面是一张船票，底部票根印账号名和条码）"}
-THEMES_READY = ("paper", "dark", "ticket")
+THEMES = {"mint": "薄荷（通用款，明亮的薄荷白底、墨绿蓝字、珊瑚红强调，谁用都合适）", "paper": "手账浅色", "dark": "深色", "ticket": "船票风（蓝白，页面是一张船票，底部票根印账号名和条码）"}
+THEMES_READY = ("mint", "paper", "dark", "ticket")
 POSES = ("a", "b", "c")
 COVER_TYPES = ("cover_list", "cover_person", "cover_quote")
 END_TYPES = ("closing", "back_cover")

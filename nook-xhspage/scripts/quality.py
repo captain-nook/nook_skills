@@ -25,7 +25,7 @@ def contrast(a, b):
 
 
 def mapped(hexc, theme):
-    m = {"dark": D.dark_map(), "ticket": D.TICKET_MAP}.get(theme, [])
+    m = {"dark": D.dark_map(), "ticket": D.TICKET_MAP, "mint": D.MINT_MAP}.get(theme, [])
     for a, b in m:
         if hexc.lower() == a.lower() and b.startswith("#"):
             return b
@@ -35,7 +35,7 @@ def mapped(hexc, theme):
 def check_themes():
     """返回 (表格文本, 是否全部通过)。"""
     lines, ok = [], True
-    for th in ("paper", "dark", "ticket"):
+    for th in ("paper", "dark", "ticket", "mint"):
         for name, fg, bg, need in PAIRS:
             f, b = mapped(fg, th), mapped(bg, th)
             c = contrast(f, b)
@@ -45,9 +45,13 @@ def check_themes():
     return "\n".join(lines), ok
 
 
-def coverage(png, ticket=True):
-    """页面墨迹占比：与底色明显不同的像素比例。船票款只量票身内容区。"""
+def coverage(png, ticket=True, bg_img=None):
+    """页面墨迹占比：与底色明显不同的像素比例。船票款只量票身内容区。底色是插画底图时（薄荷款），与底图逐像素比。"""
     im = Image.open(png).convert("RGB")
+    if bg_img:
+        a = np.asarray(im).astype(int)
+        b = np.asarray(Image.open(bg_img).convert("RGB").resize(im.size)).astype(int)
+        return float((np.abs(a - b).sum(axis=2) > 60).mean())
     if ticket:
         im = im.crop((D.TK_X + 20, D.TK_Y + 20, D.TK_X + D.TK_W - 20, D.TK_Y + D.TK_BODY - 10))
     a = np.asarray(im).astype(int)

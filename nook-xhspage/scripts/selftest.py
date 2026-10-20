@@ -33,7 +33,8 @@ def main():
         r = run(["validate", str(ex / "demo_paper.json")], env)
         ok("未设置品牌时拒绝执行（退出码 3）", r.returncode == 3, r.stdout[-200:])
         r = run(["setup", "--default"], env)
-        ok("默认品牌可设置", r.returncode == 0, r.stdout + r.stderr)
+        ok("通用款品牌可设置", r.returncode == 0, r.stdout + r.stderr)
+        ok("通用款素材齐全（3 个姿态、Logo、两张底图）", all((paths.MINT_BRAND / n).is_file() for n in ("pose_a.png", "pose_b.png", "pose_c.png", "logo_light.png", "logo_dark.png")) and all((paths.THEME_DIR / "mint" / n).is_file() for n in ("bg_cover.jpg", "bg_inner.jpg")))
         # 2 词表和渲染函数一致
         import render
         import spec
@@ -45,9 +46,12 @@ def main():
         ok(f"素材库 {len(man)} 个条目的文件都在", not bad, str(bad[:5]))
         ids = [m["id"] for m in man]
         ok("素材 id 没有重复", len(ids) == len(set(ids)))
+        mint_dir = paths.LIB / "mint"
+        extra = [f.stem for f in mint_dir.glob("*.png") if f.stem not in ids] if mint_dir.is_dir() else ["缺目录"]
+        ok(f"薄荷配色贴纸 {len(list(mint_dir.glob('*.png'))) if mint_dir.is_dir() else 0} 个，id 都在素材库里", mint_dir.is_dir() and not extra, str(extra[:5]))
         # 4 主题对比度
         r = run(["check-themes"], env)
-        ok("三套主题对比度全部达标", r.returncode == 0, r.stdout[-300:])
+        ok("四套主题对比度全部达标", r.returncode == 0, r.stdout[-300:])
         # 5 示例方案通过，错误方案被拦
         for f in sorted(ex.glob("demo*.json")) + sorted((paths.SKILL.parent / "nook-xhswrite" / "references" / "plans").glob("*.json") if (paths.SKILL.parent / "nook-xhswrite").exists() else []):
             r = run(["validate", str(f)], env)
@@ -70,7 +74,7 @@ def main():
         r = run(["deliver", str(ex / "demo_paper.json"), str(ex / "demo_post.md")], env)
         ok("自带示例不能当成交付", r.returncode != 0)
         # 6 每套风格出一份图，没有版面问题
-        for name in ("demo_paper.json", "demo_dark.json", "demo_ticket.json", "demo_new_types.json"):
+        for name in ("demo_mint.json", "demo_mint_reading.json", "demo_paper.json", "demo_dark.json", "demo_ticket.json", "demo_new_types.json"):
             r = run(["render", str(ex / name), "--out", str(tmp / "out" / name)], env)
             ok(f"出图无版面问题 {name}", r.returncode == 0, (r.stdout + r.stderr)[-300:])
         # 7 正文检查

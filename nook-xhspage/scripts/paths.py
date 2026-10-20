@@ -9,10 +9,28 @@ ASSETS = SKILL / "assets"
 FONTS = ASSETS / "fonts"
 LIB = ASSETS / "library"
 EXAMPLES = ASSETS / "examples"
-DEFAULT_BRAND = ASSETS / "brand" / "default"
+DEFAULT_BRAND = ASSETS / "brand" / "default"      # 作者本人的船长款（--captain）
+MINT_BRAND = ASSETS / "brand" / "mint"            # 通用款：薄荷（--default，任何人开箱即用）
+THEME_DIR = ASSETS / "themes"
 HOME = pathlib.Path(os.environ.get("NOOK_XHS_HOME") or (pathlib.Path.home() / ".nook-xhspage"))
 BRAND_CONFIG = HOME / "brand.json"
 USER_BRAND = HOME / "brand"
 OUT = pathlib.Path(os.environ.get("NOOK_XHS_OUT", pathlib.Path.cwd() / "output"))
-# 渲染用的品牌文件夹：已设置自定义品牌用用户目录，否则用内置默认（船长）
-BRAND_DIR = USER_BRAND if (BRAND_CONFIG.exists() and (USER_BRAND).exists()) else DEFAULT_BRAND
+
+
+def _brand_dir():
+    """渲染用的品牌文件夹：自定义用用户目录；mode=mint 或还没设置用通用款薄荷；mode=default（旧配置）和 captain 用船长款。"""
+    import json
+    if BRAND_CONFIG.exists():
+        try:
+            mode = json.loads(BRAND_CONFIG.read_text(encoding="utf-8")).get("mode")
+        except ValueError:
+            mode = None
+        if mode == "custom" and USER_BRAND.exists():
+            return USER_BRAND
+        if mode in ("default", "captain"):
+            return DEFAULT_BRAND
+    return MINT_BRAND
+
+
+BRAND_DIR = _brand_dir()

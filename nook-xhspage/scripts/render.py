@@ -6,6 +6,7 @@ import re
 
 from PIL import Image
 
+import paths
 import pages_core as P
 import pages_hand as D
 import pages_diagram as G
@@ -58,7 +59,7 @@ def stickers(ids, slots):
 
 def _brand():
     import brand
-    return brand.load() or dict(account=brand.DEFAULT_ACCOUNT, has_person=True, has_logo=True)
+    return brand.load() or dict(account=brand.MINT_ACCOUNT, has_person=True, has_logo=True)
 
 
 def pose_img(pose, **style):
@@ -545,6 +546,7 @@ def page_html(plan, idx, base_dir):
     D.TICKET_NO = str(plan["meta"].get("no", ""))
     D.TOTAL = len(plan["pages"])
     pg = plan["pages"][idx]
+    D.PAGE_TYPE = pg["type"]
     return RENDERERS[pg["type"]](pg["fields"], idx + 1, len(plan["pages"]))
 
 
@@ -571,7 +573,10 @@ def render_pages(plan, base_dir, out_dir, only=None):
             f = out_dir / f"{i + 1:02d}_{pg['type']}.png"
             f.write_bytes(page.screenshot(clip=dict(x=0, y=0, width=W, height=H)))
             import quality
-            cov = quality.coverage(f, ticket=(D.THEME == "ticket"))
+            bg_img = None
+            if D.THEME == "mint":
+                bg_img = paths.THEME_DIR / "mint" / ("bg_cover.jpg" if pg["type"].startswith("cover") or pg["type"] in ("closing", "back_cover") else "bg_inner.jpg")
+            cov = quality.coverage(f, ticket=(D.THEME == "ticket"), bg_img=bg_img)
             lim = COVER_LIMIT.get(pg["type"], COVER_LIMIT["default"])
             if cov > lim:
                 problems.append(f"第 {i + 1} 页（{pg['type']}）：留白不足，内容占页面 {cov:.0%}，上限 {lim:.0%}，删条目或缩短文字，让页面有呼吸感")

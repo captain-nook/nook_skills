@@ -1,14 +1,14 @@
 ---
 name: nook-xhspage
-version: 0.3
-description: 把一份已定好内容的小红书图文方案，用 Python 脚本渲染成成套的 3:4 手账涂鸦风图片（封面加内页）。三套风格（手账浅色、深色、船票风），内置 161 个透明贴纸素材库，不依赖 ComfyUI；文字、版式、图示全部是代码画的，字准、可改。只负责"画"，文案由 nook-xhswrite 等写作 skill 先定；用户要求出小红书封面、内页、成套图文图片、手账风图示页时使用。不用于写文案，不用于自动发布。
+version: 0.4
+description: 把一份已定好内容的小红书图文方案，用 Python 脚本渲染成成套的 3:4 手账涂鸦风图片（封面加内页）。四套风格（薄荷、手账浅色、深色、船票风），自带通用 IP 人物「薄荷」，开箱即用，内置 161 个透明贴纸素材库，不依赖 ComfyUI；文字、版式、图示全部是代码画的，字准、可改。只负责"画"，文案由 nook-xhswrite 等写作 skill 先定；用户要求出小红书封面、内页、成套图文图片、手账风图示页时使用。不用于写文案，不用于自动发布。
 ---
 
 # 1 nook-xhspage
 
 小红书图文的渲染层：输入是一份"笔记方案"（几张图、每张用什么页型、各字段写什么），输出是一套 1242×1656 的 PNG。写作交给 `nook-xhswrite`，视觉策划可参考 `nook-xhsdesign`，本 skill 只负责把方案画出来。
 
-状态：0.3。22 个页型、命令行入口、JSON 校验、161 个素材、本地界面已可用，手账浅色（paper）、深色（dark）、船票风（ticket）三套主题。
+状态：0.4。22 个页型、命令行入口、JSON 校验、161 个素材、本地界面已可用，薄荷（mint，通用款默认）、手账浅色（paper）、深色（dark）、船票风（ticket）四套主题。
 
 ## 1.1 三条原则
 
@@ -31,7 +31,9 @@ nook-xhspage/
     lib_items.py        素材库条目清单与生成提示词（可选，仅需要追加素材时用）
   assets/
     fonts/              思源黑体、霞鹜文楷（OFL，许可见 LICENSE-fonts.txt）
-    brand/default/      默认品牌：3 个人物姿态、浅底和深底 Logo（可整体替换，见 1.3）
+    brand/mint/         通用款品牌：IP 人物薄荷的 3 个姿态和头像 Logo（--default，可整体替换，见 1.3）
+    brand/default/      船长款品牌（作者本人，--captain）
+    themes/mint/        薄荷风格的封面底图和内页底图
     library/            素材库：manifest.json + 161 个透明 PNG（5 类）
     examples/           示例用截图和成果图
   setup.bat ui.bat requirements.txt
@@ -45,10 +47,13 @@ nook-xhspage/
 2. 有没有自己的 Logo？（浅底和深底各一张最好；没有也可以不用）
 3. 账号名叫什么？（画在封面左上角的小标签）
 
+用户没有特别说明（没有自己的人物和 Logo，也没提风格），就直接运行 `python xhs.py setup --default`，用通用款：IP 人物薄荷加薄荷风格，不必逐项追问；账号名想改成自己的，再加 `--name`。用户有自己的人物、Logo 或风格要求时，再按下面设置自己的。
+
 用户答完，运行一次 `setup`，之后不再询问：
 
 ```
-python xhs.py setup --default                                  用内置默认品牌（船长的角落）
+python xhs.py setup --default [--name "账号名"]                 用内置通用款（IP 人物薄荷 + 薄荷风格），只改账号名就能用
+python xhs.py setup --captain                                  用作者本人的船长款
 python xhs.py setup --name "账号名" --pose-a 人物.png [--pose-b ... --pose-c ...] [--logo-light 浅底.png --logo-dark 深底.png]
 python xhs.py setup --name "账号名" --no-person --no-logo      没有人物、没有 Logo
 python xhs.py setup --status                                   看当前设置
@@ -71,7 +76,7 @@ python xhs.py render plan.json [--out 目录]    全量出图，并拼 overview.
 python xhs.py check-post post.md              检查标题 3 个、标签、正文 400 到 800 字、删除测试记录
 python xhs.py deliver plan.json post.md       交付：方案校验、正文检查、出图，三项都过才算完成
 python xhs.py lint-text 文件.md                检查任意文字里的 AI 味表达
-python xhs.py check-themes                    三套主题的对比度自检
+python xhs.py check-themes                    四套主题的对比度自检
 python xhs.py selftest                        自检：词表、素材、示例、检查、出图
 python xhs.py ui                              本地界面（给不用 agent 的人），也可双击 ui.bat
 ```
@@ -89,7 +94,7 @@ agent 的工作方式：先 `setup --status`，再 `list-types` 和 `list-assets
 4. 逐页看图，按用户意见改；不看图不说"做好了"。
 5. 交付成套 PNG；图文下方的正文由 `nook-xhswrite` 写。
 
-风格（paper / dark / ticket）在提纲阶段由用户确认，同一篇从封面到内页用同一套。方案的 `meta` 写 `theme`（paper、dark、ticket）、`title`、`subject_terms`（必填），可选 `no`（印在船票票根上的票号）。
+风格（mint / paper / dark / ticket）在提纲阶段由用户确认，同一篇从封面到内页用同一套。方案的 `meta` 写 `theme`（mint、paper、dark、ticket）、`title`、`subject_terms`（必填），可选 `no`（印在船票票根上的票号）。
 
 船票风（ticket）是 nook 的品牌符号，只是其中一套视觉体系：蓝白，每页是一张船票，内容在票身，底部票根印账号名、条码、Logo 和票号。其他账号不一定用它，第一次设置品牌时选默认风格，别的风格不受影响。页面不画页码。
 
@@ -109,10 +114,10 @@ agent 的工作方式：先 `setup --status`，再 `list-types` 和 `list-assets
 - 字数上限和留白上限是按样片估的，使用中遇到误报或漏报，改 `spec.py` 和 `render.py` 里的 `COVER_LIMIT`。
 - 贴纸候选按关键词匹配，会有牵强的，放之前要自己判断。素材库里文档、文件堆、搜索框、标签、笔记本电脑几个条目偏糊，可以按需用 `lib_items.py` 里的提示词重出。
 - 手写字用的是随库分发的霞鹜文楷，不是真正的手写体；需要别的字体时换 `assets/fonts/` 并改 `pages_hand.py` 的 CSS。
-- 默认品牌的人物和 Logo 属于作者本人，对外发布前确认是否保留，或换成中性示例。
+- 通用款人物薄荷和船长款人物都随库附带：薄荷是本库自生成的虚拟人物，任何人可直接用；船长款属于作者本人，只在 `--captain` 时使用。
 - 在 Codex、Antigravity、Trae、OpenCode 上的试跑需要手动做，见 `references/acceptance.md` 第 4 节。
 
-## 1.5 硬规则（执行时必须遵守，脚本会检查其中大部分）
+## 1.8 硬规则（执行时必须遵守，脚本会检查其中大部分）
 
 1. **事实只来自素材。** 图上出现的每个数字、日期、版本号，都必须逐个写进 `meta.facts`（每条带素材里的原句）。`validate` 对方案文件夹在 skill 目录之外的方案强制执行：找不到就退出码 1。素材没给的日期、数字、因果，不写；不要自己补“合理的”数字。
 2. **推测不能写成结论。** 素材里是“可能、说不定、我猜”的内容，图上也要带这个语气；标题和页面里不能出现“真相、内幕、揭秘、实锤”。
