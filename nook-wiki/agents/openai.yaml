@@ -1,0 +1,5 @@
+interface:
+  display_name: "nook Wiki"
+  short_description: "Ingest clipped articles into atomic cards, query topics against double-linked notes, and lint wiki integrity."
+  default_prompt: "Use $nook-wiki to ingest new reading materials into atomic cards, discover topic directions from the vault, or lint wiki integrity and quotes."
+
